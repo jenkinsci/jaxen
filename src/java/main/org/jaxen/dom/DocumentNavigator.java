@@ -21,7 +21,7 @@ import java.util.Iterator;
 /** A Navigator for the W3C DOM model
  *
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
- * @version $Revision: 79 $
+ * @version $Revision: 85 $
  */
 public class DocumentNavigator extends DefaultNavigator
 {
@@ -260,6 +260,11 @@ public class DocumentNavigator extends DefaultNavigator
     }
 
     public String getAttributeStringValue(Object obj)
+    {
+        return getNodeStringValue( (Node) obj );
+    }
+
+    public String getTextStringValue(Object obj)
     {
         return getNodeStringValue( (Node) obj );
     }
