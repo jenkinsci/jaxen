@@ -4,18 +4,19 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: Pattern.java 87 2001-08-07 19:11:36Z jstrachan $
+ * $Id: Pattern.java 88 2001-08-08 11:24:19Z jstrachan $
  */
 
 package org.jaxen.pattern;
 
 import org.jaxen.Context;
+import org.jaxen.JaxenException;
 
 /** <p><code>Pattern</code> defines the behaviour for pattern in
   * the XSLT processing model.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 87 $
+  * @version $Revision: 88 $
   */
 public abstract class Pattern {
 
@@ -62,7 +63,7 @@ public abstract class Pattern {
     
     /** @return true if the pattern matches the given node
       */
-    public abstract boolean matches( Object node, Context context );
+    public abstract boolean matches( Object node, Context context ) throws JaxenException;
     
     /** Returns the default resolution policy of the pattern according to the
       * <a href="http://www.w3.org/TR/xslt11/#conflict">

@@ -1,3 +1,4 @@
+// Copyright 2001 bob mcwhirter and James Strachan. All rights reserved.
 
 package org.jaxen.dom4j;
 
@@ -24,7 +25,7 @@ import java.util.Iterator;
  *
  * @author bob mcwhirter (bob @ werken.com)
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
- * @version $Revision: 85 $
+ * @version $Revision: 88 $
  */
 public class DocumentNavigator extends DefaultNavigator
 {
@@ -236,6 +237,25 @@ public class DocumentNavigator extends DefaultNavigator
         {
             Node node = (Node) contextNode;
             return node.getDocument();
+        }
+        return null;
+    }
+
+    public Object getParentNode(Object contextNode)
+    {
+        if ( contextNode instanceof Node ) 
+        {
+            Node node = (Node) contextNode;
+            Object answer = node.getParent();
+            if ( answer == null ) 
+            {
+                answer = node.getDocument();
+                if ( answer == null )
+                {
+                    answer = node;
+                }
+            }
+            return answer;            
         }
         return null;
     }

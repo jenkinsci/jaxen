@@ -4,32 +4,33 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: NodeTypeTest.java 87 2001-08-07 19:11:36Z jstrachan $
+ * $Id: NodeTypeTest.java 88 2001-08-08 11:24:19Z jstrachan $
  */
 
 package org.jaxen.pattern;
 
 import org.jaxen.Context;
 
-/** <p><code>ElementTypeTest</code> matches if the node is an element.</p>
+/** <p><code>ElementTypeTest</code> matches if the node is of a certain type 
+  * such as element, attribute, comment, text, processing instruction and so forth.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 87 $
+  * @version $Revision: 88 $
   */
-public class NodeTypeTest extends Pattern {
+public class NodeTypeTest extends NodeTest {
     
-    private short matchesNodeType;
+    private short nodeType;
     
-    public NodeTypeTest(short matchesNodeType)   
+    public NodeTypeTest(short nodeType)   
     {
-        this.matchesNodeType = matchesNodeType;
+        this.nodeType = nodeType;
     }
         
     /** @return true if the pattern matches the given node
       */
     public boolean matches( Object node, Context context ) 
     {
-        return matchesNodeType == context.getNavigator().getNodeType( node );
+        return nodeType == context.getNavigator().getNodeType( node );
     }
     
     public double getPriority() 
@@ -40,6 +41,6 @@ public class NodeTypeTest extends Pattern {
 
     public short getMatchType() 
     {
-        return matchesNodeType;
+        return nodeType;
     }
 }

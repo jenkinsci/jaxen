@@ -4,28 +4,28 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: AnyNodeTest.java 88 2001-08-08 11:24:19Z jstrachan $
+ * $Id: AnyChildNodeTest.java 88 2001-08-08 11:24:19Z jstrachan $
  */
 
 package org.jaxen.pattern;
 
 import org.jaxen.Context;
 
-/** <p><code>AnyNodeTest</code> matches any node.</p>
+/** <p><code>AnyChildNodeTest</code> matches any child node.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
   * @version $Revision: 88 $
   */
-public class AnyNodeTest extends NodeTest {
+public class AnyChildNodeTest extends NodeTest {
 
-    private static AnyNodeTest instance = new AnyNodeTest();
+    private static AnyChildNodeTest instance = new AnyChildNodeTest();
     
-    public static AnyNodeTest getInstance() 
+    public static AnyChildNodeTest getInstance() 
     {
         return instance;
     }
     
-    public AnyNodeTest() 
+    public AnyChildNodeTest() 
     {
     }
     
@@ -33,7 +33,9 @@ public class AnyNodeTest extends NodeTest {
       */
     public boolean matches( Object node, Context context ) 
     {
-        return true;
+        short type = context.getNavigator().getNodeType( node );
+        return type == ELEMENT_NODE || type == TEXT_NODE
+            || type == COMMENT_NODE || type == PROCESSING_INSTRUCTION_NODE;
     }
     
     public double getPriority() 
