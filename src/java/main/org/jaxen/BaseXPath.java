@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 408 $
- * $Date: 2005-01-27 12:45:08 -0800 (Thu, 27 Jan 2005) $
+ * $Revision: 409 $
+ * $Date: 2005-01-27 12:46:02 -0800 (Thu, 27 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 408 2005-01-27 20:45:08Z elharo $
+ * $Id: BaseXPath.java 409 2005-01-27 20:46:02Z elharo $
  */
 
 
@@ -77,7 +77,7 @@ import org.jaxen.util.SingletonList;
 /** Base functionality for all concrete, implementation-specific XPaths.
  *
  *  <p>
- *  This class provides generic functionalty for further-defined
+ *  This class provides generic functionality for further-defined
  *  implementation-specific XPaths.
  *  </p>
  *
