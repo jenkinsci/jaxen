@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 529 $
- * $Date: 2005-04-02 20:47:24 -0800 (Sat, 02 Apr 2005) $
+ * $Revision: 536 $
+ * $Date: 2005-04-04 10:10:59 -0700 (Mon, 04 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 529 2005-04-03 04:47:24Z elharo $
+ * $Id: XPathTest.java 536 2005-04-04 17:10:59Z elharo $
  */
 
 
@@ -68,15 +68,16 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
 import org.jaxen.JaxenException;
 import org.jaxen.XPath;
-import org.jaxen.saxpath.SAXPathException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 
 public class XPathTest extends TestCase
 {
@@ -88,16 +89,9 @@ public class XPathTest extends TestCase
         super( name );
     }
 
-    public void testConstruction()
+    public void testConstruction() throws JaxenException
     {
-        try
-        {
-            new DOMXPath( "/foo/bar/baz" );
-        }
-        catch (SAXPathException e)
-        {
-            fail( e.getMessage() );
-        }
+        new DOMXPath( "/foo/bar/baz" );
     }
     
     public void testNamespaceDeclarationsAreNotAttributes() 
@@ -137,42 +131,34 @@ public class XPathTest extends TestCase
         
     }
 
-    public void testSelection()
+    public void testSelection() throws JaxenException, ParserConfigurationException, SAXException, IOException
     {
-        try
-        {
-            XPath xpath = new DOMXPath( "/foo/bar/baz" );
+        XPath xpath = new DOMXPath( "/foo/bar/baz" );
 
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            factory.setNamespaceAware(true);
-            DocumentBuilder builder = factory.newDocumentBuilder();
-        
-            Document doc = builder.parse( BASIC_XML );
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        DocumentBuilder builder = factory.newDocumentBuilder();
+    
+        Document doc = builder.parse( BASIC_XML );
 
-            List results = xpath.selectNodes( doc );
+        List results = xpath.selectNodes( doc );
 
-            assertEquals( 3,
-                          results.size() );
+        assertEquals( 3,
+                      results.size() );
 
-            Iterator iter = results.iterator();
+        Iterator iter = results.iterator();
 
-            assertEquals( "baz",
-                          ((Element)iter.next()).getLocalName() );
+        assertEquals( "baz",
+                      ((Element)iter.next()).getLocalName() );
 
-            assertEquals( "baz",
-                          ((Element)iter.next()).getLocalName() );
+        assertEquals( "baz",
+                      ((Element)iter.next()).getLocalName() );
 
-            assertEquals( "baz",
-                          ((Element)iter.next()).getLocalName() );
+        assertEquals( "baz",
+                      ((Element)iter.next()).getLocalName() );
 
-            assertTrue( ! iter.hasNext() );
+        assertTrue( ! iter.hasNext() );
 
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            fail( e.getMessage() );
-        }
     }
      
 }

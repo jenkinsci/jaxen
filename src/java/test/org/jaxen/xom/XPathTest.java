@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 383 $
- * $Date: 2005-01-13 15:24:54 -0800 (Thu, 13 Jan 2005) $
+ * $Revision: 536 $
+ * $Date: 2005-04-04 10:10:59 -0700 (Mon, 04 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,12 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 383 2005-01-13 23:24:54Z elharo $
+ * $Id: XPathTest.java 536 2005-04-04 17:10:59Z elharo $
  */
 
 
 package org.jaxen.xom;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -69,8 +70,10 @@ import junit.framework.TestCase;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
+import nu.xom.ParsingException;
+
+import org.jaxen.JaxenException;
 import org.jaxen.XPath;
-import org.jaxen.saxpath.SAXPathException;
 
 public class XPathTest extends TestCase
 {
@@ -82,60 +85,35 @@ public class XPathTest extends TestCase
         super( name );
     }
 
-    public void setUp()
+    public void testConstruction() throws JaxenException
     {
-
+        new XOMXPath( "/foo/bar/baz" );
     }
 
-    public void tearDown()
+    public void testSelection() throws ParsingException, IOException, JaxenException
     {
+        XPath xpath = new XOMXPath( "/foo/bar/baz" );
 
-    }
+        Builder builder = new Builder();
 
-    public void testConstruction()
-    {
-        try
-        {
-            new XOMXPath( "/foo/bar/baz" );
-        }
-        catch (SAXPathException e)
-        {
-            fail( e.getMessage() );
-        }
-    }
+        Document doc = builder.build( BASIC_XML );
 
-    public void testSelection()
-    {
-        try
-        {
-            XPath xpath = new XOMXPath( "/foo/bar/baz" );
+        List results = xpath.selectNodes( doc );
 
-            Builder builder = new Builder();
+        assertEquals( 3,
+                      results.size() );
 
-            Document doc = builder.build( BASIC_XML );
+        Iterator iter = results.iterator();
 
-            List results = xpath.selectNodes( doc );
+        assertEquals( "baz",
+                      ((Element)iter.next()).getLocalName() );
 
-            assertEquals( 3,
-                          results.size() );
+        assertEquals( "baz",
+                      ((Element)iter.next()).getLocalName() );
 
-            Iterator iter = results.iterator();
+        assertEquals( "baz",
+                      ((Element)iter.next()).getLocalName() );
 
-            assertEquals( "baz",
-                          ((Element)iter.next()).getLocalName() );
-
-            assertEquals( "baz",
-                          ((Element)iter.next()).getLocalName() );
-
-            assertEquals( "baz",
-                          ((Element)iter.next()).getLocalName() );
-
-            assertTrue( ! iter.hasNext() );
-
-        }
-        catch (Exception e)
-        {
-            fail( e.getMessage() );
-        }
+        assertTrue( ! iter.hasNext() );
     }
 }
