@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 480 $
+ * $Date: 2005-02-28 04:47:36 -0800 (Mon, 28 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Function.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: Function.java 480 2005-02-28 12:47:36Z elharo $
  */
 
 
@@ -85,10 +85,9 @@ public interface Function
 {
     /** Call this function.
      *
-     *  @param context The context at the point in the
-     *         expression when the function is called.
-     *  @param args List of arguments provided during
-     *         the call of the function.
+     *  @param context the context at the point in the
+     *         expression when the function is called
+     *  @param args arguments provided to the function
      */
     Object call(Context context,
                 List args) throws FunctionCallException;
