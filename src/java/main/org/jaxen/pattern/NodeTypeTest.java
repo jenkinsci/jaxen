@@ -4,18 +4,18 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: NodeTypeTest.java 90 2001-08-08 21:29:49Z jstrachan $
+ * $Id: NodeTypeTest.java 209 2002-03-06 19:27:26Z jstrachan $
  */
 
 package org.jaxen.pattern;
 
 import org.jaxen.Context;
 
-/** <p><code>ElementTypeTest</code> matches if the node is of a certain type 
+/** <p><code>NodeTypeTest</code> matches if the node is of a certain type 
   * such as element, attribute, comment, text, processing instruction and so forth.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 90 $
+  * @version $Revision: 209 $
   */
 public class NodeTypeTest extends NodeTest {
     
