@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 318 $
+ * $Revision: 351 $
 
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Date: 2004-02-13 20:46:38 -0800 (Fri, 13 Feb 2004) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultProcessingInstructionNodeStep.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: DefaultProcessingInstructionNodeStep.java 351 2004-02-14 04:46:38Z ssanders $
 
  */
 
@@ -191,7 +191,7 @@ public class DefaultProcessingInstructionNodeStep extends DefaultStep
 
 
 
-            if ( name == null || "".equals( name ) )
+            if ( name == null || name.length() == 0 )
 
             {
 

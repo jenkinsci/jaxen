@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 351 $
+ * $Date: 2004-02-13 20:46:38 -0800 (Fri, 13 Feb 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * SAXPath Project, please see <http://www.saxpath.org/>.
  * 
- * $Id: XPathReaderFactory.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: XPathReaderFactory.java 351 2004-02-14 04:46:38Z ssanders $
  */
 
 
@@ -116,7 +116,7 @@ public class XPathReaderFactory
 
         if ( className == null
              ||
-             "".equals( className ) )
+             className.length() == 0 )
         {
             if ( USE_DEFAULT )
             {
