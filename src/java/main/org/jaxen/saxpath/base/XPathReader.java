@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 411 $
- * $Date: 2005-01-28 11:59:03 -0800 (Fri, 28 Jan 2005) $
+ * $Revision: 431 $
+ * $Date: 2005-02-07 04:20:59 -0800 (Mon, 07 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 411 2005-01-28 19:59:03Z elharo $
+ * $Id: XPathReader.java 431 2005-02-07 12:20:59Z elharo $
  */
 
 
@@ -137,16 +137,14 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
 
                 if ( LA(1) == SLASH || LA(1) == DOUBLE_SLASH )
                 {
-                    locationPath( false );
+                    XPathSyntaxException ex = this.createSyntaxException("Node-set expected");
+                    throw ex;
                 }
 
                 break;
             }
             case IDENTIFIER:
             {
-                // if ( ( ( LA(2) == LEFT_PAREN )
-                  //      &&
-                  //      ( ! isNodeTypeName( LT(1) ) ) ) )
 
                 if ( ( LA(2) == LEFT_PAREN
                      &&
@@ -187,7 +185,6 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
             }
             default:
             {
-                //throw new XPathSyntaxException( "Unexpected '" + LT(1).getTokenText() + "'" );
                 throwUnexpected();
             }
         }
@@ -422,7 +419,8 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
                         break;
                     }
                     default:
-                        throw new XPathSyntaxException(lexer.getXPath(), 0, "Location path cannot end with //");
+                        XPathSyntaxException ex = this.createSyntaxException("Location path cannot end with //");
+                        throw ex;
                 }
                 break;
             }
@@ -479,7 +477,6 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
             default:
             {
                 throw createSyntaxException( "Expected one of '.', '..', '@', '*', <QName>" );
-                //throw new XPathSyntaxException( "Expected one of '.', '..', '@', '*', <qname>" );
             }
         }
 
@@ -525,7 +522,6 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
                 default:
                 {
                     throw createSyntaxException( "Expected one of '.', '..', '@', '*', <QName>" );
-                    // throw new XPathSyntaxException( "Expected one of '.', '..', '@', '*', <qname>" );
                 }
             }
 
