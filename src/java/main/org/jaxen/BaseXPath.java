@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 296 $
- * $Date: 2002-11-18 00:50:27 -0800 (Mon, 18 Nov 2002) $
+ * $Revision: 304 $
+ * $Date: 2002-12-04 12:24:28 -0800 (Wed, 04 Dec 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 296 2002-11-18 08:50:27Z szegedia $
+ * $Id: BaseXPath.java 304 2002-12-04 20:24:28Z bob $
  */
 
 
@@ -101,6 +101,9 @@ import java.util.List;
  */
 public class BaseXPath implements XPath, Serializable
 {
+    /** Original expression text. */
+    private String exprText;
+
     /** the parsed form of the xpath expression */
     private XPathExpr xpath;
     
@@ -141,6 +144,8 @@ public class BaseXPath implements XPath, Serializable
         {
             throw new JaxenException( e );
         }
+
+        this.exprText = xpathExpr;
     }
 
     /** Construct given an XPath expression string.
@@ -561,20 +566,13 @@ public class BaseXPath implements XPath, Serializable
         return xpath.getRootExpr();
     }
     
-    /** Return the normalized string of this XPath expression.
-     *
-     *  <p>
-     *  During parsing, the XPath expression is normalized,
-     *  removing abbreviations and other convenience notation.
-     *  This method returns the fully normalized representation
-     *  of the original expression.
-     *  </p>
+    /** Return the original expression text.
      *
      *  @return The normalized XPath expression string.
      */
     public String toString()
     {
-        return this.xpath.getText();
+        return this.exprText;
     }
 
     /** Returns the string version of this xpath.
