@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 403 $
- * $Date: 2005-01-25 08:22:43 -0800 (Tue, 25 Jan 2005) $
+ * $Revision: 450 $
+ * $Date: 2005-02-08 12:52:17 -0800 (Tue, 08 Feb 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 403 2005-01-25 16:22:43Z elharo $
+ * $Id: DocumentNavigator.java 450 2005-02-08 20:52:17Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -553,7 +553,9 @@ public class DocumentNavigator extends DefaultNavigator
 
 
     /**
-     * Test if a node is an attribute.
+     * Test if a node is an attribute. <code>xmlns</code> and 
+     * <code>xmlns:pre</code> attributes do not count as attributes
+     * for the purposes of XPath. 
      *
      * @param object the target node
      * @return true if the node is an attribute, false otherwise
@@ -561,7 +563,8 @@ public class DocumentNavigator extends DefaultNavigator
     public boolean isAttribute (Object object)
     {
         return (object instanceof Node) &&
-            (((Node)object).getNodeType() == Node.ATTRIBUTE_NODE);
+            (((Node)object).getNodeType() == Node.ATTRIBUTE_NODE)
+            && ! "http://www.w3.org/2000/xmlns/".equals(((Node) object).getNamespaceURI());
     }
 
 
