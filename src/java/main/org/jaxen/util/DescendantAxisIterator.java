@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 348 $
+ * $Date: 2004-01-27 19:19:25 -0800 (Tue, 27 Jan 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DescendantAxisIterator.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: DescendantAxisIterator.java 348 2004-01-28 03:19:25Z proyal $
  */
 
 
@@ -75,6 +75,7 @@ public class DescendantAxisIterator extends StackedIterator
     {
         super( contextNode,
                navigator );
+        pushIterator( internalCreateIterator( contextNode ) );
     }
 
     protected DescendantAxisIterator()
