@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 498 $
- * $Date: 2005-03-28 16:08:17 -0800 (Mon, 28 Mar 2005) $
+ * $Revision: 508 $
+ * $Date: 2005-03-30 19:01:12 -0800 (Wed, 30 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LangFunction.java 498 2005-03-29 00:08:17Z elharo $
+ * $Id: LangFunction.java 508 2005-03-31 03:01:12Z elharo $
  */
 
 
@@ -150,7 +150,7 @@ public class LangFunction implements Function
                         isSublang(nav.getAttributeStringValue(attr), lang);
                 }
             }
-            element = nav.getParentNode(node);
+            element = nav.getParentNode(element);
         }
         return false;
     }
