@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 485 $
- * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
+ * $Revision: 503 $
+ * $Date: 2005-03-28 16:54:21 -0800 (Mon, 28 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,11 +56,10 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: CommentNodeStep.java 485 2005-03-21 22:39:16Z elharo $
+ * $Id: CommentNodeStep.java 503 2005-03-29 00:54:21Z elharo $
  */
 package org.jaxen.expr;
 
-//public interface Step extends Predicated, Expr
 public interface CommentNodeStep extends Step
 {
 }
