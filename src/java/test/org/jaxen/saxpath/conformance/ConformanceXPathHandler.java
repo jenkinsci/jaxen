@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 424 $
- * $Date: 2005-02-01 09:55:19 -0800 (Tue, 01 Feb 2005) $
+ * $Revision$
+ * $Date$
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: ConformanceXPathHandler.java 424 2005-02-01 17:55:19Z elharo $
+ * $Id$
  */
 
 
