@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 501 2005-03-29 00:25:42Z elharo $
+ $Id: DefaultNameStep.java 502 2005-03-29 00:27:21Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -95,7 +95,7 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
     private boolean matchesAnyName;
 
     /** Quick flag denoting if we have a namespace prefix **/
-    boolean hasPrefix;
+    private boolean hasPrefix;
 
     /**
      * Constructor.
