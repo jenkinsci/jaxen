@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 335 $
+ * $Date: 2003-09-04 21:08:48 -0700 (Thu, 04 Sep 2003) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * SAXPath Project, please see <http://www.saxpath.org/>.
  * 
- * $Id: XPathHandler.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: XPathHandler.java 335 2003-09-05 04:08:48Z proyal $
  */
 
 
@@ -219,7 +219,7 @@ public interface XPathHandler
 
     /** Receive notification of the end of an equality ('=' or '!=') expression.
      *
-     *  @param operator The operator specific to this particular
+     *  @param equalityOperator The operator specific to this particular
      *         equality expression.  If null, this expression
      *         is only a pass-through, and should not actually
      *         be instantiated.
@@ -232,7 +232,7 @@ public interface XPathHandler
 
     /** Receive notification of the start of a relational ('<', '>', '<=', or '>=') expression.
      *
-     *  @param operator The operator specific to this particular
+     *  @param relationalOperator The operator specific to this particular
      *         relational expression.  If null, this expression
      *         is only a pass-through, and should not actually
      *         be instantiated.
@@ -245,7 +245,7 @@ public interface XPathHandler
 
     /** Receive notification of the end of an additive ('+' or '-') expression.
      *
-     *  @param operator The operator specific to this particular
+     *  @param additiveOperator The operator specific to this particular
      *         additive expression.  If null, this expression
      *         is only a pass-through, and should not actually
      *         be instantiated.
@@ -258,7 +258,7 @@ public interface XPathHandler
 
     /** Receive notification of the start of a multiplicative ('*', 'div' or 'mod') expression.
      *
-     *  @param operator The operator specific to this particular
+     *  @param multiplicativeOperator The operator specific to this particular
      *         multiplicative expression.  If null, this expression
      *         is only a pass-through, and should not actually
      *         be instantiated.
@@ -271,7 +271,7 @@ public interface XPathHandler
 
     /** Receive notification of the end of a unary ('+' or '-') expression.
      *
-     *  @param operator The operator specific to this particular
+     *  @param unaryOperator The operator specific to this particular
      *         unary expression. If null, this expression is only
      *         a pass-through, and should not actually be instantiated.
      *         If not {@link org.jaxen.saxpath.Operator#NO_OP}, it'll always be {@link org.jaxen.saxpath.Operator#NEGATIVE}.
