@@ -1,9 +1,9 @@
-package org.jaxen.util;
+package org.jaxen;
 
 /*
- * $Header$
- * $Revision: 393 $
- * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
+ * $Header: $
+ * $Revision: $
+ * $Date: $
  *
  * ====================================================================
  *
@@ -58,16 +58,26 @@ package org.jaxen.util;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DescendantOrSelfAxisIterator.java 393 2005-01-19 01:53:35Z bewins $
+ * $Id: $
 */
 
-import org.jaxen.Navigator;
-
-public class DescendantOrSelfAxisIterator extends DescendantAxisIterator
+/**
+ * This class exists to wrap jaxen exceptions that otherwise wouldn't be propogated
+ * up through the axis iterators.
+ */
+public class JaxenRuntimeException extends RuntimeException
 {
-    public DescendantOrSelfAxisIterator(Object contextNode,
-                                        Navigator navigator)
+    private JaxenException jaxenException;
+
+    public JaxenRuntimeException(JaxenException jaxenException)
     {
-        super(navigator, new SingletonList(contextNode).iterator());
+        super(jaxenException);
+        this.jaxenException = jaxenException;
     }
+
+    public JaxenException getJaxenException()
+    {
+        return jaxenException;
+    }
+
 }

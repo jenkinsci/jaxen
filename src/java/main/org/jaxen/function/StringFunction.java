@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 393 $
+ * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,18 +56,22 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: StringFunction.java 393 2005-01-19 01:53:35Z bewins $
  */
 
 
 package org.jaxen.function;
 
-import java.util.List;
-
+import org.jaxen.Cast;
 import org.jaxen.Context;
 import org.jaxen.Function;
 import org.jaxen.FunctionCallException;
 import org.jaxen.Navigator;
+import org.jaxen.UnsupportedAxisException;
+import org.jaxen.JaxenRuntimeException;
+
+import java.util.List;
+import java.util.Iterator;
 
 /**
  * <p><b>4.2</b> <code><i>string</i> string(<i>object</i>)</code>
@@ -99,88 +103,106 @@ public class StringFunction implements Function
     public static String evaluate(Object obj,
                                   Navigator nav)
     {
-        if ( obj == null )
+        try
         {
-            return "";
-        }
-        if ( obj instanceof String)
-        {
-            return (String) obj;
-        }
-        else if ( nav.isElement( obj ) )
-        {
-            return nav.getElementStringValue( obj );
-        }
-        else if ( nav.isAttribute( obj ) )
-        {
-            return nav.getAttributeStringValue( obj );
-        }
-        else if ( nav.isText( obj ) )
-        {
-            return nav.getTextStringValue( obj );
-        }
-        else if ( nav.isProcessingInstruction( obj ) )
-        {
-            return nav.getProcessingInstructionData( obj );
-        }
-        else if ( nav.isComment( obj ) )
-        {
-            return nav.getCommentStringValue( obj );
-        }
-        else if ( nav.isNamespace( obj ) )
-        {
-            return nav.getNamespaceStringValue( obj );
-        }
-        else if (obj instanceof List)
-        {
-            List list = (List) obj;
-            int  size = list.size();
-
-            if ( size > 0 ) {
-                // the XPath string() function only returns the
-                // string value of the first node in a nodeset
-
-                return evaluate( list.get(0),
-                                 nav );
+            String retval = "";
+            if (obj == null) {
+                return "";
             }
-        }
-        else if ( obj instanceof Boolean )
-        {
-            return obj.toString();
-        }
-        else if ( obj instanceof Integer )
-        {
-            return obj.toString();
-        }
-        else if ( obj instanceof Double )
-        {
-            Double num = (Double) obj;
-            
-            if ( num.isNaN() )
+            if (obj instanceof List)
             {
-                return "NaN";
-            }
-            else if ( num.isInfinite() )
-            {
-                if ( num.intValue() < 0 )
+                List list = (List) obj;
+                if (list.isEmpty())
                 {
-                    return "-Infinity";
+                    return "";
                 }
-                else
-                {
-                    return "Infinity";
-                }
+                // do not recurse: only first list should unwrap
+                obj = list.get(0);
             }
-            else if( num.floatValue() == num.intValue() ) // strip .0
-              {
-              return Integer.toString( num.intValue() );
-              }
-            else
+            if (nav.isElement(obj) || nav.isDocument(obj))
             {
-                return num.toString();
+                Iterator descendantAxisIterator = nav.getDescendantAxisIterator(obj);
+                StringBuffer sb = new StringBuffer();
+                while (descendantAxisIterator.hasNext())
+                {
+                    Object descendant = descendantAxisIterator.next();
+                    if (nav.isText(descendant))
+                    {
+                        sb.append(nav.getTextStringValue(descendant));
+                    }
+                }
+                retval = sb.toString();
             }
+            else if (nav.isAttribute(obj))
+            {
+                retval = nav.getAttributeStringValue(obj);
+            }
+            else if (nav.isText(obj))
+            {
+                retval = nav.getTextStringValue(obj);
+            }
+            else if (nav.isProcessingInstruction(obj))
+            {
+                retval = nav.getProcessingInstructionData(obj);
+            }
+            else if (nav.isComment(obj))
+            {
+                retval = nav.getCommentStringValue(obj);
+            }
+            else if (nav.isNamespace(obj))
+            {
+                retval = nav.getNamespaceStringValue(obj);
+            }
+            else if (obj instanceof String)
+            {
+                retval = (String) obj;
+            }
+            else if (obj instanceof Boolean)
+            {
+                retval = stringValue(((Boolean) obj).booleanValue());
+            }
+            else if (obj instanceof Number)
+            {
+                retval = stringValue(((Number) obj).doubleValue());
+            }
+            retval = retval == null ? "" : retval;
+            return retval;
+        }
+        catch (UnsupportedAxisException e)
+        {
+            throw new JaxenRuntimeException(e);
         }
 
-        return "";
     }
+
+    public static String stringValue(double value)
+    {
+        if (Double.isNaN(value))
+        {
+            return "NaN";
+        }
+        if (-0.0 == value || 0.0 == value)
+        {
+            return "0";
+        }
+        if (Double.isInfinite(value) && value < 0)
+        {
+            return "-Infinity";
+        }
+        if (Double.isInfinite(value) && value > 0)
+        {
+            return "Infinity";
+        }
+        if (((long) value) == value)
+        {
+            return Long.toString((long) value);
+        }
+        return Double.toString(value);
+    }
+
+    public static String stringValue(boolean bool)
+    {
+        return bool ? "true" : "false";
+    }
+
 }

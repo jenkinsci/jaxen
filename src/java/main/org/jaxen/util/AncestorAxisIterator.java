@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 348 $
- * $Date: 2004-01-27 19:19:25 -0800 (Tue, 27 Jan 2004) $
+ * $Revision: 393 $
+ * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: AncestorAxisIterator.java 348 2004-01-28 03:19:25Z proyal $
+ * $Id: AncestorAxisIterator.java 393 2005-01-19 01:53:35Z bewins $
  */
 
 
@@ -68,32 +68,15 @@ import java.util.Iterator;
 import org.jaxen.Navigator;
 import org.jaxen.UnsupportedAxisException;
 
-public class AncestorAxisIterator extends StackedIterator
+public class AncestorAxisIterator extends AncestorOrSelfAxisIterator
 {
     public AncestorAxisIterator(Object contextNode,
                                 Navigator navigator)
     {
         super( contextNode,
                navigator );
-        pushIterator( internalCreateIterator( contextNode ) );
-    }
-
-    protected AncestorAxisIterator()
-    {
-
-    }
-
-    protected Iterator createIterator(Object contextNode) 
-    {
-        try
-        {
-            return getNavigator().getParentAxisIterator( contextNode );
+        if (hasNext()) {
+            next();
         }
-        catch (UnsupportedAxisException e)
-        {
-            // okay...
-        }
-
-        return null;
     }
 }

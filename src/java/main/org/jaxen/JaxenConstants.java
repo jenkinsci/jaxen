@@ -1,9 +1,9 @@
-package org.jaxen.util;
+package org.jaxen;
 
 /*
- * $Header$
- * $Revision: 393 $
- * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
+ * $Header: $
+ * $Revision: $
+ * $Date: $
  *
  * ====================================================================
  *
@@ -58,16 +58,18 @@ package org.jaxen.util;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DescendantOrSelfAxisIterator.java 393 2005-01-19 01:53:35Z bewins $
+ * $Id: $
 */
 
-import org.jaxen.Navigator;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.ListIterator;
 
-public class DescendantOrSelfAxisIterator extends DescendantAxisIterator
+/**
+ * Constants used across Jaxen.
+ */
+public class JaxenConstants
 {
-    public DescendantOrSelfAxisIterator(Object contextNode,
-                                        Navigator navigator)
-    {
-        super(navigator, new SingletonList(contextNode).iterator());
-    }
+    public static final Iterator EMPTY_ITERATOR = Collections.EMPTY_LIST.iterator();
+    public static final ListIterator EMPTY_LIST_ITERATOR = Collections.EMPTY_LIST.listIterator();
 }

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 384 $
- * $Date: 2005-01-13 15:45:55 -0800 (Thu, 13 Jan 2005) $
+ * $Revision: 393 $
+ * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTestBase.java 384 2005-01-13 23:45:55Z elharo $
+ * $Id: XPathTestBase.java 393 2005-01-19 01:53:35Z bewins $
  */
 
 
@@ -427,7 +427,7 @@ public abstract class XPathTestBase extends TestCase
 
         try
         {
-            Object node = xpath.selectSingleNode( getContext( context ) );
+            Object node = xpath.evaluate( getContext( context ) );
             
             String expected = valueOf.getText();
             String result = StringFunction.evaluate( node,

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 393 $
+ * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: UnsupportedAxisException.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: UnsupportedAxisException.java 393 2005-01-19 01:53:35Z bewins $
  */
 
 
@@ -64,7 +64,11 @@
 package org.jaxen;
 
 /** Indicates attempt to evaluate an XPath axis that
- *  is unsupported by the current object-model.
+ *  is unsupported by the current object-model. If this is thrown
+ * the xpath cannot be evaluated correctly, unless there is a fallback
+ * evaluation path. Hence you should <em>not</em> just catch this
+ * and ignore it, nor should navigators throw it to indicate that
+ * an axis is exhausted: instead return an empty iterator.
  *
  *  @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  */

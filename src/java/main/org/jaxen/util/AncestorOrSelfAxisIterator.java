@@ -1,39 +1,41 @@
+package org.jaxen.util;
+
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 393 $
+ * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
  *
  * ====================================================================
  *
- * Copyright (C) 2000-2002 bob mcwhirter & James Strachan.
+ * Copyright (C) 2000-2005 bob mcwhirter & James Strachan.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
- * 
+ *
  * 1. Redistributions of source code must retain the above copyright
  *    notice, this list of conditions, and the following disclaimer.
  *
  * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions, and the disclaimer that follows 
- *    these conditions in the documentation and/or other materials 
+ *    notice, this list of conditions, and the disclaimer that follows
+ *    these conditions in the documentation and/or other materials
  *    provided with the distribution.
  *
  * 3. The name "Jaxen" must not be used to endorse or promote products
  *    derived from this software without prior written permission.  For
  *    written permission, please contact license@jaxen.org.
- * 
+ *
  * 4. Products derived from this software may not be called "Jaxen", nor
  *    may "Jaxen" appear in their name, without prior written permission
  *    from the Jaxen Project Management (pm@jaxen.org).
- * 
- * In addition, we request (but do not require) that you include in the 
- * end-user documentation provided with the redistribution and/or in the 
+ *
+ * In addition, we request (but do not require) that you include in the
+ * end-user documentation provided with the redistribution and/or in the
  * software itself an acknowledgement equivalent to the following:
  *     "This product includes software developed by the
  *      Jaxen Project (http://www.jaxen.org/)."
- * Alternatively, the acknowledgment may be graphical using the logos 
+ * Alternatively, the acknowledgment may be graphical using the logos
  * available at http://www.jaxen.org/
  *
  * THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
@@ -50,53 +52,58 @@
  * SUCH DAMAGE.
  *
  * ====================================================================
- * This software consists of voluntary contributions made by many 
- * individuals on behalf of the Jaxen Project and was originally 
- * created by bob mcwhirter <bob@werken.com> and 
- * James Strachan <jstrachan@apache.org>.  For more information on the 
+ * This software consists of voluntary contributions made by many
+ * individuals on behalf of the Jaxen Project and was originally
+ * created by bob mcwhirter <bob@werken.com> and
+ * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
- * 
- * $Id: AncestorOrSelfAxisIterator.java 318 2003-06-29 18:15:15Z ssanders $
- */
-
-
-
-package org.jaxen.util;
+ *
+ * $Id: AncestorOrSelfAxisIterator.java 393 2005-01-19 01:53:35Z bewins $
+*/
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import org.jaxen.Navigator;
 import org.jaxen.UnsupportedAxisException;
+import org.jaxen.JaxenRuntimeException;
 
-public class AncestorOrSelfAxisIterator extends AncestorAxisIterator
+public class AncestorOrSelfAxisIterator implements Iterator
 {
+    private Object contextNode;
+    private Navigator navigator;
+
     public AncestorOrSelfAxisIterator(Object contextNode,
                                       Navigator navigator)
     {
-        try
-        {
-            pushIterator( navigator.getSelfAxisIterator( contextNode ) );
-        }
-        catch (UnsupportedAxisException e)
-        {
-
-        }
-
-        init( contextNode,
-              navigator );
+        this.contextNode = contextNode;
+        this.navigator = navigator;
     }
 
-    protected Iterator createIterator(Object contextNode) 
+    public boolean hasNext()
+    {
+        return contextNode != null;
+    }
+
+    public Object next()
     {
         try
         {
-            return getNavigator().getParentAxisIterator( contextNode );
+            if (hasNext()) {
+                Object result = contextNode;
+                contextNode = navigator.getParentNode(contextNode);
+                return result;
+            }
+            throw new NoSuchElementException();
         }
         catch (UnsupportedAxisException e)
         {
-            // okay...
+            throw new JaxenRuntimeException(e);
         }
+    }
 
-        return null;
+    public void remove()
+    {
+        throw new UnsupportedOperationException();
     }
 }
