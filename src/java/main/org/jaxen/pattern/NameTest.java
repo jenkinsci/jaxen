@@ -4,7 +4,7 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: NameTest.java 90 2001-08-08 21:29:49Z jstrachan $
+ * $Id: NameTest.java 92 2001-08-09 00:26:39Z jstrachan $
  */
 
 package org.jaxen.pattern;
@@ -15,7 +15,7 @@ import org.jaxen.Navigator;
 /** <p><code>NameTest</code> tests for a node name.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 90 $
+  * @version $Revision: 92 $
   */
 public class NameTest extends NodeTest {
     
@@ -45,6 +45,18 @@ public class NameTest extends NodeTest {
         {
             return navigator.isAttribute( node )
                 && name.equals( navigator.getAttributeName( node ) );
+        }
+        else
+        {
+            if ( navigator.isElement( node ) )
+            {
+                return name.equals( navigator.getElementName( node ) );
+            }
+            else
+            if ( navigator.isAttribute( node ) )
+            {
+                return name.equals( navigator.getAttributeName( node ) );
+            }
         }
         return false;
     }

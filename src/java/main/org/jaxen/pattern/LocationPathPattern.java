@@ -4,7 +4,7 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: LocationPathPattern.java 90 2001-08-08 21:29:49Z jstrachan $
+ * $Id: LocationPathPattern.java 92 2001-08-09 00:26:39Z jstrachan $
  */
 
 package org.jaxen.pattern;
@@ -24,7 +24,7 @@ import org.jaxen.expr.FilterExpr;
   * chain location path patterns together</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 90 $
+  * @version $Revision: 92 $
   */
 public class LocationPathPattern extends Pattern {
 
@@ -99,9 +99,16 @@ public class LocationPathPattern extends Pattern {
     
     /** Allows the NodeTest to be set
      */
-    public void setNodeTest(NodeTest nodeTest)
+    public void setNodeTest(NodeTest nodeTest) throws JaxenException
     {
-        this.nodeTest = nodeTest;
+        if ( this.nodeTest instanceof AnyNodeTest )
+        {
+            this.nodeTest = nodeTest;
+        }   
+        else 
+        {
+            throw new JaxenException( "Attempt to overwrite nodeTest: " + this.nodeTest + " with: " + nodeTest );
+        }
     }
     
     /** @return true if the pattern matches the given node
@@ -109,11 +116,13 @@ public class LocationPathPattern extends Pattern {
     public boolean matches( Object node, Context context ) throws JaxenException
     {
         Navigator navigator = context.getNavigator();
-        
+
+/*        
         if ( isAbsolute() )
         {
             node = navigator.getDocumentNode( node );
         }
+*/
         if (! nodeTest.matches(node, context) )
         {
             return false;
@@ -230,4 +239,10 @@ public class LocationPathPattern extends Pattern {
     {
         this.absolute = absolute;
     }
+    
+    public boolean hasAnyNodeTest()
+    {
+        return nodeTest instanceof AnyNodeTest;
+    }
+        
 }
