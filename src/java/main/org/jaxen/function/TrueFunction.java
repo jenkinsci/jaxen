@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 567 $
+ * $Date: 2005-04-06 04:10:50 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: TrueFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: TrueFunction.java 567 2005-04-06 11:10:50Z elharo $
  */
 
 
@@ -87,6 +87,11 @@ public class TrueFunction implements Function
         throw new FunctionCallException( "true() requires no arguments." );
     }
 
+    /**
+     * Returns true.
+     * 
+     * @return Boolean.TRUE
+     */
     public static Boolean evaluate()
     {
         return Boolean.TRUE;
