@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 374 $
- * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
+ * $Revision: 421 $
+ * $Date: 2005-01-29 19:15:58 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderFactoryTest.java 374 2004-09-16 21:05:25Z bewins $
+ * $Id: XPathReaderFactoryTest.java 421 2005-01-30 03:15:58Z elharo $
  */
 
 
@@ -130,7 +130,7 @@ public class XPathReaderFactoryTest extends TestCase
 
         try
         {
-            XPathReader reader = XPathReaderFactory.createReader();
+            XPathReaderFactory.createReader();
 
             fail( "Should have thrown SAXPathException" );
         }
@@ -152,7 +152,7 @@ public class XPathReaderFactoryTest extends TestCase
 
         try
         {
-            XPathReader reader = XPathReaderFactory.createReader();
+            XPathReaderFactory.createReader();
 
             fail( "Should have thrown SAXPathException" );
         }
@@ -188,7 +188,7 @@ public class XPathReaderFactoryTest extends TestCase
     {
         try
         {
-            XPathReader reader = XPathReaderFactory.createReader( "java.lang.String" );
+            XPathReaderFactory.createReader( "java.lang.String" );
 
             fail( "Should have thrown SAXPathException" );
         }
@@ -202,9 +202,9 @@ public class XPathReaderFactoryTest extends TestCase
     {
         try
         {
-            XPathReader reader = XPathReaderFactory.createReader( "i.am.a.class.that.does.not.Exist" );
+            XPathReaderFactory.createReader( "i.am.a.class.that.does.not.Exist" );
 
-            fail( "Should havfe thrown SAXPathException" );
+            fail( "Should have thrown SAXPathException" );
         }
         catch (org.jaxen.saxpath.SAXPathException e)
         {
