@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 378 $
+ * $Date: 2004-09-18 17:07:30 -0700 (Sat, 18 Sep 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LocaleFunctionSupport.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: LocaleFunctionSupport.java 378 2004-09-19 00:07:30Z bewins $
  */
 
 package org.jaxen.function.ext;
@@ -127,24 +127,24 @@ public abstract class LocaleFunctionSupport implements Function
      *      be found 
      */
     protected Locale findLocale(String localeText) {
-        StringTokenizer enum = new StringTokenizer( localeText, "-" );
-        if (enum.hasMoreTokens()) 
+        StringTokenizer tokens = new StringTokenizer( localeText, "-" );
+        if (tokens.hasMoreTokens())
         {
-            String language = enum.nextToken();
-            if (! enum.hasMoreTokens()) 
+            String language = tokens.nextToken();
+            if (! tokens.hasMoreTokens())
             {                
                 return findLocaleForLanguage(language);
             }
             else 
             {
-                String country = enum.nextToken();
-                if (! enum.hasMoreTokens()) 
+                String country = tokens.nextToken();
+                if (! tokens.hasMoreTokens())
                 {
                     return new Locale(language, country);
                 }
                 else 
                 {
-                    String variant = enum.nextToken();
+                    String variant = tokens.nextToken();
                     return new Locale(language, country, variant);
                 }
             }
