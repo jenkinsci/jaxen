@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 285 $
+ * $Date: 2002-09-17 17:20:07 -0700 (Tue, 17 Sep 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DocumentFunction.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: DocumentFunction.java 285 2002-09-18 00:20:07Z mbrennan $
  */
 
 
@@ -92,7 +92,7 @@ public class DocumentFunction implements Function
                              nav );
         }
 
-        throw new FunctionCallException( "false() requires no arguments." );
+        throw new FunctionCallException( "document() requires one argument." );
     }
 
     public static Object evaluate(String url,
