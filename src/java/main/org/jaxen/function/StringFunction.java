@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 393 $
- * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
+ * $Revision: 394 $
+ * $Date: 2005-01-18 18:21:21 -0800 (Tue, 18 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,13 +56,12 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 393 2005-01-19 01:53:35Z bewins $
+ * $Id: StringFunction.java 394 2005-01-19 02:21:21Z bewins $
  */
 
 
 package org.jaxen.function;
 
-import org.jaxen.Cast;
 import org.jaxen.Context;
 import org.jaxen.Function;
 import org.jaxen.FunctionCallException;
