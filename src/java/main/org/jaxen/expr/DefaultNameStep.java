@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 502 2005-03-29 00:27:21Z elharo $
+ $Id: DefaultNameStep.java 518 2005-04-03 01:14:06Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -250,9 +250,6 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
         } else {
             for (int i = 0; i < contextSize; ++i) {
                 Object eachContextNode = contextNodeSet.get(i);
-                // ???? What if we first grabbed all the iterators for 
-                // each contextNode and then sorted/stacked them somehow in document 
-                // order; and then evaluated them? This would probably break positional predicates
 
                 Iterator axisNodeIter = axisIterator(eachContextNode, support);
                 if (axisNodeIter == null || axisNodeIter.hasNext() == false) {

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 510 $
- * $Date: 2005-03-31 18:10:57 -0800 (Thu, 31 Mar 2005) $
+ * $Revision: 518 $
+ * $Date: 2005-04-02 17:14:06 -0800 (Sat, 02 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultLocationPath.java 510 2005-04-01 02:10:57Z elharo $
+ * $Id: DefaultLocationPath.java 518 2005-04-03 01:14:06Z elharo $
  */
 package org.jaxen.expr;
 
@@ -150,7 +150,7 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
             stepContext.setNodeSet(contextNodeSet);
             contextNodeSet = eachStep.evaluate(stepContext);
             // now we need to reverse the list if this is a reverse axis
-            // ???? should create an isReverseAxis method in Steo to handle this
+            // ???? should create an isReverseAxis method in Step to handle this
             int axis = eachStep.getAxis();
             if (axis == org.jaxen.saxpath.Axis.PRECEDING
               || axis == org.jaxen.saxpath.Axis.PRECEDING_SIBLING
@@ -159,6 +159,13 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
                 Collections.reverse(contextNodeSet);
             }
         }
+        
+        if (getSteps().size() > 1) {
+            Collections.sort(contextNodeSet, new NodeComparator(support.getNavigator()));
+        }
+        
+        // FIXME I suspect we need to do this in DefaultUnionExpression too
+        
         return contextNodeSet;
     }
 
