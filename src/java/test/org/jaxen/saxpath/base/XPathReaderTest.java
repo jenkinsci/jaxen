@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 412 $
- * $Date: 2005-01-29 12:16:30 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 429 $
+ * $Date: 2005-02-06 08:43:30 -0800 (Sun, 06 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 412 2005-01-29 20:16:30Z elharo $
+ * $Id: XPathReaderTest.java 429 2005-02-06 16:43:30Z elharo $
  */
 
 
@@ -163,7 +163,7 @@ public class XPathReaderTest extends TestCase
             {
                 reader.parse( bogusPath[0] );
 
-                fail( "Should have thrown XPathSyntaxException" );
+                fail( "Should have thrown XPathSyntaxException for " + bogusPath[0]);
             }
             catch( XPathSyntaxException e )
             {
@@ -177,6 +177,51 @@ public class XPathReaderTest extends TestCase
             {
                 fail( e.getMessage() );
             }
+        }
+    }
+
+    public void testCountNonNodeSet()
+    {
+        XPathReader reader = new XPathReader();
+        try
+        {
+            reader.parse( "count(3)" );
+
+            fail( "Should have thrown XPathSyntaxException for count(3)");
+        }
+        catch( XPathSyntaxException e )
+        {
+            assertEquals( "count(3)", e.getMessage() );
+        }
+        catch( org.jaxen.saxpath.SAXPathException e )
+        {
+            fail( e.getMessage() );
+        }
+        catch( Exception e )
+        {
+            fail( e.getMessage() );
+        }
+    }
+
+    public void testChildrenOfNumber()
+    {
+        XPathReader reader = new XPathReader();
+        try
+        {
+            reader.parse( "1/child::test" );
+            fail( "Should have thrown XPathSyntaxException for count(3)");
+        }
+        catch( XPathSyntaxException e )
+        {
+            assertEquals( "1/child::test", e.getMessage() );
+        }
+        catch( org.jaxen.saxpath.SAXPathException e )
+        {
+            fail( e.getMessage() );
+        }
+        catch( Exception e )
+        {
+            fail( e.getMessage() );
         }
     }
 
