@@ -2,8 +2,8 @@ package org.jaxen.util;
 
 /*
  * $Header$
- * $Revision: 393 $
- * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
+ * $Revision: 399 $
+ * $Date: 2005-01-19 05:36:27 -0800 (Wed, 19 Jan 2005) $
  *
  * ====================================================================
  *
@@ -58,10 +58,9 @@ package org.jaxen.util;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: FollowingAxisIterator.java 393 2005-01-19 01:53:35Z bewins $
+ * $Id: FollowingAxisIterator.java 399 2005-01-19 13:36:27Z elharo $
 */
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
