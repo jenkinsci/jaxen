@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 455 $
- * $Date: 2005-02-09 06:21:31 -0800 (Wed, 09 Feb 2005) $
+ * $Revision: 553 $
+ * $Date: 2005-04-06 02:08:05 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Pattern.java 455 2005-02-09 14:21:31Z elharo $
+ * $Id: Pattern.java 553 2005-04-06 09:08:05Z elharo $
  */
 
 package org.jaxen.pattern;
@@ -68,7 +68,7 @@ import org.jaxen.JaxenException;
   * the XSLT processing model.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 455 $
+  * @version $Revision: 553 $
   */
 public abstract class Pattern {
 
@@ -141,9 +141,8 @@ public abstract class Pattern {
     }
 
     
-    /** @return the type of node the pattern matches
-      * which by default should return ANY_NODE if it can
-      * match any kind of node.
+    /** @return the type of node the pattern matches;
+      * ANY_NODE unless overridden
       */
     public short getMatchType() 
     {
@@ -158,7 +157,7 @@ public abstract class Pattern {
       * force approach of evaluating every pattern for a given Node.
       *
       * @return the name of the element or attribute this pattern matches
-      * or null if this pattern matches any or more than one name.
+      * or null if this pattern matches any or more than one name
       */
     public String getMatchesNodeName() 
     {
