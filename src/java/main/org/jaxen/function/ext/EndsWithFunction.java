@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 447 $
+ * $Date: 2005-02-08 11:49:24 -0800 (Tue, 08 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: EndsWithFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: EndsWithFunction.java 447 2005-02-08 19:49:24Z elharo $
  */
 
 package org.jaxen.function.ext;
@@ -87,7 +87,7 @@ public class EndsWithFunction implements Function
                              context.getNavigator() );
         }
 
-        throw new FunctionCallException( "ends-with() requires two arugments." );
+        throw new FunctionCallException( "ends-with() requires two arguments." );
     }
 
     public static Boolean evaluate(Object strArg,
