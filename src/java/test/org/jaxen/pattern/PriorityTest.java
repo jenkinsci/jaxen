@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 317 $
- * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 368 $
+ * $Date: 2004-07-05 13:22:46 -0700 (Mon, 05 Jul 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PriorityTest.java 317 2003-06-29 17:55:51Z ssanders $
+ * $Id: PriorityTest.java 368 2004-07-05 20:22:46Z proyal $
  */
 
 
@@ -67,11 +67,12 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.jaxen.saxpath.helpers.XPathReaderFactory;
 
 /** Tests the use of priority in the Pattern implementations.
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 317 $
+  * @version $Revision: 368 $
   */
 public class PriorityTest extends TestCase
 {
@@ -92,6 +93,8 @@ public class PriorityTest extends TestCase
     
     public void setUp()
     {
+        System.setProperty( XPathReaderFactory.DRIVER_PROPERTY,
+                            "" );
     }
 
     public void tearDown()

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 357 $
- * $Date: 2004-04-08 02:49:53 -0700 (Thu, 08 Apr 2004) $
+ * $Revision: 368 $
+ * $Date: 2004-07-05 13:22:46 -0700 (Mon, 05 Jul 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTestBase.java 357 2004-04-08 09:49:53Z cnentwich $
+ * $Id: XPathTestBase.java 368 2004-07-05 20:22:46Z proyal $
  */
 
 
@@ -75,6 +75,7 @@ import org.dom4j.Element;
 import org.dom4j.Namespace;
 import org.dom4j.io.SAXReader;
 import org.jaxen.function.StringFunction;
+import org.jaxen.saxpath.helpers.XPathReaderFactory;
 
 public abstract class XPathTestBase extends TestCase
 {
@@ -96,6 +97,8 @@ public abstract class XPathTestBase extends TestCase
     public void setUp()
     {
         this.contextSupport = null;
+        System.setProperty( XPathReaderFactory.DRIVER_PROPERTY,
+                            "" );
     }
 
     public void tearDown()
