@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 559 $
- * $Date: 2005-04-06 02:20:11 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 560 $
+ * $Date: 2005-04-06 02:22:38 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleVariableContext.java 559 2005-04-06 09:20:11Z elharo $
+ * $Id: SimpleVariableContext.java 560 2005-04-06 09:22:38Z elharo $
  */
 
 
@@ -101,7 +101,7 @@ public class SimpleVariableContext implements VariableContext, Serializable
      *  in an XPath expression.  Prefix to URI resolution
      *  is the responsibility of a <code>NamespaceContext</code>.
      *  Variables within a <code>VariableContext</code> are
-     *  refered to purely based upon their namespace URI,
+     *  referred to purely based upon their namespace URI,
      *  if any.
      *  </p>
      *
@@ -120,7 +120,7 @@ public class SimpleVariableContext implements VariableContext, Serializable
     /** Set the value associated with a variable.
      *
      *  <p>
-     *  This method sets a variable that is <b>not</b>
+     *  This method sets a variable that is <strong>not</strong>
      *  associated with any particular namespace.
      *  These variables appear such as <code>$foo</code>
      *  in an XPath expression.

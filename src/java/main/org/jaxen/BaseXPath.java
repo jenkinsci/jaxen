@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 528 $
- * $Date: 2005-04-02 20:25:29 -0800 (Sat, 02 Apr 2005) $
+ * $Revision: 560 $
+ * $Date: 2005-04-06 02:22:38 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 528 2005-04-03 04:25:29Z elharo $
+ * $Id: BaseXPath.java 560 2005-04-06 09:22:38Z elharo $
  */
 
 
@@ -699,10 +699,10 @@ public class BaseXPath implements XPath, Serializable
     }
  
 
-    /** Select only the first node that is selectable by this XPath
+    /** Return only the first node that is selected by this XPath
      *  expression.  If multiple nodes match, only one node will be
      *  returned. The selected node will be the first
-     *  selectable node in document-order, as defined by the XPath
+     *  selected node in document-order, as defined by the XPath
      *  specification.  
      *  </p>
      *
