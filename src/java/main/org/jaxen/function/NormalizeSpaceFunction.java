@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 357 $
- * $Date: 2004-04-08 02:49:53 -0700 (Thu, 08 Apr 2004) $
+ * $Revision: 376 $
+ * $Date: 2004-09-16 14:38:19 -0700 (Thu, 16 Sep 2004) $
  *
  * ====================================================================
  *
@@ -56,14 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NormalizeSpaceFunction.java 357 2004-04-08 09:49:53Z cnentwich $
+ * $Id: NormalizeSpaceFunction.java 376 2004-09-16 21:38:19Z bewins $
  */
 
 
 package org.jaxen.function;
 
 import java.util.List;
-import java.util.StringTokenizer;
 
 import org.jaxen.Context;
 import org.jaxen.Function;
@@ -96,33 +95,33 @@ public class NormalizeSpaceFunction implements Function
         String str = StringFunction.evaluate( strArg,
                                               nav );
 
-        if ( str.length() <= 1 )
+        char[] buffer = str.toCharArray();
+        int write = 0;
+        int lastWrite = 0;
+        boolean wroteOne = false;
+        int read = 0;
+        while (read < buffer.length)
         {
-            if (Character.isWhitespace(str.charAt(0)))
-            	return "";
+            if (Character.isWhitespace(buffer[read]))
+            {
+                if (wroteOne)
+                {
+                    buffer[write++] = ' ';
+                }
+                do
+                {
+                    read++;
+                }
+                while(read < buffer.length && Character.isWhitespace(buffer[read]));
+            }
             else
-            	return str;
+            {
+                buffer[write++] = buffer[read++];
+                wroteOne = true;
+                lastWrite = write;
+            }
         }
 
-        StringBuffer buffer = new StringBuffer();
-        boolean      first = true;
-
-        StringTokenizer tokenizer = new StringTokenizer(str);
-
-        while ( tokenizer.hasMoreTokens() )
-        {
-            if (first)
-            {
-                first = false;
-            }
-            else 
-            {
-                buffer.append(" ");
-            }
-
-            buffer.append(tokenizer.nextToken());
-        }
-
-        return buffer.toString();
+        return new String(buffer, 0, lastWrite);
     }
 }
