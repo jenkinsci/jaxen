@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 559 $
+ * $Date: 2005-04-06 02:20:11 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleVariableContext.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: SimpleVariableContext.java 559 2005-04-06 09:20:11Z elharo $
  */
 
 
@@ -105,9 +105,9 @@ public class SimpleVariableContext implements VariableContext, Serializable
      *  if any.
      *  </p>
      *
-     *  @param namespaceURI The namespace URI of the variable.
-     *  @param localName The local name of the variable
-     *  @param value The value to be bound to the variable.
+     *  @param namespaceURI the namespace URI of the variable
+     *  @param localName the local name of the variable
+     *  @param value The value to be bound to the variable
      */
     public void setVariableValue( String namespaceURI,
                                   String localName,
@@ -126,8 +126,8 @@ public class SimpleVariableContext implements VariableContext, Serializable
      *  in an XPath expression.
      *  </p>
      *
-     *  @param localName The local name of the variable
-     *  @param value The value to be bound to the variable.
+     *  @param localName the local name of the variable
+     *  @param value the value to be bound to the variable
      */
     public void setVariableValue( String localName,
                                   Object value )

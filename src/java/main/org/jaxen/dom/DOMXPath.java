@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 423 $
- * $Date: 2005-01-29 19:19:37 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 559 $
+ * $Date: 2005-04-06 02:20:11 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DOMXPath.java 423 2005-01-30 03:19:37Z elharo $
+ * $Id: DOMXPath.java 559 2005-04-06 09:20:11Z elharo $
  */
 
 // XPath.java - top-level entry point for DOM XPath matching.
@@ -73,17 +73,15 @@ import org.jaxen.JaxenException;
  * one or more context nodes using the {@link #selectNodes(Object)}
  * method, as in the following example:</p>
  *
- * <pre>
- * XPath path = new DOMXPath("a/b/c");
- * List results = path.selectNodes(domNode);
- * </pre>
+ * <pre>XPath path = new DOMXPath("a/b/c");
+ * List results = path.selectNodes(domNode);</pre>
  *
  * @see BaseXPath
  *
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
  * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  *
- * @version $Revision: 423 $
+ * @version $Revision: 559 $
  */
 public class DOMXPath extends BaseXPath
 {
