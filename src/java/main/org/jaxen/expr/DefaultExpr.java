@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 485 $
- * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
+ * $Revision: 554 $
+ * $Date: 2005-04-06 02:09:19 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultExpr.java 485 2005-03-21 22:39:16Z elharo $
+ * $Id: DefaultExpr.java 554 2005-04-06 09:09:19Z elharo $
  */
 
 
@@ -93,7 +93,6 @@ public abstract class DefaultExpr implements Expr
 
     static public List convertToList(Object obj)
     {
-        // before this method is entered the nodes are in the wrong order????
         if ( obj instanceof List )
         {
             return (List) obj;
