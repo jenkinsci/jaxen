@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 284 $
+ * $Date: 2002-09-17 17:18:55 -0700 (Tue, 17 Sep 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NumberFunction.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: NumberFunction.java 284 2002-09-18 00:18:55Z mbrennan $
  */
 
 package org.jaxen.function;
@@ -125,7 +125,6 @@ public class NumberFunction implements Function
       }
     else if ( obj instanceof List || obj instanceof Iterator )
       {
-      String strValue = StringFunction.evaluate( obj, nav );
       return evaluate( StringFunction.evaluate( obj, nav ), nav );
       }
     else if ( nav.isElement( obj ) || nav.isAttribute( obj ) )
