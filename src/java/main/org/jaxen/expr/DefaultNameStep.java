@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 357 2004-04-08 09:49:53Z cnentwich $
+ $Id: DefaultNameStep.java 359 2004-04-19 04:46:18Z bob $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -164,6 +164,7 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
      * This method overrides the version in DefaultStep for performance.
      */
     public List evaluate(Context context) throws JaxenException {
+
         List contextNodeSet  = context.getNodeSet();
         int contextSize = contextNodeSet.size();
         // optimise for context size 0

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 359 $
+ * $Date: 2004-04-18 21:46:18 -0700 (Sun, 18 Apr 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: BaseXPath.java 359 2004-04-19 04:46:18Z bob $
  */
 
 
@@ -237,7 +237,7 @@ public class BaseXPath implements XPath, Serializable
     public List selectNodes(Object node) throws JaxenException
     {
         Context context = getContext( node );
-        
+
         return selectNodesForContext( context );
     }
 
