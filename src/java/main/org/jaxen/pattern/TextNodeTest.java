@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 303 $
+ * $Date: 2002-12-04 10:29:27 -0800 (Wed, 04 Dec 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: TextNodeTest.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: TextNodeTest.java 303 2002-12-04 18:29:27Z bob $
  */
 
 package org.jaxen.pattern;
@@ -66,7 +66,7 @@ import org.jaxen.Context;
 /** <p><code>TextNodeTest</code> matches any text node.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 270 $
+  * @version $Revision: 303 $
   */
 public class TextNodeTest extends NodeTest {
     
@@ -86,6 +86,11 @@ public class TextNodeTest extends NodeTest {
     public double getPriority() 
     {
         return -0.5;
+    }
+
+    public short getMatchType()
+    {
+        return Pattern.TEXT_NODE;
     }
 
     public String getText() 

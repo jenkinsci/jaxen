@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 286 $
- * $Date: 2002-09-17 17:21:47 -0700 (Tue, 17 Sep 2002) $
+ * $Revision: 303 $
+ * $Date: 2002-12-04 10:29:27 -0800 (Wed, 04 Dec 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DocumentNavigator.java 286 2002-09-18 00:21:47Z mbrennan $
+ * $Id: DocumentNavigator.java 303 2002-12-04 18:29:27Z bob $
  */
 
 
@@ -423,6 +423,7 @@ public class DocumentNavigator extends DefaultNavigator
         if ( reader == null ) 
         {
             reader = new SAXReader();
+            reader.setMergeAdjacentText( true );
         }
         return reader;
     }
