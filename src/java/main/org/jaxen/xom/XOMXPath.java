@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 342 $
- * $Date: 2003-09-28 18:56:00 -0700 (Sun, 28 Sep 2003) $
+ * $Revision: 385 $
+ * $Date: 2005-01-13 15:47:30 -0800 (Thu, 13 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XOMXPath.java 342 2003-09-29 01:56:00Z ssanders $
+ * $Id: XOMXPath.java 385 2005-01-13 23:47:30Z elharo $
  */
 
 
@@ -79,9 +79,9 @@ import org.jaxen.JaxenException;
  * </pre>
  *
  * @see BaseXPath
- * @see <a href="http://www.cafeconleche.org/XOM">The XOM website</a>
+ * @see <a href="http://www.xom.nu/">The XOM website</a>
  *
- * @version $Revision: 342 $
+ * @version $Revision: 385 $
  */
 public class XOMXPath extends BaseXPath
 {
