@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 567 $
- * $Date: 2005-04-06 04:10:50 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 568 $
+ * $Date: 2005-04-06 14:47:37 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FalseFunction.java 567 2005-04-06 11:10:50Z elharo $
+ * $Id: FalseFunction.java 568 2005-04-06 21:47:37Z elharo $
  */
 
 
@@ -91,7 +91,8 @@ public class FalseFunction implements Function
      * Returns false.
      * 
      * @return Boolean.FALSE
-     */    public static Boolean evaluate()
+     */
+    public static Boolean evaluate()
     {
         return Boolean.FALSE;
     }
