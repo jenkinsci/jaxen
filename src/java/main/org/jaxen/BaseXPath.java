@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 560 $
- * $Date: 2005-04-06 02:22:38 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 562 $
+ * $Date: 2005-04-06 02:52:01 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 560 2005-04-06 09:22:38Z elharo $
+ * $Id: BaseXPath.java 562 2005-04-06 09:52:01Z elharo $
  */
 
 
@@ -128,13 +128,11 @@ public class BaseXPath implements XPath, Serializable
         }
         catch (org.jaxen.saxpath.XPathSyntaxException e)
         {
-            // ???? why are we not throwing je here?
             org.jaxen.XPathSyntaxException je = new org.jaxen.XPathSyntaxException( e.getXPath(),
                                                                   e.getPosition(),
                                                                   e.getMessage() );
             je.initCause(e);
-            //throw je;
-            throw new org.jaxen.XPathSyntaxException(e);
+            throw je;
         }
         catch (org.jaxen.saxpath.SAXPathException e)
         {
@@ -306,9 +304,7 @@ public class BaseXPath implements XPath, Serializable
         
         List result = selectNodesForContext( context );
 
-        if ( result == null )
-            return false;
-
+        if ( result == null ) return false;
             
         return BooleanFunction.evaluate( result, context.getNavigator() ).booleanValue();
     }
