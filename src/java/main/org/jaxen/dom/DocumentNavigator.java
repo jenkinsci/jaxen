@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 286 $
+ * $Date: 2002-09-17 17:21:47 -0700 (Tue, 17 Sep 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DocumentNavigator.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: DocumentNavigator.java 286 2002-09-18 00:21:47Z mbrennan $
  */
 
 // DocumentNavigator.java - Jaxen adapter for the W3C DOM level 2.
@@ -773,7 +773,7 @@ public class DocumentNavigator extends DefaultNavigator
         }
         catch (Exception e)
         {
-            throw new FunctionCallException("Failed to parse doucment for URI: " + uri, e);
+            throw new FunctionCallException("Failed to parse document for URI: " + uri, e);
         }
     }
 
