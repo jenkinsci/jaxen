@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 429 $
- * $Date: 2005-02-06 08:43:30 -0800 (Sun, 06 Feb 2005) $
+ * $Revision: 430 $
+ * $Date: 2005-02-07 04:19:12 -0800 (Mon, 07 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 429 2005-02-06 16:43:30Z elharo $
+ * $Id: XPathReaderTest.java 430 2005-02-07 12:19:12Z elharo $
  */
 
 
@@ -209,11 +209,55 @@ public class XPathReaderTest extends TestCase
         try
         {
             reader.parse( "1/child::test" );
-            fail( "Should have thrown XPathSyntaxException for count(3)");
+            fail( "Should have thrown XPathSyntaxException for 1/child::test");
         }
         catch( XPathSyntaxException e )
         {
-            assertEquals( "1/child::test", e.getMessage() );
+            assertEquals( "Node-set expected", e.getMessage() );
+        }
+        catch( org.jaxen.saxpath.SAXPathException e )
+        {
+            fail( e.getMessage() );
+        }
+        catch( Exception e )
+        {
+            fail( e.getMessage() );
+        }
+    }
+
+    public void testChildIsNumber()
+    {
+        XPathReader reader = new XPathReader();
+        try
+        {
+            reader.parse( "jane/3" );
+            fail( "Should have thrown XPathSyntaxException for jane/3");
+        }
+        catch( XPathSyntaxException e )
+        {
+            assertEquals( "Expected one of '.', '..', '@', '*', <QName>", e.getMessage() );
+        }
+        catch( org.jaxen.saxpath.SAXPathException e )
+        {
+            fail( e.getMessage() );
+        }
+        catch( Exception e )
+        {
+            fail( e.getMessage() );
+        }
+    }
+
+    public void testNumberOrNumber()
+    {
+        XPathReader reader = new XPathReader();
+        try
+        {
+            reader.parse( " 4 | 5" );
+            fail( "Should have thrown XPathSyntaxException for 4 | 5");
+        }
+        catch( XPathSyntaxException e )
+        {
+            assertEquals( "Node-set expected", e.getMessage() );
         }
         catch( org.jaxen.saxpath.SAXPathException e )
         {
