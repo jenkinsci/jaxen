@@ -1,5 +1,5 @@
 /*
- $Id: DocumentNavigator.java 355 2004-03-22 00:22:14Z bob $
+ $Id: DocumentNavigator.java 356 2004-03-22 02:58:28Z bob $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -167,7 +167,6 @@ public class DocumentNavigator
 
     public Iterator getChildAxisIterator(Object contextNode)
     {
-        System.err.println( "getChildAxisIterator()" );
         return null;
     }
 
@@ -186,8 +185,6 @@ public class DocumentNavigator
                                          String namespacePrefix,
                                          String namespaceURI)
     {
-        System.err.println( "getChildAxisIterator(NAME) " + localName + " // " + contextNode + " // " + ((Element)contextNode).getObject() );
-
         Class cls = ((Element)contextNode).getObject().getClass();
 
         String methodName = javacase( localName );
@@ -206,14 +203,7 @@ public class DocumentNavigator
             }
             catch (NoSuchMethodException ee)
             {
-                try
-                {
-                    method = cls.getMethod( "get" + methodName + "es", EMPTY_CLASS_ARRAY );
-                }
-                catch (NoSuchMethodException eee)
-                {
-                    method = null;
-                }
+                method = null;
             }
         }
 

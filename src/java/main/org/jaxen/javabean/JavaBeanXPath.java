@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 355 $
- * $Date: 2004-03-21 16:22:14 -0800 (Sun, 21 Mar 2004) $
+ * $Revision: 356 $
+ * $Date: 2004-03-21 18:58:28 -0800 (Sun, 21 Mar 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JavaBeanXPath.java 355 2004-03-22 00:22:14Z bob $
+ * $Id: JavaBeanXPath.java 356 2004-03-22 02:58:28Z bob $
  */
 
 package org.jaxen.javabean;
@@ -87,7 +87,7 @@ import java.util.Iterator;
  *
  * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  *
- * @version $Revision: 355 $
+ * @version $Revision: 356 $
  */
 public class JavaBeanXPath extends BaseXPath
 {
@@ -136,11 +136,8 @@ public class JavaBeanXPath extends BaseXPath
     {
         Object result = super.evaluate( node );
 
-        System.err.println( "RESULT: " + result );
-
         if ( result instanceof Element )
         {
-            System.err.println( "unwrapping to " + ((Element)result).getObject() );
             return ((Element)result).getObject();
         }
         else if ( result instanceof Collection )
