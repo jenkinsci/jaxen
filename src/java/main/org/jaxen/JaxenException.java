@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 367 $
+ * $Date: 2004-07-05 13:22:01 -0700 (Mon, 05 Jul 2004) $
  *
  * ====================================================================
  *
@@ -56,53 +56,40 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenException.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: JaxenException.java 367 2004-07-05 20:22:01Z proyal $
  */
 
 
 package org.jaxen;
 
 
-
-/** Generic Jaxen exception.
+/**
+ * Generic Jaxen exception.
  *
- *  <p>
- *  This is the root of all Jaxen exceptions.
- *  It may wrap other exceptions.  See {@link #getRootCause}.
+ * <p> This is the root of all Jaxen exceptions. It may wrap other exceptions.
  *
- *  @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
+ * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  */
 public class JaxenException extends org.jaxen.saxpath.SAXPathException
 {
-    /** Root cause, if any. */
-    private Throwable rootCause;
-
-    /** Construct with a message.
+    /**
+     * Construct with a message.
      *
-     *  @param message The error message.
+     * @param message The error message.
      */
-    public JaxenException(String message)
+    public JaxenException( String message )
     {
         super( message );
     }
 
-    /** Construct with a root cause.
+    /**
+     * Construct with a root cause.
      *
-     *  @param rootCause Root cause of the error.
+     * @param rootCause Root cause of the error.
      */
-    public JaxenException(Throwable rootCause)
+    public JaxenException( Throwable rootCause )
     {
-        super( "wrapped exception" );
-        this.rootCause = rootCause;
-    }
-
-    /** Retrieve the root cause, if any.
-     *
-     *  @return Root cause of the error.
-     */
-    public Throwable getRootCause()
-    {
-        return this.rootCause;
+        super( rootCause );
     }
 }
 
