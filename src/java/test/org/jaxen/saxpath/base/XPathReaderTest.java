@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 435 $
- * $Date: 2005-02-07 15:40:26 -0800 (Mon, 07 Feb 2005) $
+ * $Revision: 437 $
+ * $Date: 2005-02-07 16:29:21 -0800 (Mon, 07 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,17 +56,29 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 435 2005-02-07 23:40:26Z elharo $
+ * $Id: XPathReaderTest.java 437 2005-02-08 00:29:21Z elharo $
  */
 
 
 package org.jaxen.saxpath.base;
 
+import java.util.Iterator;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import junit.framework.TestCase;
+
+import org.jaxen.JaxenException;
+import org.jaxen.XPath;
+import org.jaxen.dom.DOMXPath;
 import org.jaxen.saxpath.Axis;
 import org.jaxen.saxpath.Operator;
 import org.jaxen.saxpath.XPathSyntaxException;
 import org.jaxen.saxpath.conformance.ConformanceXPathHandler;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 public class XPathReaderTest extends TestCase
 {
@@ -226,19 +238,23 @@ public class XPathReaderTest extends TestCase
 
     public void testNumberOrNumber()
     {
-        XPathReader reader = new XPathReader();
+
         try
         {
-            reader.parse( " 4 | 5" );
+            XPath xpath = new DOMXPath( "4 | 5" );
+
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setNamespaceAware(true);
+            DocumentBuilder builder = factory.newDocumentBuilder();
+        
+            Document doc = builder.parse( "xml/basic.xml" );
+
+            xpath.selectNodes( doc );
             fail( "Should have thrown XPathSyntaxException for 4 | 5");
         }
-        catch( XPathSyntaxException e )
+        catch( JaxenException e )
         {
-            assertEquals( "Node-set expected", e.getMessage() );
-        }
-        catch( org.jaxen.saxpath.SAXPathException e )
-        {
-            fail( e.getMessage() );
+            assertEquals( "Unions are only allowed over node-sets", e.getMessage() );
         }
         catch( Exception e )
         {
@@ -246,6 +262,8 @@ public class XPathReaderTest extends TestCase
         }
     }
 
+    
+    
     public void testValidAxis()
     {
         XPathReader reader = new XPathReader();
