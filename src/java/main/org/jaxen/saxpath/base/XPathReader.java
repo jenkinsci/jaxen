@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 401 $
- * $Date: 2005-01-19 06:31:23 -0800 (Wed, 19 Jan 2005) $
+ * $Revision: 407 $
+ * $Date: 2005-01-27 12:35:31 -0800 (Thu, 27 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 401 2005-01-19 14:31:23Z elharo $
+ * $Id: XPathReader.java 407 2005-01-27 20:35:31Z elharo $
  */
 
 
@@ -68,8 +68,6 @@ import org.jaxen.saxpath.Axis;
 import org.jaxen.saxpath.Operator;
 import org.jaxen.saxpath.XPathHandler;
 import org.jaxen.saxpath.XPathSyntaxException;
-import org.jaxen.saxpath.SAXPathParseException;
-import org.jaxen.saxpath.SAXPathException;
 
 /** Implementation of SAXPath's <code>XPathReader</code> which
  *  generates callbacks to an <code>XPathHandler</code>.
