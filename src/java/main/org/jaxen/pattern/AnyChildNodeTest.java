@@ -4,7 +4,7 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: AnyChildNodeTest.java 88 2001-08-08 11:24:19Z jstrachan $
+ * $Id: AnyChildNodeTest.java 90 2001-08-08 21:29:49Z jstrachan $
  */
 
 package org.jaxen.pattern;
@@ -14,7 +14,7 @@ import org.jaxen.Context;
 /** <p><code>AnyChildNodeTest</code> matches any child node.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 88 $
+  * @version $Revision: 90 $
   */
 public class AnyChildNodeTest extends NodeTest {
 
@@ -47,4 +47,10 @@ public class AnyChildNodeTest extends NodeTest {
     {
         return ANY_NODE;
     }
+    
+    public String getText() 
+    {
+        return "*";
+    }
+    
 }

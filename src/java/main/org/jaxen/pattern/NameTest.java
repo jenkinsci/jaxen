@@ -4,7 +4,7 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: NameTest.java 88 2001-08-08 11:24:19Z jstrachan $
+ * $Id: NameTest.java 90 2001-08-08 21:29:49Z jstrachan $
  */
 
 package org.jaxen.pattern;
@@ -15,7 +15,7 @@ import org.jaxen.Navigator;
 /** <p><code>NameTest</code> tests for a node name.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 88 $
+  * @version $Revision: 90 $
   */
 public class NameTest extends NodeTest {
     
@@ -58,5 +58,22 @@ public class NameTest extends NodeTest {
     public short getMatchType() 
     {
         return nodeType;
+    }
+    
+    public String getText() 
+    {
+        if ( nodeType == Pattern.ATTRIBUTE_NODE ) 
+        {
+            return "@" + name;
+        }
+        else 
+        {
+            return name;
+        }
+    }
+    
+    public String toString()
+    {
+        return super.toString() + "[ name: " + name + " type: " + nodeType + " ]";
     }
 }

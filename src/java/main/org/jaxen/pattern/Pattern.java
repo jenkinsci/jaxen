@@ -4,7 +4,7 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: Pattern.java 88 2001-08-08 11:24:19Z jstrachan $
+ * $Id: Pattern.java 90 2001-08-08 21:29:49Z jstrachan $
  */
 
 package org.jaxen.pattern;
@@ -16,7 +16,7 @@ import org.jaxen.JaxenException;
   * the XSLT processing model.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 88 $
+  * @version $Revision: 90 $
   */
 public abstract class Pattern {
 
@@ -118,4 +118,9 @@ public abstract class Pattern {
     {
         return this;
     }
+    
+    /** Returns a textual representation of this pattern
+     */
+    public abstract String getText();
+
 }
