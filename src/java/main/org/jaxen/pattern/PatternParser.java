@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 270 $
+ * $Revision: 295 $
 
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Date: 2002-11-13 06:56:13 -0800 (Wed, 13 Nov 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: PatternParser.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: PatternParser.java 295 2002-11-13 14:56:13Z szegedia $
 
  */
 
@@ -582,8 +582,6 @@ public class PatternParser
         if ( step.getClass().equals( DefaultStep.class ) )
 
         {
-
-            DefaultStep defaultStep = (DefaultStep) step;
 
             return ! step.getPredicates().isEmpty();
 

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 295 $
+ * $Date: 2002-11-13 06:56:13 -0800 (Wed, 13 Nov 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: BaseXPath.java 295 2002-11-13 14:56:13Z szegedia $
  */
 
 
@@ -269,6 +269,9 @@ public class BaseXPath implements XPath, Serializable
         return results.get( 0 );
     }
 
+    /**
+     * @deprecated
+     */
     public String valueOf(Object node) throws JaxenException
     {
         return stringValueOf( node );
@@ -615,9 +618,7 @@ public class BaseXPath implements XPath, Serializable
         }
         else
         {
-            List list = new ArrayList( 1 );
-
-            list.add( node );
+            List list = Collections.singletonList(node);
 
             fullContext.setNodeSet( list );
         }

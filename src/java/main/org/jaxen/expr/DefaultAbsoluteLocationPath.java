@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 259 $
+ * $Revision: 295 $
 
- * $Date: 2002-04-29 06:27:55 -0700 (Mon, 29 Apr 2002) $
+ * $Date: 2002-11-13 06:56:13 -0800 (Wed, 13 Nov 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultAbsoluteLocationPath.java 259 2002-04-29 13:27:55Z emcgreal $
+ * $Id: DefaultAbsoluteLocationPath.java 295 2002-11-13 14:56:13Z szegedia $
 
  */
 
@@ -236,11 +236,7 @@ public class DefaultAbsoluteLocationPath extends DefaultLocationPath
 
 
 
-        List list = new ArrayList(1);
-
-
-
-        list.add( docNode );
+        List list = Collections.singletonList(docNode);
 
 
 
