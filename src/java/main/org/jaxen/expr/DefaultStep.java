@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 494 $
- * $Date: 2005-03-28 13:15:24 -0800 (Mon, 28 Mar 2005) $
+ * $Revision: 495 $
+ * $Date: 2005-03-28 14:01:55 -0800 (Mon, 28 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultStep.java 494 2005-03-28 21:15:24Z elharo $
+ * $Id: DefaultStep.java 495 2005-03-28 22:01:55Z elharo $
  */
 package org.jaxen.expr;
 
@@ -145,25 +145,23 @@ public abstract class DefaultStep implements Step
 
         List interimSet = new ArrayList();
         List newNodeSet = new ArrayList();
-
+        ContextSupport support = context.getContextSupport();
+            
         for ( int i = 0 ; i < contextSize ; ++i )
         {
             Object eachContextNode = contextNodeSet.get( i );
 
-            Iterator axisNodeIter = axisIterator( eachContextNode,
-                                                  context.getContextSupport() );
+            Iterator axisNodeIter = axisIterator( eachContextNode, support );
             if ( axisNodeIter == null )
             {
                 continue;
             }
 
-            Object eachAxisNode = null;
             while ( axisNodeIter.hasNext() )
             {
-                eachAxisNode = axisNodeIter.next();
+                Object eachAxisNode = axisNodeIter.next();
 
-                if ( matches( eachAxisNode,
-                              context.getContextSupport() ) )
+                if ( matches( eachAxisNode, support ) )
                 {
                     if ( ! unique.containsKey( eachAxisNode ) )
                     {
@@ -173,7 +171,7 @@ public abstract class DefaultStep implements Step
                 }
             }
             newNodeSet.addAll(getPredicateSet().evaluatePredicates(
-                              interimSet,context.getContextSupport() ));
+                              interimSet, support ));
             interimSet.clear();
         }
         return newNodeSet;
