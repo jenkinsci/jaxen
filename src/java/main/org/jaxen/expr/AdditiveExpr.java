@@ -114,52 +114,12 @@
 
  * 
 
- * $Id: DefaultLessThanExpr.java 259 2002-04-29 13:27:55Z emcgreal $
+ * $Id: AdditiveExpr.java 259 2002-04-29 13:27:55Z emcgreal $
 
  */
 
-
-
 package org.jaxen.expr;
 
-
-
-class DefaultLessThanExpr extends DefaultRelationalExpr
-
-  {
-
-  public DefaultLessThanExpr( Expr lhs, Expr rhs )
-
-    {
-
-    super( lhs, rhs );
-
-    }
-
-
-
-  public String getOperator()
-
-    {
-
-    return "<";
-
-    }
-
-
-
-  protected boolean evaluateDoubleDouble( Double lhs, Double rhs )
-
-    {
-
-    return lhs.compareTo( rhs ) < 0;
-
-    }    
-
-	public void accept(Visitor visitor)
-	{
-        visitor.visit(this);
-    }  
-
+public interface AdditiveExpr extends BinaryExpr{
+    public String getOperator();
 }
-

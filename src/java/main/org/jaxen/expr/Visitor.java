@@ -114,52 +114,33 @@
 
  * 
 
- * $Id: DefaultLessThanExpr.java 259 2002-04-29 13:27:55Z emcgreal $
+ * $Id: Visitor.java 259 2002-04-29 13:27:55Z emcgreal $
 
  */
-
-
-
 package org.jaxen.expr;
 
 
+public interface Visitor {
+    public void visit(PathExpr path);
+    public void visit(LocationPath path);
+    public void visit(LogicalExpr expr);
+    public void visit(EqualityExpr expr);
+    public void visit(FilterExpr expr);
+    public void visit(RelationalExpr expr);
+    public void visit(AdditiveExpr expr);
+    public void visit(MultiplicativeExpr expr);
+    public void visit(UnaryExpr expr);
+    public void visit(UnionExpr expr);
+    public void visit(NumberExpr expr);
+    public void visit(LiteralExpr expr);
+    public void visit(VariableReferenceExpr expr);
+    public void visit(FunctionCallExpr expr);
 
-class DefaultLessThanExpr extends DefaultRelationalExpr
-
-  {
-
-  public DefaultLessThanExpr( Expr lhs, Expr rhs )
-
-    {
-
-    super( lhs, rhs );
-
-    }
-
-
-
-  public String getOperator()
-
-    {
-
-    return "<";
-
-    }
-
-
-
-  protected boolean evaluateDoubleDouble( Double lhs, Double rhs )
-
-    {
-
-    return lhs.compareTo( rhs ) < 0;
-
-    }    
-
-	public void accept(Visitor visitor)
-	{
-        visitor.visit(this);
-    }  
-
+    // Steps
+    public void visit(NameStep step);
+    public void visit(ProcessingInstructionNodeStep step);
+    public void visit(AllNodeStep step);
+    public void visit(TextNodeStep step);
+    public void visit(CommentNodeStep step);
+    public void visit(Predicate predicate);
 }
-
