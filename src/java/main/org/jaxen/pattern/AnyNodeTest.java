@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 552 $
+ * $Date: 2005-04-06 02:07:07 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: AnyNodeTest.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: AnyNodeTest.java 552 2005-04-06 09:07:07Z elharo $
  */
 
 package org.jaxen.pattern;
@@ -66,7 +66,7 @@ import org.jaxen.Context;
 /** <p><code>AnyNodeTest</code> matches any node.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 270 $
+  * @version $Revision: 552 $
   */
 public class AnyNodeTest extends NodeTest {
 
@@ -77,9 +77,7 @@ public class AnyNodeTest extends NodeTest {
         return instance;
     }
     
-    public AnyNodeTest() 
-    {
-    }
+    private AnyNodeTest() {}
     
     /** @return true if the pattern matches the given node
       */
