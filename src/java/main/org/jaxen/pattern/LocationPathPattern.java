@@ -4,7 +4,7 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: LocationPathPattern.java 93 2001-08-09 08:24:48Z jstrachan $
+ * $Id: LocationPathPattern.java 95 2001-08-10 17:54:22Z jstrachan $
  */
 
 package org.jaxen.pattern;
@@ -25,7 +25,7 @@ import org.jaxen.expr.FilterExpr;
   * chain location path patterns together</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 93 $
+  * @version $Revision: 95 $
   */
 public class LocationPathPattern extends Pattern {
 
@@ -164,6 +164,8 @@ public class LocationPathPattern extends Pattern {
         
         if (filters != null) 
         {
+            context.setNodeSet( Collections.singletonList( node ) );
+            
             // XXXX: filters aren't positional, so should we clone context?
             boolean answer = true;
             for (Iterator iter = filters.iterator(); iter.hasNext(); ) 
