@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 472 $
- * $Date: 2005-02-27 05:34:06 -0800 (Sun, 27 Feb 2005) $
+ * $Revision: 506 $
+ * $Date: 2005-03-28 17:19:05 -0800 (Mon, 28 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultUnionExpr.java 472 2005-02-27 13:34:06Z elharo $
+ * $Id: DefaultUnionExpr.java 506 2005-03-29 01:19:05Z elharo $
  */
 
 
@@ -105,11 +105,10 @@ public class DefaultUnionExpr extends DefaultBinaryExpr implements UnionExpr
             unique.addAll( lhsResults );
     
             Iterator rhsIter = rhsResults.iterator();
-            Object   each    = null;
     
             while ( rhsIter.hasNext() )
             {
-                each = rhsIter.next();
+                Object each = rhsIter.next();
     
                 if ( ! unique.contains( each ) )
                 {
