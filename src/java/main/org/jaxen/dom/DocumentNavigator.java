@@ -21,7 +21,7 @@ import java.util.Iterator;
 /** A Navigator for the W3C DOM model
  *
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
- * @version $Revision: 59 $
+ * @version $Revision: 66 $
  */
 public class DocumentNavigator extends DefaultNavigator
 {
@@ -137,12 +137,7 @@ public class DocumentNavigator extends DefaultNavigator
 
     public Iterator getChildAxisIterator(Object contextNode)
     {
-        if ( contextNode instanceof Document )
-        {            
-            Document document = (Document) contextNode;
-            return new SingleObjectIterator( document.getDocumentElement() );
-        }
-        else if ( contextNode instanceof Node )
+        if ( contextNode instanceof Node )
         {            
             Node node = (Node) contextNode;
             NodeList children = node.getChildNodes();
