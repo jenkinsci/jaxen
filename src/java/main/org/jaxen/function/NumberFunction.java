@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 521 $
+ * $Date: 2005-04-02 17:16:45 -0800 (Sat, 02 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NumberFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: NumberFunction.java 521 2005-04-03 01:16:45Z elharo $
  */
 
 package org.jaxen.function;
@@ -137,7 +137,7 @@ public class NumberFunction implements Function
   
   public static boolean isNaN( double val )
     {
-    return isNaN( new Double( val ) );
+    return Double.isNaN(val);
     }
   
   public static boolean isNaN( Double val )
