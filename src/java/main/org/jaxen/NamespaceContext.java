@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 460 $
+ * $Date: 2005-02-10 09:35:01 -0800 (Thu, 10 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceContext.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: NamespaceContext.java 460 2005-02-10 17:35:01Z elharo $
  */
 
 
@@ -93,13 +93,13 @@ public interface NamespaceContext
      *
      *  <p>
      *  In XPath, there is no such thing as a 'default namespace'.
-     *  The empty prefix <b>always</b> resolves to the empty
+     *  The empty prefix <strong>always</strong> resolves to the empty
      *  namespace URI.
      *  </p>
      *
-     *  @param prefix The namespace prefix to resolve.
+     *  @param prefix the namespace prefix to resolve
      *
-     *  @return The namespace URI matching the prefix.
+     *  @return the namespace URI matching the prefix
      */
     String translateNamespacePrefixToUri(String prefix);
 }
