@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 259 $
+ * $Revision: 261 $
 
- * $Date: 2002-04-29 06:27:55 -0700 (Mon, 29 Apr 2002) $
+ * $Date: 2002-05-02 09:09:06 -0700 (Thu, 02 May 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultAllNodeStep.java 259 2002-04-29 13:27:55Z emcgreal $
+ * $Id: DefaultAllNodeStep.java 261 2002-05-02 16:09:06Z emcgreal $
 
  */
 
@@ -140,11 +140,11 @@ public class DefaultAllNodeStep extends DefaultStep implements AllNodeStep
 
 {
 
-    public DefaultAllNodeStep(IterableAxis axis)
+    public DefaultAllNodeStep(IterableAxis axis, PredicateSet predicateSet)
 
     {
 
-        super( axis );
+        super( axis, predicateSet );
 
     }
 

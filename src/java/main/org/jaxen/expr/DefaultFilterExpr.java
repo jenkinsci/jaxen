@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 259 $
+ * $Revision: 261 $
 
- * $Date: 2002-04-29 06:27:55 -0700 (Mon, 29 Apr 2002) $
+ * $Date: 2002-05-02 09:09:06 -0700 (Thu, 02 May 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultFilterExpr.java 259 2002-04-29 13:27:55Z emcgreal $
+ * $Id: DefaultFilterExpr.java 261 2002-05-02 16:09:06Z emcgreal $
 
  */
 
@@ -154,23 +154,23 @@ public class DefaultFilterExpr extends DefaultExpr implements FilterExpr, Predic
 
 
 
-    public DefaultFilterExpr()
+    public DefaultFilterExpr(PredicateSet predicateSet)
 
     {
 
-        this.predicates = new PredicateSet();
+        this.predicates = predicateSet;
 
     }
 
 
 
-    public DefaultFilterExpr(Expr expr)
+    public DefaultFilterExpr(Expr expr, PredicateSet predicateSet)
 
     {
 
         this.expr       = expr;
 
-        this.predicates = new PredicateSet();
+        this.predicates = predicateSet;
 
     }
 
