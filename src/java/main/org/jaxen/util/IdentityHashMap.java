@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 564 $
- * $Date: 2005-04-06 03:06:26 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 569 $
+ * $Date: 2005-04-06 14:48:25 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: IdentityHashMap.java 564 2005-04-06 10:06:26Z elharo $
+ * $Id: IdentityHashMap.java 569 2005-04-06 21:48:25Z elharo $
  */
 
 package org.jaxen.util;
@@ -212,7 +212,7 @@ public class IdentityHashMap extends AbstractMap implements Map, Cloneable,
      * key.
      * 
      * @return <code>true</code> if this map contains a mapping for the specified
-     * key.
+     * key
      * @param key key whose presence in this Map is to be tested
      */
     public boolean containsKey(Object key) {
@@ -227,8 +227,7 @@ public class IdentityHashMap extends AbstractMap implements Map, Cloneable,
                     return true;
         } else {
             for (Entry e = tab[0]; e != null; e = e.next)
-                if (e.key==null)
-                    return true;
+                if (e.key==null) return true;
         }
 
         return false;
