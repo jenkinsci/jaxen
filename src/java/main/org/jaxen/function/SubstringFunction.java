@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 332 $
- * $Date: 2003-09-04 18:13:27 -0700 (Thu, 04 Sep 2003) $
+ * $Revision: 390 $
+ * $Date: 2005-01-13 18:22:00 -0800 (Thu, 13 Jan 2005) $
  *
  * ====================================================================
  *
@@ -110,7 +110,12 @@ public class SubstringFunction implements Function
             if (!d2.isNaN()){
                 len = RoundFunction.evaluate(d2, nav ).intValue();
             }
+            else {
+                len = 0;
+            }
         }
+
+        int end = start + len;
 
         // negative start is treated as 0
         if ( start < 0){
@@ -119,9 +124,6 @@ public class SubstringFunction implements Function
             return "";
         }
 
-        // if the length is longer than the rest of the string just
-        // take the rest of the string
-        int end = start + len;
         if (end > strlen){
             end = strlen;
         }
