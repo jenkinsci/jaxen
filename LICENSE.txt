@@ -1,7 +1,5 @@
-
-
 /*
- $Id: LICENSE.txt 308 2003-06-09 03:22:24Z bob $
+ $Id: LICENSE.txt 319 2003-06-29 18:22:02Z ssanders $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
