@@ -20,7 +20,7 @@ import java.util.Iterator;
 /** A Navigator for the W3C DOM model
  *
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
- * @version $Revision: 48 $
+ * @version $Revision: 52 $
  */
 public class DocumentNavigator extends DefaultNavigator
 {
@@ -249,7 +249,26 @@ public class DocumentNavigator extends DefaultNavigator
 
     public String getElementStringValue(Object obj)
     {
-        return getNodeStringValue( (Node) obj );
+        Node element = (Node) obj;
+        StringBuffer buffer = new StringBuffer();
+        if (element.hasChildNodes()) 
+        {
+            for ( Node child = (Node)element.getFirstChild(); 
+                child != null; 
+                child = child.getNextSibling() )
+            {
+                switch (child.getNodeType()) {
+                    case Node.TEXT_NODE:
+                        buffer.append( child.getNodeValue());
+                        break;
+                    case Node.ELEMENT_NODE:
+                        buffer.append( getElementStringValue( child ) );
+                        break;
+                }
+            }
+        }
+        return buffer.toString();
+        //return getNodeStringValue( (Node) obj );
     }
 
     public String getAttributeStringValue(Object obj)
