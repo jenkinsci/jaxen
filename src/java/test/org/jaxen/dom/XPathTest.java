@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 441 $
- * $Date: 2005-02-07 17:24:52 -0800 (Mon, 07 Feb 2005) $
+ * $Revision: 449 $
+ * $Date: 2005-02-08 12:46:18 -0800 (Tue, 08 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 441 2005-02-08 01:24:52Z elharo $
+ * $Id: XPathTest.java 449 2005-02-08 20:46:18Z elharo $
  */
 
 
@@ -66,9 +66,12 @@ import junit.framework.TestCase;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import java.util.Iterator;
 import java.util.List;
 
+import org.jaxen.JaxenException;
 import org.jaxen.XPath;
 import org.jaxen.saxpath.SAXPathException;
 import org.w3c.dom.Document;
@@ -94,6 +97,23 @@ public class XPathTest extends TestCase
         {
             fail( e.getMessage() );
         }
+    }
+    
+    public void testNamespaceDeclarationsAreNotAttributes() 
+      throws ParserConfigurationException, JaxenException {
+        
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        Document doc = factory.newDocumentBuilder().newDocument();
+        Element root = doc.createElementNS("http://www.example.org/", "root");
+        doc.appendChild(root);
+        root.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns", "http://www.example.org/");
+        
+        DOMXPath xpath = new DOMXPath( "count(/*/@*)" );
+        
+        Number value = xpath.numberValueOf(doc);
+        assertEquals(0, value.intValue());
+        
     }
 
     public void testSelection()
