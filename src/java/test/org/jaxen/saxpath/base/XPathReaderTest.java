@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 445 $
- * $Date: 2005-02-08 11:40:07 -0800 (Tue, 08 Feb 2005) $
+ * $Revision: 448 $
+ * $Date: 2005-02-08 12:07:53 -0800 (Tue, 08 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 445 2005-02-08 19:40:07Z elharo $
+ * $Id: XPathReaderTest.java 448 2005-02-08 20:07:53Z elharo $
  */
 
 
@@ -299,6 +299,32 @@ public class XPathReaderTest extends TestCase
 
             xpath.selectNodes( doc );
             fail( "Should have thrown XPathSyntaxException for \"test\" | 5");
+        }
+        catch( JaxenException e )
+        {
+            assertEquals( "Unions are only allowed over node-sets", e.getMessage() );
+        }
+        catch( Exception e )
+        {
+            fail( e.getMessage() );
+        }
+    }    
+    
+    public void testUnionofNodesAndNonNodes()
+    {
+
+        try
+        {
+            XPath xpath = new DOMXPath( "count(//*) | //* " );
+
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setNamespaceAware(true);
+            DocumentBuilder builder = factory.newDocumentBuilder();
+        
+            Document doc = builder.parse( "xml/basic.xml" );
+
+            xpath.selectNodes( doc );
+            fail( "Should have thrown XPathSyntaxException for \"count(//*) | //* ");
         }
         catch( JaxenException e )
         {
