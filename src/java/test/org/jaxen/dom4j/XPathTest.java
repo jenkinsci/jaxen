@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 397 $
- * $Date: 2005-01-19 05:11:03 -0800 (Wed, 19 Jan 2005) $
+ * $Revision: 454 $
+ * $Date: 2005-02-08 19:35:26 -0800 (Tue, 08 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 397 2005-01-19 13:11:03Z elharo $
+ * $Id: XPathTest.java 454 2005-02-09 03:35:26Z elharo $
  */
 
 
@@ -70,10 +70,16 @@ import junit.textui.TestRunner;
 import java.util.Iterator;
 import java.util.List;
 
+import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
+import org.dom4j.Namespace;
 import org.dom4j.io.SAXReader;
+import org.dom4j.tree.DefaultAttribute;
+import org.dom4j.tree.DefaultDocument;
+import org.dom4j.tree.DefaultElement;
 import org.jaxen.XPath;
+import org.jaxen.jdom.JDOMXPath;
 import org.jaxen.saxpath.SAXPathException;
 import org.jaxen.saxpath.helpers.XPathReaderFactory;
 
@@ -181,4 +187,58 @@ public class XPathTest extends TestCase
             fail( e.getMessage() );
         }
     }
+    
+    public void testJaxen20AttributeNamespaceNodes()
+    {
+        try
+        {
+            Namespace ns1 = Namespace.get("p1", "www.acme1.org");
+            Namespace ns2 = Namespace.get("p2", "www.acme2.org");
+            Element element = new DefaultElement("test", ns1);
+            Attribute attribute = new DefaultAttribute("pre:foo", "bar", ns2);
+            element.add(attribute); 
+            Document doc = new DefaultDocument(element);
+            
+            XPath xpath = new Dom4jXPath( "//namespace::node()" );
+
+            List results = xpath.selectNodes( doc );
+
+            assertEquals( 3,
+                          results.size() );
+
+        }
+        catch (Exception e)
+        {
+            fail( e.getMessage() );
+        }
+    }
+    
+    public void testNamespaceNodesAreInherited()
+    {
+        try
+        {
+            Namespace ns0 = Namespace.get("p0", "www.acme0.org");
+            Namespace ns1 = Namespace.get("p1", "www.acme1.org");
+            Namespace ns2 = Namespace.get("p2", "www.acme2.org");
+            Element element = new DefaultElement("test", ns1);
+            Attribute attribute = new DefaultAttribute("pre:foo", "bar", ns2);
+            element.add(attribute);
+            Element root = new DefaultElement("root", ns0);
+            root.add(element);
+            Document doc = new DefaultDocument(root);
+            
+            XPath xpath = new JDOMXPath( "/*/*/namespace::node()" );
+
+            List results = xpath.selectNodes( doc );
+
+            assertEquals( 4,
+                          results.size() );
+
+        }
+        catch (Exception e)
+        {
+            fail( e.getMessage() );
+        }
+    }
+    
 }
