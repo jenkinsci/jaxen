@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 398 $
- * $Date: 2005-01-19 05:20:53 -0800 (Wed, 19 Jan 2005) $
+ * $Revision: 433 $
+ * $Date: 2005-02-07 07:32:47 -0800 (Mon, 07 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 398 2005-01-19 13:20:53Z elharo $
+ * $Id: XPathTest.java 433 2005-02-07 15:32:47Z elharo $
  */
 
 
@@ -69,7 +69,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.util.Iterator;
 import java.util.List;
 
+import org.jaxen.FunctionCallException;
 import org.jaxen.XPath;
+import org.jaxen.XPathSyntaxException;
 import org.jaxen.saxpath.SAXPathException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -82,16 +84,6 @@ public class XPathTest extends TestCase
     public XPathTest(String name)
     {
         super( name );
-    }
-
-    public void setUp()
-    {
-
-    }
-
-    public void tearDown()
-    {
-
     }
 
     public void testConstruction()
@@ -143,4 +135,5 @@ public class XPathTest extends TestCase
             fail( e.getMessage() );
         }
     }
+     
 }
