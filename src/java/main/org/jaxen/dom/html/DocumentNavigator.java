@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 423 $
- * $Date: 2005-01-29 19:19:37 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 425 $
+ * $Date: 2005-02-01 10:11:19 -0800 (Tue, 01 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,10 +56,12 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 423 2005-01-30 03:19:37Z elharo $
+ * $Id: DocumentNavigator.java 425 2005-02-01 18:11:19Z elharo $
  */
 
 package org.jaxen.dom.html;
+
+import java.util.Locale;
 
 import org.jaxen.XPath;
 import org.jaxen.Navigator;
@@ -181,9 +183,9 @@ public class DocumentNavigator extends org.jaxen.dom.DocumentNavigator
       if (name != null && !isXMLNode(node))
       {
           if (toLowerCase)
-              name = name.toLowerCase();
+              name = name.toLowerCase(Locale.ENGLISH);
           else
-              name = name.toUpperCase();
+              name = name.toUpperCase(Locale.ENGLISH);
       }
       return name;
   }
