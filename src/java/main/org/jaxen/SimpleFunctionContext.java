@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 418 $
- * $Date: 2005-01-29 18:51:29 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 490 $
+ * $Date: 2005-03-23 05:13:20 -0800 (Wed, 23 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleFunctionContext.java 418 2005-01-30 02:51:29Z elharo $
+ * $Id: SimpleFunctionContext.java 490 2005-03-23 13:13:20Z elharo $
  */
 
 
@@ -97,7 +97,7 @@ public class SimpleFunctionContext implements FunctionContext
      *  <p>
      *  By registering a new function, any XPath expression
      *  that utilizes this <code>FunctionContext</code> may
-     *  refer-to and use the new function.
+     *  refer to and use the new function.
      *  </p>
      *
      *  <p>
@@ -114,7 +114,7 @@ public class SimpleFunctionContext implements FunctionContext
      *  </p>
      *
      *  @param namespaceURI the namespace URI of the function to
-     *         be registered with this context.
+     *         be registered with this context
      *  @param localName the non-prefixed local portion of the
      *         function to be registered with this context
      *  @param function a {@link Function} implementation object
@@ -135,10 +135,12 @@ public class SimpleFunctionContext implements FunctionContext
     {
         Object key = new QualifiedName( namespaceURI, localName );
 
-        if ( this.functions.containsKey(key) )
+        if ( this.functions.containsKey(key) ) {
             return (Function) this.functions.get( key );
-        else
+        }
+        else {
             throw new UnresolvableException( "Function " +
                                              prefix + ":" + localName );
+        }
     }
 }

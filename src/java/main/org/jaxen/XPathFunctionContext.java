@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 423 $
- * $Date: 2005-01-29 19:19:37 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 490 $
+ * $Date: 2005-03-23 05:13:20 -0800 (Wed, 23 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathFunctionContext.java 423 2005-01-30 03:19:37Z elharo $
+ * $Id: XPathFunctionContext.java 490 2005-03-23 13:13:20Z elharo $
  */
 
 
@@ -154,6 +154,7 @@ public class XPathFunctionContext extends SimpleFunctionContext
      */
     public XPathFunctionContext()
     {
+        // XXX could this be a HotSpot????
         registerFunction( null,  // namespace URI
                           "boolean",
                           new BooleanFunction() );
@@ -269,7 +270,7 @@ public class XPathFunctionContext extends SimpleFunctionContext
 
         // register extension functions
         // extension functions should go into a namespace, but which one?
-        // for now, keep them in default namespace to not to break any code
+        // for now, keep them in default namespace to not break any code
 
         registerFunction( null,  // namespace URI
                           "matrix-concat",
