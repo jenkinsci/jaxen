@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 374 $
- * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
+ * $Revision: 401 $
+ * $Date: 2005-01-19 06:31:23 -0800 (Wed, 19 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 374 2004-09-16 21:05:25Z bewins $
+ * $Id: XPathReader.java 401 2005-01-19 14:31:23Z elharo $
  */
 
 
@@ -207,8 +207,15 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
     void numberInteger() throws org.jaxen.saxpath.SAXPathException
     {
         Token token = match( INTEGER );
-            
-        getXPathHandler().number( Integer.parseInt( token.getTokenText() ) );
+        
+        String text = token.getTokenText();
+        try {
+            getXPathHandler().number( Integer.parseInt( text ) );
+        }
+        catch (NumberFormatException ex) {
+            getXPathHandler().number( Double.parseDouble( text ) );
+        }
+        
     }
 
     void literal() throws org.jaxen.saxpath.SAXPathException
