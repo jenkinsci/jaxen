@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 456 $
+ * $Date: 2005-02-09 06:30:00 -0800 (Wed, 09 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FunctionContext.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: FunctionContext.java 456 2005-02-09 14:30:00Z elharo $
  */
 
 
@@ -77,7 +77,7 @@ package org.jaxen;
 public interface FunctionContext
 {
     /** An implementation should return a <code>Function</code> implementation object
-     *  based on the namespace uri and local name of the function-call
+     *  based on the namespace URI and local name of the function-call
      *  expression.
      *
      *  <p>
@@ -87,14 +87,14 @@ public interface FunctionContext
      *  The prefix may otherwise be completely ignored.
      *  </p>
      *
-     *  @param namespaceURI  the namespace uri to which the prefix parameter
-     *                       is bound in the xpath expression. If the function
-     *                       call expression had no prefix, the namespace uri
+     *  @param namespaceURI  the namespace URI to which the prefix parameter
+     *                       is bound in the XPath expression. If the function
+     *                       call expression had no prefix, the namespace URI
      *                       is <code>null</code>.
      *  @param prefix        the prefix that was used in the function call
-     *                       expression.
-     *  @param localName     the local name of the function-call expression;
-     *                       if there is no prefix, then this is the whole
+     *                       expression
+     *  @param localName     the local name of the function-call expression.
+     *                       If there is no prefix, then this is the whole
      *                       name of the function.
      *
      *  @return  a Function implementation object.
