@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 485 $
- * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
+ * $Revision: 499 $
+ * $Date: 2005-03-28 16:22:18 -0800 (Mon, 28 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultLocationPath.java 485 2005-03-21 22:39:16Z elharo $
+ * $Id: DefaultLocationPath.java 499 2005-03-29 00:22:18Z elharo $
  */
 package org.jaxen.expr;
 
@@ -66,6 +66,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.jaxen.Context;
+import org.jaxen.ContextSupport;
 import org.jaxen.JaxenException;
 
 abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
@@ -139,13 +140,12 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
         List nodeSet = context.getNodeSet();
         List contextNodeSet = new ArrayList(nodeSet.size());
         contextNodeSet.addAll(nodeSet);
-
+        ContextSupport support = context.getContextSupport();
         Iterator stepIter = getSteps().iterator();
-        Step eachStep = null;
         while ( stepIter.hasNext() )
         {
-            eachStep = (Step) stepIter.next();
-            Context stepContext = new Context(context.getContextSupport());
+            Step eachStep = (Step) stepIter.next();
+            Context stepContext = new Context(support);
             stepContext.setNodeSet(contextNodeSet);
             // XXX the final evaluation of this line reshuffles the context node-set JAXEN-55
             contextNodeSet = eachStep.evaluate(stepContext);
