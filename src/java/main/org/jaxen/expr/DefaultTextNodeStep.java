@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 261 $
+ * $Revision: 270 $
 
- * $Date: 2002-05-02 09:09:06 -0700 (Thu, 02 May 2002) $
+ * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultTextNodeStep.java 261 2002-05-02 16:09:06Z emcgreal $
+ * $Id: DefaultTextNodeStep.java 270 2002-05-20 08:34:12Z jstrachan $
 
  */
 
@@ -173,10 +173,10 @@ public class DefaultTextNodeStep extends DefaultStep implements TextNodeStep
     {
 
         return getAxisName() + "::text()" + super.getText();
-	}
-	
+    }
+    
     public void accept(Visitor visitor)
-	{
+    {
         visitor.visit(this);
     }
 }

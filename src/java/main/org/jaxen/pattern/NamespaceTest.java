@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 253 $
- * $Date: 2002-04-26 10:17:37 -0700 (Fri, 26 Apr 2002) $
+ * $Revision: 270 $
+ * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceTest.java 253 2002-04-26 17:17:37Z jstrachan $
+ * $Id: NamespaceTest.java 270 2002-05-20 08:34:12Z jstrachan $
  */
 
 package org.jaxen.pattern;
@@ -67,7 +67,7 @@ import org.jaxen.Navigator;
 /** <p><code>NamespaceTest</code> tests for a given namespace URI.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 253 $
+  * @version $Revision: 270 $
   */
 public class NamespaceTest extends NodeTest {
     
@@ -109,7 +109,7 @@ public class NamespaceTest extends NodeTest {
     
     public double getPriority() 
     {
-    	return -0.25;
+        return -0.25;
     }
 
 

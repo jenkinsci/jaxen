@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 253 $
- * $Date: 2002-04-26 10:17:37 -0700 (Fri, 26 Apr 2002) $
+ * $Revision: 270 $
+ * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: TranslateFunction.java 253 2002-04-26 17:17:37Z jstrachan $
+ * $Id: TranslateFunction.java 270 2002-05-20 08:34:12Z jstrachan $
  */
 
 
@@ -88,7 +88,7 @@ public class TranslateFunction implements Function
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
-	if (args.size() == 3)
+    if (args.size() == 3)
         {
             return evaluate( args.get(0),
                              args.get(1),
@@ -107,43 +107,43 @@ public class TranslateFunction implements Function
         String inStr = StringFunction.evaluate( strArg, nav );
         String fromStr = StringFunction.evaluate( fromArg, nav );
         String toStr = StringFunction.evaluate( toArg, nav );
-	
-	// Initialize the mapping in a HashMap
-	Map charMap = new HashMap();
-	int fromLen = fromStr.length();
-	int toLen = toStr.length();
-	for ( int i = 0; i < fromLen; ++i ) {
-	    String cFrom = fromStr.substring( i, i+1 ).intern();
-	    if ( charMap.containsKey( cFrom ) ) {
-		// We've seen the character before, ignore
-		continue;
-	    }
-	    if ( i < toLen ) {
-		Character cTo = new Character( toStr.charAt( i ) );
-		// Will change
-		charMap.put( cFrom, cTo );
-	    } else {
-		// Will delete
-		charMap.put( cFrom, null );
-	    }
-	}
+    
+    // Initialize the mapping in a HashMap
+    Map charMap = new HashMap();
+    int fromLen = fromStr.length();
+    int toLen = toStr.length();
+    for ( int i = 0; i < fromLen; ++i ) {
+        String cFrom = fromStr.substring( i, i+1 ).intern();
+        if ( charMap.containsKey( cFrom ) ) {
+        // We've seen the character before, ignore
+        continue;
+        }
+        if ( i < toLen ) {
+        Character cTo = new Character( toStr.charAt( i ) );
+        // Will change
+        charMap.put( cFrom, cTo );
+        } else {
+        // Will delete
+        charMap.put( cFrom, null );
+        }
+    }
 
-	// Process the input string thru the map
-	StringBuffer outStr = new StringBuffer( inStr.length() );
-	int inLen = inStr.length();
-	for ( int i = 0; i < inLen; ++i ) {
-	    String cIn = inStr.substring( i, i+1 );
-	    if ( charMap.containsKey( cIn ) ) {
-		Character cTo = (Character) charMap.get( cIn );
-		if ( cTo != null ) {
-		    outStr.append( cTo.charValue() );
-		}
-	    } else {
-		outStr.append( cIn );
-	    }
-	}
+    // Process the input string thru the map
+    StringBuffer outStr = new StringBuffer( inStr.length() );
+    int inLen = inStr.length();
+    for ( int i = 0; i < inLen; ++i ) {
+        String cIn = inStr.substring( i, i+1 );
+        if ( charMap.containsKey( cIn ) ) {
+        Character cTo = (Character) charMap.get( cIn );
+        if ( cTo != null ) {
+            outStr.append( cTo.charValue() );
+        }
+        } else {
+        outStr.append( cIn );
+        }
+    }
 
-	return new String( outStr );
+    return new String( outStr );
     }
 }
 

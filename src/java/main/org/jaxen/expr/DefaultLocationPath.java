@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 265 $
+ * $Revision: 270 $
 
- * $Date: 2002-05-03 11:22:20 -0700 (Fri, 03 May 2002) $
+ * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  *
 
- * $Id: DefaultLocationPath.java 265 2002-05-03 18:22:20Z emcgreal $
+ * $Id: DefaultLocationPath.java 270 2002-05-20 08:34:12Z jstrachan $
 
  */
 
@@ -367,7 +367,7 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
                         }
                     }
                 }
-           		newNodeSet.addAll(eachStep.getPredicateSet().evaluatePredicates(
+                newNodeSet.addAll(eachStep.getPredicateSet().evaluatePredicates(
                                     interimSet,context.getContextSupport() ));
                 interimSet.clear();
             }

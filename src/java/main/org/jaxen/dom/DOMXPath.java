@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 253 $
- * $Date: 2002-04-26 10:17:37 -0700 (Fri, 26 Apr 2002) $
+ * $Revision: 270 $
+ * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DOMXPath.java 253 2002-04-26 17:17:37Z jstrachan $
+ * $Id: DOMXPath.java 270 2002-05-20 08:34:12Z jstrachan $
  */
 
 // XPath.java - top-level entry point for DOM XPath matching.
@@ -85,7 +85,7 @@ import org.jaxen.BaseXPath;
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
  * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  *
- * @version $Revision: 253 $
+ * @version $Revision: 270 $
  */
 public class DOMXPath extends BaseXPath
 {

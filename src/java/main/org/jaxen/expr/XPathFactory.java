@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 261 $
+ * $Revision: 270 $
 
- * $Date: 2002-05-02 09:09:06 -0700 (Thu, 02 May 2002) $
+ * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: XPathFactory.java 261 2002-05-02 16:09:06Z emcgreal $
+ * $Id: XPathFactory.java 270 2002-05-20 08:34:12Z jstrachan $
 
  */
 
@@ -255,6 +255,6 @@ public interface XPathFactory extends Operator
 
 
     Predicate createPredicate(Expr predicateExpr) throws JaxenException;
-	PredicateSet	createPredicateSet() throws JaxenException;
+    PredicateSet    createPredicateSet() throws JaxenException;
 }
 

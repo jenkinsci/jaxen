@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 262 $
+ * $Revision: 270 $
 
- * $Date: 2002-05-03 07:26:50 -0700 (Fri, 03 May 2002) $
+ * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultPathExpr.java 262 2002-05-03 14:26:50Z emcgreal $
+ * $Id: DefaultPathExpr.java 270 2002-05-20 08:34:12Z jstrachan $
 
  */
 
@@ -291,9 +291,9 @@ class DefaultPathExpr extends DefaultExpr implements PathExpr
         }
         return results;
     }
-	
-	public void accept(Visitor visitor)
-	{
+    
+    public void accept(Visitor visitor)
+    {
         visitor.visit(this);
     }
 }

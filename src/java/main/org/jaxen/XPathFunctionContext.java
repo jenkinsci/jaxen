@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 258 $
- * $Date: 2002-04-29 05:48:45 -0700 (Mon, 29 Apr 2002) $
+ * $Revision: 270 $
+ * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathFunctionContext.java 258 2002-04-29 12:48:45Z jstrachan $
+ * $Id: XPathFunctionContext.java 270 2002-05-20 08:34:12Z jstrachan $
  */
 
 

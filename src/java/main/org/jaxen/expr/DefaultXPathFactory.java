@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 261 $
+ * $Revision: 270 $
 
- * $Date: 2002-05-02 09:09:06 -0700 (Thu, 02 May 2002) $
+ * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultXPathFactory.java 261 2002-05-02 16:09:06Z emcgreal $
+ * $Id: DefaultXPathFactory.java 270 2002-05-20 08:34:12Z jstrachan $
 
  */
 
@@ -543,7 +543,7 @@ public class DefaultXPathFactory implements XPathFactory
                                     prefix,
 
                                     localName,
-									createPredicateSet());
+                                    createPredicateSet());
 
     }
 
@@ -603,7 +603,7 @@ public class DefaultXPathFactory implements XPathFactory
 
         return new DefaultProcessingInstructionNodeStep( iter,
                                                          piName,
-														 createPredicateSet() );
+                                                         createPredicateSet() );
 
     }
 
@@ -769,8 +769,8 @@ public class DefaultXPathFactory implements XPathFactory
 
     }
 
-	public PredicateSet	createPredicateSet() throws JaxenException{
-    	return new PredicateSet();
-	}
+    public PredicateSet createPredicateSet() throws JaxenException{
+        return new PredicateSet();
+    }
 }
 

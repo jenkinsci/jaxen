@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 259 $
+ * $Revision: 270 $
 
- * $Date: 2002-04-29 06:27:55 -0700 (Mon, 29 Apr 2002) $
+ * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultNotEqualsExpr.java 259 2002-04-29 13:27:55Z emcgreal $
+ * $Id: DefaultNotEqualsExpr.java 270 2002-05-20 08:34:12Z jstrachan $
 
  */
 
@@ -166,23 +166,23 @@ class DefaultNotEqualsExpr extends DefaultEqualityExpr
 
   
 
-	protected boolean evaluateObjectObject( Object lhs, Object rhs )
+    protected boolean evaluateObjectObject( Object lhs, Object rhs )
     {
-		if( eitherIsNumber( lhs, rhs ) )
-	    {
-	
-			if( NumberFunction.isNaN( (Double) lhs ) || NumberFunction.isNaN( (Double) rhs ) )
-	        {
-				return true;
-			}
-	
-		}
-	    return !lhs.equals( rhs );
-	}
+        if( eitherIsNumber( lhs, rhs ) )
+        {
+    
+            if( NumberFunction.isNaN( (Double) lhs ) || NumberFunction.isNaN( (Double) rhs ) )
+            {
+                return true;
+            }
+    
+        }
+        return !lhs.equals( rhs );
+    }
 
 
     public void accept(Visitor visitor)
-	{
+    {
         visitor.visit(this);
-    }	
+    }   
 }
