@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 519 $
+ * $Date: 2005-04-02 17:15:04 -0800 (Sat, 02 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultXPathExpr.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: DefaultXPathExpr.java 519 2005-04-03 01:15:04Z elharo $
  */
 
 
@@ -104,6 +104,9 @@ public class DefaultXPathExpr implements XPathExpr
 
     public List asList(Context context) throws JaxenException
     {
-        return DefaultExpr.convertToList( getRootExpr().evaluate( context ) );
+        Expr expr = getRootExpr();
+        Object value = expr.evaluate( context );
+        List result = DefaultExpr.convertToList( value );
+        return result;
     }
 }
