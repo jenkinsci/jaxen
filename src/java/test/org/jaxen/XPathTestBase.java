@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 295 $
- * $Date: 2002-11-13 06:56:13 -0800 (Wed, 13 Nov 2002) $
+ * $Revision: 317 $
+ * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,27 +56,25 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTestBase.java 295 2002-11-13 14:56:13Z szegedia $
+ * $Id: XPathTestBase.java 317 2003-06-29 17:55:51Z ssanders $
  */
 
 
 package org.jaxen;
 
-import org.jaxen.function.StringFunction;
-
 import junit.framework.TestCase;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Stack;
+
+import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
-import org.dom4j.Attribute;
 import org.dom4j.Namespace;
 import org.dom4j.io.SAXReader;
-
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Stack;
+import org.jaxen.function.StringFunction;
 
 public abstract class XPathTestBase extends TestCase
 {

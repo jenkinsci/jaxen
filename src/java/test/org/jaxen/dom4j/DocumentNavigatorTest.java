@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 303 $
- * $Date: 2002-12-04 10:29:27 -0800 (Wed, 04 Dec 2002) $
+ * $Revision: 317 $
+ * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,21 +56,19 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DocumentNavigatorTest.java 303 2002-12-04 18:29:27Z bob $
+ * $Id: DocumentNavigatorTest.java 317 2003-06-29 17:55:51Z ssanders $
  */
 
 
 package org.jaxen.dom4j;
 
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import junit.framework.Test;
+import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
+import org.dom4j.io.SAXReader;
 import org.jaxen.Navigator;
 import org.jaxen.XPathTestBase;
-
-import org.dom4j.io.SAXReader;
 
 public class DocumentNavigatorTest extends XPathTestBase
 {

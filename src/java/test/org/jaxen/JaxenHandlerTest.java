@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 317 $
+ * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,23 +56,20 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenHandlerTest.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: JaxenHandlerTest.java 317 2003-06-29 17:55:51Z ssanders $
  */
 
 
 
 package org.jaxen;
 
-import org.saxpath.XPathReader;
-import org.saxpath.XPathSyntaxException;
-import org.saxpath.helpers.XPathReaderFactory;
+import junit.framework.TestCase;
 
-import org.jaxen.JaxenHandler;
 import org.jaxen.expr.DefaultXPathFactory;
 import org.jaxen.expr.XPathExpr;
-
-
-import junit.framework.TestCase;
+import org.jaxen.saxpath.XPathReader;
+import org.jaxen.saxpath.XPathSyntaxException;
+import org.jaxen.saxpath.helpers.XPathReaderFactory;
 
 public class JaxenHandlerTest extends TestCase
 {

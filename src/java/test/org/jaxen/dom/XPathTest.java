@@ -1,11 +1,11 @@
 /*
  * $Header$
- * $Revision: 301 $
- * $Date: 2002-12-04 09:03:20 -0800 (Wed, 04 Dec 2002) $
+ * $Revision: 317 $
+ * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
- * Copyright (C) 2000-2002 bob mcwhirter & James Strachan.
+ * Copyright (C) 2000-2003 bob mcwhirter & James Strachan.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,27 +56,23 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 301 2002-12-04 17:03:20Z bob $
+ * $Id: XPathTest.java 317 2003-06-29 17:55:51Z ssanders $
  */
 
 
 package org.jaxen.dom;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import junit.framework.TestCase;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.util.Iterator;
+import java.util.List;
+
 import org.jaxen.XPath;
-
-import org.saxpath.SAXPathException;
-
+import org.jaxen.saxpath.SAXPathException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-
-import java.util.List;
-import java.util.Iterator;
 
 public class XPathTest extends TestCase
 {

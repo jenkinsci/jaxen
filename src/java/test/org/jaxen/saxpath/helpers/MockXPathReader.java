@@ -5,7 +5,7 @@
  *
  * ====================================================================
  *
- * Copyright (C) 2000-2002 bob mcwhirter & James Strachan.
+ * Copyright (C) 2000-2002 werken digital.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -20,26 +20,26 @@
  *    these conditions in the documentation and/or other materials 
  *    provided with the distribution.
  *
- * 3. The name "Jaxen" must not be used to endorse or promote products
+ * 3. The name "SAXPath" must not be used to endorse or promote products
  *    derived from this software without prior written permission.  For
- *    written permission, please contact license@jaxen.org.
+ *    written permission, please contact license@saxpath.org.
  * 
- * 4. Products derived from this software may not be called "Jaxen", nor
- *    may "Jaxen" appear in their name, without prior written permission
- *    from the Jaxen Project Management (pm@jaxen.org).
+ * 4. Products derived from this software may not be called "SAXPath", nor
+ *    may "SAXPath" appear in their name, without prior written permission
+ *    from the SAXPath Project Management (pm@saxpath.org).
  * 
  * In addition, we request (but do not require) that you include in the 
  * end-user documentation provided with the redistribution and/or in the 
  * software itself an acknowledgement equivalent to the following:
  *     "This product includes software developed by the
- *      Jaxen Project (http://www.jaxen.org/)."
+ *      SAXPath Project (http://www.saxpath.org/)."
  * Alternatively, the acknowledgment may be graphical using the logos 
- * available at http://www.jaxen.org/
+ * available at http://www.saxpath.org/
  *
  * THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
  * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED.  IN NO EVENT SHALL THE Jaxen AUTHORS OR THE PROJECT
+ * DISCLAIMED.  IN NO EVENT SHALL THE SAXPath AUTHORS OR THE PROJECT
  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
@@ -51,37 +51,37 @@
  *
  * ====================================================================
  * This software consists of voluntary contributions made by many 
- * individuals on behalf of the Jaxen Project and was originally 
+ * individuals on behalf of the SAXPath Project and was originally 
  * created by bob mcwhirter <bob@werken.com> and 
  * James Strachan <jstrachan@apache.org>.  For more information on the 
- * Jaxen Project, please see <http://www.jaxen.org/>.
+ * SAXPath Project, please see <http://www.saxpath.org/>.
  * 
- * $Id: DocumentNavigatorTest.java 317 2003-06-29 17:55:51Z ssanders $
+ * $Id: MockXPathReader.java 317 2003-06-29 17:55:51Z ssanders $
  */
 
 
-package org.jaxen.jdom;
+package org.jaxen.saxpath.helpers;
 
-import org.jaxen.Navigator;
-import org.jaxen.XPathTestBase;
-import org.jdom.input.SAXBuilder;
+import org.jaxen.saxpath.XPathHandler;
+import org.jaxen.saxpath.XPathReader;
 
-public class DocumentNavigatorTest extends XPathTestBase
+
+public class MockXPathReader implements XPathReader
 {
-    private SAXBuilder builder = new SAXBuilder();
-
-    public DocumentNavigatorTest(String name)
+    public MockXPathReader()
     {
-        super( name );
     }
 
-    public Navigator getNavigator()
+    public void parse(String xpath)
     {
-        return new DocumentNavigator();
     }
 
-    public Object getDocument(String url) throws Exception
+    public void setXPathHandler(XPathHandler handler)
     {
-        return this.builder.build( url );
+    }
+
+    public XPathHandler getXPathHandler()
+    {
+        return null;
     }
 }

@@ -1,11 +1,11 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 317 $
+ * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
- * Copyright (C) 2000-2002 bob mcwhirter & James Strachan.
+ * Copyright (C) 2000-2003 bob mcwhirter & James Strachan.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: AddNamespaceTest.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: AddNamespaceTest.java 317 2003-06-29 17:55:51Z ssanders $
  */
 
 
@@ -64,7 +64,7 @@ package org.jaxen;
 
 import junit.framework.TestCase;
 
-import org.saxpath.SAXPathException;
+import org.jaxen.saxpath.SAXPathException;
 
 public class AddNamespaceTest extends TestCase
 {
