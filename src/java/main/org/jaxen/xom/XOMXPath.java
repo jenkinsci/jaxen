@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 385 $
- * $Date: 2005-01-13 15:47:30 -0800 (Thu, 13 Jan 2005) $
+ * $Revision: 423 $
+ * $Date: 2005-01-29 19:19:37 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XOMXPath.java 385 2005-01-13 23:47:30Z elharo $
+ * $Id: XOMXPath.java 423 2005-01-30 03:19:37Z elharo $
  */
 
 
@@ -69,7 +69,7 @@ import org.jaxen.JaxenException;
  *
  * <p>This is the main entry point for matching an XPath against a DOM
  * tree.  You create a compiled XPath object, then match it against
- * one or more context nodes using the {@link #selectNodes}
+ * one or more context nodes using the {@link #selectNodes(Object)}
  * method, as in the following example:</p>
  *
  * <pre>
@@ -81,16 +81,16 @@ import org.jaxen.JaxenException;
  * @see BaseXPath
  * @see <a href="http://www.xom.nu/">The XOM website</a>
  *
- * @version $Revision: 385 $
+ * @version $Revision: 423 $
  */
 public class XOMXPath extends BaseXPath
 {
     /** Construct given an XPath expression string.
      *
-     *  @param xpathExpr The XPath expression.
+     *  @param xpathExpr the XPath expression.
      *
      *  @throws JaxenException if there is a syntax error while
-     *          parsing the expression.
+     *          parsing the expression
      */
     public XOMXPath(String xpathExpr) throws JaxenException
     {

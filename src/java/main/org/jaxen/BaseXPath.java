@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 409 $
- * $Date: 2005-01-27 12:46:02 -0800 (Thu, 27 Jan 2005) $
+ * $Revision: 423 $
+ * $Date: 2005-01-29 19:19:37 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 409 2005-01-27 20:46:02Z elharo $
+ * $Id: BaseXPath.java 423 2005-01-30 03:19:37Z elharo $
  */
 
 
@@ -83,7 +83,7 @@ import org.jaxen.util.SingletonList;
  *
  *  <p>
  *  If you want to adapt the Jaxen engine so that it can traverse your own
- *  object model then this is a good base class to derive from.
+ *  object model, then this is a good base class to derive from.
  *  Typically you only really need to provide your own 
  *  {@link org.jaxen.Navigator} implementation.
  *  </p>

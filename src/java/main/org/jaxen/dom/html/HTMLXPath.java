@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 322 $
- * $Date: 2003-06-29 17:02:19 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 423 $
+ * $Date: 2005-01-29 19:19:37 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: HTMLXPath.java 322 2003-06-30 00:02:19Z ssanders $
+ * $Id: HTMLXPath.java 423 2005-01-30 03:19:37Z elharo $
  */
 
 
@@ -82,7 +82,7 @@ import org.jaxen.BaseXPath;
  * case of attribute names are not modified.
  *
  * <p>You create a compiled XPath object, then match it against
- * one or more context nodes using the {@link #selectNodes}
+ * one or more context nodes using the {@link #selectNodes(Object)}
  * method, as in the following example:</p>
  *
  * <pre>
@@ -91,23 +91,23 @@ import org.jaxen.BaseXPath;
  * </pre>
  *
  * @see BaseXPath
- * @see DOMXPath
+ * @see org.jaxen.dom.DOMXPath
  *
  * @author David Peterson
  *
- * @version $Revision: 322 $
+ * @version $Revision: 423 $
  */
 public class HTMLXPath extends BaseXPath
 {
     /**
      * Construct given an XPath expression string.
      *
-     *  @param xpathExpr The XPath expression.
-     *  @param toLowerCase If true, all element names will be considered to
+     *  @param xpathExpr the XPath expression
+     *  @param toLowerCase if true, all element names will be considered to
      *         be lower case. Otherwise, they will be upper case.
      *
      *  @throws JaxenException if there is a syntax error while
-     *          parsing the expression.
+     *          parsing the expression
      */
     public HTMLXPath(String xpathExpr, boolean toLowerCase) throws JaxenException
     {
@@ -117,8 +117,9 @@ public class HTMLXPath extends BaseXPath
     /**
      * Constructs a new XPath, treating all elements as lower case.
      *
-     * @param xpathExpr
-     * @throws JaxenException
+     * @param xpathExpr the XPath expression
+     * @throws JaxenException if there is a syntax error while
+     *          parsing the expression
      */
     public HTMLXPath(String xpathExpr) throws JaxenException
     {

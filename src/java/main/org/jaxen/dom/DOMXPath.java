@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 423 $
+ * $Date: 2005-01-29 19:19:37 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DOMXPath.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: DOMXPath.java 423 2005-01-30 03:19:37Z elharo $
  */
 
 // XPath.java - top-level entry point for DOM XPath matching.
@@ -70,7 +70,7 @@ import org.jaxen.JaxenException;
  *
  * <p>This is the main entry point for matching an XPath against a DOM
  * tree.  You create a compiled XPath object, then match it against
- * one or more context nodes using the {@link #selectNodes}
+ * one or more context nodes using the {@link #selectNodes(Object)}
  * method, as in the following example:</p>
  *
  * <pre>
@@ -83,16 +83,16 @@ import org.jaxen.JaxenException;
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
  * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  *
- * @version $Revision: 318 $
+ * @version $Revision: 423 $
  */
 public class DOMXPath extends BaseXPath
 {
     /** Construct given an XPath expression string.
      *
-     *  @param xpathExpr The XPath expression.
+     *  @param xpathExpr the XPath expression
      *
      *  @throws JaxenException if there is a syntax error while
-     *          parsing the expression.
+     *          parsing the expression
      */
     public DOMXPath(String xpathExpr) throws JaxenException
     {

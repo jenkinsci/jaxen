@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 356 $
- * $Date: 2004-03-21 18:58:28 -0800 (Sun, 21 Mar 2004) $
+ * $Revision: 423 $
+ * $Date: 2005-01-29 19:19:37 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JavaBeanXPath.java 356 2004-03-22 02:58:28Z bob $
+ * $Id: JavaBeanXPath.java 423 2005-01-30 03:19:37Z elharo $
  */
 
 package org.jaxen.javabean;
@@ -70,11 +70,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-/** An XPath implementation for the JavaBeans.
+/** An XPath implementation for JavaBeans.
  *
  * <p>This is the main entry point for matching an XPath against a JavaBean
  * tree.  You create a compiled XPath object, then match it against
- * one or more context nodes using the {@link #selectNodes}
+ * one or more context nodes using the {@link #selectNodes(Object)}
  * method, as in the following example:</p>
  *
  * <pre>
@@ -87,7 +87,7 @@ import java.util.Iterator;
  *
  * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  *
- * @version $Revision: 356 $
+ * @version $Revision: 423 $
  */
 public class JavaBeanXPath extends BaseXPath
 {
@@ -96,7 +96,7 @@ public class JavaBeanXPath extends BaseXPath
      *  @param xpathExpr The XPath expression.
      *
      *  @throws JaxenException if there is a syntax error while
-     *          parsing the expression.
+     *          parsing the expression
      */
     public JavaBeanXPath(String xpathExpr) throws JaxenException
     {

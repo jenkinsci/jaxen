@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 422 $
- * $Date: 2005-01-29 19:16:43 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 423 $
+ * $Date: 2005-01-29 19:19:37 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 422 2005-01-30 03:16:43Z elharo $
+ * $Id: DocumentNavigator.java 423 2005-01-30 03:19:37Z elharo $
  */
 
 
@@ -331,7 +331,7 @@ public class DocumentNavigator extends org.jaxen.DefaultNavigator
 
     //
     
-    /** Wrapper for xom namespace nodes to give them a parent,
+    /** Wrapper for XOM namespace nodes to give them a parent,
      * as required by the XPath data model.
      *
      *  @author Erwin Bolwidt
@@ -349,7 +349,7 @@ public class DocumentNavigator extends org.jaxen.DefaultNavigator
             this.prefix = prefix;
         }
 
-        /** Returns the jdom element from which this namespace node has been 
+        /** Returns the XOM element from which this namespace node has been 
          *  retrieved. The result may be null when the namespace node has not yet
          *  been assigned to an element.
          */

@@ -1,5 +1,5 @@
 /*
- $Id: IterableAttributeAxis.java 329 2003-07-27 01:56:18Z bob $
+ $Id: IterableAttributeAxis.java 423 2005-01-30 03:19:37Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -103,8 +103,8 @@ public class IterableAttributeAxis extends IterableAxis {
     /**
      * Does this axis support named access?
      * 
-     * @param contextSupport  the additional context information
-     * @return true if named access supported. If not iterator() will be used
+     * @param support  the additional context information
+     * @return true if named access supported. If not iterator() will be used.
      */
     public boolean supportsNamedAccess(ContextSupport support) {
         return (support.getNavigator() instanceof NamedAccessNavigator);
