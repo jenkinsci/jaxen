@@ -1,11 +1,11 @@
 /*
  * $Header$
- * $Revision: 432 $
- * $Date: 2005-02-07 07:02:56 -0800 (Mon, 07 Feb 2005) $
+ * $Revision$
+ * $Date$
  *
  * ====================================================================
  *
- * Copyright (C) 2000-2002 bob mcwhirter & James Strachan.
+ * Copyright (C) 2005 bob mcwhirter & James Strachan.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,49 +56,40 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: CountFunction.java 432 2005-02-07 15:02:56Z elharo $
+ * $Id$
  */
+
 
 package org.jaxen.function;
 
-import java.util.List;
-
-import org.jaxen.Context;
-import org.jaxen.Function;
-import org.jaxen.FunctionCallException;
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 /**
- *  <p><b>4.1</b> <code><i>number</i> count(<i>node-set</i>)</code> 
- *  
- *  @author bob mcwhirter (bob @ werken.com)
+ * <p>
+ *   Suite for Jaxen's function tests.
+ * </p>
+ * 
+ * @author Elliotte Rusty Harold
+ * @version 1.1b4
+ *
  */
-public class CountFunction implements Function
-{
+public class FunctionTests extends TestCase {
 
-    public Object call(Context context,
-                       List args) throws FunctionCallException
-    {
-        if (args.size() == 1)
-        {
-            return evaluate( args.get(0) );
-        }
-
-        throw new FunctionCallException( "count() requires one argument." );
+    
+    public FunctionTests(String name) {
+        super(name);   
     }
 
-    public static Number evaluate(Object obj) throws FunctionCallException
-    {
-      if( obj == null )
-        {
-        return new Double( 0 );
-        }
-      
-        if (obj instanceof List)
-        {
-            return new Double( ((List)obj).size() );
-        }
-      
-        throw new FunctionCallException("Count function can only be used for node-sets");
+    
+    public static Test suite() {
+        
+        TestSuite result = new TestSuite();
+        result.addTest(new TestSuite(CountTest.class));
+        return result;
         
     }
+
+    
 }
