@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 387 $
+ * $Date: 2005-01-13 15:51:18 -0800 (Thu, 13 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultNavigator.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: DefaultNavigator.java 387 2005-01-13 23:51:18Z elharo $
  */
 
 
@@ -257,7 +257,7 @@ public abstract class DefaultNavigator implements Navigator
     }
 
     /**
-     *  Default implementation that can not find elements. Override in subclass
+     *  Default implementation that cannot find elements. Override in subclass
      *  if subclass does know about attribute types.
      *
      *  @param contextNode   a node from the document in which to look for the
@@ -266,7 +266,7 @@ public abstract class DefaultNavigator implements Navigator
      *
      *  @return   null
      */
-    public Object getElementById(Object object, String elementId)
+    public Object getElementById(Object contextNode, String elementId)
     {
         return null;
     }
