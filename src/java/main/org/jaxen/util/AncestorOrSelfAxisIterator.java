@@ -2,8 +2,8 @@ package org.jaxen.util;
 
 /*
  * $Header$
- * $Revision: 498 $
- * $Date: 2005-03-28 16:08:17 -0800 (Mon, 28 Mar 2005) $
+ * $Revision: 510 $
+ * $Date: 2005-03-31 18:10:57 -0800 (Thu, 31 Mar 2005) $
  *
  * ====================================================================
  *
@@ -58,12 +58,11 @@ package org.jaxen.util;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: AncestorOrSelfAxisIterator.java 498 2005-03-29 00:08:17Z elharo $
+ * $Id: AncestorOrSelfAxisIterator.java 510 2005-04-01 02:10:57Z elharo $
 */
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Stack;
 
 import org.jaxen.Navigator;
 import org.jaxen.UnsupportedAxisException;
@@ -71,35 +70,36 @@ import org.jaxen.JaxenRuntimeException;
 
 public class AncestorOrSelfAxisIterator implements Iterator
 {
-    private Stack ancestors = new Stack();
+    private Object contextNode;
+    private Navigator navigator;
 
     public AncestorOrSelfAxisIterator(Object contextNode,
-                                      Navigator navigator) 
+                                      Navigator navigator)
     {
-        
-        try {
-            while (contextNode != null) { 
-               ancestors.push(contextNode);
-               contextNode = navigator.getParentNode(contextNode);
-            }
-        }
-        catch (UnsupportedAxisException ex) {
-            throw new JaxenRuntimeException(ex);
-        }
-        
+        this.contextNode = contextNode;
+        this.navigator = navigator;
     }
 
     public boolean hasNext()
     {
-        return ! ancestors.isEmpty();
+        return contextNode != null;
     }
 
     public Object next()
     {
+        try
+        {
             if (hasNext()) {
-                return ancestors.pop();
+                Object result = contextNode;
+                contextNode = navigator.getParentNode(contextNode);
+                return result;
             }
             throw new NoSuchElementException();
+        }
+        catch (UnsupportedAxisException e)
+        {
+            throw new JaxenRuntimeException(e);
+        }
     }
 
     public void remove()

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 507 $
- * $Date: 2005-03-28 23:44:05 -0800 (Mon, 28 Mar 2005) $
+ * $Revision: 510 $
+ * $Date: 2005-03-31 18:10:57 -0800 (Thu, 31 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,11 +56,12 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultLocationPath.java 507 2005-03-29 07:44:05Z elharo $
+ * $Id: DefaultLocationPath.java 510 2005-04-01 02:10:57Z elharo $
  */
 package org.jaxen.expr;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -147,8 +148,16 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
         {
             Step eachStep = (Step) stepIter.next();
             stepContext.setNodeSet(contextNodeSet);
-            // XXX the final evaluation of this line reshuffles the context node-set JAXEN-55
             contextNodeSet = eachStep.evaluate(stepContext);
+            // now we need to reverse the list if this is a reverse axis
+            // ???? should create an isReverseAxis method in Steo to handle this
+            int axis = eachStep.getAxis();
+            if (axis == org.jaxen.saxpath.Axis.PRECEDING
+              || axis == org.jaxen.saxpath.Axis.PRECEDING_SIBLING
+              || axis == org.jaxen.saxpath.Axis.ANCESTOR
+              || axis == org.jaxen.saxpath.Axis.ANCESTOR_OR_SELF) {
+                Collections.reverse(contextNodeSet);
+            }
         }
         return contextNodeSet;
     }
