@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 295 $
- * $Date: 2002-11-13 06:56:13 -0800 (Wed, 13 Nov 2002) $
+ * $Revision: 296 $
+ * $Date: 2002-11-18 00:50:27 -0800 (Mon, 18 Nov 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultExpr.java 295 2002-11-13 14:56:13Z szegedia $
+ * $Id: DefaultExpr.java 296 2002-11-18 08:50:27Z szegedia $
  */
 
 
@@ -65,8 +65,8 @@ package org.jaxen.expr;
 
 import org.jaxen.Context;
 import org.jaxen.util.SingleObjectIterator;
+import org.jaxen.util.SingletonList;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -100,6 +100,6 @@ public abstract class DefaultExpr implements Expr
             return (List) obj;
         }
 
-        return Collections.singletonList(obj);
+        return new SingletonList(obj);
     }
 }

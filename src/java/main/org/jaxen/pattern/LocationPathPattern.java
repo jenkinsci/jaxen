@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 295 $
- * $Date: 2002-11-13 06:56:13 -0800 (Wed, 13 Nov 2002) $
+ * $Revision: 296 $
+ * $Date: 2002-11-18 00:50:27 -0800 (Mon, 18 Nov 2002) $
  *
  * ====================================================================
  *
@@ -56,13 +56,12 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LocationPathPattern.java 295 2002-11-13 14:56:13Z szegedia $
+ * $Id: LocationPathPattern.java 296 2002-11-18 08:50:27Z szegedia $
  */
 
 package org.jaxen.pattern;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +70,7 @@ import org.jaxen.Context;
 import org.jaxen.JaxenException;
 import org.jaxen.Navigator;
 import org.jaxen.expr.FilterExpr;
+import org.jaxen.util.SingletonList;
 
 /** <p><code>LocationPathPattern</code> matches any node using a
   * location path such as A/B/C.
@@ -78,7 +78,7 @@ import org.jaxen.expr.FilterExpr;
   * chain location path patterns together</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 295 $
+  * @version $Revision: 296 $
   */
 public class LocationPathPattern extends Pattern {
 
@@ -227,7 +227,7 @@ public class LocationPathPattern extends Pattern {
         
         if (filters != null) 
         {
-            List list = Collections.singletonList(node);
+            List list = new SingletonList(node);
 
             context.setNodeSet( list );
             

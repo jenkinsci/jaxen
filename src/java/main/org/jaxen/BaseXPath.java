@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 295 $
- * $Date: 2002-11-13 06:56:13 -0800 (Wed, 13 Nov 2002) $
+ * $Revision: 296 $
+ * $Date: 2002-11-18 00:50:27 -0800 (Mon, 18 Nov 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 295 2002-11-13 14:56:13Z szegedia $
+ * $Id: BaseXPath.java 296 2002-11-18 08:50:27Z szegedia $
  */
 
 
@@ -67,6 +67,7 @@ import org.jaxen.expr.XPathExpr;
 import org.jaxen.function.BooleanFunction;
 import org.jaxen.function.StringFunction;
 import org.jaxen.function.NumberFunction;
+import org.jaxen.util.SingletonList;
 
 import org.saxpath.XPathReader;
 import org.saxpath.SAXPathException;
@@ -74,7 +75,6 @@ import org.saxpath.helpers.XPathReaderFactory;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /** Base functionality for all concrete, implementation-specific XPaths.
@@ -618,7 +618,7 @@ public class BaseXPath implements XPath, Serializable
         }
         else
         {
-            List list = Collections.singletonList(node);
+            List list = new SingletonList(node);
 
             fullContext.setNodeSet( list );
         }
