@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 465 $
- * $Date: 2005-02-19 08:07:46 -0800 (Sat, 19 Feb 2005) $
+ * $Revision: 522 $
+ * $Date: 2005-04-02 17:17:31 -0800 (Sat, 02 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 465 2005-02-19 16:07:46Z elharo $
+ * $Id: XPathTest.java 522 2005-04-03 01:17:31Z elharo $
  */
 
 
@@ -79,7 +79,6 @@ import org.dom4j.tree.DefaultAttribute;
 import org.dom4j.tree.DefaultDocument;
 import org.dom4j.tree.DefaultElement;
 import org.jaxen.XPath;
-import org.jaxen.jdom.JDOMXPath;
 import org.jaxen.saxpath.SAXPathException;
 import org.jaxen.saxpath.helpers.XPathReaderFactory;
 
@@ -109,11 +108,6 @@ public class XPathTest extends TestCase
                             "" );
     }
 
-    public void tearDown()
-    {
-
-    }
-
     public void testConstruction()
     {
         try
@@ -131,27 +125,17 @@ public class XPathTest extends TestCase
         try
         {
             XPath xpath = new Dom4jXPath( "/foo/bar/baz" );
-
             SAXReader reader = new SAXReader();
-
             Document doc = reader.read( BASIC_XML );
-
             List results = xpath.selectNodes( doc );
-
-            assertEquals( 3,
-                          results.size() );
-
+            assertEquals( 3, results.size() );
             Iterator iter = results.iterator();
-
             assertEquals( "baz",
                           ((Element)iter.next()).getName() );
-
             assertEquals( "baz",
                           ((Element)iter.next()).getName() );
-
             assertEquals( "baz",
                           ((Element)iter.next()).getName() );
-
             assertTrue( ! iter.hasNext() );
 
         }
@@ -166,21 +150,13 @@ public class XPathTest extends TestCase
         try
         {
             XPath xpath = new Dom4jXPath( "/root/a = 'a'" );
-
             SAXReader reader = new SAXReader();
-
             Document doc = reader.read( "xml/simple.xml" );
-
             boolean answer = xpath.booleanValueOf( doc );
-
             assertTrue( "Xpath worked: " + xpath, answer );
-
             xpath = new Dom4jXPath( "'a' = 'b'" );
-            
             answer = xpath.booleanValueOf( doc );
-
             assertTrue( "XPath should return false: " + xpath, ! answer );
-
         }
         catch (Exception e)
         {
@@ -200,11 +176,8 @@ public class XPathTest extends TestCase
             Document doc = new DefaultDocument(element);
             
             XPath xpath = new Dom4jXPath( "//namespace::node()" );
-
             List results = xpath.selectNodes( doc );
-
-            assertEquals( 3,
-                          results.size() );
+            assertEquals( 3, results.size() );
 
         }
         catch (Exception e)
