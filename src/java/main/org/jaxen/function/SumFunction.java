@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 443 $
+ * $Date: 2005-02-07 17:32:20 -0800 (Mon, 07 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SumFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: SumFunction.java 443 2005-02-08 01:32:20Z elharo $
  */
 
 
@@ -92,7 +92,7 @@ public class SumFunction implements Function
     }
 
     public static Double evaluate(Object obj,
-                                  Navigator nav)
+                                  Navigator nav) throws FunctionCallException
     {
         double sum  = 0;
         double term = 0;
@@ -111,8 +111,7 @@ public class SumFunction implements Function
         }
         else
         {
-            sum += NumberFunction.evaluate( obj,
-                                            nav ).doubleValue();
+            throw new FunctionCallException("The argument to the sum function must be a node-set");
         }
 
         return new Double(sum);
