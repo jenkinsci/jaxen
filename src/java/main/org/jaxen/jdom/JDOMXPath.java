@@ -3,8 +3,9 @@ package org.jaxen.jdom;
 
 import org.jaxen.JaxenException;
 
-import org.jaxen.Navigator;
 import org.jaxen.BaseXPath;
+import org.jaxen.Navigator;
+import org.jaxen.XPath;
 
 /** An XPath implementation for the JDOM model
  *
@@ -14,18 +15,20 @@ import org.jaxen.BaseXPath;
  * method, as in the following example:</p>
  *
  * <pre>
- * XPath path = new XPath("a/b/c");
- * List results = path.selectNodes(domContextNode);
+ * Object jdomNode = ...; // Document, Element etc.
+ * XPath path = new JDOMXPath("a/b/c");
+ * List results = path.selectNodes(jdomNode);
  * </pre>
  *
  * @see BaseXPath
  * @see <a href="http://jdom.org/">The JDOM website</a>
  *
  * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
+ * @author <a href="mailto:jstachan@apache.org">James Strachan</a>
  *
- * @version $Revision: 215 $
+ * @version $Revision: 228 $
  */
-public class XPath extends BaseXPath
+public class JDOMXPath extends BaseXPath
 {
     /** Construct given an XPath expression string.
      *
@@ -34,7 +37,7 @@ public class XPath extends BaseXPath
      *  @throws JaxenException if there is a syntax error while
      *          parsing the expression.
      */
-    public XPath(String xpathExpr) throws JaxenException
+    public JDOMXPath(String xpathExpr) throws JaxenException
     {
         super( xpathExpr, DocumentNavigator.getInstance() );
     }
