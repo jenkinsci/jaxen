@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 311 $
+ * $Date: 2003-06-09 11:33:32 -0700 (Mon, 09 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FunctionCallException.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: FunctionCallException.java 311 2003-06-09 18:33:32Z proyal $
  */
 
 
@@ -93,7 +93,7 @@ public class FunctionCallException extends JaxenException
     }
 
     public void printStackTrace( PrintStream s ) {
-        super.printStackTrace();
+        super.printStackTrace( s );
         if ( nestedException != null ) 
         {
             s.println( "Root cause:" );
@@ -102,7 +102,7 @@ public class FunctionCallException extends JaxenException
     }
     
     public void printStackTrace( PrintWriter w ) {
-        super.printStackTrace();
+        super.printStackTrace( w );
         if ( nestedException != null ) 
         {
             w.println( "Root cause:" );
