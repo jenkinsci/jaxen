@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 270 $
+ * $Revision: 297 $
 
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Date: 2002-11-18 02:23:50 -0800 (Mon, 18 Nov 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultFilterExpr.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: DefaultFilterExpr.java 297 2002-11-18 10:23:50Z szegedia $
 
  */
 
@@ -304,9 +304,11 @@ public class DefaultFilterExpr extends DefaultExpr implements FilterExpr, Predic
 
         {
 
-            ArrayList list = new ArrayList(1);
+            List nodeSet = context.getNodeSet();
 
-            list.addAll( context.getNodeSet() );
+            ArrayList list = new ArrayList(nodeSet.size());
+
+            list.addAll( nodeSet );
 
             results = list;
 
