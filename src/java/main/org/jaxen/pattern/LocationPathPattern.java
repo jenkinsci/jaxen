@@ -4,7 +4,7 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: LocationPathPattern.java 95 2001-08-10 17:54:22Z jstrachan $
+ * $Id: LocationPathPattern.java 100 2001-08-16 21:52:16Z jstrachan $
  */
 
 package org.jaxen.pattern;
@@ -25,7 +25,7 @@ import org.jaxen.expr.FilterExpr;
   * chain location path patterns together</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 95 $
+  * @version $Revision: 100 $
   */
 public class LocationPathPattern extends Pattern {
 
@@ -186,7 +186,11 @@ public class LocationPathPattern extends Pattern {
     
     public double getPriority() 
     {
-        return 0.0;
+        if ( filters != null ) 
+        {
+            return 0.5;
+        }
+        return nodeTest.getPriority();
     }
 
 
