@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 301 $
+ * $Date: 2002-12-04 09:03:20 -0800 (Wed, 04 Dec 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: XPathTest.java 301 2002-12-04 17:03:20Z bob $
  */
 
 
@@ -143,6 +143,7 @@ public class XPathTest extends TestCase
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             fail( e.getMessage() );
         }
     }
