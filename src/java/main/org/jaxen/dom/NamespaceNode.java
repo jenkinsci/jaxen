@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 492 $
- * $Date: 2005-03-25 06:07:48 -0800 (Fri, 25 Mar 2005) $
+ * $Revision: 558 $
+ * $Date: 2005-04-06 02:19:15 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceNode.java 492 2005-03-25 14:07:48Z elharo $
+ * $Id: NamespaceNode.java 558 2005-04-06 09:19:15Z elharo $
  */
 
 ////////////////////////////////////////////////////////////////////
@@ -74,7 +74,7 @@ import org.w3c.dom.NodeList;
 
 
 /**
- * Extension DOM2 node type for a Namespace Declaration.
+ * Extension DOM2 node type for a namespace declaration.
  *
  * <p>This class implements the DOM2 {@link Node} interface to
  * allow Namespace declarations to be included in the result
@@ -135,9 +135,9 @@ public class NamespaceNode implements Node
     /**
      * Constructor.
      *
-     * @param parent the DOM node to which the Namespace is attached
+     * @param parent the DOM node to which the namespace is attached
      * @param name the namespace prefix
-     * @param value the Namespace URI
+     * @param value the namespace URI
      */
     public NamespaceNode (Node parent, String name, String value)
     {
@@ -150,7 +150,7 @@ public class NamespaceNode implements Node
     /**
      * Constructor.
      *
-     * @param parent the DOM node to which the Namespace is attached
+     * @param parent the DOM node to which the namespace is attached
      * @param attribute the DOM attribute object containing the
      *        namespace declaration
      */
@@ -176,9 +176,9 @@ public class NamespaceNode implements Node
 
 
     /**
-     * Get the Namespace prefix.
+     * Get the namespace prefix.
      *
-     * @return the Namespace prefix, or "" for the default Namespace.
+     * @return the namespace prefix, or "" for the default namespace
      */
     public String getNodeName ()
     {
@@ -187,7 +187,7 @@ public class NamespaceNode implements Node
 
 
     /**
-     * Get the Namespace URI.
+     * Get the namespace URI.
      *
      * @return the Namespace URI
      */
@@ -433,7 +433,7 @@ public class NamespaceNode implements Node
 
 
     /**
-     * Get the Namespace prefix for this node.
+     * Get the namespace prefix for this node.
      *
      * <p>Namespace declarations are not themselves
      * Namespace-qualified.</p>
