@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 468 $
+ * $Date: 2005-02-23 04:35:00 -0800 (Wed, 23 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenHandler.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: JaxenHandler.java 468 2005-02-23 12:35:00Z elharo $
  */
 
 
@@ -104,7 +104,7 @@ public class JaxenHandler implements XPathHandler
     /** Set the Jaxen <code>XPathFactory</code> to use
      *  during the parse to construct the XPath expression tree.
      *
-     *  @param xpathFactory The factory to use during the parse.
+     *  @param xpathFactory the factory to use during the parse
      */
     public void setXPathFactory(XPathFactory xpathFactory)
     {
@@ -114,7 +114,7 @@ public class JaxenHandler implements XPathHandler
     /** Retrieve the Jaxen <code>XPathFactory</code> used
      *  during the parse to construct the XPath expression tree.
      *
-     *  @return The <code>XPathFactory</code> used during the parse.
+     *  @return the <code>XPathFactory</code> used during the parse.
      */
     public XPathFactory getXPathFactory()
     {
@@ -128,7 +128,7 @@ public class JaxenHandler implements XPathHandler
      *  successfully returned.
      *  </p>
      *
-     *  @return The XPath expression tree.
+     *  @return the XPath expression tree
      */
     public XPathExpr getXPathExpr()
     {
@@ -143,13 +143,13 @@ public class JaxenHandler implements XPathHandler
      *  successfully returned.
      *  </p>
      *
-     *  @return The XPath expression tree.
+     *  @return the XPath expression tree
      */
     public XPathExpr getXPathExpr(boolean shouldSimplify)
     {
         if ( shouldSimplify && ! this.simplified )
         {
-            //System.err.println("simplifyin....");
+            //System.err.println("simplifying....");
             this.xpath.simplify();
             this.simplified = true;
         }
@@ -191,7 +191,7 @@ public class JaxenHandler implements XPathHandler
         // FilterExpr and a LocationPath (of some flavor).
         //
         // If the current stack-frame has one item, it's simply
-        // a FilterExpr, and more than like boils down to a
+        // a FilterExpr, and more than likely boils down to a
         // primary expr of some flavor.  But that's for another
         // method...
 
@@ -566,11 +566,9 @@ public class JaxenHandler implements XPathHandler
 
     public void endUnionExpr(boolean create) throws JaxenException
     {
-        //System.err.println("endUnionExpr()");
 
         if ( create )
         {
-            //System.err.println("makeUnionExpr");
 
             Expr rhs = (Expr) pop();
             Expr lhs = (Expr) pop();
