@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 368 $
- * $Date: 2004-07-05 13:22:46 -0700 (Mon, 05 Jul 2004) $
+ * $Revision: 397 $
+ * $Date: 2005-01-19 05:11:03 -0800 (Wed, 19 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 368 2004-07-05 20:22:46Z proyal $
+ * $Id: XPathTest.java 397 2005-01-19 13:11:03Z elharo $
  */
 
 
@@ -112,7 +112,7 @@ public class XPathTest extends TestCase
     {
         try
         {
-            XPath xpath = new Dom4jXPath( "/foo/bar/baz" );
+            new Dom4jXPath( "/foo/bar/baz" );
         }
         catch (SAXPathException e)
         {
