@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 533 $
- * $Date: 2005-04-03 20:46:08 -0700 (Sun, 03 Apr 2005) $
+ * $Revision: 557 $
+ * $Date: 2005-04-06 02:13:58 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,15 +56,15 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FollowingSiblingAxisIterator.java 533 2005-04-04 03:46:08Z elharo $
+ * $Id: FollowingSiblingAxisIterator.java 557 2005-04-06 09:13:58Z elharo $
  */
 
 
 
 package org.jaxen.util;
 
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 import org.jaxen.Navigator;
@@ -101,8 +101,7 @@ public class FollowingSiblingAxisIterator implements Iterator
             }
         }
         else {
-            // ???? make an EmptyIterator class
-            siblingIter = (new LinkedList()).iterator();
+            siblingIter = Collections.EMPTY_LIST.iterator();
         }
 
     }
