@@ -28,7 +28,7 @@ import java.util.Iterator;
  *
  * @author bob mcwhirter (bob @ werken.com)
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
- * @version $Revision: 110 $
+ * @version $Revision: 111 $
  */
 public class DocumentNavigator extends DefaultNavigator
 {
@@ -293,10 +293,7 @@ public class DocumentNavigator extends DefaultNavigator
     {
         try
         {
-            System.out.println( "Parsing: " + uri );           
-            Document document = reader.read( uri );
-            System.out.println( "Found: " + document );
-            return document;
+            return reader.read( uri );
         }
         catch (DocumentException e)
         {
