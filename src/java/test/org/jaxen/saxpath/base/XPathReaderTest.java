@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 410 $
- * $Date: 2005-01-28 11:35:33 -0800 (Fri, 28 Jan 2005) $
+ * $Revision: 411 $
+ * $Date: 2005-01-28 11:59:03 -0800 (Fri, 28 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 410 2005-01-28 19:35:33Z elharo $
+ * $Id: XPathReaderTest.java 411 2005-01-28 19:59:03Z elharo $
  */
 
 
@@ -90,7 +90,7 @@ public class XPathReaderTest extends TestCase
         new String[]{"*:foo", "Unexpected ':'"},
         new String[]{"/foo/bar[baz", "Expected: ]"},
         new String[]{"/cracker/cheese[(mold > 1) and (sense/taste", "Expected: )"},
-        new String[]{"//", "Expected axis specifier )"}
+        new String[]{"//", "Location path cannot end with //"}
     };
 
     public XPathReaderTest( String name )
