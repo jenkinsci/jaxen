@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 357 $
+ * $Date: 2004-04-08 02:49:53 -0700 (Thu, 08 Apr 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NormalizeSpaceFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: NormalizeSpaceFunction.java 357 2004-04-08 09:49:53Z cnentwich $
  */
 
 
@@ -98,7 +98,10 @@ public class NormalizeSpaceFunction implements Function
 
         if ( str.length() <= 1 )
         {
-            return str;
+            if (Character.isWhitespace(str.charAt(0)))
+            	return "";
+            else
+            	return str;
         }
 
         StringBuffer buffer = new StringBuffer();

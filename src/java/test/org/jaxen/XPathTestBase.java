@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 317 $
- * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 357 $
+ * $Date: 2004-04-08 02:49:53 -0700 (Thu, 08 Apr 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTestBase.java 317 2003-06-29 17:55:51Z ssanders $
+ * $Id: XPathTestBase.java 357 2004-04-08 09:49:53Z cnentwich $
  */
 
 
@@ -255,6 +255,7 @@ public abstract class XPathTestBase extends TestCase
         this.executionContext.push( xpathStr );
 
         String count = test.attributeValue( "count" );
+		String exception = test.attributeValue( "exception" );
 
         BaseXPath xpath = new BaseXPath( xpathStr );
 
@@ -295,7 +296,15 @@ public abstract class XPathTestBase extends TestCase
                 log ( debug,
                       "      ## SKIPPED -- Unsupported Axis" );
             }
-        }
+            catch (JaxenException e) {
+            	// If an exception attribute was switched on, this is the desired behaviour..
+            	
+            	if (exception !=null && (exception.equals("on") || exception.equals("true"))) {
+            		log (debug, "    Caught expected exception "+e.getMessage());
+            	} else
+            		throw e;
+            }
+        }      
 
         Iterator valueOfIter = test.elementIterator( "valueOf" );
 

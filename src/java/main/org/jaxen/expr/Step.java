@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 357 $
+ * $Date: 2004-04-08 02:49:53 -0700 (Thu, 08 Apr 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Step.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: Step.java 357 2004-04-08 09:49:53Z cnentwich $
  */
 
 package org.jaxen.expr;
@@ -87,7 +87,7 @@ public interface Step extends Predicated, Visitable
      * (which must be on the axis).
      */    
     boolean matches(Object node,
-                    ContextSupport contextSupport);
+                    ContextSupport contextSupport) throws JaxenException;
 
     String getText();
 
