@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 253 $
- * $Date: 2002-04-26 10:17:37 -0700 (Fri, 26 Apr 2002) $
+ * $Revision: 258 $
+ * $Date: 2002-04-29 05:48:45 -0700 (Mon, 29 Apr 2002) $
  *
  * ====================================================================
  *
@@ -56,19 +56,25 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DocumentFunction.java 253 2002-04-26 17:17:37Z jstrachan $
+ * $Id: DocumentFunction.java 258 2002-04-29 12:48:45Z jstrachan $
  */
 
 
-package org.jaxen.function;
+package org.jaxen.function.xslt;
 
 import org.jaxen.Context;
 import org.jaxen.Function;
 import org.jaxen.Navigator;
 import org.jaxen.FunctionCallException;
+import org.jaxen.function.StringFunction;
 
 import java.util.List;
 
+/**
+ * Implements the XSLT document() function
+ *
+ *  @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
+ */
 public class DocumentFunction implements Function
 {
 
