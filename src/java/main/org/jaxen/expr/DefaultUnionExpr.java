@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 318 $
+ * $Revision: 436 $
 
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Date: 2005-02-07 16:23:58 -0800 (Mon, 07 Feb 2005) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultUnionExpr.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: DefaultUnionExpr.java 436 2005-02-08 00:23:58Z elharo $
 
  */
 
@@ -136,6 +136,7 @@ import java.util.Set;
 
 import org.jaxen.Context;
 import org.jaxen.JaxenException;
+import org.jaxen.XPathSyntaxException;
 
 
 
@@ -184,10 +185,11 @@ public class DefaultUnionExpr extends DefaultBinaryExpr implements UnionExpr
         List results = new ArrayList();
 
 
+        // FIXME do not allow unions with non-node-sets 
+        try {
+        List lhsResults = (List) getLHS().evaluate( context );
 
-        List lhsResults = convertToList( getLHS().evaluate( context ) );
-
-        List rhsResults = convertToList( getRHS().evaluate( context ) );
+        List rhsResults = (List) getRHS().evaluate( context );
 
 
 
@@ -230,6 +232,10 @@ public class DefaultUnionExpr extends DefaultBinaryExpr implements UnionExpr
 
 
         return results;
+        }
+        catch (ClassCastException e) {
+            throw new XPathSyntaxException(this.getText(), context.getPosition(), "Unions are only allowed over node-sets");
+        }
 
     }
 
