@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 350 $
- * $Date: 2004-02-10 17:37:03 -0800 (Tue, 10 Feb 2004) $
+ * $Revision: 505 $
+ * $Date: 2005-03-28 17:12:20 -0800 (Mon, 28 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultFunctionCallExpr.java 350 2004-02-11 01:37:03Z ssanders $
+ * $Id: DefaultFunctionCallExpr.java 505 2005-03-29 01:12:20Z elharo $
  */
 
 package org.jaxen.expr;
@@ -120,10 +120,9 @@ public class DefaultFunctionCallExpr extends DefaultExpr implements FunctionCall
         buf.append("(");
 
         Iterator paramIter = getParameters().iterator();
-        Expr eachParam = null;
 
         while (paramIter.hasNext()) {
-            eachParam = (Expr) paramIter.next();
+            Expr eachParam = (Expr) paramIter.next();
 
             buf.append(eachParam.getText());
 
@@ -142,13 +141,12 @@ public class DefaultFunctionCallExpr extends DefaultExpr implements FunctionCall
     {
         List paramExprs = getParameters();
         int paramSize = paramExprs.size();
-        Expr eachParam = null;
 
         List newParams = new ArrayList(paramSize);
 
         for (int i = 0; i < paramSize; ++i)
         {
-            eachParam = (Expr) paramExprs.get(i);
+            Expr eachParam = (Expr) paramExprs.get(i);
 
             newParams.add(eachParam.simplify());
         }
@@ -190,14 +188,12 @@ public class DefaultFunctionCallExpr extends DefaultExpr implements FunctionCall
         int paramSize = paramExprs.size();
 
         List paramValues = new ArrayList(paramSize);
-        Expr eachParam = null;
-        Object eachValue = null;
 
         for (int i = 0; i < paramSize; ++i)
         {
-            eachParam = (Expr) paramExprs.get(i);
+            Expr eachParam = (Expr) paramExprs.get(i);
 
-            eachValue = eachParam.evaluate(context);
+            Object eachValue = eachParam.evaluate(context);
 
             paramValues.add(eachValue);
         }
