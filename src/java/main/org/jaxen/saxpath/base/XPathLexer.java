@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 444 $
- * $Date: 2005-02-08 08:36:36 -0800 (Tue, 08 Feb 2005) $
+ * $Revision: 488 $
+ * $Date: 2005-03-23 05:11:18 -0800 (Wed, 23 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexer.java 444 2005-02-08 16:36:36Z elharo $
+ * $Id: XPathLexer.java 488 2005-03-23 13:11:18Z elharo $
  */
 
 
@@ -320,7 +320,7 @@ Token identifierOrOperatorName()
         // SLASH, DOUBLE_SLASH, and COLON tokens for the test
         // if an NCName is an operator or not.
         //
-        // Accoring to section 3.7, "/foo" should be considered
+        // According to section 3.7, "/foo" should be considered
         // as a SLASH following by an OperatorName being 'foo'.
         // Which is just simply, clearly, wrong, in my mind.
         //
@@ -1000,8 +1000,6 @@ boolean hasMoreChars()
 
 boolean isIdentifierChar(char c)
 {
-
-
     return Verifier.isXMLNCNameCharacter( c );
 }
 
@@ -1009,4 +1007,5 @@ boolean isIdentifierStartChar(char c)
 {
     return Verifier.isXMLNCNameStartCharacter( c );
 }
+
 }
