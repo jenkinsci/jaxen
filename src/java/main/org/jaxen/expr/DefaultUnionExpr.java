@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 506 $
- * $Date: 2005-03-28 17:19:05 -0800 (Mon, 28 Mar 2005) $
+ * $Revision: 526 $
+ * $Date: 2005-04-02 17:30:10 -0800 (Sat, 02 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultUnionExpr.java 506 2005-03-29 01:19:05Z elharo $
+ * $Id: DefaultUnionExpr.java 526 2005-04-03 01:30:10Z elharo $
  */
 
 
@@ -64,6 +64,7 @@
 package org.jaxen.expr;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -116,6 +117,8 @@ public class DefaultUnionExpr extends DefaultBinaryExpr implements UnionExpr
                     unique.add( each );
                 }
             }
+            
+            Collections.sort(results, new NodeComparator(context.getNavigator()));
     
             return results;
         }
