@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 259 $
+ * $Revision: 262 $
 
- * $Date: 2002-04-29 06:27:55 -0700 (Mon, 29 Apr 2002) $
+ * $Date: 2002-05-03 07:26:50 -0700 (Fri, 03 May 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultPathExpr.java 259 2002-04-29 13:27:55Z emcgreal $
+ * $Id: DefaultPathExpr.java 262 2002-05-03 14:26:50Z emcgreal $
 
  */
 
@@ -276,23 +276,21 @@ class DefaultPathExpr extends DefaultExpr implements PathExpr
         return this;
     }
 
-
-
-
     public Object evaluate(Context context) throws JaxenException
-
     {
-
-        Object results = getFilterExpr().evaluate( context );
+        Object results = null;
+        if (getFilterExpr() != null){
+            results = getFilterExpr().evaluate( context );
 
 
 
         context.setNodeSet( convertToList( results ) );
-
-        
-
-        return getLocationPath().evaluate( context );
-	}
+        }
+        if (getLocationPath() != null){
+            return getLocationPath().evaluate( context );
+        }
+        return results;
+    }
 	
 	public void accept(Visitor visitor)
 	{
