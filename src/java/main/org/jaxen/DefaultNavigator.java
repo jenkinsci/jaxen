@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 287 $
+ * $Date: 2002-09-17 17:23:03 -0700 (Tue, 17 Sep 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultNavigator.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: DefaultNavigator.java 287 2002-09-18 00:23:03Z mbrennan $
  */
 
 
@@ -234,7 +234,7 @@ public abstract class DefaultNavigator implements Navigator
         }
         else if ( isProcessingInstruction(node) ) 
         {
-            return Pattern.DOCUMENT_NODE;
+            return Pattern.PROCESSING_INSTRUCTION_NODE;
         }
         else {
             return Pattern.UNKNOWN_NODE;
