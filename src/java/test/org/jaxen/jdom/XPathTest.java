@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 451 $
- * $Date: 2005-02-08 19:09:06 -0800 (Tue, 08 Feb 2005) $
+ * $Revision: 452 $
+ * $Date: 2005-02-08 19:23:16 -0800 (Tue, 08 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 451 2005-02-09 03:09:06Z elharo $
+ * $Id: XPathTest.java 452 2005-02-09 03:23:16Z elharo $
  */
 
 
@@ -70,8 +70,10 @@ import java.util.List;
 
 import org.jaxen.XPath;
 import org.jaxen.saxpath.SAXPathException;
+import org.jdom.Attribute;
 import org.jdom.Document;
 import org.jdom.Element;
+import org.jdom.Namespace;
 import org.jdom.Text;
 import org.jdom.input.SAXBuilder;
 
@@ -189,6 +191,31 @@ public class XPathTest extends TestCase
 
             Text result = (Text) iter.next();
             assertEquals( "1", result.getValue());
+
+        }
+        catch (Exception e)
+        {
+            fail( e.getMessage() );
+        }
+    }
+    
+    public void testJaxen20AttributeNamespaceNodes()
+    {
+        try
+        {
+            Namespace ns1 = Namespace.getNamespace("p1", "www.acme1.org");
+            Namespace ns2 = Namespace.getNamespace("p2", "www.acme2.org");
+            Element element = new Element("test", ns1);
+            Attribute attribute = new Attribute("foo", "bar", ns2);
+            element.setAttribute(attribute); 
+            Document doc = new Document(element);
+            
+            XPath xpath = new JDOMXPath( "//namespace::node()" );
+
+            List results = xpath.selectNodes( doc );
+
+            assertEquals( 3,
+                          results.size() );
 
         }
         catch (Exception e)
