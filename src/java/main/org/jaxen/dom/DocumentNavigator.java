@@ -1,11 +1,11 @@
 /*
  * $Header$
- * $Revision: 323 $
- * $Date: 2003-06-29 19:33:43 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 350 $
+ * $Date: 2004-02-10 17:37:03 -0800 (Tue, 10 Feb 2004) $
  *
  * ====================================================================
  *
- * Copyright (C) 2000-2002 bob mcwhirter & James Strachan.
+ * Copyright (C) 2000-2004 bob mcwhirter & James Strachan.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 323 2003-06-30 02:33:43Z ssanders $
+ * $Id: DocumentNavigator.java 350 2004-02-11 01:37:03Z ssanders $
  */
 
 // DocumentNavigator.java - Jaxen adapter for the W3C DOM level 2.
@@ -401,7 +401,7 @@ public class DocumentNavigator extends DefaultNavigator
             // An empty default Namespace cancels
             // any previous default.
             NamespaceNode defaultNS = (NamespaceNode)nsMap.get("");
-            if (defaultNS != null && defaultNS.getNodeValue().equals(""))
+            if (defaultNS != null && defaultNS.getNodeValue().length() == 0)
                 nsMap.remove("");
             return nsMap.values().iterator();
         } else {

@@ -1,7 +1,7 @@
 /*
- $Id: DocumentNavigator.java 345 2004-01-27 22:29:33Z ssanders $
+ $Id: DocumentNavigator.java 350 2004-02-11 01:37:03Z ssanders $
 
- Copyright 2003 (C) The Werken Company. All Rights Reserved.
+ Copyright 2003-2004 (C) The Werken Company. All Rights Reserved.
  
  Redistribution and use of this software and associated documentation
  ("Software"), with or without modification, are permitted provided
@@ -376,7 +376,7 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
 
         String prefix = elem.getNamespacePrefix();
 
-        if ( prefix == null || "".equals( prefix ) )
+        if ( prefix == null || prefix.length() == 0 )
         {
             return elem.getName();
         }

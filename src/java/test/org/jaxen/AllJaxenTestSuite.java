@@ -1,5 +1,5 @@
 /*
- $Id: AllJaxenTestSuite.java 330 2003-07-27 23:14:21Z bob $
+ $Id: AllJaxenTestSuite.java 350 2004-02-11 01:37:03Z ssanders $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -63,7 +63,7 @@ import junit.textui.TestRunner;
  * Test suite for Jaxen.
  *
  * @author Stephen Colebourne
- * @version $Id: AllJaxenTestSuite.java 330 2003-07-27 23:14:21Z bob $
+ * @version $Id: AllJaxenTestSuite.java 350 2004-02-11 01:37:03Z ssanders $
  */
 public class AllJaxenTestSuite extends TestCase {
     
@@ -96,6 +96,8 @@ public class AllJaxenTestSuite extends TestCase {
         suite.addTest(new TestSuite(org.jaxen.dom4j.XPathTest.class));
         suite.addTest(new TestSuite(org.jaxen.jdom.DocumentNavigatorTest.class));
         suite.addTest(new TestSuite(org.jaxen.jdom.XPathTest.class));
+        suite.addTest(new TestSuite(org.jaxen.xom.DocumentNavigatorTest.class));
+        suite.addTest(new TestSuite(org.jaxen.xom.XPathTest.class));
         suite.addTest(new TestSuite(PatternHandlerTest.class));
         suite.addTest(new TestSuite(PriorityTest.class));
         suite.addTest(new TestSuite(XPathLexerTest.class));
