@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 449 $
- * $Date: 2005-02-08 12:46:18 -0800 (Tue, 08 Feb 2005) $
+ * $Revision: 529 $
+ * $Date: 2005-04-02 20:47:24 -0800 (Sat, 02 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 449 2005-02-08 20:46:18Z elharo $
+ * $Id: XPathTest.java 529 2005-04-03 04:47:24Z elharo $
  */
 
 
@@ -76,6 +76,7 @@ import org.jaxen.XPath;
 import org.jaxen.saxpath.SAXPathException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 public class XPathTest extends TestCase
 {
@@ -113,6 +114,26 @@ public class XPathTest extends TestCase
         
         Number value = xpath.numberValueOf(doc);
         assertEquals(0, value.intValue());
+        
+    }
+
+    // Jaxen-54
+    public void testUpdateDOMNodesReturnedBySelectNodes() 
+      throws ParserConfigurationException, JaxenException {
+        
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        Document doc = factory.newDocumentBuilder().newDocument();
+        Element root = doc.createElementNS("http://www.example.org/", "root");
+        doc.appendChild(root);
+        root.appendChild(doc.createComment("data"));
+        
+        DOMXPath xpath = new DOMXPath( "//comment()" );
+        
+        List results = xpath.selectNodes(doc);
+        Node backroot = (Node) results.get(0);
+        backroot.setNodeValue("test");
+        assertEquals("test", backroot.getNodeValue());
         
     }
 
