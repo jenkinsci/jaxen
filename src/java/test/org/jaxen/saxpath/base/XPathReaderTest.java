@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 374 $
- * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
+ * $Revision: 406 $
+ * $Date: 2005-01-27 12:30:35 -0800 (Thu, 27 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 374 2004-09-16 21:05:25Z bewins $
+ * $Id: XPathReaderTest.java 406 2005-01-27 20:30:35Z elharo $
  */
 
 
@@ -89,7 +89,8 @@ public class XPathReaderTest extends TestCase
         new String[]{"foo/tacos()", "Expected node-type"},
         new String[]{"*:foo", "Unexpected ':'"},
         new String[]{"/foo/bar[baz", "Expected: ]"},
-        new String[]{"/cracker/cheese[(mold > 1) and (sense/taste", "Expected: )"}
+        new String[]{"/cracker/cheese[(mold > 1) and (sense/taste", "Expected: )"},
+        new String[]{"//", "Expected axis specifier )"}
     };
 
     public XPathReaderTest( String name )
