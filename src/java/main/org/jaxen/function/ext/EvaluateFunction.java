@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 405 $
+ * $Date: 2005-01-26 03:55:40 -0800 (Wed, 26 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: EvaluateFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: EvaluateFunction.java 405 2005-01-26 11:55:40Z elharo $
  */
 
 package org.jaxen.function.ext;
@@ -86,7 +86,7 @@ public class EvaluateFunction implements Function
             return evaluate( context, args.get(0));
         }
 
-        throw new FunctionCallException( "id() requires one argument" );
+        throw new FunctionCallException( "evaluate() requires one argument" );
     }
 
     public static List evaluate (Context context, Object arg)
