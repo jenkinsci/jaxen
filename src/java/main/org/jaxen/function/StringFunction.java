@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 394 $
- * $Date: 2005-01-18 18:21:21 -0800 (Tue, 18 Jan 2005) $
+ * $Revision: 413 $
+ * $Date: 2005-01-29 13:03:12 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 394 2005-01-19 02:21:21Z bewins $
+ * $Id: StringFunction.java 413 2005-01-29 21:03:12Z elharo $
  */
 
 
@@ -118,7 +118,7 @@ public class StringFunction implements Function
                 // do not recurse: only first list should unwrap
                 obj = list.get(0);
             }
-            if (nav.isElement(obj) || nav.isDocument(obj))
+            if (nav != null && (nav.isElement(obj) || nav.isDocument(obj)))
             {
                 Iterator descendantAxisIterator = nav.getDescendantAxisIterator(obj);
                 StringBuffer sb = new StringBuffer();
@@ -132,23 +132,23 @@ public class StringFunction implements Function
                 }
                 retval = sb.toString();
             }
-            else if (nav.isAttribute(obj))
+            else if (nav != null && nav.isAttribute(obj))
             {
                 retval = nav.getAttributeStringValue(obj);
             }
-            else if (nav.isText(obj))
+            else if (nav != null && nav.isText(obj))
             {
                 retval = nav.getTextStringValue(obj);
             }
-            else if (nav.isProcessingInstruction(obj))
+            else if (nav != null && nav.isProcessingInstruction(obj))
             {
                 retval = nav.getProcessingInstructionData(obj);
             }
-            else if (nav.isComment(obj))
+            else if (nav != null && nav.isComment(obj))
             {
                 retval = nav.getCommentStringValue(obj);
             }
-            else if (nav.isNamespace(obj))
+            else if (nav != null && nav.isNamespace(obj))
             {
                 retval = nav.getNamespaceStringValue(obj);
             }
