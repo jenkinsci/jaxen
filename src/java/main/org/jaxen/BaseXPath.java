@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 562 $
- * $Date: 2005-04-06 02:52:01 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 563 $
+ * $Date: 2005-04-06 03:01:42 -0700 (Wed, 06 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 562 2005-04-06 09:52:01Z elharo $
+ * $Id: BaseXPath.java 563 2005-04-06 10:01:42Z elharo $
  */
 
 
@@ -329,11 +329,6 @@ public class BaseXPath implements XPath, Serializable
         Context context = getContext( node );
         
         Object result = selectSingleNodeForContext( context );
-
-        if ( result == null )
-        {
-            return null;
-        }
 
         return NumberFunction.evaluate( result,
                                         context.getNavigator() );
