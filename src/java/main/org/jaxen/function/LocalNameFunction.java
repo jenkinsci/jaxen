@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 439 $
- * $Date: 2005-02-07 16:51:01 -0800 (Mon, 07 Feb 2005) $
+ * $Revision: 440 $
+ * $Date: 2005-02-07 17:22:25 -0800 (Mon, 07 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LocalNameFunction.java 439 2005-02-08 00:51:01Z elharo $
+ * $Id: LocalNameFunction.java 440 2005-02-08 01:22:25Z elharo $
  */
 
 
@@ -82,7 +82,8 @@ public class LocalNameFunction implements Function
     {
         if ( args.size() == 0 )
         {
-            return "";
+            return evaluate( context.getNodeSet(),
+                             context.getNavigator() ); 
         }
 
         if ( args.size() == 1 )
@@ -122,9 +123,24 @@ public class LocalNameFunction implements Function
             {
                 return nav.getNamespacePrefix( first );
             }
+            else if ( nav.isDocument( first ) )
+            {
+                return "";
+            }
+            else if ( nav.isComment( first ) )
+            {
+                return "";
+            }
+            else if ( nav.isText( first ) )
+            {
+                return "";
+            }
+            else {
+                throw new FunctionCallException("The argument to the local-name function must be a node-set");   
+            }
         }
 
-        throw new FunctionCallException("The argument to the local-name function must be a node-set");
+        return "";
     }
 }
 

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 440 $
+ * $Date: 2005-02-07 17:22:25 -0800 (Mon, 07 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceUriFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: NamespaceUriFunction.java 440 2005-02-08 01:22:25Z elharo $
  */
 
 
@@ -96,7 +96,7 @@ public class NamespaceUriFunction implements Function
     }
 
     public static String evaluate(List list,
-                                  Navigator nav)
+                                  Navigator nav) throws FunctionCallException
     {
         if ( ! list.isEmpty() )
         {
@@ -115,9 +115,34 @@ public class NamespaceUriFunction implements Function
             {
                 return nav.getAttributeNamespaceUri( first );
             }
+                        else if ( nav.isProcessingInstruction( first ) )
+            {
+                return nav.getProcessingInstructionTarget( first );
+            }
+            else if ( nav.isNamespace( first ) )
+            {
+                return nav.getNamespaceStringValue( first );
+            }
+            else if ( nav.isDocument( first ) )
+            {
+                return "";
+            }
+            else if ( nav.isComment( first ) )
+            {
+                return "";
+            }
+            else if ( nav.isText( first ) )
+            {
+                return "";
+            }
+            else {
+                throw new FunctionCallException("The argument to the name function must be a node-set");   
+            }
+
         }
 
         return "";
+
     }
 }
 
