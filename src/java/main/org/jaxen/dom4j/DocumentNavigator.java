@@ -25,7 +25,7 @@ import java.util.Iterator;
  *
  * @author bob mcwhirter (bob @ werken.com)
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
- * @version $Revision: 88 $
+ * @version $Revision: 89 $
  */
 public class DocumentNavigator extends DefaultNavigator
 {
@@ -316,5 +316,14 @@ public class DocumentNavigator extends DefaultNavigator
             }
         }
         return null;
+    }
+    
+    public short getNodeType(Object node) 
+    {
+        if ( node instanceof Node )
+        {
+            return ((Node) node).getNodeType();
+        }
+        return 0;
     }
 }
