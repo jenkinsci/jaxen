@@ -29,7 +29,7 @@ import java.util.Iterator;
  *
  * @author bob mcwhirter (bob @ werken.com)
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
- * @version $Revision: 113 $
+ * @version $Revision: 121 $
  */
 public class DocumentNavigator extends DefaultNavigator
 {
@@ -303,6 +303,20 @@ public class DocumentNavigator extends DefaultNavigator
         {
             throw new FunctionCallException("Failed to parse doucment for URI: " + uri, e);
         }
+    }
+
+    public String getProcessingInstructionTarget(Object obj)
+    {
+        ProcessingInstruction pi = (ProcessingInstruction) obj;
+
+        return pi.getTarget();
+    }
+
+    public String getProcessingInstructionData(Object obj)
+    {
+        ProcessingInstruction pi = (ProcessingInstruction) obj;
+
+        return pi.getText();
     }
     
     // Properties
