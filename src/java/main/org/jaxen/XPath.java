@@ -1,7 +1,7 @@
 package org.jaxen;
 
 /*
- $Id: XPath.java 308 2003-06-09 03:22:24Z bob $
+ $Id: XPath.java 386 2005-01-13 23:50:04Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -62,7 +62,6 @@ import java.util.List;
  *  @see org.jaxen.dom4j.Dom4jXPath XPath for dom4j
  *  @see org.jaxen.jdom.JDOMXPath  XPath for JDOM
  *  @see org.jaxen.dom.DOMXPath   XPath for W3C DOM
- *  @see org.jaxen.exml.ElectricXPath  XPath for Electric XML
  *
  *  @author <a href="mailto:bob@eng.werken.com">bob mcwhirter</a>
  *  @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
