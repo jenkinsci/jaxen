@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 359 2004-04-19 04:46:18Z bob $
+ $Id: DefaultNameStep.java 388 2005-01-14 01:37:25Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -93,6 +93,7 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
 
     /** Quick flag denoting if the localname was '*' */
     private boolean matchesAnyName;
+    // ???? what about node()?
 
     /** Quick flag denoting if we have a namespace prefix **/
     boolean hasPrefix;
@@ -167,14 +168,14 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
 
         List contextNodeSet  = context.getNodeSet();
         int contextSize = contextNodeSet.size();
-        // optimise for context size 0
+        // optimize for context size 0
         if (contextSize == 0) {
             return Collections.EMPTY_LIST;
         }
         ContextSupport support = context.getContextSupport();
         boolean namedAccess = (!matchesAnyName && getIterableAxis().supportsNamedAccess(support));
         
-        // optimise for context size 1 (common case, avoids lots of object creation)
+        // optimize for context size 1 (common case, avoids lots of object creation)
         if (contextSize == 1) {
             Object contextNode = contextNodeSet.get(0);
             if (namedAccess) {
@@ -301,7 +302,8 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
             nodeUri = nav.getAttributeNamespaceUri(node);
             
         } else if (nav.isDocument(node)) {
-            return (!hasPrefix) && matchesAnyName;
+            // what about node()????
+            return false;
             
         } else if (nav.isNamespace(node)) {
             if (matchesAnyName && getAxis() != Axis.NAMESPACE) {
