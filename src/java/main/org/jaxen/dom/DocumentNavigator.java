@@ -21,7 +21,7 @@ import java.util.Iterator;
 /** A Navigator for the W3C DOM model
  *
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
- * @version $Revision: 75 $
+ * @version $Revision: 77 $
  */
 public class DocumentNavigator extends DefaultNavigator
 {
@@ -154,11 +154,28 @@ public class DocumentNavigator extends DefaultNavigator
 
     public Iterator getChildAxisIterator(Object contextNode)
     {
+        //System.err.println( "Navigator.getChildAxisIterator(" + contextNode + ")");
+
         if ( contextNode instanceof Node )
         {            
+            //System.err.println( "isNode" );
             Node node = (Node) contextNode;
             NodeList children = node.getChildNodes();
-            return new ChildIterator( node.getChildNodes() );
+
+            //System.err.println(" children: " + children );
+
+            /*
+            Iterator childIter = new ChildIterator( node.getChildNodes() );
+
+            while ( childIter.hasNext() )
+            {
+                //System.err.println( "child--->" + childIter.next() );
+            }
+            */
+            if ( children != null )
+            {
+                return new ChildIterator( children );
+            }
         }
         return null;
     }
