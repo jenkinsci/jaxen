@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 484 2005-03-02 12:29:08Z elharo $
+ $Id: DefaultNameStep.java 485 2005-03-21 22:39:16Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -301,11 +301,9 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
         if (nav.isElement(node)) {
             nodeName = nav.getElementName(node);
             nodeUri = nav.getElementNamespaceUri(node);
-            
         } 
         else if (nav.isText(node)) {
             return false;
-            
         } 
         else if (nav.isAttribute(node)) {
             if (getAxis() != Axis.ATTRIBUTE) {
@@ -325,7 +323,6 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
                 return false;
             }
             nodeName = nav.getNamespacePrefix(node);
-            
         } 
         else {
             return false;

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 419 $
- * $Date: 2005-01-29 19:06:15 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 485 $
+ * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultLocationPath.java 419 2005-01-30 03:06:15Z elharo $
+ * $Id: DefaultLocationPath.java 485 2005-03-21 22:39:16Z elharo $
  */
 package org.jaxen.expr;
 
@@ -147,6 +147,7 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
             eachStep = (Step) stepIter.next();
             Context stepContext = new Context(context.getContextSupport());
             stepContext.setNodeSet(contextNodeSet);
+            // XXX the final evaluation of this line reshuffles the context node-set JAXEN-55
             contextNodeSet = eachStep.evaluate(stepContext);
         }
         return contextNodeSet;

@@ -1,215 +1,111 @@
 /*
-
  * $Header$
-
- * $Revision: 351 $
-
- * $Date: 2004-02-13 20:46:38 -0800 (Fri, 13 Feb 2004) $
-
+ * $Revision: 485 $
+ * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
  *
-
  * ====================================================================
-
  *
-
  * Copyright (C) 2000-2002 bob mcwhirter & James Strachan.
-
  * All rights reserved.
-
  *
-
  * Redistribution and use in source and binary forms, with or without
-
  * modification, are permitted provided that the following conditions
-
  * are met:
-
  * 
-
  * 1. Redistributions of source code must retain the above copyright
-
  *    notice, this list of conditions, and the following disclaimer.
-
  *
-
  * 2. Redistributions in binary form must reproduce the above copyright
-
  *    notice, this list of conditions, and the disclaimer that follows 
-
  *    these conditions in the documentation and/or other materials 
-
  *    provided with the distribution.
-
  *
-
  * 3. The name "Jaxen" must not be used to endorse or promote products
-
  *    derived from this software without prior written permission.  For
-
  *    written permission, please contact license@jaxen.org.
-
  * 
-
  * 4. Products derived from this software may not be called "Jaxen", nor
-
  *    may "Jaxen" appear in their name, without prior written permission
-
  *    from the Jaxen Project Management (pm@jaxen.org).
-
  * 
-
  * In addition, we request (but do not require) that you include in the 
-
  * end-user documentation provided with the redistribution and/or in the 
-
  * software itself an acknowledgement equivalent to the following:
-
  *     "This product includes software developed by the
-
  *      Jaxen Project (http://www.jaxen.org/)."
-
  * Alternatively, the acknowledgment may be graphical using the logos 
-
  * available at http://www.jaxen.org/
-
  *
-
  * THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
-
  * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-
  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-
  * DISCLAIMED.  IN NO EVENT SHALL THE Jaxen AUTHORS OR THE PROJECT
-
  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-
  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-
  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-
  * USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
-
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-
  * SUCH DAMAGE.
-
  *
-
  * ====================================================================
-
  * This software consists of voluntary contributions made by many 
-
  * individuals on behalf of the Jaxen Project and was originally 
-
  * created by bob mcwhirter <bob@werken.com> and 
-
  * James Strachan <jstrachan@apache.org>.  For more information on the 
-
  * Jaxen Project, please see <http://www.jaxen.org/>.
-
  * 
-
- * $Id: DefaultProcessingInstructionNodeStep.java 351 2004-02-14 04:46:38Z ssanders $
-
+ * $Id: DefaultProcessingInstructionNodeStep.java 485 2005-03-21 22:39:16Z elharo $
  */
-
-
-
-
 
 
 
 package org.jaxen.expr;
 
-
-
 import org.jaxen.ContextSupport;
 import org.jaxen.Navigator;
 import org.jaxen.expr.iter.IterableAxis;
 
-
-
 public class DefaultProcessingInstructionNodeStep extends DefaultStep
     implements ProcessingInstructionNodeStep
 {
-
     private String name;
 
-
-
     public DefaultProcessingInstructionNodeStep(IterableAxis axis,
-
                                                 String name,
                                                 PredicateSet predicateSet)
-
     {
-
         super( axis, predicateSet );
 
-
-
         this.name = name;
-
     }
-
-
 
     public String getName()
-
     {
-
         return this.name;
-
     }
 
-
-
     public boolean matches(Object node,
-
                            ContextSupport support)
-
     {
-
         Navigator nav = support.getNavigator();
-
-
 
         boolean isPi = nav.isProcessingInstruction( node );
 
-
-
         if ( isPi )
-
         {
-
             String name = getName();
 
-
-
             if ( name == null || name.length() == 0 )
-
             {
-
                 return true;
-
             }
-
             else
-
             {
-
                 return name.equals( nav.getProcessingInstructionTarget( node ) );
-
             }
-
         }
-
-
 
         return false;
     }
@@ -219,4 +115,3 @@ public class DefaultProcessingInstructionNodeStep extends DefaultStep
         visitor.visit(this);
     }
 }
-
