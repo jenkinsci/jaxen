@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 340 $
+ * $Date: 2003-09-06 16:56:00 -0700 (Sat, 06 Sep 2003) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * SAXPath Project, please see <http://www.saxpath.org/>.
  * 
- * $Id: XPathReader.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: XPathReader.java 340 2003-09-06 23:56:00Z proyal $
  */
 
 package org.jaxen.saxpath.base;
@@ -914,10 +914,31 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader, TokenTypes
     void additiveExpr() throws org.jaxen.saxpath.SAXPathException
     {
         getXPathHandler().startAdditiveExpr();
+        getXPathHandler().startAdditiveExpr();
 
         multiplicativeExpr();
 
         int operator = Operator.NO_OP;
+
+        switch ( LA(1) )
+        {
+            case PLUS:
+            {
+                match( PLUS );
+                operator = Operator.ADD;
+                multiplicativeExpr();
+                break;
+            }
+            case MINUS:
+            {
+                match( MINUS );
+                operator = Operator.SUBTRACT;
+                multiplicativeExpr();
+                break;
+            }
+        }
+
+        getXPathHandler().endAdditiveExpr( operator );
 
         switch ( LA(1) )
         {
@@ -933,6 +954,11 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader, TokenTypes
                 match( MINUS );
                 operator = Operator.SUBTRACT;
                 additiveExpr();
+                break;
+            }
+            default:
+            {
+                operator = Operator.NO_OP;
                 break;
             }
         }
