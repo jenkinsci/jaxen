@@ -1,5 +1,5 @@
 /*
- $Id: DocumentNavigator.java 356 2004-03-22 02:58:28Z bob $
+ $Id: DocumentNavigator.java 381 2005-01-09 07:00:43Z hoju $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -203,7 +203,14 @@ public class DocumentNavigator
             }
             catch (NoSuchMethodException ee)
             {
-                method = null;
+                try
+                {
+                    method = cls.getMethod( localName, EMPTY_CLASS_ARRAY );
+                }
+                catch (NoSuchMethodException eee)
+                {
+                    method = null;
+                }
             }
         }
 
