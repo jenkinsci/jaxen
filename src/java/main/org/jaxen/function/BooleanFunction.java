@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 331 $
+ * $Date: 2003-08-26 12:54:15 -0700 (Tue, 26 Aug 2003) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BooleanFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: BooleanFunction.java 331 2003-08-26 19:54:15Z ssanders $
  */
 
 
@@ -99,7 +99,7 @@ public class BooleanFunction implements Function
             {
                 return Boolean.FALSE;
             }
-            
+     
             // otherwise, unwrap the list and check the primitive
             obj = list.get(0);
         }
