@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 371 $
- * $Date: 2004-07-05 14:14:34 -0700 (Mon, 05 Jul 2004) $
+ * $Revision: 374 $
+ * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: TokenTypes.java 371 2004-07-05 21:14:34Z proyal $
+ * $Id: TokenTypes.java 374 2004-09-16 21:05:25Z bewins $
  */
 
 package org.jaxen.saxpath.base;
@@ -114,6 +114,7 @@ class TokenTypes
     //static final int EOF = 100;
     static final int SKIP = -2;
     static final int EOF = -1;
+    static final int ERROR = -3;
 
     String getTokenText( int tokenType )
     {
@@ -186,6 +187,8 @@ class TokenTypes
                 return "(double)";
             case COMMA:
                 return ",";
+            case ERROR:
+                return "(error)";
             default:
                 return null;
         }

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 359 $
- * $Date: 2004-04-18 21:46:18 -0700 (Sun, 18 Apr 2004) $
+ * $Revision: 374 $
+ * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 359 2004-04-19 04:46:18Z bob $
+ * $Id: BaseXPath.java 374 2004-09-16 21:05:25Z bewins $
  */
 
 
@@ -133,9 +133,12 @@ public class BaseXPath implements XPath, Serializable
         }
         catch (org.jaxen.saxpath.XPathSyntaxException e)
         {
-            throw new org.jaxen.XPathSyntaxException( e.getXPath(),
-                                                      e.getPosition(),
-                                                      e.getMessage() );
+            org.jaxen.XPathSyntaxException je = new org.jaxen.XPathSyntaxException( e.getXPath(),
+                                                                  e.getPosition(),
+                                                                  e.getMessage() );
+            je.initCause(e);
+            //throw je;
+            throw new org.jaxen.XPathSyntaxException(e);
         }
         catch (org.jaxen.saxpath.SAXPathException e)
         {

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 371 $
- * $Date: 2004-07-05 14:14:34 -0700 (Mon, 05 Jul 2004) $
+ * $Revision: 374 $
+ * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 371 2004-07-05 21:14:34Z proyal $
+ * $Id: XPathReaderTest.java 374 2004-09-16 21:05:25Z bewins $
  */
 
 
@@ -80,7 +80,7 @@ public class XPathReaderTest extends TestCase
         "/foo/bar[@a='1' and @b='2']",
         "/foo/bar[@a='1' and @b!='2']",
         "//attribute::*[.!='crunchy']",
-        "'//*[contains(string(text()),'yada yada')]'",
+        "'//*[contains(string(text()),\"yada yada\")]'",
     };
 
     private String[][] bogusPaths = {
@@ -483,9 +483,12 @@ public class XPathReaderTest extends TestCase
             expected().startOrExpr();
             expected().startAndExpr();
             expected().startEqualityExpr();
+            expected().startEqualityExpr();
+            expected().startRelationalExpr();
             expected().startRelationalExpr();
             expected().startAdditiveExpr();
             expected().startAdditiveExpr();
+            expected().startMultiplicativeExpr();
             expected().startMultiplicativeExpr();
             expected().startUnaryExpr();
             expected().startUnionExpr();
@@ -499,9 +502,12 @@ public class XPathReaderTest extends TestCase
             expected().endUnionExpr( false );
             expected().endUnaryExpr( Operator.NO_OP );
             expected().endMultiplicativeExpr( Operator.NO_OP );
+            expected().endMultiplicativeExpr( Operator.NO_OP );
             expected().endAdditiveExpr( Operator.NO_OP );
             expected().endAdditiveExpr( Operator.NO_OP );
             expected().endRelationalExpr( Operator.NO_OP );
+            expected().endRelationalExpr( Operator.NO_OP );
+            expected().endEqualityExpr( Operator.NO_OP );
             expected().endEqualityExpr( Operator.NO_OP );
             expected().endAndExpr( false );
             expected().endOrExpr( false );

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 374 $
+ * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathSyntaxException.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: XPathSyntaxException.java 374 2004-09-16 21:05:25Z bewins $
  */
 
 
@@ -91,7 +91,7 @@ public class XPathSyntaxException extends org.jaxen.saxpath.SAXPathException
 
     public String toString()
     {
-        return "com.werken.saxpath.XPathSyntaxException: " + getPosition() + ": " + getMessage();
+        return getClass() + ": " + getPosition() + ": " + getMessage();
     }
 
     public String getPositionMarker()

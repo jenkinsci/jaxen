@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 374 $
+ * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexer.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: XPathLexer.java 374 2004-09-16 21:05:25Z bewins $
  */
 
 
@@ -283,14 +283,25 @@ class XPathLexer
 
             if ( token == null )
             {
-                token = new Token( TokenTypes.EOF,
+                if (!hasMoreChars())
+                {
+                    token = new Token( TokenTypes.EOF,
                                    getXPath(),
                                    currentPosition(),
                                    endPosition() );
             }
+                else
+                {
+                    token = new Token( TokenTypes.ERROR,
+                                   getXPath(),
+                                   currentPosition(),
+                                   endPosition() );
+                }
+            }
+
         }
         while ( token.getTokenType() == TokenTypes.SKIP );
-        
+
         setPreviousToken( token );
         
         return token;
@@ -485,7 +496,7 @@ Token and()
                            getXPath(),
                            currentPosition(),
                            currentPosition()+3 );
-            
+
         consume();
         consume();
         consume();
