@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 393 $
- * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
+ * $Revision: 412 $
+ * $Date: 2005-01-29 12:16:30 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTestBase.java 393 2005-01-19 01:53:35Z bewins $
+ * $Id: XPathTestBase.java 412 2005-01-29 20:16:30Z elharo $
  */
 
 
@@ -120,7 +120,7 @@ public abstract class XPathTestBase extends TestCase
             return;
         }
             
-        System.err.println( text );
+        System.out.println( text );
     }
 
     public void testXPaths() throws Exception
@@ -539,7 +539,7 @@ public abstract class XPathTestBase extends TestCase
 
             nsContext.addNamespace( prefix, uri );
 
-            System.err.println( " ---> " + prefix + " == " + uri );
+            System.out.println( " ---> " + prefix + " == " + uri );
         }
 
         getContextSupport().setNamespaceContext( nsContext );

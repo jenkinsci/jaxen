@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 317 $
- * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 412 $
+ * $Date: 2005-01-29 12:16:30 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PatternHandlerTest.java 317 2003-06-29 17:55:51Z ssanders $
+ * $Id: PatternHandlerTest.java 412 2005-01-29 20:16:30Z elharo $
  */
 
 
@@ -123,18 +123,18 @@ public class PatternHandlerTest extends TestCase
             for ( int i = 0; i < paths.length; i++ ) {
                 String path = paths[i];
                 
-                System.err.println("-----------------");
-                System.err.println( "parsing: " + path );
-                System.err.println("-----------------");
+                System.out.println("-----------------");
+                System.out.println( "parsing: " + path );
+                System.out.println("-----------------");
 
                 Pattern pattern = PatternParser.parse( path );
 
-                System.err.println("-----------------");
-                System.err.println("-----------------");
+                System.out.println("-----------------");
+                System.out.println("-----------------");
 
-                System.err.println( pattern.toString() );
-                System.err.println("-----------------");
-                System.err.println( pattern.getText() );
+                System.out.println( pattern.toString() );
+                System.out.println("-----------------");
+                System.out.println( pattern.getText() );
             }
         }
         catch (Exception e)

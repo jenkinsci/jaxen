@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 317 $
- * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 412 $
+ * $Date: 2005-01-29 12:16:30 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenHandlerTest.java 317 2003-06-29 17:55:51Z ssanders $
+ * $Id: JaxenHandlerTest.java 412 2005-01-29 20:16:30Z elharo $
  */
 
 
@@ -205,9 +205,9 @@ public class JaxenHandlerTest extends TestCase
             for ( int i = 0; i < bogusPaths.length; i++ ) {
                 String path = bogusPaths[i];
                 
-                System.err.println("-----------------");
-                System.err.println( "parsing bogus path : " + path );
-                System.err.println("-----------------");
+                System.out.println("-----------------");
+                System.out.println( "parsing bogus path : " + path );
+                System.out.println("-----------------");
 
                 try
                 {                    
@@ -215,18 +215,18 @@ public class JaxenHandlerTest extends TestCase
 
                     XPathExpr xpath = handler.getXPathExpr(false);
 
-                    System.err.println( "Parsed as: " + xpath );
+                    System.out.println( "Parsed as: " + xpath );
                     
                     fail( "Parsed bogus path as: " + xpath );
                 }
                 catch (XPathSyntaxException e)
                 {                    
                     
-                    System.err.println("-----------------");
+                    System.out.println("-----------------");
                     //System.err.println( "Exception: " + e.getMessage() );
-                    System.err.println( "Exception: ");
-                    System.err.println( e.getMultilineMessage() );
-                    System.err.println("-----------------");
+                    System.out.println( "Exception: ");
+                    System.out.println( e.getMultilineMessage() );
+                    System.out.println("-----------------");
                 }
             }
         }

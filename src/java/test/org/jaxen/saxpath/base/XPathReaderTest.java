@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 411 $
- * $Date: 2005-01-28 11:59:03 -0800 (Fri, 28 Jan 2005) $
+ * $Revision: 412 $
+ * $Date: 2005-01-29 12:16:30 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 411 2005-01-28 19:59:03Z elharo $
+ * $Id: XPathReaderTest.java 412 2005-01-29 20:16:30Z elharo $
  */
 
 
@@ -123,13 +123,13 @@ public class XPathReaderTest extends TestCase
     {
         XPathReader reader = new XPathReader();
 
-        System.err.println( "Valid Expressions" );
+        System.out.println( "Valid Expressions" );
 
         for( int i = 0; i < paths.length; ++i )
         {
-            System.err.println( "----------------------------------------" );
-            System.err.println( paths[i] );
-            System.err.println( "----------------------------------------" );
+            System.out.println( "----------------------------------------" );
+            System.out.println( paths[i] );
+            System.out.println( "----------------------------------------" );
             try
             {
                 reader.parse( paths[i] );
@@ -150,14 +150,14 @@ public class XPathReaderTest extends TestCase
     {
         XPathReader reader = new XPathReader();
 
-        System.err.println( "Bogus Expressions" );
+        System.out.println( "Bogus Expressions" );
 
         for( int i = 0; i < bogusPaths.length; ++i )
         {
             final String[] bogusPath = bogusPaths[i];
-            System.err.println( "----------------------------------------" );
-            System.err.println( bogusPath[0] );
-            System.err.println( "----------------------------------------" );
+            System.out.println( "----------------------------------------" );
+            System.out.println( bogusPath[0] );
+            System.out.println( "----------------------------------------" );
 
             try
             {
