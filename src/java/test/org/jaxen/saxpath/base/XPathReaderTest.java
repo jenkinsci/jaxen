@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 371 $
+ * $Date: 2004-07-05 14:14:34 -0700 (Mon, 05 Jul 2004) $
  *
  * ====================================================================
  *
@@ -56,15 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: XPathReaderTest.java 371 2004-07-05 21:14:34Z proyal $
  */
-
 
 
 package org.jaxen.saxpath.base;
 
 import junit.framework.TestCase;
-
 import org.jaxen.saxpath.Axis;
 import org.jaxen.saxpath.Operator;
 import org.jaxen.saxpath.XPathSyntaxException;
@@ -85,10 +83,13 @@ public class XPathReaderTest extends TestCase
         "'//*[contains(string(text()),'yada yada')]'",
     };
 
-    private String[] bogusPaths = {
-        "chyld::foo",
-        "foo/tacos()",
-        "*:foo",
+    private String[][] bogusPaths = {
+        new String[]{"chyld::foo", "Expected valid axis name instead of [chyld]"},
+        new String[]{"foo/tacos()", "Expected node-type"},
+        new String[]{"foo/tacos()", "Expected node-type"},
+        new String[]{"*:foo", "Unexpected ':'"},
+        new String[]{"/foo/bar[baz", "Expected: ]"},
+        new String[]{"/cracker/cheese[(mold > 1) and (sense/taste", "Expected: )"}
     };
 
     public XPathReaderTest( String name )
@@ -152,19 +153,20 @@ public class XPathReaderTest extends TestCase
 
         for( int i = 0; i < bogusPaths.length; ++i )
         {
+            final String[] bogusPath = bogusPaths[i];
             System.err.println( "----------------------------------------" );
-            System.err.println( bogusPaths[i] );
+            System.err.println( bogusPath[0] );
             System.err.println( "----------------------------------------" );
 
             try
             {
-                reader.parse( bogusPaths[i] );
+                reader.parse( bogusPath[0] );
 
                 fail( "Should have thrown XPathSyntaxException" );
             }
             catch( XPathSyntaxException e )
             {
-                // expected and correct
+                assertEquals( bogusPath[1], e.getMessage() );
             }
             catch( org.jaxen.saxpath.SAXPathException e )
             {

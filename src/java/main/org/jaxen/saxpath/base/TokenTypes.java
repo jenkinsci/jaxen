@@ -1,11 +1,11 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 371 $
+ * $Date: 2004-07-05 14:14:34 -0700 (Mon, 05 Jul 2004) $
  *
  * ====================================================================
  *
- * Copyright (C) 2000-2002 bob mcwhirter & James Strachan.
+ * Copyright (C) 2000-2004 bob mcwhirter & James Strachan.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,20 +56,19 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: TokenTypes.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: TokenTypes.java 371 2004-07-05 21:14:34Z proyal $
  */
-
-
-
 
 package org.jaxen.saxpath.base;
 
-interface TokenTypes
+
+
+class TokenTypes
 {
-    static final int LEFT_PAREN  = 1;
+    static final int LEFT_PAREN = 1;
     static final int RIGHT_PAREN = 2;
 
-    static final int LEFT_BRACKET  = 3;
+    static final int LEFT_BRACKET = 3;
     static final int RIGHT_BRACKET = 4;
 
     static final int PLUS = 5;
@@ -115,4 +114,80 @@ interface TokenTypes
     //static final int EOF = 100;
     static final int SKIP = -2;
     static final int EOF = -1;
+
+    String getTokenText( int tokenType )
+    {
+        switch( tokenType )
+        {
+            case LEFT_PAREN:
+                return "(";
+            case RIGHT_PAREN:
+                return ")";
+            case LEFT_BRACKET:
+                return "[";
+            case RIGHT_BRACKET:
+                return "]";
+            case PLUS:
+                return "+";
+            case MINUS:
+                return "-";
+            case LESS_THAN:
+                return "<";
+            case LESS_THAN_EQUALS:
+                return "<=";
+            case GREATER_THAN:
+                return ">";
+            case GREATER_THAN_EQUALS:
+                return ">=";
+            case SLASH:
+                return "/";
+            case DOUBLE_SLASH:
+                return "//";
+            case DOT:
+                return ".";
+            case DOT_DOT:
+                return "..";
+            case IDENTIFIER:
+                return "(identifier)";
+            case AT:
+                return "@";
+            case PIPE:
+                return "|";
+            case COLON:
+                return ":";
+            case DOUBLE_COLON:
+                return "::";
+            case STAR:
+                return "*";
+
+            case EQUALS:
+                return "=";
+            case NOT_EQUALS:
+                return "!=";
+            case NOT:
+                return "!";
+            case DIV:
+                return "div";
+            case MOD:
+                return "mod";
+
+            case DOLLAR:
+                return "$";
+
+            case LITERAL:
+                return "(literal)";
+            case AND:
+                return "and";
+            case OR:
+                return "or";
+            case INTEGER:
+                return "(integer)";
+            case DOUBLE:
+                return "(double)";
+            case COMMA:
+                return ",";
+            default:
+                return null;
+        }
+    }
 }
