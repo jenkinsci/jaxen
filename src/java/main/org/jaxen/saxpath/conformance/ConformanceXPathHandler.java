@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 424 $
+ * $Date: 2005-02-01 09:55:19 -0800 (Tue, 01 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: ConformanceXPathHandler.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: ConformanceXPathHandler.java 424 2005-02-01 17:55:19Z elharo $
  */
 
 
@@ -317,6 +317,11 @@ public class ConformanceXPathHandler implements XPathHandler
 
         return false;
     }
+    
+    public int hashCode() {
+        return this.events.hashCode();
+    }
+    
 
     public String toString()
     {
