@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 454 $
- * $Date: 2005-02-08 19:35:26 -0800 (Tue, 08 Feb 2005) $
+ * $Revision: 465 $
+ * $Date: 2005-02-19 08:07:46 -0800 (Sat, 19 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 454 2005-02-09 03:35:26Z elharo $
+ * $Id: XPathTest.java 465 2005-02-19 16:07:46Z elharo $
  */
 
 
@@ -227,7 +227,7 @@ public class XPathTest extends TestCase
             root.add(element);
             Document doc = new DefaultDocument(root);
             
-            XPath xpath = new JDOMXPath( "/*/*/namespace::node()" );
+            XPath xpath = new Dom4jXPath( "/*/*/namespace::node()" );
 
             List results = xpath.selectNodes( doc );
 

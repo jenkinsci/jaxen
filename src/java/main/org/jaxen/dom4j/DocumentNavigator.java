@@ -2,8 +2,8 @@ package org.jaxen.dom4j;
 
 /*
  * $Header$
- * $Revision: 393 $
- * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
+ * $Revision: 465 $
+ * $Date: 2005-02-19 08:07:46 -0800 (Sat, 19 Feb 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom4j;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 393 2005-01-19 01:53:35Z bewins $
+ * $Id: DocumentNavigator.java 465 2005-02-19 16:07:46Z elharo $
 */
 
 import java.util.ArrayList;
@@ -324,13 +324,24 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
         HashSet prefixes = new HashSet();
         for ( Element context = element; context != null; context = context.getParent() ) {
             List declaredNS = context.declaredNamespaces();
+            declaredNS.add(context.getNamespace());
+
+            for ( Iterator iter = context.attributes().iterator(); iter.hasNext(); )
+            {
+                Attribute attr = (Attribute) iter.next();
+                declaredNS.add(attr.getNamespace());
+            }
+
             for ( Iterator iter = declaredNS.iterator(); iter.hasNext(); )
             {
                 Namespace namespace = (Namespace) iter.next();
-                String prefix = namespace.getPrefix();
-                if ( ! prefixes.contains( prefix ) ) {
-                    prefixes.add( prefix );
-                    nsList.add( namespace.asXPathResult( element ) );
+                if (namespace != Namespace.NO_NAMESPACE)
+                {
+                    String prefix = namespace.getPrefix();
+                    if ( ! prefixes.contains( prefix ) ) {
+                        prefixes.add( prefix );
+                        nsList.add( namespace.asXPathResult( element ) );
+                    }
                 }
             }
         }
