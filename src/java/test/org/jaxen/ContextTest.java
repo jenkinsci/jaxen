@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 317 $
- * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 459 $
+ * $Date: 2005-02-10 09:29:51 -0800 (Thu, 10 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: ContextTest.java 317 2003-06-29 17:55:51Z ssanders $
+ * $Id: ContextTest.java 459 2005-02-10 17:29:51Z elharo $
  */
 
 
@@ -64,8 +64,18 @@ package org.jaxen;
 
 import junit.framework.TestCase;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.jaxen.dom.DOMXPath;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
 
 public class ContextTest extends TestCase
 {
@@ -138,5 +148,29 @@ public class ContextTest extends TestCase
         assertEquals( 2,
                       original.getPosition() );
     }
+
+    public void testXMLPrefixIsAlwaysBound()
+    {  
+         
+        try
+        {
+           DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+           factory.setNamespaceAware(true);
+           DocumentBuilder builder = factory.newDocumentBuilder();
+           Document doc = builder.parse( "xml/basic.xml" );
+           Element root = doc.getDocumentElement();
+           root.setAttributeNS("http://www.w3.org/XML/1998/namespace", "xml:lang", "en");
+           XPath xpath = new DOMXPath( "/*/@xml:lang" );
+           List result = xpath.selectNodes( doc );
+           assertEquals(1, result.size());
+       }
+       catch (Exception e)
+        {
+            e.printStackTrace();
+            fail( e.getMessage() );
+        }
+    }    
+
+    
 }
 
