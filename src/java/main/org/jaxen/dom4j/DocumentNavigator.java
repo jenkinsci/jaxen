@@ -31,7 +31,7 @@ import java.util.Iterator;
  *
  * @author bob mcwhirter (bob @ werken.com)
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
- * @version $Revision: 155 $
+ * @version $Revision: 167 $
  */
 public class DocumentNavigator extends DefaultNavigator
 {
@@ -95,7 +95,11 @@ public class DocumentNavigator extends DefaultNavigator
     {
         Element elem = (Element) obj;
         
-        return elem.getNamespaceURI();
+        String uri = elem.getNamespaceURI();
+        if ( uri != null && uri.length() == 0 ) 
+            return null;
+        else
+            return uri;
     }
 
     public String getElementQName(Object obj)
@@ -116,7 +120,11 @@ public class DocumentNavigator extends DefaultNavigator
     {
         Attribute attr = (Attribute) obj;
 
-        return attr.getNamespaceURI();
+        String uri = attr.getNamespaceURI();
+        if ( uri != null && uri.length() == 0 ) 
+            return null;
+        else
+            return uri;
     }
 
     public String getAttributeQName(Object obj)
