@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 419 $
+ * $Date: 2005-01-29 19:06:15 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultLocationPath.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: DefaultLocationPath.java 419 2005-01-30 03:06:15Z elharo $
  */
 package org.jaxen.expr;
 
@@ -71,7 +71,6 @@ import org.jaxen.JaxenException;
 abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
 {
     private List steps;
-    private final static Object PRESENT = new Object();
     
     public DefaultLocationPath()
     {
