@@ -2,8 +2,8 @@ package org.jaxen.jdom;
 
 /*
  * $Header$
- * $Revision: 393 $
- * $Date: 2005-01-18 17:53:35 -0800 (Tue, 18 Jan 2005) $
+ * $Revision: 400 $
+ * $Date: 2005-01-19 05:55:27 -0800 (Wed, 19 Jan 2005) $
  *
  * ====================================================================
  *
@@ -58,14 +58,13 @@ package org.jaxen.jdom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 393 2005-01-19 01:53:35Z bewins $
+ * $Id: DocumentNavigator.java 400 2005-01-19 13:55:27Z elharo $
 */
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.ArrayList;
 
 import org.jaxen.DefaultNavigator;
 import org.jaxen.FunctionCallException;
