@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 271 $
+ * $Date: 2002-06-03 08:11:52 -0700 (Mon, 03 Jun 2002) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DocumentNavigator.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: DocumentNavigator.java 271 2002-06-03 15:11:52Z werken $
  */
 
 
@@ -293,7 +293,7 @@ public class DocumentNavigator extends DefaultNavigator
 
         Element elem = (Element) contextNode;
 
-        return new AttributesIterator( elem.getAttributes() );
+        return new AttributesIterator( elem.getAttributeObjects() );
     }
 
     /** Returns a parsed form of the given xpath string, which will be suitable
