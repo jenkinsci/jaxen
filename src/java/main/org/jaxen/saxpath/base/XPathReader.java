@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 431 $
- * $Date: 2005-02-07 04:20:59 -0800 (Mon, 07 Feb 2005) $
+ * $Revision: 462 $
+ * $Date: 2005-02-11 01:47:12 -0800 (Fri, 11 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 431 2005-02-07 12:20:59Z elharo $
+ * $Id: XPathReader.java 462 2005-02-11 09:47:12Z elharo $
  */
 
 
@@ -404,11 +404,8 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
                 getXPathHandler().endAllNodeStep();
 
                 match( DOUBLE_SLASH );
-                // XXX this may be the place where // gets allowed
-                // and it shouldn't be
                 switch ( LA(1) )
                 {
-
                     case DOT:
                     case DOT_DOT:
                     case AT:
