@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 374 $
- * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
+ * $Revision: 444 $
+ * $Date: 2005-02-08 08:36:36 -0800 (Tue, 08 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexer.java 374 2004-09-16 21:05:25Z bewins $
+ * $Id: XPathLexer.java 444 2005-02-08 16:36:36Z elharo $
  */
 
 
@@ -1000,18 +1000,13 @@ boolean hasMoreChars()
 
 boolean isIdentifierChar(char c)
 {
-    switch ( c )
-    {
-        case '-':
-        case '.':
-            return true;
-    }
 
-    return Character.isUnicodeIdentifierPart( c );
+
+    return Verifier.isXMLNCNameCharacter( c );
 }
 
 boolean isIdentifierStartChar(char c)
 {
-    return c == '_' || Character.isUnicodeIdentifierStart( c );
+    return Verifier.isXMLNCNameStartCharacter( c );
 }
 }
