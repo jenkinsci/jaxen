@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 504 $
+ * $Date: 2005-03-28 17:08:57 -0800 (Mon, 28 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,14 +56,12 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultArithExpr.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: DefaultArithExpr.java 504 2005-03-29 01:08:57Z elharo $
  */
 
 
 
 package org.jaxen.expr;
-
-import org.jaxen.JaxenException;
 
 abstract class DefaultArithExpr extends DefaultBinaryExpr 
 {
@@ -78,12 +76,5 @@ abstract class DefaultArithExpr extends DefaultBinaryExpr
     {
         return "[(DefaultArithExpr): " + getLHS() + ", " + getRHS() + "]";
     }
-    
-    public void assertInteger( Number number ) throws JaxenException
-      {
-      if( number.doubleValue() != number.intValue() )
-        {
-        throw new JaxenException( number + " is not an integer" );
-        }
-      }
+
 }

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 337 $
- * $Date: 2003-09-05 04:08:38 -0700 (Fri, 05 Sep 2003) $
+ * $Revision: 504 $
+ * $Date: 2005-03-28 17:08:57 -0800 (Mon, 28 Mar 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultModExpr.java 337 2003-09-05 11:08:38Z proyal $
+ * $Id: DefaultModExpr.java 504 2005-03-29 01:08:57Z elharo $
  */
 package org.jaxen.expr;
 
@@ -85,10 +85,7 @@ class DefaultModExpr extends DefaultMultiplicativeExpr
         Number rhsValue = NumberFunction.evaluate( getRHS().evaluate( context ),
                                                    context.getNavigator() );
 
-        assertInteger( lhsValue );
-        assertInteger( rhsValue );
-
-        int result = lhsValue.intValue() % rhsValue.intValue();
+        double result = lhsValue.doubleValue() % rhsValue.doubleValue();
         return new Double( result );
     }
 
