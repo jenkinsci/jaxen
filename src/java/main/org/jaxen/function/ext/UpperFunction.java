@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 446 $
+ * $Date: 2005-02-08 11:45:50 -0800 (Tue, 08 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: UpperFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: UpperFunction.java 446 2005-02-08 19:45:50Z elharo $
  */
 
 package org.jaxen.function.ext;
@@ -110,8 +110,8 @@ public class UpperFunction extends LocaleFunctionSupport
      * Converts the given string value to upper case using an optional Locale
      * 
      * @param strArg the value which gets converted to a String
-     * @param locale the Locale to use for the conversion or null if the
-     *          default should be used
+     * @param locale the Locale to use for the conversion or null if
+     *        English should be used
      * @param nav the Navigator to use
      */
     public static String evaluate(Object strArg,
@@ -121,15 +121,9 @@ public class UpperFunction extends LocaleFunctionSupport
 
         String str   = StringFunction.evaluate( strArg,
                                                 nav );
-        if (locale != null)
-        {
-            // System.out.println( "Using Locale: " + locale );
-            
-            return str.toUpperCase(locale);
-        }
-        else 
-        {
-            return  str.toUpperCase();
-        }
+        // it might be possible to use the xml:lang attribute to
+        // pick a default locale
+        if (locale == null) locale = Locale.ENGLISH;
+        return str.toUpperCase(locale);
     }
 }
