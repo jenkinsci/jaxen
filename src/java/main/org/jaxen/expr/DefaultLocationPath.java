@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 297 $
- * $Date: 2002-11-18 02:23:50 -0800 (Mon, 18 Nov 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,23 +56,17 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultLocationPath.java 297 2002-11-18 10:23:50Z szegedia $
+ * $Id: DefaultLocationPath.java 318 2003-06-29 18:15:15Z ssanders $
  */
 package org.jaxen.expr;
 
-import org.jaxen.Context;
-import org.jaxen.ContextSupport;
-import org.jaxen.UnsupportedAxisException;
-import org.jaxen.JaxenException;
-import org.jaxen.util.IdentityHashMap;
-import org.jaxen.util.SingleObjectIterator;
-import org.jaxen.util.LinkedIterator;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.jaxen.Context;
+import org.jaxen.JaxenException;
 
 abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
 {

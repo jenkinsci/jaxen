@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 296 $
+ * $Revision: 318 $
 
- * $Date: 2002-11-18 00:50:27 -0800 (Mon, 18 Nov 2002) $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultAbsoluteLocationPath.java 296 2002-11-18 08:50:27Z szegedia $
+ * $Id: DefaultAbsoluteLocationPath.java 318 2003-06-29 18:15:15Z ssanders $
 
  */
 
@@ -128,22 +128,14 @@ package org.jaxen.expr;
 
 
 
-import org.jaxen.Context;
-import org.jaxen.util.SingletonList;
-
-import org.jaxen.ContextSupport;
-
-import org.jaxen.Navigator;
-
-import org.jaxen.JaxenException;
-
-
-
+import java.util.Collections;
 import java.util.List;
 
-import java.util.ArrayList;
-
-import java.util.Collections;
+import org.jaxen.Context;
+import org.jaxen.ContextSupport;
+import org.jaxen.JaxenException;
+import org.jaxen.Navigator;
+import org.jaxen.util.SingletonList;
 
 
 

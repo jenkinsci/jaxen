@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 297 $
- * $Date: 2002-11-18 02:23:50 -0800 (Mon, 18 Nov 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: IdFunction.java 297 2002-11-18 10:23:50Z szegedia $
+ * $Id: IdFunction.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 package org.jaxen.function;
@@ -69,8 +69,8 @@ import java.util.StringTokenizer;
 
 import org.jaxen.Context;
 import org.jaxen.Function;
-import org.jaxen.Navigator;
 import org.jaxen.FunctionCallException;
+import org.jaxen.Navigator;
 
 /**
  * <p><b>4.1</b> <code><i>node-set</i> id(<i>object</i>)</code> 

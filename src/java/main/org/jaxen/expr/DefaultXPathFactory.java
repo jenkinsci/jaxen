@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 270 $
+ * $Revision: 318 $
 
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultXPathFactory.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: DefaultXPathFactory.java 318 2003-06-29 18:15:15Z ssanders $
 
  */
 
@@ -129,14 +129,21 @@ package org.jaxen.expr;
 
 
 import org.jaxen.JaxenException;
-
-
-
-import org.jaxen.expr.iter.*;
-
-
-
-import org.saxpath.Axis;
+import org.jaxen.expr.iter.IterableAncestorAxis;
+import org.jaxen.expr.iter.IterableAncestorOrSelfAxis;
+import org.jaxen.expr.iter.IterableAttributeAxis;
+import org.jaxen.expr.iter.IterableAxis;
+import org.jaxen.expr.iter.IterableChildAxis;
+import org.jaxen.expr.iter.IterableDescendantAxis;
+import org.jaxen.expr.iter.IterableDescendantOrSelfAxis;
+import org.jaxen.expr.iter.IterableFollowingAxis;
+import org.jaxen.expr.iter.IterableFollowingSiblingAxis;
+import org.jaxen.expr.iter.IterableNamespaceAxis;
+import org.jaxen.expr.iter.IterableParentAxis;
+import org.jaxen.expr.iter.IterablePrecedingAxis;
+import org.jaxen.expr.iter.IterablePrecedingSiblingAxis;
+import org.jaxen.expr.iter.IterableSelfAxis;
+import org.jaxen.saxpath.Axis;
 
 
 

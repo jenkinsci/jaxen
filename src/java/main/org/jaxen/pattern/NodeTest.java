@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,17 +56,17 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NodeTest.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: NodeTest.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 package org.jaxen.pattern;
 
-import org.jaxen.Context;
+
 
 /** <p><code>NodeTest</code> is a simple test on a node.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 270 $
+  * @version $Revision: 318 $
   */
 public abstract class NodeTest extends Pattern {
 

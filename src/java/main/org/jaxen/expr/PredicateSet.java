@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 279 $
+ * $Revision: 318 $
 
- * $Date: 2002-06-19 03:05:30 -0700 (Wed, 19 Jun 2002) $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
 
  *
 
@@ -114,7 +114,7 @@
 
  *
 
- * $Id: PredicateSet.java 279 2002-06-19 10:05:30Z emcgreal $
+ * $Id: PredicateSet.java 318 2003-06-29 18:15:15Z ssanders $
 
  */
 
@@ -128,27 +128,16 @@ package org.jaxen.expr;
 
 
 
-import org.jaxen.Context;
-
-import org.jaxen.ContextSupport;
-
-import org.jaxen.JaxenException;
-
-
-
-import org.jaxen.function.BooleanFunction;
-
-
-
 import java.io.Serializable;
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
-import java.util.ArrayList;
-
-import java.util.Collections;
-
-import java.util.Iterator;
+import org.jaxen.Context;
+import org.jaxen.ContextSupport;
+import org.jaxen.JaxenException;
+import org.jaxen.function.BooleanFunction;
 
 
 

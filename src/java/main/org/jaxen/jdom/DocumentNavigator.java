@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 314 $
- * $Date: 2003-06-22 11:55:00 -0700 (Sun, 22 Jun 2003) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,34 +56,30 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DocumentNavigator.java 314 2003-06-22 18:55:00Z proyal $
+ * $Id: DocumentNavigator.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 
 package org.jaxen.jdom;
 
-import org.jaxen.XPath;
-import org.jaxen.DefaultNavigator;
-import org.jaxen.FunctionCallException;
-
-import org.jaxen.util.SingleObjectIterator;
-
-import org.saxpath.SAXPathException;
-
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.Comment;
-import org.jdom.Text;
-import org.jdom.Attribute;
-import org.jdom.CDATA;
-import org.jdom.ProcessingInstruction;
-import org.jdom.Namespace;
-import org.jdom.input.SAXBuilder;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import org.jaxen.DefaultNavigator;
+import org.jaxen.FunctionCallException;
+import org.jaxen.XPath;
+import org.jaxen.util.SingleObjectIterator;
+import org.jdom.Attribute;
+import org.jdom.CDATA;
+import org.jdom.Comment;
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.Namespace;
+import org.jdom.ProcessingInstruction;
+import org.jdom.Text;
+import org.jdom.input.SAXBuilder;
 
 /** Interface for navigating around the EXML object model.
  *
@@ -302,7 +298,7 @@ public class DocumentNavigator extends DefaultNavigator
     /** Returns a parsed form of the given xpath string, which will be suitable
      *  for queries on JDOM documents.
      */
-    public XPath parseXPath (String xpath) throws SAXPathException
+    public XPath parseXPath (String xpath) throws org.jaxen.saxpath.SAXPathException
     {
         return new JDOMXPath(xpath);
     }

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 292 $
- * $Date: 2002-11-11 07:17:55 -0800 (Mon, 11 Nov 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultStep.java 292 2002-11-11 15:17:55Z slehmann $
+ * $Id: DefaultStep.java 318 2003-06-29 18:15:15Z ssanders $
  */
 package org.jaxen.expr;
 
@@ -70,8 +70,8 @@ import org.jaxen.ContextSupport;
 import org.jaxen.JaxenException;
 import org.jaxen.UnsupportedAxisException;
 import org.jaxen.expr.iter.IterableAxis;
+import org.jaxen.saxpath.Axis;
 import org.jaxen.util.IdentityHashMap;
-import org.saxpath.Axis;
 
 public abstract class DefaultStep implements Step
 {

@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 269 $
+ * $Revision: 318 $
 
- * $Date: 2002-05-10 13:08:45 -0700 (Fri, 10 May 2002) $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
 
  *
 
@@ -114,7 +114,7 @@
 
  *
 
- * $Id: SubstringFunction.java 269 2002-05-10 20:08:45Z emcgreal $
+ * $Id: SubstringFunction.java 318 2003-06-29 18:15:15Z ssanders $
 
  */
 
@@ -126,17 +126,12 @@ package org.jaxen.function;
 
 
 
-import org.jaxen.Context;
-
-import org.jaxen.Function;
-
-import org.jaxen.FunctionCallException;
-
-import org.jaxen.Navigator;
-
-
-
 import java.util.List;
+
+import org.jaxen.Context;
+import org.jaxen.Function;
+import org.jaxen.FunctionCallException;
+import org.jaxen.Navigator;
 
 
 

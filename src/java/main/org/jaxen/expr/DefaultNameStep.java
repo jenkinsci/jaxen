@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 291 $
+ * $Revision: 318 $
 
- * $Date: 2002-11-11 04:15:20 -0800 (Mon, 11 Nov 2002) $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: DefaultNameStep.java 291 2002-11-11 12:15:20Z slehmann $
+ * $Id: DefaultNameStep.java 318 2003-06-29 18:15:15Z ssanders $
 
  */
 
@@ -129,12 +129,9 @@ package org.jaxen.expr;
 
 
 import org.jaxen.ContextSupport;
-
 import org.jaxen.Navigator;
-
-import org.saxpath.Axis;
-
 import org.jaxen.expr.iter.IterableAxis;
+import org.jaxen.saxpath.Axis;
 
 
 
@@ -293,7 +290,7 @@ public class DefaultNameStep extends DefaultStep implements NameStep
         }
         else if ( nav.isNamespace( node ) )
         {
-            if ( matchesAnyName && getAxis() != Axis.NAMESPACE) { 
+            if ( matchesAnyName && getAxis() != Axis.NAMESPACE) {
                 // Only works for namespace::*
                 return false;
             }

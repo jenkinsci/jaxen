@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 292 $
- * $Date: 2002-11-11 07:17:55 -0800 (Mon, 11 Nov 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,18 +56,18 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Step.java 292 2002-11-11 15:17:55Z slehmann $
+ * $Id: Step.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 package org.jaxen.expr;
 
-import org.jaxen.Context;
-import org.jaxen.ContextSupport;
-import org.jaxen.UnsupportedAxisException;
-import org.jaxen.JaxenException;
-
 import java.util.Iterator;
 import java.util.List;
+
+import org.jaxen.Context;
+import org.jaxen.ContextSupport;
+import org.jaxen.JaxenException;
+import org.jaxen.UnsupportedAxisException;
 
 /**
  * A Step represents a location step in a LocationPath. The node-set selected by 
@@ -95,7 +95,7 @@ public interface Step extends Predicated, Visitable
 
     /**
      * Get an identifier for the current axis.
-     * @see org.saxpath.Axis
+     * @see org.jaxen.saxpath.Axis
      */
     public int getAxis();
 

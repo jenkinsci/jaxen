@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,15 +56,15 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleVariableContext.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: SimpleVariableContext.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 
 package org.jaxen;
 
 import java.io.Serializable;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 /** Simple default implementation for <code>VariableContext</code>.
  *

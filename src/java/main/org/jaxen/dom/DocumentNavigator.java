@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 286 $
- * $Date: 2002-09-17 17:21:47 -0700 (Tue, 17 Sep 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DocumentNavigator.java 286 2002-09-18 00:21:47Z mbrennan $
+ * $Id: DocumentNavigator.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 // DocumentNavigator.java - Jaxen adapter for the W3C DOM level 2.
@@ -64,25 +64,21 @@
 
 package org.jaxen.dom;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.jaxen.XPath;
 import org.jaxen.DefaultNavigator;
 import org.jaxen.FunctionCallException;
-
-import org.saxpath.SAXPathException;
-
+import org.jaxen.XPath;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
-import org.w3c.dom.ProcessingInstruction;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.ProcessingInstruction;
 
 /** Interface for navigating around the W3C DOM Level 2 object model.
  *
@@ -415,7 +411,7 @@ public class DocumentNavigator extends DefaultNavigator
     /** Returns a parsed form of the given xpath string, which will be suitable
      *  for queries on DOM documents.
      */
-    public XPath parseXPath (String xpath) throws SAXPathException
+    public XPath parseXPath (String xpath) throws org.jaxen.saxpath.SAXPathException
     {
         return new DOMXPath(xpath);
     }

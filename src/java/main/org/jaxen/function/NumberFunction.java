@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 284 $
- * $Date: 2002-09-17 17:18:55 -0700 (Tue, 17 Sep 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,18 +56,18 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NumberFunction.java 284 2002-09-18 00:18:55Z mbrennan $
+ * $Id: NumberFunction.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 package org.jaxen.function;
+
+import java.util.Iterator;
+import java.util.List;
 
 import org.jaxen.Context;
 import org.jaxen.Function;
 import org.jaxen.FunctionCallException;
 import org.jaxen.Navigator;
-
-import java.util.List;
-import java.util.Iterator;
 
 /**
  * <p><b>4.4</b> <code><i>number</i> number(<i>object</i>)</code> 

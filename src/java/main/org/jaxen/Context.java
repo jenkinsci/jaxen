@@ -1,7 +1,7 @@
 package org.jaxen;
 
 /*
- $Id: Context.java 308 2003-06-09 03:22:24Z bob $
+ $Id: Context.java 318 2003-06-29 18:15:15Z ssanders $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -47,9 +47,9 @@ package org.jaxen;
  */
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.ArrayList;
 
 /** Wrapper around implementation-specific objects used
  *  as the context of an expression evaluation.

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 287 $
- * $Date: 2002-09-17 17:23:03 -0700 (Tue, 17 Sep 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,25 +56,25 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultNavigator.java 287 2002-09-18 00:23:03Z mbrennan $
+ * $Id: DefaultNavigator.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 
 
 package org.jaxen;
 
-import org.jaxen.pattern.Pattern;
-import org.jaxen.util.SelfAxisIterator;
-import org.jaxen.util.DescendantOrSelfAxisIterator;
-import org.jaxen.util.AncestorOrSelfAxisIterator;
-import org.jaxen.util.AncestorAxisIterator;
-import org.jaxen.util.DescendantAxisIterator;
-import org.jaxen.util.PrecedingAxisIterator;
-import org.jaxen.util.FollowingAxisIterator;
-import org.jaxen.util.PrecedingSiblingAxisIterator;
-import org.jaxen.util.FollowingSiblingAxisIterator;
-
 import java.util.Iterator;
+
+import org.jaxen.pattern.Pattern;
+import org.jaxen.util.AncestorAxisIterator;
+import org.jaxen.util.AncestorOrSelfAxisIterator;
+import org.jaxen.util.DescendantAxisIterator;
+import org.jaxen.util.DescendantOrSelfAxisIterator;
+import org.jaxen.util.FollowingAxisIterator;
+import org.jaxen.util.FollowingSiblingAxisIterator;
+import org.jaxen.util.PrecedingAxisIterator;
+import org.jaxen.util.PrecedingSiblingAxisIterator;
+import org.jaxen.util.SelfAxisIterator;
 
 /** Default implementation of {@link Navigator}.
  *

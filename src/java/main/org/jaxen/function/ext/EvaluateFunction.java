@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 295 $
- * $Date: 2002-11-13 06:56:13 -0800 (Wed, 13 Nov 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,24 +56,21 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: EvaluateFunction.java 295 2002-11-13 14:56:13Z szegedia $
+ * $Id: EvaluateFunction.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 package org.jaxen.function.ext;
 
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
-import org.jaxen.XPath;
 import org.jaxen.Context;
 import org.jaxen.ContextSupport;
 import org.jaxen.Function;
-import org.jaxen.Navigator;
 import org.jaxen.FunctionCallException;
+import org.jaxen.Navigator;
+import org.jaxen.XPath;
 import org.jaxen.function.StringFunction;
-
-import org.saxpath.SAXPathException;
 
 /**
  * <code><i>node-set</i> evaluate(<i>string</i>)</code> 
@@ -116,7 +113,7 @@ public class EvaluateFunction implements Function
             xpath.setNamespaceContext( support.getNamespaceContext() );
             return xpath.selectNodes( context.duplicate() );
         }
-        catch ( SAXPathException e ) {
+        catch ( org.jaxen.saxpath.SAXPathException e ) {
             throw new FunctionCallException(e.toString());
         }
     }

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 293 $
- * $Date: 2002-11-12 07:35:02 -0800 (Tue, 12 Nov 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,20 +56,20 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LangFunction.java 293 2002-11-12 15:35:02Z szegedia $
+ * $Id: LangFunction.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 
 package org.jaxen.function;
+
+import java.util.Iterator;
+import java.util.List;
 
 import org.jaxen.Context;
 import org.jaxen.Function;
 import org.jaxen.FunctionCallException;
 import org.jaxen.Navigator;
 import org.jaxen.UnsupportedAxisException;
-
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * <p><b>4.3</b> <code><i>boolean</i> lang(<i>string</i>)</code> 

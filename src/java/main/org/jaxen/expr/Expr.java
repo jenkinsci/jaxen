@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 259 $
+ * $Revision: 318 $
 
- * $Date: 2002-04-29 06:27:55 -0700 (Mon, 29 Apr 2002) $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
 
  *
 
@@ -114,7 +114,7 @@
 
  * 
 
- * $Id: Expr.java 259 2002-04-29 13:27:55Z emcgreal $
+ * $Id: Expr.java 318 2003-06-29 18:15:15Z ssanders $
 
  */
 
@@ -128,18 +128,9 @@ package org.jaxen.expr;
 
 
 
-import org.jaxen.Context;
-
-
-
 import java.io.Serializable;
 
-import java.util.List;
-
-import java.util.Iterator;
-
-
-
+import org.jaxen.Context;
 import org.jaxen.JaxenException;
 
 

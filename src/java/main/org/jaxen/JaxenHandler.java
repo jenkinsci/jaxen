@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,30 +56,28 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenHandler.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: JaxenHandler.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 
 
 package org.jaxen;
 
-import org.jaxen.expr.XPathFactory;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 import org.jaxen.expr.DefaultXPathFactory;
-import org.jaxen.expr.XPathExpr;
-import org.jaxen.expr.LocationPath;
-import org.jaxen.expr.FilterExpr;
 import org.jaxen.expr.Expr;
-import org.jaxen.expr.Step;
+import org.jaxen.expr.FilterExpr;
+import org.jaxen.expr.FunctionCallExpr;
+import org.jaxen.expr.LocationPath;
 import org.jaxen.expr.Predicate;
 import org.jaxen.expr.Predicated;
-import org.jaxen.expr.FunctionCallExpr;
-
-import org.saxpath.XPathHandler;
-import org.saxpath.Axis;
-import org.saxpath.Operator;
-
-import java.util.LinkedList;
-import java.util.Iterator;
+import org.jaxen.expr.Step;
+import org.jaxen.expr.XPathExpr;
+import org.jaxen.expr.XPathFactory;
+import org.jaxen.saxpath.Operator;
+import org.jaxen.saxpath.XPathHandler;
 
 /** SAXPath <code>XPathHandler</code> implementation capable
  *  of building Jaxen expression trees which can walk various

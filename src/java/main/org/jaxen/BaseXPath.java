@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 304 $
- * $Date: 2002-12-04 12:24:28 -0800 (Wed, 04 Dec 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,26 +56,23 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 304 2002-12-04 20:24:28Z bob $
+ * $Id: BaseXPath.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 
 package org.jaxen;
 
+import java.io.Serializable;
+import java.util.List;
+
 import org.jaxen.expr.Expr;
 import org.jaxen.expr.XPathExpr;
 import org.jaxen.function.BooleanFunction;
-import org.jaxen.function.StringFunction;
 import org.jaxen.function.NumberFunction;
+import org.jaxen.function.StringFunction;
+import org.jaxen.saxpath.XPathReader;
+import org.jaxen.saxpath.helpers.XPathReaderFactory;
 import org.jaxen.util.SingletonList;
-
-import org.saxpath.XPathReader;
-import org.saxpath.SAXPathException;
-import org.saxpath.helpers.XPathReaderFactory;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /** Base functionality for all concrete, implementation-specific XPaths.
  *
@@ -134,13 +131,13 @@ public class BaseXPath implements XPath, Serializable
 
             this.xpath = handler.getXPathExpr();
         }
-        catch (org.saxpath.XPathSyntaxException e)
+        catch (org.jaxen.saxpath.XPathSyntaxException e)
         {
             throw new org.jaxen.XPathSyntaxException( e.getXPath(),
                                                       e.getPosition(),
                                                       e.getMessage() );
         }
-        catch (SAXPathException e)
+        catch (org.jaxen.saxpath.SAXPathException e)
         {
             throw new JaxenException( e );
         }

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceNode.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: NamespaceNode.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 ////////////////////////////////////////////////////////////////////
@@ -65,13 +65,12 @@
 
 package org.jaxen.dom;
 
+import org.jaxen.pattern.Pattern;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import org.jaxen.pattern.Pattern;
 
 
 /**

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 318 $
+ * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
  *
  * ====================================================================
  *
@@ -56,13 +56,20 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: IdentityHashMap.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: IdentityHashMap.java 318 2003-06-29 18:15:15Z ssanders $
  */
 
 package org.jaxen.util;
-import java.io.*;
-
-import java.util.*;
+import java.io.IOException;
+import java.util.AbstractCollection;
+import java.util.AbstractMap;
+import java.util.AbstractSet;
+import java.util.Collection;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Set;
 
 public class IdentityHashMap extends AbstractMap implements Map, Cloneable,
                                          java.io.Serializable {
