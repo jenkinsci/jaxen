@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 427 $
- * $Date: 2005-02-05 07:35:55 -0800 (Sat, 05 Feb 2005) $
+ * $Revision: 428 $
+ * $Date: 2005-02-05 08:50:23 -0800 (Sat, 05 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexerTest.java 427 2005-02-05 15:35:55Z elharo $
+ * $Id: XPathLexerTest.java 428 2005-02-05 16:50:23Z elharo $
  */
 
 
@@ -140,12 +140,25 @@ public class XPathLexerTest extends TestCase
      * This tests that characters added in XML 1.1 and Unicode 3.0
      * are not recognized as legal name characters. 
      */
-    public void testBurmeseIdentifier()
+    public void testBurmeseIdentifierStart()
     {
         setText( "\u1000foo" );
 
         nextToken();
 
+        assertEquals( TokenTypes.ERROR,
+                      tokenType() );
+
+    }
+
+    public void testBurmeseIdentifierPart()
+    {
+        setText( "foo\u1000foo" );
+
+        nextToken();
+        assertEquals( "foo",
+                      tokenText() );
+        nextToken();
         assertEquals( TokenTypes.ERROR,
                       tokenType() );
 
