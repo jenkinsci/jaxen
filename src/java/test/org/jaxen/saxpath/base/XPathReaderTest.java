@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 430 $
- * $Date: 2005-02-07 04:19:12 -0800 (Mon, 07 Feb 2005) $
+ * $Revision: 435 $
+ * $Date: 2005-02-07 15:40:26 -0800 (Mon, 07 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 430 2005-02-07 12:19:12Z elharo $
+ * $Id: XPathReaderTest.java 435 2005-02-07 23:40:26Z elharo $
  */
 
 
@@ -177,29 +177,6 @@ public class XPathReaderTest extends TestCase
             {
                 fail( e.getMessage() );
             }
-        }
-    }
-
-    public void testCountNonNodeSet()
-    {
-        XPathReader reader = new XPathReader();
-        try
-        {
-            reader.parse( "count(3)" );
-
-            fail( "Should have thrown XPathSyntaxException for count(3)");
-        }
-        catch( XPathSyntaxException e )
-        {
-            assertEquals( "count(3)", e.getMessage() );
-        }
-        catch( org.jaxen.saxpath.SAXPathException e )
-        {
-            fail( e.getMessage() );
-        }
-        catch( Exception e )
-        {
-            fail( e.getMessage() );
         }
     }
 
