@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 418 $
+ * $Date: 2005-01-29 18:51:29 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleFunctionContext.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: SimpleFunctionContext.java 418 2005-01-30 02:51:29Z elharo $
  */
 
 
@@ -113,12 +113,12 @@ public class SimpleFunctionContext implements FunctionContext
      *  to indicate that it exists without a namespace.
      *  </p>
      *
-     *  @param namespaceURI The namespace URI of the function to
+     *  @param namespaceURI the namespace URI of the function to
      *         be registered with this context.
-     *  @param localName The non-prefixed local portion of the
-     *         function to be registered with this context.
-     *  @param function A {@link Function} implementation object
-     *         to be used when evaluating the function.
+     *  @param localName the non-prefixed local portion of the
+     *         function to be registered with this context
+     *  @param function a {@link Function} implementation object
+     *         to be used when evaluating the function
      */
     public void registerFunction(String namespaceURI,
                                  String localName,
