@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 452 $
- * $Date: 2005-02-08 19:23:16 -0800 (Tue, 08 Feb 2005) $
+ * $Revision: 453 $
+ * $Date: 2005-02-08 19:27:32 -0800 (Tue, 08 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 452 2005-02-09 03:23:16Z elharo $
+ * $Id: XPathTest.java 453 2005-02-09 03:27:32Z elharo $
  */
 
 
@@ -215,6 +215,34 @@ public class XPathTest extends TestCase
             List results = xpath.selectNodes( doc );
 
             assertEquals( 3,
+                          results.size() );
+
+        }
+        catch (Exception e)
+        {
+            fail( e.getMessage() );
+        }
+    }
+    
+    public void testNamespaceNodesAreInherited()
+    {
+        try
+        {
+            Namespace ns0 = Namespace.getNamespace("p0", "www.acme0.org");
+            Namespace ns1 = Namespace.getNamespace("p1", "www.acme1.org");
+            Namespace ns2 = Namespace.getNamespace("p2", "www.acme2.org");
+            Element element = new Element("test", ns1);
+            Attribute attribute = new Attribute("foo", "bar", ns2);
+            element.setAttribute(attribute);
+            Element root = new Element("root", ns0);
+            root.addContent(element);
+            Document doc = new Document(root);
+            
+            XPath xpath = new JDOMXPath( "/*/*/namespace::node()" );
+
+            List results = xpath.selectNodes( doc );
+
+            assertEquals( 4,
                           results.size() );
 
         }
