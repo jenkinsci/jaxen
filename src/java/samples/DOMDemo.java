@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 422 $
+ * $Date: 2005-01-29 19:16:43 -0800 (Sat, 29 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DOMDemo.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: DOMDemo.java 422 2005-01-30 03:16:43Z elharo $
  */
 
 
@@ -64,7 +64,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
 import org.jaxen.dom.DOMXPath;
 
