@@ -2,8 +2,8 @@ package org.jaxen.dom4j;
 
 /*
  * $Header$
- * $Revision: 465 $
- * $Date: 2005-02-19 08:07:46 -0800 (Sat, 19 Feb 2005) $
+ * $Revision: 517 $
+ * $Date: 2005-04-02 16:05:09 -0800 (Sat, 02 Apr 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom4j;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 465 2005-02-19 16:07:46Z elharo $
+ * $Id: DocumentNavigator.java 517 2005-04-03 00:05:09Z elharo $
 */
 
 import java.util.ArrayList;
@@ -295,7 +295,7 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
      * @param contextNode  the origin context node
      * @param localName  the local name of the attributes to return, always present
      * @param namespacePrefix  the prefix of the namespace of the attributes to return
-     * @param namespaceURI  the uri of the namespace of the attributes to return
+     * @param namespaceURI  the URI of the namespace of the attributes to return
      * @return an Iterator that traverses the named attributes, not null
      */
     public Iterator getAttributeAxisIterator(
@@ -382,10 +382,6 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
                 answer = node.getDocument();
                 if (answer == contextNode) {
                     return null;
-                }
-                if ( answer == null )
-                {
-                    answer = node;
                 }
             }
             return answer;            
