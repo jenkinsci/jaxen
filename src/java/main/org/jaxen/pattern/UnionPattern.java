@@ -4,7 +4,7 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: UnionPattern.java 90 2001-08-08 21:29:49Z jstrachan $
+ * $Id: UnionPattern.java 210 2002-03-14 02:09:34Z jstrachan $
  */
 
 package org.jaxen.pattern;
@@ -15,7 +15,7 @@ import org.jaxen.JaxenException;
 /** <p><code>UnionPattern</code> represents a union pattern.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 90 $
+  * @version $Revision: 210 $
   */
 public class UnionPattern extends Pattern {
 
@@ -91,7 +91,7 @@ public class UnionPattern extends Pattern {
     public Pattern simplify() 
     {
         this.lhs = lhs.simplify();
-        this.rhs = lhs.simplify();
+        this.rhs = rhs.simplify();
         init();
         return this;
     }
