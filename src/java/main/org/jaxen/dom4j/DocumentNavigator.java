@@ -31,7 +31,7 @@ import java.util.Iterator;
  *
  * @author bob mcwhirter (bob @ werken.com)
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
- * @version $Revision: 139 $
+ * @version $Revision: 155 $
  */
 public class DocumentNavigator extends DefaultNavigator
 {
@@ -261,6 +261,13 @@ public class DocumentNavigator extends DefaultNavigator
         Namespace ns = (Namespace) obj;
 
         return ns.getURI();
+    }
+
+    public String getNamespacePrefix(Object obj)
+    {
+        Namespace ns = (Namespace) obj;
+
+        return ns.getPrefix();
     }
 
     public String getCommentStringValue(Object obj)
