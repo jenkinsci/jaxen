@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 438 $
- * $Date: 2005-02-07 16:39:17 -0800 (Mon, 07 Feb 2005) $
+ * $Revision: 439 $
+ * $Date: 2005-02-07 16:51:01 -0800 (Mon, 07 Feb 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LocalNameFunction.java 438 2005-02-08 00:39:17Z elharo $
+ * $Id: LocalNameFunction.java 439 2005-02-08 00:51:01Z elharo $
  */
 
 
@@ -82,8 +82,7 @@ public class LocalNameFunction implements Function
     {
         if ( args.size() == 0 )
         {
-            return evaluate( context.getNodeSet(),
-                             context.getNavigator() );
+            return "";
         }
 
         if ( args.size() == 1 )
