@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 485 2005-03-21 22:39:16Z elharo $
+ $Id: DefaultNameStep.java 500 2005-03-29 00:23:05Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -205,10 +205,9 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
 
                 // run through iterator, filtering using matches()
                 // adding to list for predicate test
-                Object eachAxisNode = null;
                 List newNodeSet = new ArrayList();
                 while (axisNodeIter.hasNext()) {
-                    eachAxisNode = axisNodeIter.next();
+                    Object eachAxisNode = axisNodeIter.next();
                     if (matches(eachAxisNode, support)) {
                         newNodeSet.add(eachAxisNode);
                     }
