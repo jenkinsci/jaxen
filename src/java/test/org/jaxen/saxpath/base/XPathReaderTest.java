@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 406 $
- * $Date: 2005-01-27 12:30:35 -0800 (Thu, 27 Jan 2005) $
+ * $Revision: 410 $
+ * $Date: 2005-01-28 11:35:33 -0800 (Fri, 28 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 406 2005-01-27 20:30:35Z elharo $
+ * $Id: XPathReaderTest.java 410 2005-01-28 19:35:33Z elharo $
  */
 
 
@@ -222,7 +222,7 @@ public class XPathReaderTest extends TestCase
 
             getReader().setUpParse( getText() );
 
-            getReader().step( true );
+            getReader().step( );
 
             expected().startNameStep( Axis.CHILD,
                                       "",
@@ -246,7 +246,7 @@ public class XPathReaderTest extends TestCase
 
             getReader().setUpParse( getText() );
 
-            getReader().step( true );
+            getReader().step( );
 
             expected().startNameStep( Axis.PARENT,
                                       "foo",
@@ -269,7 +269,7 @@ public class XPathReaderTest extends TestCase
 
             getReader().setUpParse( getText() );
 
-            getReader().step( true );
+            getReader().step();
 
             expected().startAllNodeStep( Axis.PARENT );
 
@@ -291,7 +291,7 @@ public class XPathReaderTest extends TestCase
 
             getReader().setUpParse( getText() );
 
-            getReader().step( true );
+            getReader().step( );
 
             expected().startProcessingInstructionNodeStep( Axis.PARENT,
                                                            "cheese" );
@@ -314,7 +314,7 @@ public class XPathReaderTest extends TestCase
 
             getReader().setUpParse( getText() );
 
-            getReader().step( true );
+            getReader().step( );
 
             expected().startProcessingInstructionNodeStep( Axis.PARENT,
                                                            "" );
@@ -337,7 +337,7 @@ public class XPathReaderTest extends TestCase
 
             getReader().setUpParse( getText() );
 
-            getReader().step( true );
+            getReader().step( );
 
             expected().startAllNodeStep( Axis.PARENT );
 
@@ -359,7 +359,7 @@ public class XPathReaderTest extends TestCase
 
             getReader().setUpParse( getText() );
 
-            getReader().step( true );
+            getReader().step( );
 
             expected().startTextNodeStep( Axis.PARENT );
 
@@ -381,7 +381,7 @@ public class XPathReaderTest extends TestCase
 
             getReader().setUpParse( getText() );
 
-            getReader().step( true );
+            getReader().step( );
 
             expected().startCommentNodeStep( Axis.PARENT );
 

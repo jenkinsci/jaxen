@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 407 $
- * $Date: 2005-01-27 12:35:31 -0800 (Thu, 27 Jan 2005) $
+ * $Revision: 410 $
+ * $Date: 2005-01-28 11:35:33 -0800 (Fri, 28 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 407 2005-01-27 20:35:31Z elharo $
+ * $Id: XPathReader.java 410 2005-01-28 19:35:33Z elharo $
  */
 
 
@@ -466,7 +466,7 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
             case IDENTIFIER:
             case STAR:
             {
-                step( true );
+                step();
                 break;
             }
             case EOF:
@@ -516,7 +516,7 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
                 case IDENTIFIER:
                 case STAR:
                 {
-                    step( false );
+                    step();
                     break;
                 }
                 default:
@@ -529,7 +529,7 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
         } while ( true );
     }
 
-    void step(boolean first) throws org.jaxen.saxpath.SAXPathException
+    void step() throws org.jaxen.saxpath.SAXPathException
     {
         int axis = 0;
 
@@ -852,6 +852,7 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
     void equalityExpr() throws org.jaxen.saxpath.SAXPathException
     {
         getXPathHandler().startEqualityExpr();
+        // XXX why call this twice?
         getXPathHandler().startEqualityExpr();
 
         relationalExpr();
