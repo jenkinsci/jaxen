@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 271 $
- * $Date: 2002-06-03 08:11:52 -0700 (Mon, 03 Jun 2002) $
+ * $Revision: 282 $
+ * $Date: 2002-07-29 07:59:24 -0700 (Mon, 29 Jul 2002) $
  *
  * ====================================================================
  *
@@ -56,14 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathFunctionContext.java 271 2002-06-03 15:11:52Z werken $
+ * $Id: XPathFunctionContext.java 282 2002-07-29 14:59:24Z jstrachan $
  */
 
 
 package org.jaxen;
 
 import org.jaxen.function.*;
-import org.jaxen.function.DocumentFunction;
 import org.jaxen.function.ext.*;
 import org.jaxen.function.xslt.*;
 
