@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 374 $
- * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
+ * $Revision: 384 $
+ * $Date: 2005-01-13 15:45:55 -0800 (Thu, 13 Jan 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTestBase.java 374 2004-09-16 21:05:25Z bewins $
+ * $Id: XPathTestBase.java 384 2005-01-13 23:45:55Z elharo $
  */
 
 
@@ -108,7 +108,7 @@ public abstract class XPathTestBase extends TestCase
 
     public void log(String text)
     {
-        log( this.verbose,
+        log( verbose,
              text );
     }
 
@@ -240,7 +240,7 @@ public abstract class XPathTestBase extends TestCase
 
         String debugStr  = test.attributeValue( "debug" );
 
-        boolean debug = this.verbose;
+        boolean debug = verbose;
 
         if ( debugStr != null )
         {
@@ -409,7 +409,7 @@ public abstract class XPathTestBase extends TestCase
 
         String debugStr  = valueOf.attributeValue( "debug" );
 
-        boolean debug = this.verbose;
+        boolean debug = verbose;
 
         if ( debugStr != null )
         {
