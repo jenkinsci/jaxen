@@ -2,9 +2,9 @@
 
  * $Header$
 
- * $Revision: 267 $
+ * $Revision: 269 $
 
- * $Date: 2002-05-10 06:42:15 -0700 (Fri, 10 May 2002) $
+ * $Date: 2002-05-10 13:08:45 -0700 (Fri, 10 May 2002) $
 
  *
 
@@ -114,7 +114,7 @@
 
  *
 
- * $Id: SubstringFunction.java 267 2002-05-10 13:42:15Z emcgreal $
+ * $Id: SubstringFunction.java 269 2002-05-10 20:08:45Z emcgreal $
 
  */
 
@@ -203,10 +203,16 @@ public class SubstringFunction implements Function
         // negative start is treated as 0
         if ( start < 0){
             start = 0;
-        }else if (start + len > strlen){
+        }else if (start > strlen){
             return "";
         }
 
-        return str.substring(start, start + len);
+        // if the length is longer than the rest of the string just
+        // take the rest of the string
+        int end = start + len;
+        if (end > strlen){
+            end = strlen;
+        }
+        return str.substring(start, end);
     }
 }
