@@ -23,7 +23,7 @@ import org.jaxen.BaseXPath;
  *
  * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  *
- * @version $Revision: 211 $
+ * @version $Revision: 215 $
  */
 public class XPath extends BaseXPath
 {
@@ -36,16 +36,6 @@ public class XPath extends BaseXPath
      */
     public XPath(String xpathExpr) throws JaxenException
     {
-        super( xpathExpr );
-    }
-
-    /** Retrieve the JDOM-specific {@link Navigator} 
-     *  for us in evaluating this XPath expression.
-     *
-     *  @return The implementation-specific <code>Navigator</code>.
-     */
-    public Navigator getNavigator()
-    {
-        return DocumentNavigator.getInstance();
+        super( xpathExpr, DocumentNavigator.getInstance() );
     }
 } 
