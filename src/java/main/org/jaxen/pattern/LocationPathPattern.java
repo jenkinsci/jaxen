@@ -4,12 +4,13 @@
  * This software is open source. 
  * See the LICENCE.txt that came with this distribution for the licence.
  * 
- * $Id: LocationPathPattern.java 92 2001-08-09 00:26:39Z jstrachan $
+ * $Id: LocationPathPattern.java 93 2001-08-09 08:24:48Z jstrachan $
  */
 
 package org.jaxen.pattern;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,7 +25,7 @@ import org.jaxen.expr.FilterExpr;
   * chain location path patterns together</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 92 $
+  * @version $Revision: 93 $
   */
 public class LocationPathPattern extends Pattern {
 
@@ -153,6 +154,10 @@ public class LocationPathPattern extends Pattern {
                 {
                     return false;
                 }
+                if ( navigator.isDocument( ancestor ) )
+                {
+                    return false;
+                }
                 ancestor = navigator.getParentNode( ancestor );
             }
         }
@@ -160,14 +165,19 @@ public class LocationPathPattern extends Pattern {
         if (filters != null) 
         {
             // XXXX: filters aren't positional, so should we clone context?
+            boolean answer = true;
             for (Iterator iter = filters.iterator(); iter.hasNext(); ) 
             {
                 FilterExpr filter = (FilterExpr) iter.next();
                 if ( ! filter.asBoolean( context ) )
                 {
-                    return false;
+                    answer = false;
+                    break;
                 }
             }
+            // restore context
+            context.setNodeSet( Collections.singletonList( node ) );
+            return answer;
         }
         return true;
     }
