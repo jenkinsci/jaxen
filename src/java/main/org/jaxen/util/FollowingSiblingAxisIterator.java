@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 557 $
- * $Date: 2005-04-06 02:13:58 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 578 $
+ * $Date: 2005-04-07 13:41:33 -0700 (Thu, 07 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FollowingSiblingAxisIterator.java 557 2005-04-06 09:13:58Z elharo $
+ * $Id: FollowingSiblingAxisIterator.java 578 2005-04-07 20:41:33Z elharo $
  */
 
 
@@ -74,7 +74,6 @@ public class FollowingSiblingAxisIterator implements Iterator
 {
     private Object    contextNode;
     private Navigator navigator;
-
     private Iterator  siblingIter;
 
     public FollowingSiblingAxisIterator(Object contextNode,
@@ -92,12 +91,11 @@ public class FollowingSiblingAxisIterator implements Iterator
         if ( parent != null )
         {
             siblingIter = this.navigator.getChildAxisIterator( parent );
-            Object   eachChild = null;
             
             while ( siblingIter.hasNext() )
             {
-                eachChild = siblingIter.next();
-                if ( eachChild == this.contextNode ) break;
+                Object eachChild = siblingIter.next();
+                if ( eachChild.equals(this.contextNode) ) break;
             }
         }
         else {
