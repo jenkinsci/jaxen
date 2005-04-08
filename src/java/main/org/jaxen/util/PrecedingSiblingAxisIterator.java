@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 583 $
- * $Date: 2005-04-08 07:14:57 -0700 (Fri, 08 Apr 2005) $
+ * $Revision: 586 $
+ * $Date: 2005-04-08 07:32:16 -0700 (Fri, 08 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PrecedingSiblingAxisIterator.java 583 2005-04-08 14:14:57Z elharo $
+ * $Id: PrecedingSiblingAxisIterator.java 586 2005-04-08 14:32:16Z elharo $
  */
 
 
@@ -68,6 +68,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
+import org.jaxen.JaxenConstants;
 import org.jaxen.Navigator;
 import org.jaxen.UnsupportedAxisException;
 
@@ -116,7 +117,7 @@ public class PrecedingSiblingAxisIterator implements Iterator
             
         }
         else {
-            this.siblingIter = Collections.EMPTY_LIST.iterator();
+            this.siblingIter = JaxenConstants.EMPTY_ITERATOR;
         }
         
     }
