@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 581 $
- * $Date: 2005-04-08 07:00:37 -0700 (Fri, 08 Apr 2005) $
+ * $Revision: 582 $
+ * $Date: 2005-04-08 07:05:42 -0700 (Fri, 08 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PrecedingSiblingAxisIterator.java 581 2005-04-08 14:00:37Z elharo $
+ * $Id: PrecedingSiblingAxisIterator.java 582 2005-04-08 14:05:42Z elharo $
  */
 
 
@@ -145,10 +145,6 @@ public class PrecedingSiblingAxisIterator implements Iterator
 
     private void stepAhead()
     {
-        if ( this.nextObj != null )
-        {
-            return;
-        }
 
         if ( siblingIter.hasNext() )
         {
