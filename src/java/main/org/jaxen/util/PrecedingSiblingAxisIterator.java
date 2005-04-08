@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 582 $
- * $Date: 2005-04-08 07:05:42 -0700 (Fri, 08 Apr 2005) $
+ * $Revision: 583 $
+ * $Date: 2005-04-08 07:14:57 -0700 (Fri, 08 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PrecedingSiblingAxisIterator.java 582 2005-04-08 14:05:42Z elharo $
+ * $Id: PrecedingSiblingAxisIterator.java 583 2005-04-08 14:14:57Z elharo $
  */
 
 
@@ -86,7 +86,10 @@ public class PrecedingSiblingAxisIterator implements Iterator
         this.navigator   = navigator;
 
         init();
-        stepAhead();
+        if ( siblingIter.hasNext() )
+        {
+            this.nextObj = siblingIter.next();
+        }
     }
 
     private void init() throws UnsupportedAxisException
@@ -102,12 +105,10 @@ public class PrecedingSiblingAxisIterator implements Iterator
             while ( childIter.hasNext() )
             {
                 Object eachChild = childIter.next();
-                
                 if ( eachChild.equals(this.contextNode) )
                 {
                     break;
                 }
-
                 siblings.addFirst( eachChild );
             }
             
@@ -133,8 +134,13 @@ public class PrecedingSiblingAxisIterator implements Iterator
         }
 
         Object obj = this.nextObj;
-        this.nextObj = null;
-        stepAhead();
+        if ( siblingIter.hasNext() )
+        {
+            this.nextObj = siblingIter.next();
+        }
+        else {
+            this.nextObj = null;
+        }
         return obj;
     }
 
@@ -143,12 +149,4 @@ public class PrecedingSiblingAxisIterator implements Iterator
         throw new UnsupportedOperationException();
     }
 
-    private void stepAhead()
-    {
-
-        if ( siblingIter.hasNext() )
-        {
-            this.nextObj = siblingIter.next();
-        }
-    }
 }
