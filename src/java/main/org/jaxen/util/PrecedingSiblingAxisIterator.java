@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 580 $
- * $Date: 2005-04-08 06:55:46 -0700 (Fri, 08 Apr 2005) $
+ * $Revision: 581 $
+ * $Date: 2005-04-08 07:00:37 -0700 (Fri, 08 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PrecedingSiblingAxisIterator.java 580 2005-04-08 13:55:46Z elharo $
+ * $Id: PrecedingSiblingAxisIterator.java 581 2005-04-08 14:00:37Z elharo $
  */
 
 
@@ -66,7 +66,6 @@ package org.jaxen.util;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.jaxen.Navigator;
@@ -87,7 +86,6 @@ public class PrecedingSiblingAxisIterator implements Iterator
         this.navigator   = navigator;
 
         init();
-
         stepAhead();
     }
 
@@ -135,11 +133,8 @@ public class PrecedingSiblingAxisIterator implements Iterator
         }
 
         Object obj = this.nextObj;
-
         this.nextObj = null;
-
         stepAhead();
-
         return obj;
     }
 
@@ -155,14 +150,9 @@ public class PrecedingSiblingAxisIterator implements Iterator
             return;
         }
 
-        Object obj = null;
-
-        while ( siblingIter.hasNext() )
+        if ( siblingIter.hasNext() )
         {
-            obj = siblingIter.next();
-
-            this.nextObj = obj;
-            break;     
+            this.nextObj = siblingIter.next();
         }
     }
 }
