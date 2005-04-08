@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 579 $
+ * $Date: 2005-04-08 06:51:08 -0700 (Fri, 08 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PrecedingSiblingAxisIterator.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: PrecedingSiblingAxisIterator.java 579 2005-04-08 13:51:08Z elharo $
  */
 
 
@@ -78,7 +78,6 @@ public class PrecedingSiblingAxisIterator implements Iterator
     private Navigator navigator;
 
     private Iterator  siblingIter;
-
     private Object    nextObj;
 
     public PrecedingSiblingAxisIterator(Object contextNode,
@@ -101,15 +100,13 @@ public class PrecedingSiblingAxisIterator implements Iterator
         if ( parent != null )
         {
             Iterator childIter = this.navigator.getChildAxisIterator( parent );
-            Object   eachChild = null;
-            
             siblings = new LinkedList();
             
             while ( childIter.hasNext() )
             {
-                eachChild = childIter.next();
+                Object eachChild = childIter.next();
                 
-                if ( eachChild == this.contextNode )
+                if ( eachChild.equals(this.contextNode) )
                 {
                     break;
                 }
@@ -161,18 +158,7 @@ public class PrecedingSiblingAxisIterator implements Iterator
             obj = siblingIter.next();
 
             this.nextObj = obj;
-            break;
-            
-/*
-             
-             This should iterate through all nodes, not necessarily just elements
-             
-            if ( this.navigator.isElement( obj ) )
-            {
-                this.nextObj = obj;
-                break;
-            }
-*/             
+            break;     
         }
     }
 }
