@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 587 $
+ * $Date: 2005-04-08 07:39:13 -0700 (Fri, 08 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,47 +56,19 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SelfAxisIterator.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: SelfAxisIterator.java 587 2005-04-08 14:39:13Z elharo $
  */
 
 
 
 package org.jaxen.util;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-
-public class SelfAxisIterator implements Iterator
+public class SelfAxisIterator extends SingleObjectIterator
 {
-    private boolean hasNext;
-    private Object  node;
 
     public SelfAxisIterator(Object node)
     {
-        this.hasNext = true;
-        this.node    = node;
+        super(node);
     }
-
-    public boolean hasNext()
-    {
-        return this.hasNext;
-    }
-
-    public Object next() throws NoSuchElementException
-    {
-        if ( hasNext() )
-        {
-            this.hasNext = false;
-            return this.node;
-        }
-
-        throw new NoSuchElementException();
-    }
-
-    public void remove() throws UnsupportedOperationException
-    {
-        throw new UnsupportedOperationException();
-    }
-        
 
 }
