@@ -2,8 +2,8 @@ package org.jaxen.util;
 
 /*
  * $Header$
- * $Revision: 510 $
- * $Date: 2005-03-31 18:10:57 -0800 (Thu, 31 Mar 2005) $
+ * $Revision: 584 $
+ * $Date: 2005-04-08 07:22:08 -0700 (Fri, 08 Apr 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.util;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: AncestorOrSelfAxisIterator.java 510 2005-04-01 02:10:57Z elharo $
+ * $Id: AncestorOrSelfAxisIterator.java 584 2005-04-08 14:22:08Z elharo $
 */
 
 import java.util.Iterator;
@@ -70,12 +70,13 @@ import org.jaxen.JaxenRuntimeException;
 
 public class AncestorOrSelfAxisIterator implements Iterator
 {
-    private Object contextNode;
+    private Object    contextNode;
     private Navigator navigator;
 
     public AncestorOrSelfAxisIterator(Object contextNode,
                                       Navigator navigator)
     {
+        // XXX should we throw a NullPointerException here if contextNode is null?
         this.contextNode = contextNode;
         this.navigator = navigator;
     }
@@ -94,7 +95,7 @@ public class AncestorOrSelfAxisIterator implements Iterator
                 contextNode = navigator.getParentNode(contextNode);
                 return result;
             }
-            throw new NoSuchElementException();
+            throw new NoSuchElementException(); // XXX provide exception message
         }
         catch (UnsupportedAxisException e)
         {

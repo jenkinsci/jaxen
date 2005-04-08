@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 510 $
- * $Date: 2005-03-31 18:10:57 -0800 (Thu, 31 Mar 2005) $
+ * $Revision: 584 $
+ * $Date: 2005-04-08 07:22:08 -0700 (Fri, 08 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: AncestorAxisIterator.java 510 2005-04-01 02:10:57Z elharo $
+ * $Id: AncestorAxisIterator.java 584 2005-04-08 14:22:08Z elharo $
  */
 
 
@@ -73,8 +73,6 @@ public class AncestorAxisIterator extends AncestorOrSelfAxisIterator
     {
         super( contextNode,
                navigator );
-        if (hasNext()) {
-            next();
-        }
+        next();
     }
 }
