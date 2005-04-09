@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 590 $
+ * $Date: 2005-04-09 06:58:44 -0700 (Sat, 09 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: SAXPathException.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: SAXPathException.java 590 2005-04-09 13:58:44Z elharo $
  */
 
 
@@ -76,7 +76,7 @@ public class SAXPathException extends Exception
 
     /** Construct with a given message.
      *
-     *  @param msg The error message.
+     *  @param msg the error message
      */
     public SAXPathException(String msg)
     {
@@ -85,7 +85,7 @@ public class SAXPathException extends Exception
 
     /** Construct based on another exception
      *
-     *  @param src The error source.
+     *  @param src the error source
      */
     public SAXPathException(Throwable src)
     {
@@ -101,7 +101,7 @@ public class SAXPathException extends Exception
 	return cause;
     }
 
-    /** Overriden to print this exception's stack, followed by the
+    /** Overridden to print this exception's stack, followed by the
      *	source exception's, if any.
      */
     public void printStackTrace ()
@@ -109,7 +109,7 @@ public class SAXPathException extends Exception
 	printStackTrace ( System.err );
     }
 
-    /** Overriden to print this exception's stack, followed by the
+    /** Overridden to print this exception's stack, followed by the
      *	source exception's, if any.
      */
     public void printStackTrace ( java.io.PrintStream s )
@@ -121,7 +121,7 @@ public class SAXPathException extends Exception
 	}
     }
 
-    /** Overriden to print this exception's stack, followed by the
+    /** Overridden to print this exception's stack, followed by the
      *	source exception's, if any.
      */
     public void printStackTrace (java.io.PrintWriter s)
