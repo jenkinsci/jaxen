@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 374 $
- * $Date: 2004-09-16 14:05:25 -0700 (Thu, 16 Sep 2004) $
+ * $Revision: 592 $
+ * $Date: 2005-04-09 07:06:04 -0700 (Sat, 09 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,10 +56,12 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: TokenTypes.java 374 2004-09-16 21:05:25Z bewins $
+ * $Id: TokenTypes.java 592 2005-04-09 14:06:04Z elharo $
  */
 
 package org.jaxen.saxpath.base;
+
+import org.jaxen.JaxenRuntimeException;
 
 
 
@@ -190,7 +192,7 @@ class TokenTypes
             case ERROR:
                 return "(error)";
             default:
-                return null;
+                throw new JaxenRuntimeException("Unrecognized token type: " + tokenType);
         }
     }
 }
