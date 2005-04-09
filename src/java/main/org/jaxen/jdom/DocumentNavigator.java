@@ -2,8 +2,8 @@ package org.jaxen.jdom;
 
 /*
  * $Header$
- * $Revision: 400 $
- * $Date: 2005-01-19 05:55:27 -0800 (Wed, 19 Jan 2005) $
+ * $Revision: 595 $
+ * $Date: 2005-04-09 14:56:32 -0700 (Sat, 09 Apr 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.jdom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 400 2005-01-19 13:55:27Z elharo $
+ * $Id: DocumentNavigator.java 595 2005-04-09 21:56:32Z elharo $
 */
 
 import java.util.HashMap;
@@ -349,7 +349,7 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
      * @param contextNode  the origin context node
      * @param localName  the local name of the attributes to return, always present
      * @param namespacePrefix  the prefix of the namespace of the attributes to return
-     * @param namespaceURI  the uri of the namespace of the attributes to return
+     * @param namespaceURI  the URI of the namespace of the attributes to return
      * @return an Iterator that traverses the named attributes, not null
      */
     public Iterator getAttributeAxisIterator(
@@ -367,7 +367,7 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
         return JaxenConstants.EMPTY_ITERATOR;
     }
 
-    /** Returns a parsed form of the given xpath string, which will be suitable
+    /** Returns a parsed form of the given XPath string, which will be suitable
      *  for queries on JDOM documents.
      */
     public XPath parseXPath (String xpath) throws SAXPathException

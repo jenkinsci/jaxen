@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 595 $
+ * $Date: 2005-04-09 14:56:32 -0700 (Sat, 09 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathNamespace.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: XPathNamespace.java 595 2005-04-09 21:56:32Z elharo $
  */
 
 
@@ -65,7 +65,7 @@ package org.jaxen.jdom;
 import org.jdom.Element;
 import org.jdom.Namespace;
 
-/** Wrapper for jdom namespace nodes to give them a parent, as required
+/** Wrapper for JDOM namespace nodes to give them a parent, as required
  *  by the XPath data model.
  *
  *  @author Erwin Bolwidt
@@ -85,7 +85,7 @@ public class XPathNamespace
     }
 
     /** Creates a namespace-node wrapper for a namespace node that is assigned
-     *  to the given jdom element.
+     *  to the given JDOM element.
      */
     public XPathNamespace( Element jdomElement, Namespace jdomNamespace )
     {
@@ -93,7 +93,7 @@ public class XPathNamespace
         this.jdomNamespace = jdomNamespace;
     }
 
-    /** Returns the jdom element from which this namespace node has been 
+    /** Returns the JDOM element from which this namespace node has been 
      *  retrieved. The result may be null when the namespace node has not yet
      *  been assigned to an element.
      */
@@ -109,8 +109,8 @@ public class XPathNamespace
         this.jdomElement = jdomElement;
     }
 
-    /** Returns the jdom namespace object of this namespace node; the jdom
-     *  namespace object contains the prefix and uri of the namespace.
+    /** Returns the JDOM namespace object of this namespace node; the JDOM
+     *  namespace object contains the prefix and URI of the namespace.
      */
     public Namespace getJDOMNamespace()
     {
