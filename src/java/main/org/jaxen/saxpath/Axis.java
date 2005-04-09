@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 588 $
+ * $Date: 2005-04-09 06:51:32 -0700 (Sat, 09 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,17 +56,21 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: Axis.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: Axis.java 588 2005-04-09 13:51:32Z elharo $
  */
 
 
 
 package org.jaxen.saxpath;
 
+import org.jaxen.JaxenRuntimeException;
+
 
 
 public class Axis
 {
+    
+    // XXX Ultimately these should use the type-safe enum pattern instead
     /** Marker for an invalid axis */
     public final static int INVALID_AXIS       =  0;
 
@@ -153,7 +157,7 @@ public class Axis
                 return "ancestor-or-self";
         }
 
-        return null;
+        throw new JaxenRuntimeException("Illegal Axis Number");
     }
 
     public static int lookup(String axisName)
