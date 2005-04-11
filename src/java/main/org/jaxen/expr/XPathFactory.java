@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 335 $
- * $Date: 2003-09-04 21:08:48 -0700 (Thu, 04 Sep 2003) $
+ * $Revision: 606 $
+ * $Date: 2005-04-11 11:21:56 -0700 (Mon, 11 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,14 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathFactory.java 335 2003-09-05 04:08:48Z proyal $
+ * $Id: XPathFactory.java 606 2005-04-11 18:21:56Z elharo $
  */
 package org.jaxen.expr;
 
 import org.jaxen.JaxenException;
-import org.jaxen.saxpath.Operator;
 
-public interface XPathFactory extends Operator
+public interface XPathFactory
 {
     XPathExpr createXPath( Expr rootExpr ) throws JaxenException;
 
