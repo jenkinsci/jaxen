@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 590 $
- * $Date: 2005-04-09 06:58:44 -0700 (Sat, 09 Apr 2005) $
+ * $Revision: 607 $
+ * $Date: 2005-04-11 11:29:00 -0700 (Mon, 11 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathHandler.java 590 2005-04-09 13:58:44Z elharo $
+ * $Id: XPathHandler.java 607 2005-04-11 18:29:00Z elharo $
  */
 
 
@@ -153,7 +153,7 @@ public interface XPathHandler
 
     /** Receive notification of the start of a node() step.
      *
-     *  @param axis The axis of this step.
+     *  @param axis the axis of this step
      */
     void startAllNodeStep(int axis) throws org.jaxen.saxpath.SAXPathException;
 
@@ -198,7 +198,7 @@ public interface XPathHandler
      *
      *  @param create flag that indicates if this expression
      *         should truly be instantiated, or if it was just
-     *         a pass-through, based upon the grammar productions.
+     *         a pass-through, based upon the grammar productions
      */
     void endOrExpr(boolean create) throws org.jaxen.saxpath.SAXPathException;
 
@@ -210,7 +210,7 @@ public interface XPathHandler
      *
      *  @param create flag that indicates if this expression
      *         should truly be instantiated, or if it was just
-     *         a pass-through, based upon the grammar productions.
+     *         a pass-through, based upon the grammar productions
      */
     void endAndExpr(boolean create) throws org.jaxen.saxpath.SAXPathException;
 
@@ -220,7 +220,7 @@ public interface XPathHandler
 
     /** Receive notification of the end of an equality ('=' or '!=') expression.
      *
-     *  @param equalityOperator The operator specific to this particular
+     *  @param equalityOperator the operator specific to this particular
      *         equality expression.  If null, this expression
      *         is only a pass-through, and should not actually
      *         be instantiated.
