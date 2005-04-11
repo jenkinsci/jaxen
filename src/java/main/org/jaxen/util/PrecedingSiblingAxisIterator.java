@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 586 $
- * $Date: 2005-04-08 07:32:16 -0700 (Fri, 08 Apr 2005) $
+ * $Revision: 609 $
+ * $Date: 2005-04-11 12:14:10 -0700 (Mon, 11 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,14 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PrecedingSiblingAxisIterator.java 586 2005-04-08 14:32:16Z elharo $
+ * $Id: PrecedingSiblingAxisIterator.java 609 2005-04-11 19:14:10Z elharo $
  */
 
 
 
 package org.jaxen.util;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
