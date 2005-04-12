@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 536 $
- * $Date: 2005-04-04 10:10:59 -0700 (Mon, 04 Apr 2005) $
+ * $Revision: 613 $
+ * $Date: 2005-04-12 10:04:31 -0700 (Tue, 12 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 536 2005-04-04 17:10:59Z elharo $
+ * $Id: XPathTest.java 613 2005-04-12 17:04:31Z elharo $
  */
 
 
@@ -83,11 +83,20 @@ public class XPathTest extends TestCase
 {
 
     private static final String BASIC_XML = "xml/basic.xml";
+    private Document doc;
+    private DocumentBuilderFactory factory;
 
     public XPathTest(String name)
     {
         super( name );
     }
+    
+    public void setUp() throws ParserConfigurationException {
+        factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        doc = factory.newDocumentBuilder().newDocument();        
+    }
+    
 
     public void testConstruction() throws JaxenException
     {
@@ -97,9 +106,6 @@ public class XPathTest extends TestCase
     public void testNamespaceDeclarationsAreNotAttributes() 
       throws ParserConfigurationException, JaxenException {
         
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        Document doc = factory.newDocumentBuilder().newDocument();
         Element root = doc.createElementNS("http://www.example.org/", "root");
         doc.appendChild(root);
         root.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns", "http://www.example.org/");
@@ -115,9 +121,6 @@ public class XPathTest extends TestCase
     public void testUpdateDOMNodesReturnedBySelectNodes() 
       throws ParserConfigurationException, JaxenException {
         
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        Document doc = factory.newDocumentBuilder().newDocument();
         Element root = doc.createElementNS("http://www.example.org/", "root");
         doc.appendChild(root);
         root.appendChild(doc.createComment("data"));
@@ -135,8 +138,6 @@ public class XPathTest extends TestCase
     {
         XPath xpath = new DOMXPath( "/foo/bar/baz" );
 
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
     
         Document doc = builder.parse( BASIC_XML );
@@ -160,5 +161,54 @@ public class XPathTest extends TestCase
         assertTrue( ! iter.hasNext() );
 
     }
+    
+    // Jaxen-22
+    public void testPrecedingAxisWithPositionalPredicate() 
+      throws JaxenException, ParserConfigurationException, SAXException, IOException {
+        
+        XPath xpath = new DOMXPath( "//c/preceding::*[1][name()='d']" );
+        DocumentBuilder builder = factory.newDocumentBuilder();
+    
+        Document doc = builder.parse( "xml/web2.xml" );
+        List result = xpath.selectNodes(doc);
+        assertEquals(1, result.size());
+        
+    }
+    
+     
+    // Jaxen-22
+    public void testJaxen22() 
+      throws JaxenException, ParserConfigurationException, SAXException, IOException {
+        
+        XPath xpath = new DOMXPath( "name(//c/preceding::*[1])" );
+        DocumentBuilder builder = factory.newDocumentBuilder();
+    
+        doc = builder.parse("xml/web2.xml");
+        Object result = xpath.evaluate(doc);
+        assertEquals("d", result);
+    }
+    
+     
+    public void testPrecedingAxisInDocumentOrder() 
+      throws JaxenException {
+        
+        XPath xpath = new DOMXPath( "preceding::*" );
+    
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        
+        Element a = doc.createElement("a");
+        root.appendChild(a);
+        Element b = doc.createElement("b");
+        root.appendChild(b);
+        Element c = doc.createElement("c");
+        a.appendChild(c);
+        
+        List result = xpath.selectNodes(b);
+        assertEquals(2, result.size());
+        assertEquals(a, result.get(0));
+        assertEquals(c, result.get(1));
+    }
+    
      
 }
