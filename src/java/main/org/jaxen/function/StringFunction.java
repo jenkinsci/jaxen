@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 610 $
- * $Date: 2005-04-12 05:53:41 -0700 (Tue, 12 Apr 2005) $
+ * $Revision: 611 $
+ * $Date: 2005-04-12 06:16:46 -0700 (Tue, 12 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 610 2005-04-12 12:53:41Z elharo $
+ * $Id: StringFunction.java 611 2005-04-12 13:16:46Z elharo $
  */
 
 
@@ -106,6 +106,13 @@ public class StringFunction implements Function
         {
             if (obj == null) {
                 return "";
+            }
+            
+            // Workaround because XOM uses lists for Text nodes
+            // so we need to check for that first
+            if (nav != null && nav.isText(obj))
+            {
+                return nav.getTextStringValue(obj);
             }
             
             if (obj instanceof List)
