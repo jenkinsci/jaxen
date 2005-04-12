@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 612 $
+ * $Date: 2005-04-12 06:17:29 -0700 (Tue, 12 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StartsWithFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: StartsWithFunction.java 612 2005-04-12 13:17:29Z elharo $
  */
 
 
@@ -87,7 +87,7 @@ public class StartsWithFunction implements Function
                              context.getNavigator() );
         }
 
-        throw new FunctionCallException( "starts-with() requires two arugments." );
+        throw new FunctionCallException( "starts-with() requires two arguments." );
     }
 
     public static Boolean evaluate(Object strArg,
