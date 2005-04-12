@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 563 $
- * $Date: 2005-04-06 03:01:42 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 615 $
+ * $Date: 2005-04-12 10:10:07 -0700 (Tue, 12 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 563 2005-04-06 10:01:42Z elharo $
+ * $Id: BaseXPath.java 615 2005-04-12 17:10:07Z elharo $
  */
 
 
@@ -267,6 +267,23 @@ public class BaseXPath implements XPath, Serializable
         return stringValueOf( node );
     }
 
+    /** Retrieves the string-value of the result of
+     *  evaluating this XPath expression when evaluated 
+     *  against the specified context.
+     *
+     *  <p>
+     *  The string-value of the expression is determined per
+     *  the <code>string(..)</code> core function defined
+     *  in the XPath specification.  This means that an expression
+     *  that selects zero nodes will return the empty string,
+     *  while an expression that selects one-or-more nodes will
+     *  return the string-value of the first node.
+     *  </p>
+     *
+     *  @param node the node, node-set or Context object for evaluation. This value can be null.
+     *
+     *  @return the string-value interpretation of this expression
+     */
     public String stringValueOf(Object node) throws JaxenException
     {
         Context context = getContext( node );
