@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 616 $
+ * $Date: 2005-04-14 06:06:37 -0700 (Thu, 14 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultXPathHandler.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: DefaultXPathHandler.java 616 2005-04-14 13:06:37Z elharo $
  */
 
 
@@ -68,14 +68,13 @@ import org.jaxen.saxpath.XPathHandler;
 
 class DefaultXPathHandler implements XPathHandler
 {
-    static class Singleton
-    {
-        static final DefaultXPathHandler instance = new DefaultXPathHandler();
-    }
+    private static final DefaultXPathHandler instance = new DefaultXPathHandler();
+    
+    private DefaultXPathHandler() {}
 
     public static XPathHandler getInstance()
     {
-        return Singleton.instance;
+        return instance;
     }
     
     public void startXPath()
