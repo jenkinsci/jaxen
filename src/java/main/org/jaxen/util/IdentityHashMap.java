@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 569 $
- * $Date: 2005-04-06 14:48:25 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 617 $
+ * $Date: 2005-04-15 07:13:52 -0700 (Fri, 15 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: IdentityHashMap.java 569 2005-04-06 21:48:25Z elharo $
+ * $Id: IdentityHashMap.java 617 2005-04-15 14:13:52Z elharo $
  */
 
 package org.jaxen.util;
@@ -70,6 +70,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
+
+import org.jaxen.JaxenConstants;
 
 public class IdentityHashMap extends AbstractMap implements Map, Cloneable,
                                          java.io.Serializable {
@@ -608,7 +610,7 @@ public class IdentityHashMap extends AbstractMap implements Map, Cloneable,
 
     private Iterator getHashIterator(int type) {
         if (count == 0) {
-            return emptyHashIterator;
+            return JaxenConstants.EMPTY_ITERATOR;
         } else {
             return new HashIterator(type);
         }
@@ -673,29 +675,6 @@ public class IdentityHashMap extends AbstractMap implements Map, Cloneable,
     private static final int KEYS = 0;
     private static final int VALUES = 1;
     private static final int ENTRIES = 2;
-
-    private static EmptyHashIterator emptyHashIterator 
-        = new EmptyHashIterator();
-                                             
-    private static class EmptyHashIterator implements Iterator {
-        
-        EmptyHashIterator() {
-            
-        }
-
-        public boolean hasNext() {
-            return false;
-        }
-
-        public Object next() {
-            throw new NoSuchElementException();
-        }
-        
-        public void remove() {
-            throw new IllegalStateException();
-        }
-
-    }                   
                     
     private class HashIterator implements Iterator {
         Entry[] table = IdentityHashMap.this.table;
