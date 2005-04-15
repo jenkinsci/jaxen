@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 617 $
- * $Date: 2005-04-15 07:13:52 -0700 (Fri, 15 Apr 2005) $
+ * $Revision: 626 $
+ * $Date: 2005-04-15 16:21:18 -0700 (Fri, 15 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: IdentityHashMap.java 617 2005-04-15 14:13:52Z elharo $
+ * $Id: IdentityHashMap.java 626 2005-04-15 23:21:18Z elharo $
  */
 
 package org.jaxen.util;
@@ -543,7 +543,7 @@ public class IdentityHashMap extends AbstractMap implements Map, Cloneable,
      * It does not support the <code>add</code> or <code>addAll</code> operations.
      *
      * @return a collection view of the mappings contained in this map
-     * @see Map.Entry
+     * @see java.util.Map.Entry
      */
     public Set entrySet() {
         if (entrySet==null) {
