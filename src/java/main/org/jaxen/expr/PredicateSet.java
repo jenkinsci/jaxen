@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 511 $
- * $Date: 2005-03-31 18:14:22 -0800 (Thu, 31 Mar 2005) $
+ * $Revision: 621 $
+ * $Date: 2005-04-15 13:24:04 -0700 (Fri, 15 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: PredicateSet.java 511 2005-04-01 02:14:22Z elharo $
+ * $Id: PredicateSet.java 621 2005-04-15 20:24:04Z elharo $
  */
 
 
@@ -170,6 +170,7 @@ public class PredicateSet implements Serializable
             tempList.clear();
             tempList.add(contextNode);
             predContext.setNodeSet(tempList);
+            // ????
             predContext.setPosition(i + 1);
             predContext.setSize(nodes2FilterSize);
             Object predResult = predicate.evaluate(predContext);
