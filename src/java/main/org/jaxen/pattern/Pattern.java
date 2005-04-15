@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 553 $
- * $Date: 2005-04-06 02:08:05 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 619 $
+ * $Date: 2005-04-15 13:19:47 -0700 (Fri, 15 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Pattern.java 553 2005-04-06 09:08:05Z elharo $
+ * $Id: Pattern.java 619 2005-04-15 20:19:47Z elharo $
  */
 
 package org.jaxen.pattern;
@@ -68,7 +68,7 @@ import org.jaxen.JaxenException;
   * the XSLT processing model.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 553 $
+  * @version $Revision: 619 $
   */
 public abstract class Pattern {
 
@@ -119,7 +119,7 @@ public abstract class Pattern {
     
     /** Returns the default resolution policy of the pattern according to the
       * <a href="http://www.w3.org/TR/xslt11/#conflict">
-      * XSLT conflict resolution spec</a>. 
+      * XSLT conflict resolution rules</a>. 
       * 
       */
     public double getPriority() 
