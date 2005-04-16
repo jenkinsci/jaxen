@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 611 $
- * $Date: 2005-04-12 06:16:46 -0700 (Tue, 12 Apr 2005) $
+ * $Revision: 633 $
+ * $Date: 2005-04-16 06:45:12 -0700 (Sat, 16 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 611 2005-04-12 13:16:46Z elharo $
+ * $Id: StringFunction.java 633 2005-04-16 13:45:12Z elharo $
  */
 
 
@@ -187,7 +187,7 @@ public class StringFunction implements Function
         {
             return "NaN";
         }
-        if (-0.0 == value || 0.0 == value)
+        if (0.0 == value)
         {
             return "0";
         }
@@ -203,6 +203,7 @@ public class StringFunction implements Function
         {
             return Long.toString((long) value);
         }
+        // ???? what about exponential notation????
         return Double.toString(value);
     }
 
