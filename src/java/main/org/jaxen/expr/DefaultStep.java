@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 641 $
- * $Date: 2005-04-16 09:06:41 -0700 (Sat, 16 Apr 2005) $
+ * $Revision: 642 $
+ * $Date: 2005-04-16 10:57:38 -0700 (Sat, 16 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,15 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultStep.java 641 2005-04-16 16:06:41Z elharo $
+ * $Id: DefaultStep.java 642 2005-04-16 17:57:38Z elharo $
  */
 package org.jaxen.expr;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.IdentityHashMap;
 
 import org.jaxen.Context;
 import org.jaxen.ContextSupport;
@@ -77,8 +75,6 @@ public abstract class DefaultStep implements Step
 {
     private IterableAxis axis;
     private PredicateSet predicates;
-
-    private final static Object PRESENT = new Object();
 
     public DefaultStep(IterableAxis axis, PredicateSet predicates)
     {
@@ -140,7 +136,7 @@ public abstract class DefaultStep implements Step
     public List evaluate(Context context) throws JaxenException
     {
         List contextNodeSet  = context.getNodeSet();
-        Map unique = new IdentityHashMap();
+        IdentitySet unique = new IdentitySet();
         int contextSize = contextNodeSet.size();
 
         List interimSet = new ArrayList();
@@ -163,9 +159,9 @@ public abstract class DefaultStep implements Step
 
                 if ( matches( eachAxisNode, support ) )
                 {
-                    if ( ! unique.containsKey( eachAxisNode ) )
+                    if ( ! unique.contains( eachAxisNode ) )
                     {
-                        unique.put( eachAxisNode, PRESENT );
+                        unique.add( eachAxisNode );
                         interimSet.add( eachAxisNode );
                     }
                 }
