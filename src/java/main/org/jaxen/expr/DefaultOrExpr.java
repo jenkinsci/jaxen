@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 629 $
- * $Date: 2005-04-16 02:59:11 -0700 (Sat, 16 Apr 2005) $
+ * $Revision: 638 $
+ * $Date: 2005-04-16 07:23:05 -0700 (Sat, 16 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultOrExpr.java 629 2005-04-16 09:59:11Z elharo $
+ * $Id: DefaultOrExpr.java 638 2005-04-16 14:23:05Z elharo $
  */
 
 
@@ -97,7 +97,8 @@ class DefaultOrExpr extends DefaultLogicalExpr
             return Boolean.TRUE;
         }
 
-        // ???? short circuit legal in XPath? What if RHS throws exception?
+        // Short circuits are required in XPath. "The right operand is not 
+        // evaluated if the left operand evaluates to true."
         Boolean rhsValue = BooleanFunction.evaluate( getRHS().evaluate( context ), nav );
 
         if ( rhsValue.booleanValue() )
