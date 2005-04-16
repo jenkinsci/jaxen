@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 485 $
- * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
+ * $Revision: 630 $
+ * $Date: 2005-04-16 03:03:25 -0700 (Sat, 16 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultAndExpr.java 485 2005-03-21 22:39:16Z elharo $
+ * $Id: DefaultAndExpr.java 630 2005-04-16 10:03:25Z elharo $
  */
 
 package org.jaxen.expr;
@@ -90,22 +90,26 @@ class DefaultAndExpr extends DefaultLogicalExpr implements LogicalExpr
         Navigator nav = context.getNavigator();
         Boolean lhsValue = BooleanFunction.evaluate( getLHS().evaluate( context ), nav );
 
-        if ( lhsValue == Boolean.FALSE )
+        if ( !lhsValue.booleanValue() )
         {
             return Boolean.FALSE;
         }
 
+        // Short circuits are required in XPath. "The right operand is not 
+        // evaluated if the left operand evaluates to false."
         Boolean rhsValue = BooleanFunction.evaluate( getRHS().evaluate( context ), nav );
 
-        if ( rhsValue == Boolean.FALSE )
+        if ( !rhsValue.booleanValue() )
         {
             return Boolean.FALSE;
         }
 
         return Boolean.TRUE;
     }
+    
     public void accept(Visitor visitor)
     {
         visitor.visit(this);
     }
+    
 }
