@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 485 $
- * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
+ * $Revision: 629 $
+ * $Date: 2005-04-16 02:59:11 -0700 (Sat, 16 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultOrExpr.java 485 2005-03-21 22:39:16Z elharo $
+ * $Id: DefaultOrExpr.java 629 2005-04-16 09:59:11Z elharo $
  */
 
 
@@ -92,22 +92,25 @@ class DefaultOrExpr extends DefaultLogicalExpr
         Navigator nav = context.getNavigator();
         Boolean lhsValue = BooleanFunction.evaluate( getLHS().evaluate( context ), nav );
 
-        if ( lhsValue == Boolean.TRUE )
+        if ( lhsValue.booleanValue() )
         {
             return Boolean.TRUE;
         }
 
+        // ???? short circuit legal in XPath? What if RHS throws exception?
         Boolean rhsValue = BooleanFunction.evaluate( getRHS().evaluate( context ), nav );
 
-        if ( rhsValue == Boolean.TRUE )
+        if ( rhsValue.booleanValue() )
         {
             return Boolean.TRUE;
         }
 
         return Boolean.FALSE;
     }
+    
     public void accept(Visitor visitor)
     {
         visitor.visit(this);
-    }   
+    }
+    
 }
