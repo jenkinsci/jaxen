@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 647 $
- * $Date: 2005-04-17 07:19:25 -0700 (Sun, 17 Apr 2005) $
+ * $Revision: 648 $
+ * $Date: 2005-04-17 07:33:56 -0700 (Sun, 17 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultStep.java 647 2005-04-17 14:19:25Z elharo $
+ * $Id: DefaultStep.java 648 2005-04-17 14:33:56Z elharo $
  */
 package org.jaxen.expr;
 
@@ -139,15 +139,18 @@ public abstract class DefaultStep implements Step
         final IdentitySet unique = new IdentitySet();
         final int contextSize = contextNodeSet.size();
 
+        // ???? try linked lists instead?
+        // ???? initial size for these?
         final ArrayList interimSet = new ArrayList();
         final ArrayList newNodeSet = new ArrayList();
         final ContextSupport support = context.getContextSupport();
             
+        // ???? use iterator instead????
         for ( int i = 0 ; i < contextSize ; ++i )
         {
             Object eachContextNode = contextNodeSet.get( i );
 
-            Iterator axisNodeIter = axisIterator( eachContextNode, support );
+            Iterator axisNodeIter = axis.iterator(eachContextNode, support);
 
             while ( axisNodeIter.hasNext() )
             {
