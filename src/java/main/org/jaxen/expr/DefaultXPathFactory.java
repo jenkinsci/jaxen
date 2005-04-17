@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 606 $
- * $Date: 2005-04-11 11:21:56 -0700 (Mon, 11 Apr 2005) $
+ * $Revision: 644 $
+ * $Date: 2005-04-17 06:19:29 -0700 (Sun, 17 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultXPathFactory.java 606 2005-04-11 18:21:56Z elharo $
+ * $Id: DefaultXPathFactory.java 644 2005-04-17 13:19:29Z elharo $
  */
 package org.jaxen.expr;
 
@@ -245,7 +245,6 @@ public class DefaultXPathFactory implements XPathFactory
 
     public NumberExpr createNumberExpr( int number ) throws JaxenException
     {
-        // return new DefaultNumberExpr( new Integer(number) );
         return new DefaultNumberExpr( new Double( number ) );
     }
 
