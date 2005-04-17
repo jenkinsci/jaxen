@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 646 $
- * $Date: 2005-04-17 07:14:49 -0700 (Sun, 17 Apr 2005) $
+ * $Revision: 647 $
+ * $Date: 2005-04-17 07:19:25 -0700 (Sun, 17 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultStep.java 646 2005-04-17 14:14:49Z elharo $
+ * $Id: DefaultStep.java 647 2005-04-17 14:19:25Z elharo $
  */
 package org.jaxen.expr;
 
@@ -148,10 +148,6 @@ public abstract class DefaultStep implements Step
             Object eachContextNode = contextNodeSet.get( i );
 
             Iterator axisNodeIter = axisIterator( eachContextNode, support );
-            if ( axisNodeIter == null )
-            {
-                continue;
-            }
 
             while ( axisNodeIter.hasNext() )
             {
