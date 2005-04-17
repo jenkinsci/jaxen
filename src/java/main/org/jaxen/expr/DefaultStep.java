@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 642 $
- * $Date: 2005-04-16 10:57:38 -0700 (Sat, 16 Apr 2005) $
+ * $Revision: 645 $
+ * $Date: 2005-04-17 07:08:36 -0700 (Sun, 17 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultStep.java 642 2005-04-16 17:57:38Z elharo $
+ * $Id: DefaultStep.java 645 2005-04-17 14:08:36Z elharo $
  */
 package org.jaxen.expr;
 
@@ -139,8 +139,8 @@ public abstract class DefaultStep implements Step
         IdentitySet unique = new IdentitySet();
         int contextSize = contextNodeSet.size();
 
-        List interimSet = new ArrayList();
-        List newNodeSet = new ArrayList();
+        ArrayList interimSet = new ArrayList();
+        ArrayList newNodeSet = new ArrayList();
         ContextSupport support = context.getContextSupport();
             
         for ( int i = 0 ; i < contextSize ; ++i )
