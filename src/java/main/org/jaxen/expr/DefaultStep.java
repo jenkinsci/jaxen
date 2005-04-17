@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 645 $
- * $Date: 2005-04-17 07:08:36 -0700 (Sun, 17 Apr 2005) $
+ * $Revision: 646 $
+ * $Date: 2005-04-17 07:14:49 -0700 (Sun, 17 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultStep.java 645 2005-04-17 14:08:36Z elharo $
+ * $Id: DefaultStep.java 646 2005-04-17 14:14:49Z elharo $
  */
 package org.jaxen.expr;
 
@@ -133,15 +133,15 @@ public abstract class DefaultStep implements Step
         return getIterableAxis().iterator(contextNode, support);
     }
 
-    public List evaluate(Context context) throws JaxenException
+    public List evaluate(final Context context) throws JaxenException
     {
-        List contextNodeSet  = context.getNodeSet();
-        IdentitySet unique = new IdentitySet();
-        int contextSize = contextNodeSet.size();
+        final List contextNodeSet  = context.getNodeSet();
+        final IdentitySet unique = new IdentitySet();
+        final int contextSize = contextNodeSet.size();
 
-        ArrayList interimSet = new ArrayList();
-        ArrayList newNodeSet = new ArrayList();
-        ContextSupport support = context.getContextSupport();
+        final ArrayList interimSet = new ArrayList();
+        final ArrayList newNodeSet = new ArrayList();
+        final ContextSupport support = context.getContextSupport();
             
         for ( int i = 0 ; i < contextSize ; ++i )
         {
