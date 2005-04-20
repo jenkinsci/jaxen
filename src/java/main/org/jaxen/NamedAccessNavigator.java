@@ -1,5 +1,5 @@
 /*
- $Id: NamedAccessNavigator.java 330 2003-07-27 23:14:21Z bob $
+ $Id: NamedAccessNavigator.java 655 2005-04-20 22:45:26Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -52,7 +52,7 @@ import java.util.Iterator;
  * accessing certain parts by name for performance.
  * <p>
  * This interface must only be implemented by those models that
- * can support this named access behaviour.
+ * can support this named access behavior.
  *
  * @author Stephen Colebourne
  */
@@ -71,7 +71,7 @@ public interface NamedAccessNavigator extends Navigator {
      * @param contextNode  the origin context node
      * @param localName  the local name of the children to return, always present
      * @param namespacePrefix  the prefix of the namespace of the children to return
-     * @param namespaceURI  the uri of the namespace of the children to return
+     * @param namespaceURI  the namespace URI of the children to return
      *
      * @return an Iterator capable of traversing the named children, or null if none
      *
