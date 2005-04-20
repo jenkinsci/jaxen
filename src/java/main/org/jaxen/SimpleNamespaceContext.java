@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 656 $
+ * $Date: 2005-04-20 15:46:15 -0700 (Wed, 20 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleNamespaceContext.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: SimpleNamespaceContext.java 656 2005-04-20 22:46:15Z elharo $
  */
 
 
@@ -73,6 +73,8 @@ import java.util.Map;
  */
 public class SimpleNamespaceContext implements NamespaceContext, Serializable
 {
+    
+    // XXX should this prebind the xml prefix?
     private Map namespaces;
 
     public SimpleNamespaceContext()
