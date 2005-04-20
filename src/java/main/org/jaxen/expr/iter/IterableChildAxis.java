@@ -1,5 +1,5 @@
 /*
- $Id: IterableChildAxis.java 423 2005-01-30 03:19:37Z elharo $
+ $Id: IterableChildAxis.java 653 2005-04-20 22:42:24Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -75,7 +75,8 @@ public class IterableChildAxis extends IterableAxis {
      * @param contextNode  the current context node to work from
      * @param support  the additional context information
      */
-    public Iterator iterator(Object contextNode, ContextSupport support) throws UnsupportedAxisException {
+    public Iterator iterator(Object contextNode, ContextSupport support) 
+      throws UnsupportedAxisException {
         return support.getNavigator().getChildAxisIterator(contextNode);
     }
 
