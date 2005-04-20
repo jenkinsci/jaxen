@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 648 $
- * $Date: 2005-04-17 07:33:56 -0700 (Sun, 17 Apr 2005) $
+ * $Revision: 654 $
+ * $Date: 2005-04-20 15:43:27 -0700 (Wed, 20 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultStep.java 648 2005-04-17 14:33:56Z elharo $
+ * $Id: DefaultStep.java 654 2005-04-20 22:43:27Z elharo $
  */
 package org.jaxen.expr;
 
@@ -155,10 +155,9 @@ public abstract class DefaultStep implements Step
             while ( axisNodeIter.hasNext() )
             {
                 Object eachAxisNode = axisNodeIter.next();
-
-                if ( matches( eachAxisNode, support ) )
+                if ( ! unique.contains( eachAxisNode ) )
                 {
-                    if ( ! unique.contains( eachAxisNode ) )
+                    if ( matches( eachAxisNode, support ) )
                     {
                         unique.add( eachAxisNode );
                         interimSet.add( eachAxisNode );
