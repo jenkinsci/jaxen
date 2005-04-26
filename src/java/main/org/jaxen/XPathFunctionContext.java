@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 490 $
- * $Date: 2005-03-23 05:13:20 -0800 (Wed, 23 Mar 2005) $
+ * $Revision: 668 $
+ * $Date: 2005-04-26 12:10:57 -0700 (Tue, 26 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathFunctionContext.java 490 2005-03-23 13:13:20Z elharo $
+ * $Id: XPathFunctionContext.java 668 2005-04-26 19:10:57Z elharo $
  */
 
 
@@ -120,6 +120,9 @@ import org.jaxen.function.xslt.DocumentFunction;
  *  <ul>
  *     <li>matrix-concat(..)</li>
  *     <li>evaluate(..)</li>
+ *     <li>upper-case(..)</li>
+ *     <li>lower-case(..)</li>
+ *     <li>ends-with(..)</li>
  *  </ul>
  *
  *  @see FunctionContext
@@ -128,14 +131,7 @@ import org.jaxen.function.xslt.DocumentFunction;
  */
 public class XPathFunctionContext extends SimpleFunctionContext
 {
-   /** Singleton implementation.
-    */
-    private static class Singleton
-    {
-        /** Singleton instance.
-         */
-        private static XPathFunctionContext instance = new XPathFunctionContext();
-    }
+    private static XPathFunctionContext instance = new XPathFunctionContext();
 
     /** Retrieve the singleton instance.
      *
@@ -143,13 +139,13 @@ public class XPathFunctionContext extends SimpleFunctionContext
      */
     public static FunctionContext getInstance()
     {
-        return Singleton.instance;
+        return instance;
     }
 
     /** Construct.
      *
      *  <p>
-     *  Construct with all core XPath functions registered.
+     *  Construct with all core XPath and extension functions registered.
      *  </p>
      */
     public XPathFunctionContext()
