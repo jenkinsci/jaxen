@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 412 $
- * $Date: 2005-01-29 12:16:30 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 665 $
+ * $Date: 2005-04-26 11:56:01 -0700 (Tue, 26 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenHandlerTest.java 412 2005-01-29 20:16:30Z elharo $
+ * $Id: JaxenHandlerTest.java 665 2005-04-26 18:56:01Z elharo $
  */
 
 
@@ -132,14 +132,6 @@ public class JaxenHandlerTest extends TestCase
     public JaxenHandlerTest(String name)
     {
         super( name );
-    }
-
-    public void setUp()
-    {
-    }
-
-    public void tearDown()
-    {
     }
 
     public void testValidPaths()
