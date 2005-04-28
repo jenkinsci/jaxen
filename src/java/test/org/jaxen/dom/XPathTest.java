@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 613 $
- * $Date: 2005-04-12 10:04:31 -0700 (Tue, 12 Apr 2005) $
+ * $Revision: 671 $
+ * $Date: 2005-04-28 11:58:17 -0700 (Thu, 28 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 613 2005-04-12 17:04:31Z elharo $
+ * $Id: XPathTest.java 671 2005-04-28 18:58:17Z elharo $
  */
 
 
@@ -104,7 +104,7 @@ public class XPathTest extends TestCase
     }
     
     public void testNamespaceDeclarationsAreNotAttributes() 
-      throws ParserConfigurationException, JaxenException {
+      throws JaxenException {
         
         Element root = doc.createElementNS("http://www.example.org/", "root");
         doc.appendChild(root);
@@ -119,7 +119,7 @@ public class XPathTest extends TestCase
 
     // Jaxen-54
     public void testUpdateDOMNodesReturnedBySelectNodes() 
-      throws ParserConfigurationException, JaxenException {
+      throws JaxenException {
         
         Element root = doc.createElementNS("http://www.example.org/", "root");
         doc.appendChild(root);
