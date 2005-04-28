@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 673 $
- * $Date: 2005-04-28 12:10:43 -0700 (Thu, 28 Apr 2005) $
+ * $Revision: 674 $
+ * $Date: 2005-04-28 12:17:07 -0700 (Thu, 28 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexerTest.java 673 2005-04-28 19:10:43Z elharo $
+ * $Id: XPathLexerTest.java 674 2005-04-28 19:17:07Z elharo $
  */
 
 
@@ -337,26 +337,7 @@ public class XPathLexerTest extends TestCase
         assertEquals( TokenTypes.EOF,
                       tokenType() );
     }
-
-/*    
-    public void testAttributeWithUnderscore()
-    {
-        setText( "@_foo" );
-
-        nextToken();
-
-        assertEquals( TokenTypes.IDENTIFIER,
-                      tokenType() );
-
-        assertEquals( "_foo",
-                      tokenText() );
-
-        nextToken();
-
-        assertEquals( TokenTypes.EOF,
-                      tokenType() );
-    }
- */
+ 
     public void testWhitespace()
     {
         setText ( " /   \tfoo:bar" );
