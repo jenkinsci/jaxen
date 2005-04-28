@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 459 $
- * $Date: 2005-02-10 09:29:51 -0800 (Thu, 10 Feb 2005) $
+ * $Revision: 675 $
+ * $Date: 2005-04-28 12:20:31 -0700 (Thu, 28 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: ContextTest.java 459 2005-02-10 17:29:51Z elharo $
+ * $Id: ContextTest.java 675 2005-04-28 19:20:31Z elharo $
  */
 
 
@@ -64,18 +64,15 @@ package org.jaxen;
 
 import junit.framework.TestCase;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.jaxen.dom.DOMXPath;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
 
 public class ContextTest extends TestCase
 {
