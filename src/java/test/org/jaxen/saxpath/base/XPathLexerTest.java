@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 428 $
- * $Date: 2005-02-05 08:50:23 -0800 (Sat, 05 Feb 2005) $
+ * $Revision: 673 $
+ * $Date: 2005-04-28 12:10:43 -0700 (Thu, 28 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexerTest.java 428 2005-02-05 16:50:23Z elharo $
+ * $Id: XPathLexerTest.java 673 2005-04-28 19:10:43Z elharo $
  */
 
 
@@ -74,10 +74,6 @@ public class XPathLexerTest extends TestCase
     public XPathLexerTest(String name)
     {
         super( name );
-    }
-
-    public void setUp()
-    {
     }
 
     public void tearDown()
