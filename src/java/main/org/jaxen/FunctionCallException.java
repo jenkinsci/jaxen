@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 311 $
- * $Date: 2003-06-09 11:33:32 -0700 (Mon, 09 Jun 2003) $
+ * $Revision: 681 $
+ * $Date: 2005-04-29 11:00:14 -0700 (Fri, 29 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FunctionCallException.java 311 2003-06-09 18:33:32Z proyal $
+ * $Id: FunctionCallException.java 681 2005-04-29 18:00:14Z elharo $
  */
 
 
@@ -78,20 +78,38 @@ public class FunctionCallException extends JaxenException
 {
     private Throwable nestedException;
 
+    /**
+     * Create a new FunctionCallException with the specified detail message.
+     * 
+     * @param message the detail message
+     */
     public FunctionCallException(String message) {
         super( message );
     }
 
+    /**
+     * Create a new FunctionCallException with the specified root cause.
+     * 
+     * @param nestedException the cause of this exception
+     */
     public FunctionCallException(Throwable nestedException) {
         super( nestedException.getMessage() );
         this.nestedException = nestedException;
     }
 
+    /**
+     * Create a new FunctionCallException with the specified detail message
+     * and root cause.
+     * 
+     * @param message the detail message
+     * @param nestedException the cause of this exception
+     */
     public FunctionCallException(String message, Exception nestedException) {
-        super( message );
+        super( nestedException );
         this.nestedException = nestedException;
     }
 
+    // should all this nested exception handling be pushed up into JaxenException????
     public void printStackTrace( PrintStream s ) {
         super.printStackTrace( s );
         if ( nestedException != null ) 
@@ -111,12 +129,7 @@ public class FunctionCallException extends JaxenException
     }
     
     public void printStackTrace() {
-        super.printStackTrace();
-        if ( nestedException != null ) 
-        {
-            System.out.println( "Root cause:" );
-            nestedException.printStackTrace();
-        }
+        printStackTrace(System.out);
     }
     
     public Throwable fillInStackTrace() {
