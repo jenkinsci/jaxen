@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 456 $
- * $Date: 2005-02-09 06:30:00 -0800 (Wed, 09 Feb 2005) $
+ * $Revision: 683 $
+ * $Date: 2005-04-29 12:50:11 -0700 (Fri, 29 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FunctionContext.java 456 2005-02-09 14:30:00Z elharo $
+ * $Id: FunctionContext.java 683 2005-04-29 19:50:11Z elharo $
  */
 
 
@@ -98,7 +98,7 @@ public interface FunctionContext
      *                       name of the function.
      *
      *  @return  a Function implementation object.
-     *  @throws UnresolvableException  when the function cannot be resolved.
+     *  @throws UnresolvableException  when the function cannot be resolved
      */
     Function getFunction( String namespaceURI,
                           String prefix,
