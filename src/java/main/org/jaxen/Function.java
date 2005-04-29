@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 480 $
- * $Date: 2005-02-28 04:47:36 -0800 (Mon, 28 Feb 2005) $
+ * $Revision: 676 $
+ * $Date: 2005-04-28 19:30:17 -0700 (Thu, 28 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Function.java 480 2005-02-28 12:47:36Z elharo $
+ * $Id: Function.java 676 2005-04-29 02:30:17Z elharo $
  */
 
 
@@ -67,7 +67,7 @@ import java.util.List;
 /** Interface for the extensible function framework.
  *
  *  <p>
- *  <b>NOTE:</b> This class is not typically used directly,
+ *  <strong>NOTE:</strong> This class is not typically used directly,
  *  but is exposed for writers of extended XPath packages.
  *  </p>
  *
@@ -83,11 +83,18 @@ import java.util.List;
  */
 public interface Function
 {
-    /** Call this function.
+    /** Evaluate this function.
      *
-     *  @param context the context at the point in the
+     * @param context the context at the point in the
      *         expression when the function is called
-     *  @param args arguments provided to the function
+     * @param args arguments provided to the function
+     * 
+     * @return the result of evaluating the function; a <code>List</code>
+     *    (node-set), <code>Double</code>, <code>Boolean</code>, or
+     *    <code>String</code>
+     * 
+     * @throws FunctionCallException if an XPath error occurs during evaluation;
+     *     for instance, if the number or type of the arguments is incorrect
      */
     Object call(Context context,
                 List args) throws FunctionCallException;
