@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 680 $
+ * $Date: 2005-04-28 20:08:14 -0700 (Thu, 28 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,12 +56,12 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: QualifiedName.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: QualifiedName.java 680 2005-04-29 03:08:14Z elharo $
  */
 
 package org.jaxen;
 
-/** A local name (that matches the XML NCName production) and a namespace uri
+/** A local name (that matches the XML NCName production) and a namespace URI
  *  with which the local name is qualified.
  *
  *  @author Erwin Bolwidt ( ejb @ klomp.org )
@@ -85,12 +85,12 @@ class QualifiedName
         this.localName = localName;
     }
 
-    public String getNamespaceURI()
+    String getNamespaceURI()
     {
         return namespaceURI;
     }
 
-    public String getLocalName()
+    String getLocalName()
     {
         return localName;
     }
@@ -115,5 +115,6 @@ class QualifiedName
             return ( namespaceURI.equals(other.namespaceURI) &&
                      other.localName.equals(localName) );
     }
+    
 }
 
