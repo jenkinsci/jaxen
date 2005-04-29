@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 679 $
+ * $Date: 2005-04-28 20:06:41 -0700 (Thu, 28 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,19 +56,25 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: UnresolvableException.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: UnresolvableException.java 679 2005-04-29 03:06:41Z elharo $
  */
 
 
 package org.jaxen;
 
-/** Used when a function-call or variable-reference, or any other lookup
+/** Thrown when a function-call or variable-reference, or any other lookup
  *  based on namespace and local name, couldn't be resolved.
  *
  *  @author Erwin Bolwidt (ejb @ klomp.org)
  */
 public class UnresolvableException extends JaxenException
 {
+    
+    /**
+     * Create a new UnresolvableException.
+     * 
+     * @param message the detail message
+     */
     public UnresolvableException(String message)
     {
         super( message );

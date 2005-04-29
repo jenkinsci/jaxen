@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 649 $
- * $Date: 2005-04-18 13:15:15 -0700 (Mon, 18 Apr 2005) $
+ * $Revision: 679 $
+ * $Date: 2005-04-28 20:06:41 -0700 (Thu, 28 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathSyntaxException.java 649 2005-04-18 20:15:15Z elharo $
+ * $Id: XPathSyntaxException.java 679 2005-04-29 03:06:41Z elharo $
  */
 
 
@@ -78,6 +78,12 @@ public class XPathSyntaxException extends JaxenException
     /** The position of the error */
     private int    position;
 
+    /**
+     * Create a new XPathSyntaxException wrapping an existing
+     * <code>org.jaxen.saxpath.XPathSyntaxException</code>.
+     * 
+     * @param e the exception that caused this exception
+     */
     public XPathSyntaxException(org.jaxen.saxpath.XPathSyntaxException e)
     {
         super( e );
@@ -86,7 +92,7 @@ public class XPathSyntaxException extends JaxenException
         this.position = e.getPosition();
     }
 
-    /** Construct.
+    /** Constructor
      *
      *  @param xpath the erroneous XPath expression
      *  @param position the position of the error
