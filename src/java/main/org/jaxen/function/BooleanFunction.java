@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 391 $
- * $Date: 2005-01-13 18:52:17 -0800 (Thu, 13 Jan 2005) $
+ * $Revision: 685 $
+ * $Date: 2005-04-30 15:49:21 -0700 (Sat, 30 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BooleanFunction.java 391 2005-01-14 02:52:17Z elharo $
+ * $Id: BooleanFunction.java 685 2005-04-30 22:49:21Z elharo $
  */
 
 
@@ -77,6 +77,19 @@ import org.jaxen.Navigator;
 public class BooleanFunction implements Function
 {
 
+    /** Convert the argument to a <code>Boolean</code>
+     *
+     * @param context the context at the point in the
+     *         expression when the function is called
+     * @param args a list with exactly one item which will be converted to a 
+     *     <code>Boolean</code>
+     * 
+     * @return the result of evaluating the function; a <code>List</code>
+     *    (node-set), <code>Double</code>, <code>Boolean</code>, or
+     *    <code>String</code>
+     * 
+     * @throws FunctionCallException if there is more or less than one item in args
+     */
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
@@ -88,6 +101,23 @@ public class BooleanFunction implements Function
         throw new FunctionCallException("boolean() requires one argument");
     }
 
+    /** 
+     * <p>Convert the argument <code>obj</code> to a <code>Boolean</code> 
+     * according to the following rules:</p>
+     *
+     * <ul>
+     * <li>Lists are false if they're empty; true if they're not.</li>
+     * <li>Booleans are false if they're false; true if they're true.</li>
+     * <li>Strings are false if they're empty; true if they're not.</li>
+     * <li>Numbers are false if they're 0; true if they're not.</li>
+     * <li>All other objects are true.</li>
+     * </ul>
+     * 
+     * @param obj the object to convert to a boolean.
+     * @param nav ignored
+     * 
+     * @return <code>Boolean.TRUE</code> or <code>Boolean.FALSE</code>
+     */
     public static Boolean evaluate(Object obj, Navigator nav)
     {
         if ( obj instanceof List )
