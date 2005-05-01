@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 686 $
- * $Date: 2005-04-30 17:39:44 -0700 (Sat, 30 Apr 2005) $
+ * $Revision: 709 $
+ * $Date: 2005-05-01 13:06:54 -0700 (Sun, 01 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceUriFunction.java 686 2005-05-01 00:39:44Z elharo $
+ * $Id: NamespaceUriFunction.java 709 2005-05-01 20:06:54Z elharo $
  */
 
 
@@ -113,9 +113,11 @@ public class NamespaceUriFunction implements Function
             }
             else if ( nav.isAttribute( first ) )
             {
-                return nav.getAttributeNamespaceUri( first );
+                String uri = nav.getAttributeNamespaceUri( first );
+                if (uri == null) return "";
+                return uri;
             }
-                        else if ( nav.isProcessingInstruction( first ) )
+            else if ( nav.isProcessingInstruction( first ) )
             {
                 return nav.getProcessingInstructionTarget( first );
             }
