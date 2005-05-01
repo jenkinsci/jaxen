@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 684 $
- * $Date: 2005-04-30 15:35:30 -0700 (Sat, 30 Apr 2005) $
+ * $Revision: 697 $
+ * $Date: 2005-05-01 06:22:11 -0700 (Sun, 01 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NumberFunction.java 684 2005-04-30 22:35:30Z elharo $
+ * $Id: NumberFunction.java 697 2005-05-01 13:22:11Z elharo $
  */
 
 package org.jaxen.function;
@@ -75,64 +75,59 @@ import org.jaxen.Navigator;
  * @author bob mcwhirter (bob @ werken.com)
  */
 public class NumberFunction implements Function
-  {
-  private final static Double NaN = new Double( Double.NaN );
+{
+    private final static Double NaN = new Double( Double.NaN );
     
-  public Object call(Context context, List args) throws FunctionCallException
+    public Object call(Context context, List args) throws FunctionCallException
     {
-    if (args.size() == 1)
-      {
-      return evaluate( args.get(0), context.getNavigator() );
-      }
-
-    throw new FunctionCallException( "number() requires one argument." );
+        if (args.size() == 1)
+        {
+            return evaluate( args.get(0), context.getNavigator() );
+        }
+    
+        throw new FunctionCallException( "number() requires one argument." );
     }
 
-  public static Double evaluate(Object obj, Navigator nav)
+    public static Double evaluate(Object obj, Navigator nav)
     {
-    if( obj instanceof Double )
-      {
-      return (Double) obj;
-      }
-    else if (obj instanceof Number)
-      {
-      return new Double( ((Number) obj).doubleValue() );            
-      }
-    else if ( obj instanceof Boolean )
-      {
-      if ( obj == Boolean.TRUE )
+        if( obj instanceof Double )
         {
-        return new Double( 1 );
+            return (Double) obj;
         }
-      else
+        else if ( obj instanceof Boolean )
+          {
+          if ( obj == Boolean.TRUE )
+          {
+              return new Double( 1 );
+          }
+          else
+          {
+              return new Double( 0 );
+          }
+        }
+        else if ( obj instanceof String )
         {
-        return new Double( 0 );
+            String str = (String) obj;
+            try
+            {
+                Double doubleValue = new Double( str );        
+                return doubleValue;
+            }
+            catch (NumberFormatException e)
+            {
+                return NaN;
+            }
         }
-      }
-    else if ( obj instanceof String )
-      {
-      String str = (String) obj;
-      
-      try
+        else if ( obj instanceof List || obj instanceof Iterator )
         {
-        Double doubleValue = new Double( str );        
-        return doubleValue;
+          return evaluate( StringFunction.evaluate( obj, nav ), nav );
         }
-      catch (NumberFormatException e)
+        else if ( nav.isElement( obj ) || nav.isAttribute( obj ) )
         {
-        return new Double( Double.NaN );
+            return evaluate( StringFunction.evaluate( obj, nav ), nav );
         }
-      }
-    else if ( obj instanceof List || obj instanceof Iterator )
-      {
-      return evaluate( StringFunction.evaluate( obj, nav ), nav );
-      }
-    else if ( nav.isElement( obj ) || nav.isAttribute( obj ) )
-      {
-      return evaluate( StringFunction.evaluate( obj, nav ), nav );
-      }
     
-    return new Double( Double.NaN );
+        return NaN;
     }
   
   /**
@@ -144,7 +139,7 @@ public class NumberFunction implements Function
    */
     public static boolean isNaN( double val )
     {
-    return Double.isNaN(val);
+        return Double.isNaN(val);
     }
   
   /**
@@ -159,4 +154,4 @@ public class NumberFunction implements Function
         return val.equals( NaN );
     }  
   
-  }
+}
