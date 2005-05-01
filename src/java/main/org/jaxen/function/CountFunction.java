@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 432 $
- * $Date: 2005-02-07 07:02:56 -0800 (Mon, 07 Feb 2005) $
+ * $Revision: 703 $
+ * $Date: 2005-05-01 07:56:36 -0700 (Sun, 01 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: CountFunction.java 432 2005-02-07 15:02:56Z elharo $
+ * $Id: CountFunction.java 703 2005-05-01 14:56:36Z elharo $
  */
 
 package org.jaxen.function;
@@ -86,12 +86,8 @@ public class CountFunction implements Function
         throw new FunctionCallException( "count() requires one argument." );
     }
 
-    public static Number evaluate(Object obj) throws FunctionCallException
+    public static Double evaluate(Object obj) throws FunctionCallException
     {
-      if( obj == null )
-        {
-        return new Double( 0 );
-        }
       
         if (obj instanceof List)
         {
