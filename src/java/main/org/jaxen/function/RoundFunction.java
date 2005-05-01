@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 698 $
+ * $Date: 2005-05-01 06:26:00 -0700 (Sun, 01 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: RoundFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: RoundFunction.java 698 2005-05-01 13:26:00Z elharo $
  */
 
 
@@ -92,21 +92,15 @@ public class RoundFunction implements Function
     public static Number evaluate(Object obj,
                                   Navigator nav)
     {
-        Number n = NumberFunction.evaluate( obj,
+        Double d  = NumberFunction.evaluate( obj,
                                             nav );
 
-        if ( n instanceof Double )
+        if (d.isNaN() || d.isInfinite())
         {
-            Double d = (Double) n;
-
-            if (d.isNaN() || d.isInfinite())
-            {
-                return d;
-            }
+            return d;
         }
 
-        double value = n.doubleValue();
-
+        double value = d.doubleValue();
         return new Double( Math.round( value ) );
     }
 }
