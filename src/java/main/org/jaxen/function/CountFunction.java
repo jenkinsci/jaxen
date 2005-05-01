@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 703 $
- * $Date: 2005-05-01 07:56:36 -0700 (Sun, 01 May 2005) $
+ * $Revision: 704 $
+ * $Date: 2005-05-01 08:00:24 -0700 (Sun, 01 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: CountFunction.java 703 2005-05-01 14:56:36Z elharo $
+ * $Id: CountFunction.java 704 2005-05-01 15:00:24Z elharo $
  */
 
 package org.jaxen.function;
@@ -75,6 +75,18 @@ import org.jaxen.FunctionCallException;
 public class CountFunction implements Function
 {
 
+    /**
+     * <p>
+     * Returns the number of nodes in the specified node-set.
+     * </p>
+     * @param context ignored
+     * @param args the function arguments
+     * 
+     * @return the integral number of items in the first argument
+     * 
+     * @throws FunctionCallException if args does not have exactly one 
+     *     item; or that item is not a <code>List</code>
+     */
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
@@ -86,6 +98,15 @@ public class CountFunction implements Function
         throw new FunctionCallException( "count() requires one argument." );
     }
 
+    /**
+     * <p>
+     * Returns the number of nodes in the specified node-set.
+     * </p>
+     * 
+     * @param obj a <code>List</code> of nodes
+     * @return the integral number of items in the list
+     * @throws FunctionCallException if obj is not a <code>List</code>
+     */
     public static Double evaluate(Object obj) throws FunctionCallException
     {
       
@@ -97,4 +118,5 @@ public class CountFunction implements Function
         throw new FunctionCallException("Count function can only be used for node-sets");
         
     }
+    
 }
