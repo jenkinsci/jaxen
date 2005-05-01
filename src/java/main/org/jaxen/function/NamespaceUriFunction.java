@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 440 $
- * $Date: 2005-02-07 17:22:25 -0800 (Mon, 07 Feb 2005) $
+ * $Revision: 686 $
+ * $Date: 2005-04-30 17:39:44 -0700 (Sat, 30 Apr 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceUriFunction.java 440 2005-02-08 01:22:25Z elharo $
+ * $Id: NamespaceUriFunction.java 686 2005-05-01 00:39:44Z elharo $
  */
 
 
@@ -136,7 +136,8 @@ public class NamespaceUriFunction implements Function
                 return "";
             }
             else {
-                throw new FunctionCallException("The argument to the name function must be a node-set");   
+                throw new FunctionCallException(
+                  "The argument to the namespace-uri function must be a node-set");   
             }
 
         }
