@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 485 $
- * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
+ * $Revision: 696 $
+ * $Date: 2005-05-01 06:10:06 -0700 (Sun, 01 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Expr.java 485 2005-03-21 22:39:16Z elharo $
+ * $Id: Expr.java 696 2005-05-01 13:10:06Z elharo $
  */
 
 
@@ -70,18 +70,6 @@ import org.jaxen.JaxenException;
 public interface Expr extends Serializable, Visitable
 {
     String getText();
-    Expr simplify();
-
-    // ----------------------------------------------------------------------
-    // ----------------------------------------------------------------------
-
-    /*
-    List     asList(Context context);
-    Iterator asIterator(Context context);
-    String   asString(Context context);
-    Boolean  asBoolean(Context context);
-    Number   asNumber(Context context);
-    */
-
-    Object   evaluate(Context context) throws JaxenException;
+    Expr   simplify();
+    Object evaluate(Context context) throws JaxenException;
 }
