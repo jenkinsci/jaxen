@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 591 $
- * $Date: 2005-04-09 07:03:38 -0700 (Sat, 09 Apr 2005) $
+ * $Revision: 694 $
+ * $Date: 2005-05-01 05:29:49 -0700 (Sun, 01 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderFactory.java 591 2005-04-09 14:03:38Z elharo $
+ * $Id: XPathReaderFactory.java 694 2005-05-01 12:29:49Z elharo $
  */
 
 
@@ -85,9 +85,6 @@ public class XPathReaderFactory
 
     /** The default driver to use if none is configured. */
     protected static final String DEFAULT_DRIVER = "org.jaxen.saxpath.base.XPathReader";
-
-    /** Should the default driver be used */
-    private static boolean USE_DEFAULT = true;
     
     
     /** Create an <code>XPathReader</code> using the value of
@@ -105,36 +102,20 @@ public class XPathReaderFactory
     {
         String className = null;
 
-        boolean securityException = false;
-
         try
         {
             className = System.getProperty( DRIVER_PROPERTY );
         }
         catch (SecurityException e)
         {
-            securityException = true;
+            // we'll use the default
         }
 
         if ( className == null
              ||
              className.length() == 0 )
         {
-            if ( USE_DEFAULT )
-            {
-                className = DEFAULT_DRIVER;
-            }
-            else
-            {
-                if ( securityException )
-                {
-                    throw new SAXPathException( "Reading of property " + DRIVER_PROPERTY + " disallowed." );
-                }
-                else
-                {
-                    throw new SAXPathException( "Property " + DRIVER_PROPERTY + " not set" );
-                }
-            }
+            className = DEFAULT_DRIVER;
         }
 
         return createReader( className );
@@ -145,6 +126,8 @@ public class XPathReaderFactory
      *
      *  @param className the name of the class that implements
      *         the <code>XPathReader</code> interface.
+     * 
+     * @return an XPathReader
      *
      *  @throws SAXPathException if the class can not be
      *          instantiated for some reason, or if the
