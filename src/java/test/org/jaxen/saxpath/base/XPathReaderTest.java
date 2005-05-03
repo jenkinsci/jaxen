@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 716 $
- * $Date: 2005-05-03 04:18:44 -0700 (Tue, 03 May 2005) $
+ * $Revision: 718 $
+ * $Date: 2005-05-03 05:25:17 -0700 (Tue, 03 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 716 2005-05-03 11:18:44Z elharo $
+ * $Id: XPathReaderTest.java 718 2005-05-03 12:25:17Z elharo $
  */
 
 
@@ -102,7 +102,6 @@ public class XPathReaderTest extends TestCase
         new String[]{"chyld::foo", "Expected valid axis name instead of [chyld]"},
         new String[]{"foo/tacos()", "Expected node-type"},
         new String[]{"foo/tacos()", "Expected node-type"},
-        new String[]{"$varname/foo", "Node-set expected"},
         new String[]{"*:foo", "Unexpected ':'"},
         new String[]{"/foo/bar[baz", "Expected: ]"},
         new String[]{"/cracker/cheese[(mold > 1) and (sense/taste", "Expected: )"},
@@ -371,6 +370,15 @@ public class XPathReaderTest extends TestCase
         expected().startCommentNodeStep( Axis.PARENT );
         expected().endCommentNodeStep();
         compare();
+
+    }
+
+    public void testLocationPathStartsWithVariable() throws SAXPathException
+    {
+
+        setText( "$variable/foo" );
+        getReader().setUpParse( getText() );
+        getReader().step();
 
     }
 
