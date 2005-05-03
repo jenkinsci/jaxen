@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 590 $
- * $Date: 2005-04-09 06:58:44 -0700 (Sat, 09 Apr 2005) $
+ * $Revision: 721 $
+ * $Date: 2005-05-03 06:02:32 -0700 (Tue, 03 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: SAXPathException.java 590 2005-04-09 13:58:44Z elharo $
+ * $Id: SAXPathException.java 721 2005-05-03 13:02:32Z elharo $
  */
 
 
@@ -74,7 +74,7 @@ public class SAXPathException extends Exception
     /** The source exception, if any */
     private Throwable cause;
 
-    /** Construct with a given message.
+    /** Create a new SAXPathException with a given message.
      *
      *  @param msg the error message
      */
@@ -83,22 +83,24 @@ public class SAXPathException extends Exception
         super( msg );
     }
 
-    /** Construct based on another exception
+    /** Create a new SAXPathException based on another exception
      *
      *  @param src the error source
      */
     public SAXPathException(Throwable src)
     {
-	super ( src.getMessage() );
-	cause = src;
+    	super ( src.getMessage() );
+    	cause = src;
     }
 
     /** If this exception was originally caused by another exception,
      *  return it; otherwise, return <code>null</code>.
+     * 
+     * @return the exception that caused this exception
      */
     public Throwable getCause()
     {
-	return cause;
+        return cause;
     }
 
     /** Overridden to print this exception's stack, followed by the
@@ -106,31 +108,35 @@ public class SAXPathException extends Exception
      */
     public void printStackTrace ()
     {
-	printStackTrace ( System.err );
+        printStackTrace ( System.err );
     }
 
     /** Overridden to print this exception's stack, followed by the
      *	source exception's, if any.
+     *
+     * @param s the stream on whcih to print the stack trace
      */
     public void printStackTrace ( java.io.PrintStream s )
     {
-	super.printStackTrace ( s );
-	if (cause != null) {
-	    s.println ( "root case:" );
-	    cause.printStackTrace ( s );
-	}
+    	super.printStackTrace ( s );
+    	if (cause != null) {
+    	    s.println ( "root case:" );
+    	    cause.printStackTrace ( s );
+    	}
     }
 
     /** Overridden to print this exception's stack, followed by the
      *	source exception's, if any.
+     *
+     * @param s the writer on whcih to print the stack trace
      */
     public void printStackTrace (java.io.PrintWriter s)
     {
-	super.printStackTrace ( s );
-	if (cause != null) {
-	    s.println ( "root case:" );
-	    cause.printStackTrace ( s );
-	}
+    	super.printStackTrace ( s );
+    	if (cause != null) {
+    	    s.println ( "root case:" );
+    	    cause.printStackTrace ( s );
+    	}
     }
 
 }
