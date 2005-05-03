@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 715 $
- * $Date: 2005-05-03 04:17:01 -0700 (Tue, 03 May 2005) $
+ * $Revision: 716 $
+ * $Date: 2005-05-03 04:18:44 -0700 (Tue, 03 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 715 2005-05-03 11:17:01Z elharo $
+ * $Id: XPathReaderTest.java 716 2005-05-03 11:18:44Z elharo $
  */
 
 
@@ -144,13 +144,8 @@ public class XPathReaderTest extends TestCase
     public void testPaths() throws SAXPathException
     {
 
-        System.out.println( "Valid Expressions" );
-
         for( int i = 0; i < paths.length; ++i )
         {
-            System.out.println( "----------------------------------------" );
-            System.out.println( paths[i] );
-            System.out.println( "----------------------------------------" );
             reader.parse( paths[i] );
         }
     }
@@ -158,14 +153,9 @@ public class XPathReaderTest extends TestCase
     public void testBogusPaths() throws SAXPathException
     {
 
-        System.out.println( "Bogus Expressions" );
-
         for( int i = 0; i < bogusPaths.length; ++i )
         {
             final String[] bogusPath = bogusPaths[i];
-            System.out.println( "----------------------------------------" );
-            System.out.println( bogusPath[0] );
-            System.out.println( "----------------------------------------" );
 
             try
             {
