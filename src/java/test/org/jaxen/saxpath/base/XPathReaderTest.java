@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 714 $
- * $Date: 2005-05-03 04:15:47 -0700 (Tue, 03 May 2005) $
+ * $Revision: 715 $
+ * $Date: 2005-05-03 04:17:01 -0700 (Tue, 03 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 714 2005-05-03 11:15:47Z elharo $
+ * $Id: XPathReaderTest.java 715 2005-05-03 11:17:01Z elharo $
  */
 
 
@@ -143,7 +143,6 @@ public class XPathReaderTest extends TestCase
 
     public void testPaths() throws SAXPathException
     {
-        XPathReader reader = new XPathReader();
 
         System.out.println( "Valid Expressions" );
 
@@ -158,7 +157,6 @@ public class XPathReaderTest extends TestCase
 
     public void testBogusPaths() throws SAXPathException
     {
-        XPathReader reader = new XPathReader();
 
         System.out.println( "Bogus Expressions" );
 
@@ -183,7 +181,6 @@ public class XPathReaderTest extends TestCase
 
     public void testChildrenOfNumber() throws SAXPathException
     {
-        XPathReader reader = new XPathReader();
         try
         {
             reader.parse( "1/child::test" );
@@ -272,14 +269,11 @@ public class XPathReaderTest extends TestCase
     
     public void testValidAxis() throws SAXPathException
     {
-        XPathReader reader = new XPathReader();
         reader.parse( "child::foo" );
-
     }
 
     public void testInvalidAxis() throws SAXPathException
     {
-        XPathReader reader = new XPathReader();
 
         try
         {
