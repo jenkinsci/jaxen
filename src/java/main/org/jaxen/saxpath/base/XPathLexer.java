@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 724 $
- * $Date: 2005-05-03 12:34:53 -0700 (Tue, 03 May 2005) $
+ * $Revision: 725 $
+ * $Date: 2005-05-03 12:38:40 -0700 (Tue, 03 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexer.java 724 2005-05-03 19:34:53Z elharo $
+ * $Id: XPathLexer.java 725 2005-05-03 19:38:40Z elharo $
  */
 
 
@@ -75,10 +75,6 @@ class XPathLexer
     XPathLexer(String xpath)
     {
         setXPath( xpath );
-    }
-
-    XPathLexer()
-    {
     }
 
     void setXPath(String xpath)
