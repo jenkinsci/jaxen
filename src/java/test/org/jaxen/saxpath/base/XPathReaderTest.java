@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 448 $
- * $Date: 2005-02-08 12:07:53 -0800 (Tue, 08 Feb 2005) $
+ * $Revision: 712 $
+ * $Date: 2005-05-03 04:00:43 -0700 (Tue, 03 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 448 2005-02-08 20:07:53Z elharo $
+ * $Id: XPathReaderTest.java 712 2005-05-03 11:00:43Z elharo $
  */
 
 
@@ -87,6 +87,7 @@ public class XPathReaderTest extends TestCase
     private String[] paths = {
         "/foo/bar[@a='1' and @b='2']",
         "/foo/bar[@a='1' and @b!='2']",
+        "$varname[@a='1']",
         "//attribute::*[.!='crunchy']",
         "'//*[contains(string(text()),\"yada yada\")]'",
     };
@@ -95,6 +96,7 @@ public class XPathReaderTest extends TestCase
         new String[]{"chyld::foo", "Expected valid axis name instead of [chyld]"},
         new String[]{"foo/tacos()", "Expected node-type"},
         new String[]{"foo/tacos()", "Expected node-type"},
+        new String[]{"$varname/foo", "Node-set expected"},
         new String[]{"*:foo", "Unexpected ':'"},
         new String[]{"/foo/bar[baz", "Expected: ]"},
         new String[]{"/cracker/cheese[(mold > 1) and (sense/taste", "Expected: )"},
