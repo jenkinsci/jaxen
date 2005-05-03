@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 371 $
- * $Date: 2004-07-05 14:14:34 -0700 (Mon, 05 Jul 2004) $
+ * $Revision: 726 $
+ * $Date: 2005-05-03 12:40:20 -0700 (Tue, 03 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexerTokenTest.java 371 2004-07-05 21:14:34Z proyal $
+ * $Id: XPathLexerTokenTest.java 726 2005-05-03 19:40:20Z elharo $
  */
 
 
@@ -67,21 +67,9 @@ import junit.framework.TestCase;
 
 public class XPathLexerTokenTest extends TestCase
 {
-    private XPathLexer lexer;
-
     public XPathLexerTokenTest(String name)
     {
         super( name );
-    }
-
-    public void setUp()
-    {
-        this.lexer = new XPathLexer();
-    }
-
-    public void tearDown()
-    {
-        this.lexer = null;
     }
 
     public void testIdentifier()
@@ -252,7 +240,7 @@ public class XPathLexerTokenTest extends TestCase
     private void runTest(String text,
                          int[] expectedTokens)
     {
-        this.lexer.setXPath( text );
+        XPathLexer lexer = new XPathLexer( text );
 
         int   tokenType = 0;
         Token token     = null;
@@ -260,13 +248,11 @@ public class XPathLexerTokenTest extends TestCase
         for ( int i = 0 ; i < expectedTokens.length ; ++i )
         {
             tokenType = expectedTokens[i];
-
-            token = this.lexer.nextToken();
-
+            token = lexer.nextToken();
             assertNotNull( token );
-
             assertEquals( tokenType,
                           token.getTokenType() );
         }
     }
+    
 }
