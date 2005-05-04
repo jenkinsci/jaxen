@@ -1,11 +1,11 @@
 /*
  * $Header$
- * $Revision: 734 $
- * $Date: 2005-05-04 05:55:48 -0700 (Wed, 04 May 2005) $
+ * $Revision$
+ * $Date$
  *
  * ====================================================================
  *
- * Copyright (C) 2000-2002 bob mcwhirter & James Strachan.
+ * Copyright (C) 2005 Elliotte Rusty Harold.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,53 +56,42 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenException.java 734 2005-05-04 12:55:48Z elharo $
+ * $Id$
  */
-
 
 package org.jaxen;
 
 
+import junit.framework.TestCase;
+
+
 /**
- * Generic Jaxen exception.
+ * @author Elliotte Rusty Harold
  *
- * <p> This is the root of all Jaxen exceptions. It may wrap other exceptions.
- *
- * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  */
-public class JaxenException extends org.jaxen.saxpath.SAXPathException
-{
-    /**
-     * Construct with a message.
-     *
-     * @param message The error message.
-     */
-    public JaxenException( String message )
-    {
-        super( message );
+public class FunctionCallExceptionTest extends TestCase {
+
+    public FunctionCallExceptionTest(String name) {
+        super(name);
     }
 
-    /**
-     * Construct with a root cause.
-     *
-     * @param rootCause Root cause of the error.
-     */
-    public JaxenException( Throwable rootCause )
-    {
-        super( rootCause );
-    }
-    
-    /**
-     * Create a new JaxenException with the specified detail message
-     * and root cause.
-     * 
-     * @param message the detail message
-     * @param nestedException the cause of this exception
-     */
-    public JaxenException(String message, Throwable nestedException) {
-        super( message, nestedException );
-    }
-    
-    
+    public void testMessageIsNonNull() {
+        
+        JaxenException ex = new JaxenException("Hello");
+        FunctionCallException rex = new FunctionCallException(ex);
+        assertEquals(ex.getMessage(), rex.getMessage());
+        assertEquals(ex, rex.getNestedException());
+        
+    }    
+  
+    public void testMessageIsSaved() {
+        
+        JaxenException ex = new JaxenException("Hello");
+        FunctionCallException rex = new FunctionCallException("Goodbye", ex);
+        assertEquals("Goodbye", rex.getMessage());
+        assertEquals(ex, rex.getNestedException());
+        
+    }    
+  
+
 }
-

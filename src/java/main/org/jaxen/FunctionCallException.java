@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 681 $
- * $Date: 2005-04-29 11:00:14 -0700 (Fri, 29 Apr 2005) $
+ * $Revision: 734 $
+ * $Date: 2005-05-04 05:55:48 -0700 (Wed, 04 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FunctionCallException.java 681 2005-04-29 18:00:14Z elharo $
+ * $Id: FunctionCallException.java 734 2005-05-04 12:55:48Z elharo $
  */
 
 
@@ -105,7 +105,7 @@ public class FunctionCallException extends JaxenException
      * @param nestedException the cause of this exception
      */
     public FunctionCallException(String message, Exception nestedException) {
-        super( nestedException );
+        super( message, nestedException );
         this.nestedException = nestedException;
     }
 

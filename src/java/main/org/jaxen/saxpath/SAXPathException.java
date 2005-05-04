@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 721 $
- * $Date: 2005-05-03 06:02:32 -0700 (Tue, 03 May 2005) $
+ * $Revision: 734 $
+ * $Date: 2005-05-04 05:55:48 -0700 (Wed, 04 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: SAXPathException.java 721 2005-05-03 13:02:32Z elharo $
+ * $Id: SAXPathException.java 734 2005-05-04 12:55:48Z elharo $
  */
 
 
@@ -93,6 +93,18 @@ public class SAXPathException extends Exception
     	cause = src;
     }
 
+    /**
+     * Create a new SAXPathException with the specified detail message
+     * and root cause.
+     * 
+     * @param message the detail message
+     * @param cause the cause of this exception
+     */
+    public SAXPathException(String message, Throwable cause) {
+        super( message );
+        this.cause = cause;
+    }
+    
     /** If this exception was originally caused by another exception,
      *  return it; otherwise, return <code>null</code>.
      * 
