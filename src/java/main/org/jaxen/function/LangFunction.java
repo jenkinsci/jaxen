@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 728 $
- * $Date: 2005-05-03 22:57:00 -0700 (Tue, 03 May 2005) $
+ * $Revision: 730 $
+ * $Date: 2005-05-04 00:09:10 -0700 (Wed, 04 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LangFunction.java 728 2005-05-04 05:57:00Z hoju $
+ * $Id: LangFunction.java 730 2005-05-04 07:09:10Z elharo $
  */
 
 
@@ -82,7 +82,19 @@ public class LangFunction implements Function
     private static final String XMLNS_URI = 
         "http://www.w3.org/XML/1998/namespace";
     
-
+    /**
+     * <p>
+     * Determines whether or not the context node is written in the specified language,
+     * as determined by the nearest <code>xml:lang</code> attribute in scope. 
+     * </p>
+     * 
+     * @param context the context in which to evaluate the <code>lang()</code> function
+     * @param args the arguments to the lang function
+     * @return a <code>Boolean</code> indicating whether the context node is written in
+     *     the specified language
+     * @throws FunctionCallException if <code>args</code> does not have length one
+     * 
+     */
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
@@ -148,5 +160,6 @@ public class LangFunction implements Function
             sublang.charAt(ll) == '-' && 
             sublang.substring(0, ll).equalsIgnoreCase(lang);
     }
+    
 }
 
