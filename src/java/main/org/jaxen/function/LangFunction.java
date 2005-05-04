@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 628 $
- * $Date: 2005-04-16 02:54:50 -0700 (Sat, 16 Apr 2005) $
+ * $Revision: 728 $
+ * $Date: 2005-05-03 22:57:00 -0700 (Tue, 03 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LangFunction.java 628 2005-04-16 09:54:50Z elharo $
+ * $Id: LangFunction.java 728 2005-05-04 05:57:00Z hoju $
  */
 
 
@@ -105,10 +105,9 @@ public class LangFunction implements Function
     private static Boolean evaluate(List contextNodes, Object lang, Navigator nav)
       throws UnsupportedAxisException
     {
-        return Boolean.valueOf(
-          evaluate(contextNodes.get(0), 
-          StringFunction.evaluate(lang, nav), nav)
-        );
+        return evaluate(contextNodes.get(0), 
+            StringFunction.evaluate(lang, nav), nav)
+            ? Boolean.TRUE : Boolean.FALSE;
     }
 
     private static boolean evaluate(Object node, String lang, Navigator nav)
