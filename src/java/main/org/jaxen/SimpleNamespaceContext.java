@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 656 $
- * $Date: 2005-04-20 15:46:15 -0700 (Wed, 20 Apr 2005) $
+ * $Revision: 737 $
+ * $Date: 2005-05-05 07:11:57 -0700 (Thu, 05 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleNamespaceContext.java 656 2005-04-20 22:46:15Z elharo $
+ * $Id: SimpleNamespaceContext.java 737 2005-05-05 14:11:57Z elharo $
  */
 
 
@@ -68,7 +68,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- *  Provides mappings from namespace prefix to namespace URI to the xpath
+ *  Provides mappings from namespace prefix to namespace URI to the XPath
  *  engine.
  */
 public class SimpleNamespaceContext implements NamespaceContext, Serializable
@@ -77,25 +77,40 @@ public class SimpleNamespaceContext implements NamespaceContext, Serializable
     // XXX should this prebind the xml prefix?
     private Map namespaces;
 
+    /**
+     * Creates a new empty namespace context.
+     */
     public SimpleNamespaceContext()
     {
         this.namespaces = new HashMap();
     }
 
+    /**
+     * Creates a new namespace context pre-populated with the specified bindings. 
+     * 
+     * @param namespaces the initial namespace bindings in scope. The keys in this
+     *     must be strings containing the prefixes and the values are strings
+     *     containing the namespace URIs.
+     */
     public SimpleNamespaceContext(Map namespaces)
     {
+        // FIXME this is dangerous. The Map is outside the control of this object.
+        // We should copy rather than store a reference. Furthermore we should check that
+        // the contents are strings.
         this.namespaces = namespaces;
     }
 
     /**
      *  Adds all the namespace declarations that are in scope on the given
      *  element. In the case of an XSLT stylesheet, this would be the element
-     *  that has the xpath expression in one of its attributes; i.e.
+     *  that has the XPath expression in one of its attributes; i.e.
      *  <code>&lt;xsl:if test="condition/xpath/expression"&gt;</code>.
      *
      *  @param nav  the navigator for use in conjunction with
      *              <code>element</code>
-     *  @param element  the element to copy the namespaces from
+     *  @param element the element to copy the namespaces from
+     *  @throws UnsupportedAxisException if the navigator does not support the 
+     *     namespace axis
      */
     public void addElementNamespaces( Navigator nav, Object element )
         throws UnsupportedAxisException
@@ -112,10 +127,16 @@ public class SimpleNamespaceContext implements NamespaceContext, Serializable
         }
     }    
 
-    public void addNamespace(String prefix, String namespaceUri)
+    // ???? What if prefix or URI is null, or both?
+    /**
+     * Binds a prefix to a URI in this context.
+     * 
+     * @param prefix the namespace prefix
+     * @param URI    the namespace URI
+     */
+    public void addNamespace(String prefix, String URI)
     {
-        this.namespaces.put( prefix,
-                             namespaceUri );
+        this.namespaces.put( prefix, URI );
     }
 
     public String translateNamespacePrefixToUri(String prefix)
