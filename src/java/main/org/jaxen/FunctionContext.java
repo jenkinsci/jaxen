@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 683 $
- * $Date: 2005-04-29 12:50:11 -0700 (Fri, 29 Apr 2005) $
+ * $Revision: 740 $
+ * $Date: 2005-05-06 10:41:39 -0700 (Fri, 06 May 2005) $
  *
  * ====================================================================
  *
@@ -56,13 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FunctionContext.java 683 2005-04-29 19:50:11Z elharo $
+ * $Id: FunctionContext.java 740 2005-05-06 17:41:39Z elharo $
  */
 
 
 package org.jaxen;
 
-/** Implemented by classes that know how to resolve xpath function names and
+/** Implemented by classes that know how to resolve XPath function names and
  *  namespaces to implementations of these functions.
  *
  *  <p>
