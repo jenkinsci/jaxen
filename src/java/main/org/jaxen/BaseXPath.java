@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 676 $
- * $Date: 2005-04-28 19:30:17 -0700 (Thu, 28 Apr 2005) $
+ * $Revision: 738 $
+ * $Date: 2005-05-06 10:17:13 -0700 (Fri, 06 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 676 2005-04-29 02:30:17Z elharo $
+ * $Id: BaseXPath.java 738 2005-05-06 17:17:13Z elharo $
  */
 
 
@@ -464,8 +464,8 @@ public class BaseXPath implements XPath, Serializable
      *  expression.
      *
      *  <p>
-     *  A <code>FunctionContext</code> is responsible for resolving
-     *  all function calls used within the expression.
+     *  A <code>NamespaceContext</code> is responsible for mapping
+     *  prefixes used within the expression to namespace URIs.
      *  </p>
      *
      *  <p>
