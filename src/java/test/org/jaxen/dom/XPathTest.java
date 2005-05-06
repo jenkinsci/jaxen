@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 671 $
- * $Date: 2005-04-28 11:58:17 -0700 (Thu, 28 Apr 2005) $
+ * $Revision: 739 $
+ * $Date: 2005-05-06 10:21:25 -0700 (Fri, 06 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTest.java 671 2005-04-28 18:58:17Z elharo $
+ * $Id: XPathTest.java 739 2005-05-06 17:21:25Z elharo $
  */
 
 
@@ -100,7 +100,14 @@ public class XPathTest extends TestCase
 
     public void testConstruction() throws JaxenException
     {
-        new DOMXPath( "/foo/bar/baz" );
+        DOMXPath xpath = new DOMXPath( "/foo/bar/baz" );
+        assertEquals("/foo/bar/baz", xpath.toString());
+    }
+    
+    public void testConstructionWithNamespacePrefix() throws JaxenException
+    {
+        DOMXPath xpath = new DOMXPath( "/p:foo/p:bar/a:baz" );
+        assertEquals("/p:foo/p:bar/a:baz", xpath.toString());
     }
     
     public void testNamespaceDeclarationsAreNotAttributes() 
