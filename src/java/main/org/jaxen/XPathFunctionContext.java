@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 668 $
- * $Date: 2005-04-26 12:10:57 -0700 (Tue, 26 Apr 2005) $
+ * $Revision: 743 $
+ * $Date: 2005-05-08 11:51:49 -0700 (Sun, 08 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathFunctionContext.java 668 2005-04-26 19:10:57Z elharo $
+ * $Id: XPathFunctionContext.java 743 2005-05-08 18:51:49Z elharo $
  */
 
 
@@ -106,11 +106,11 @@ import org.jaxen.function.xslt.DocumentFunction;
  *  </p>
  *
  *  <p>
- *  This class implements a <i>Singleton</i> pattern (see {@link #getInstance}),
- *  as it is perfectly re-entrant and thread-safe.  If using the
- *  singleton, it is inadvisable to call {@link #registerFunction(String, String, Function)}
+ *  This class is re-entrant and thread-safe.  If using the
+ *  default instance, it is inadvisable to call 
+ *  {@link #registerFunction(String, String, Function)}
  *  as that will extend the global function context, affecting other
- *  users of the singleton.  But that's your call, really, now isn't
+ *  users.  But that's your call, really, now isn't
  *  it?  That may be what you really want to do.
  *  </p>
  *
@@ -126,6 +126,9 @@ import org.jaxen.function.xslt.DocumentFunction;
  *  </ul>
  *
  *  @see FunctionContext
+ *  @see org.jaxen.function
+ *  @see org.jaxen.function.xslt
+ *  @see org.jaxen.function.ext
  *
  *  @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  */
@@ -133,24 +136,20 @@ public class XPathFunctionContext extends SimpleFunctionContext
 {
     private static XPathFunctionContext instance = new XPathFunctionContext();
 
-    /** Retrieve the singleton instance.
+    /** Retrieve the default function context
      *
-     *  @return the singleton instance
+     *  @return the default function context
      */
     public static FunctionContext getInstance()
     {
         return instance;
     }
 
-    /** Construct.
-     *
-     *  <p>
-     *  Construct with all core XPath and extension functions registered.
-     *  </p>
+    /** Create a new XPath function context.
+     *  All core XPath and Jaxen extension functions are registered.
      */
     public XPathFunctionContext()
     {
-        // XXX could this be a HotSpot????
         registerFunction( null,  // namespace URI
                           "boolean",
                           new BooleanFunction() );
@@ -170,10 +169,6 @@ public class XPathFunctionContext extends SimpleFunctionContext
         registerFunction( null,  // namespace URI
                           "count",
                           new CountFunction() );
-
-        registerFunction( null,  // namespace URI
-                          "document",
-                          new DocumentFunction() );
 
         registerFunction( null,  // namespace URI
                           "false",
@@ -263,6 +258,10 @@ public class XPathFunctionContext extends SimpleFunctionContext
                           "translate",
                           new TranslateFunction() );
         
+        // XSLT extension function
+        registerFunction( null,  // namespace URI
+                          "document",
+                          new DocumentFunction() );
 
         // register extension functions
         // extension functions should go into a namespace, but which one?
