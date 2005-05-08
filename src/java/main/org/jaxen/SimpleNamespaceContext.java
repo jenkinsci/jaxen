@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 737 $
- * $Date: 2005-05-05 07:11:57 -0700 (Thu, 05 May 2005) $
+ * $Revision: 744 $
+ * $Date: 2005-05-08 11:56:31 -0700 (Sun, 08 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleNamespaceContext.java 737 2005-05-05 14:11:57Z elharo $
+ * $Id: SimpleNamespaceContext.java 744 2005-05-08 18:56:31Z elharo $
  */
 
 
@@ -103,7 +103,7 @@ public class SimpleNamespaceContext implements NamespaceContext, Serializable
     /**
      *  Adds all the namespace declarations that are in scope on the given
      *  element. In the case of an XSLT stylesheet, this would be the element
-     *  that has the XPath expression in one of its attributes; i.e.
+     *  that has the XPath expression in one of its attributes; e.g.
      *  <code>&lt;xsl:if test="condition/xpath/expression"&gt;</code>.
      *
      *  @param nav  the navigator for use in conjunction with
