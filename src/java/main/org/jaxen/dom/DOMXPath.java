@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 559 $
- * $Date: 2005-04-06 02:20:11 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 747 $
+ * $Date: 2005-05-10 04:50:17 -0700 (Tue, 10 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DOMXPath.java 559 2005-04-06 09:20:11Z elharo $
+ * $Id: DOMXPath.java 747 2005-05-10 11:50:17Z elharo $
  */
 
 // XPath.java - top-level entry point for DOM XPath matching.
@@ -66,14 +66,14 @@ package org.jaxen.dom;
 import org.jaxen.BaseXPath;
 import org.jaxen.JaxenException;
 
-/** An XPath implementation for the W3C DOM model
+/** An XPath implementation for the W3C DOM.
  *
  * <p>This is the main entry point for matching an XPath against a DOM
  * tree.  You create a compiled XPath object, then match it against
  * one or more context nodes using the {@link #selectNodes(Object)}
  * method, as in the following example:</p>
  *
- * <pre>XPath path = new DOMXPath("a/b/c");
+ * <pre> XPath path = new DOMXPath("a/b/c");
  * List results = path.selectNodes(domNode);</pre>
  *
  * @see BaseXPath
@@ -81,16 +81,15 @@ import org.jaxen.JaxenException;
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
  * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  *
- * @version $Revision: 559 $
+ * @version $Revision: 747 $
  */
 public class DOMXPath extends BaseXPath
 {
-    /** Construct given an XPath expression string.
+    /** Create a new <code>DOMXPath</code> from an XPath expression string.
      *
      *  @param xpathExpr the XPath expression
      *
-     *  @throws JaxenException if there is a syntax error while
-     *          parsing the expression
+     *  @throws JaxenException if there is a syntax error in the expression
      */
     public DOMXPath(String xpathExpr) throws JaxenException
     {
