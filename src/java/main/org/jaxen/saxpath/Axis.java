@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 588 $
- * $Date: 2005-04-09 06:51:32 -0700 (Sat, 09 Apr 2005) $
+ * $Revision: 756 $
+ * $Date: 2005-05-13 07:00:07 -0700 (Fri, 13 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: Axis.java 588 2005-04-09 13:51:32Z elharo $
+ * $Id: Axis.java 756 2005-05-13 14:00:07Z elharo $
  */
 
 
@@ -67,6 +67,9 @@ import org.jaxen.JaxenRuntimeException;
 
 
 
+/**
+ * Internal SAXPath class to avoid a lot of string comparisons. 
+ */
 public class Axis
 {
     
@@ -113,6 +116,16 @@ public class Axis
     /** The <code>ancestor-or-self</code> axis */
     public final static int ANCESTOR_OR_SELF   = 13;
 
+    /**
+     * <p>
+     * Returns the name of the axis.
+     * </p>
+     * 
+     * @param axisNum the axis code
+     * @return the name of the axis such as might be used in an XPath expression
+     * @throws JaxenRuntimeException if the number does not represent one of the 13
+     *     XPath axes
+     */
     public static String lookup(int axisNum)
     {
         switch ( axisNum )
@@ -160,6 +173,14 @@ public class Axis
         throw new JaxenRuntimeException("Illegal Axis Number");
     }
 
+    /**
+     * <p>
+     * Returns the code for an axis given its name.
+     * </p>
+     * 
+     * @param axisName the name of the axis: child, parent, descendant, descendant-or-self, etc.
+     * @return the axis code
+     */
     public static int lookup(String axisName)
     {
         if ( "child".equals( axisName ) )
