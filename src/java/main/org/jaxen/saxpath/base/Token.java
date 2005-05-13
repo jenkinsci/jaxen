@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 750 $
+ * $Date: 2005-05-13 06:24:14 -0700 (Fri, 13 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: Token.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: Token.java 750 2005-05-13 13:24:14Z elharo $
  */
 
 
@@ -71,10 +71,10 @@ class Token
     private int    tokenBegin;
     private int    tokenEnd;
 
-    public Token(int tokenType,
-                 String parseText,
-                 int tokenBegin,
-                 int tokenEnd)
+    Token(int tokenType,
+          String parseText,
+          int tokenBegin,
+          int tokenEnd)
     {
         setTokenType( tokenType );
         setParseText( parseText );
@@ -87,7 +87,7 @@ class Token
         this.tokenType = tokenType;
     }
 
-    public int getTokenType()
+    int getTokenType()
     {
         return this.tokenType;
     }
@@ -97,7 +97,7 @@ class Token
         this.parseText = parseText;
     }
 
-    public String getTokenText()
+    String getTokenText()
     {
         return this.parseText.substring( getTokenBegin(),
                                          getTokenEnd() );
