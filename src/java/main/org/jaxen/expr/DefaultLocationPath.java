@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 554 $
- * $Date: 2005-04-06 02:09:19 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 749 $
+ * $Date: 2005-05-13 06:18:10 -0700 (Fri, 13 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultLocationPath.java 554 2005-04-06 09:09:19Z elharo $
+ * $Id: DefaultLocationPath.java 749 2005-05-13 13:18:10Z elharo $
  */
 package org.jaxen.expr;
 
@@ -74,6 +74,9 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
 {
     private List steps;
     
+    /**
+     * Create a new empty location path.
+     */
     public DefaultLocationPath()
     {
         this.steps = new LinkedList();
@@ -150,12 +153,7 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
             stepContext.setNodeSet(contextNodeSet);
             contextNodeSet = eachStep.evaluate(stepContext);
             // now we need to reverse the list if this is a reverse axis
-            // ???? should create an isReverseAxis method in Step to handle this
-            int axis = eachStep.getAxis();
-            if (axis == org.jaxen.saxpath.Axis.PRECEDING
-              || axis == org.jaxen.saxpath.Axis.PRECEDING_SIBLING
-              || axis == org.jaxen.saxpath.Axis.ANCESTOR
-              || axis == org.jaxen.saxpath.Axis.ANCESTOR_OR_SELF) {
+            if (isReverseAxis(eachStep)) {
                 Collections.reverse(contextNodeSet);
             }
         }
@@ -165,6 +163,15 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
         }
         
         return contextNodeSet;
+    }
+
+    private boolean isReverseAxis(Step step) {
+
+        int axis = step.getAxis();
+        return axis == org.jaxen.saxpath.Axis.PRECEDING
+          || axis == org.jaxen.saxpath.Axis.PRECEDING_SIBLING
+          || axis == org.jaxen.saxpath.Axis.ANCESTOR
+          || axis == org.jaxen.saxpath.Axis.ANCESTOR_OR_SELF;
     }
 
 }
