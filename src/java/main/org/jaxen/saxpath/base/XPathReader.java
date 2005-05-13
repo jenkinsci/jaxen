@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 727 $
- * $Date: 2005-05-03 12:42:52 -0700 (Tue, 03 May 2005) $
+ * $Revision: 752 $
+ * $Date: 2005-05-13 06:35:00 -0700 (Fri, 13 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 727 2005-05-03 19:42:52Z elharo $
+ * $Id: XPathReader.java 752 2005-05-13 13:35:00Z elharo $
  */
 
 
@@ -81,6 +81,10 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
 
     private XPathHandler handler;
 
+    /**
+     * Create a new <code>XPathReader</code> with a do-nothing
+     * <code>XPathHandler</code>.
+     */
     public XPathReader()
     {
         setXPathHandler( DefaultXPathHandler.getInstance() );
@@ -855,7 +859,6 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
     void equalityExpr() throws org.jaxen.saxpath.SAXPathException
     {
         getXPathHandler().startEqualityExpr();
-        // XXX why call this twice?
         getXPathHandler().startEqualityExpr();
 
         relationalExpr();
@@ -1014,8 +1017,8 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
 
         getXPathHandler().endAdditiveExpr( operator );
 
-        operator = Operator.NO_OP;
 
+        operator = Operator.NO_OP; 
         switch ( LA(1) )
         {
             case PLUS:
