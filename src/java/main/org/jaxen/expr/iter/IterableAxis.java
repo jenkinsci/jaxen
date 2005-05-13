@@ -1,5 +1,5 @@
 /*
- $Id: IterableAxis.java 423 2005-01-30 03:19:37Z elharo $
+ $Id: IterableAxis.java 754 2005-05-13 13:43:37Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -82,10 +82,12 @@ public abstract class IterableAxis implements Serializable {
     }
 
     /**
-     * Gets the iterator for a specific xpath axis.
+     * Gets the iterator for a specific XPath axis.
      * 
      * @param contextNode  the current context node to work from
      * @param support  the additional context information
+     * @return an iterator for the axis 
+     * @throws UnsupportedAxisException
      */
     public abstract Iterator iterator(Object contextNode, ContextSupport support) throws UnsupportedAxisException;
 
