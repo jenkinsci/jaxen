@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 752 $
- * $Date: 2005-05-13 06:35:00 -0700 (Fri, 13 May 2005) $
+ * $Revision: 753 $
+ * $Date: 2005-05-13 06:39:52 -0700 (Fri, 13 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 752 2005-05-13 13:35:00Z elharo $
+ * $Id: XPathReader.java 753 2005-05-13 13:39:52Z elharo $
  */
 
 
@@ -68,6 +68,7 @@ import org.jaxen.saxpath.Axis;
 import org.jaxen.saxpath.Operator;
 import org.jaxen.saxpath.XPathHandler;
 import org.jaxen.saxpath.XPathSyntaxException;
+import org.jaxen.saxpath.helpers.DefaultXPathHandler;
 
 /** Implementation of SAXPath's <code>XPathReader</code> which
  *  generates callbacks to an <code>XPathHandler</code>.
@@ -80,6 +81,8 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
     private XPathLexer lexer;
 
     private XPathHandler handler;
+    
+    private static XPathHandler defaultHandler = new DefaultXPathHandler();
 
     /**
      * Create a new <code>XPathReader</code> with a do-nothing
@@ -87,7 +90,7 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
      */
     public XPathReader()
     {
-        setXPathHandler( DefaultXPathHandler.getInstance() );
+        setXPathHandler( defaultHandler );
     }
 
     public void setXPathHandler(XPathHandler handler)
