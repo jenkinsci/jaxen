@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 753 $
- * $Date: 2005-05-13 06:39:52 -0700 (Fri, 13 May 2005) $
+ * $Revision: 760 $
+ * $Date: 2005-05-16 04:09:08 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 753 2005-05-13 13:39:52Z elharo $
+ * $Id: XPathReader.java 760 2005-05-16 11:09:08Z elharo $
  */
 
 
@@ -178,14 +178,12 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
                     {
                         locationPath( false );
                     }
-
-                    break;
                 }
                 else
                 {
                     locationPath( false );
-                    break;
                 }
+                break;
             }
             case DOT:
             case DOT_DOT:
