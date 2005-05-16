@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 335 $
- * $Date: 2003-09-04 21:08:48 -0700 (Thu, 04 Sep 2003) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,13 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultAdditiveExpr.java 335 2003-09-05 04:08:48Z proyal $
+ * $Id: DefaultAdditiveExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 package org.jaxen.expr;
 
 abstract class DefaultAdditiveExpr extends DefaultArithExpr implements AdditiveExpr
 {
-    public DefaultAdditiveExpr( Expr lhs,
+    DefaultAdditiveExpr( Expr lhs,
                                 Expr rhs )
     {
         super( lhs,

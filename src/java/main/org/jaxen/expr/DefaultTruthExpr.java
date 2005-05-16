@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 757 $
- * $Date: 2005-05-16 03:42:17 -0700 (Mon, 16 May 2005) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultTruthExpr.java 757 2005-05-16 10:42:17Z elharo $
+ * $Id: DefaultTruthExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 
 
@@ -67,7 +67,7 @@ import java.util.List;
 
 abstract class DefaultTruthExpr extends DefaultBinaryExpr 
 {
-    public DefaultTruthExpr(Expr lhs,
+    DefaultTruthExpr(Expr lhs,
                             Expr rhs)
     {
         super( lhs,

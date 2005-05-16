@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 335 $
- * $Date: 2003-09-04 21:08:48 -0700 (Thu, 04 Sep 2003) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultMinusExpr.java 335 2003-09-05 04:08:48Z proyal $
+ * $Id: DefaultMinusExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 
 
@@ -68,7 +68,7 @@ import org.jaxen.function.NumberFunction;
 
 class DefaultMinusExpr extends DefaultAdditiveExpr
 {
-    public DefaultMinusExpr(Expr lhs,
+    DefaultMinusExpr(Expr lhs,
                             Expr rhs)
     {
         super( lhs,

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 295 $
- * $Date: 2002-11-13 06:56:13 -0800 (Wed, 13 Nov 2002) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultBinaryExpr.java 295 2002-11-13 14:56:13Z szegedia $
+ * $Id: DefaultBinaryExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 
 
@@ -68,7 +68,7 @@ abstract class DefaultBinaryExpr extends DefaultExpr implements BinaryExpr
     private Expr lhs;
     private Expr rhs;
 
-    public DefaultBinaryExpr(Expr lhs,
+    DefaultBinaryExpr(Expr lhs,
                              Expr rhs)
     {
         this.lhs = lhs;

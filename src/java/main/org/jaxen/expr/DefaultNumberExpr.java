@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 335 $
- * $Date: 2003-09-04 21:08:48 -0700 (Thu, 04 Sep 2003) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultNumberExpr.java 335 2003-09-05 04:08:48Z proyal $
+ * $Id: DefaultNumberExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 
 
@@ -69,7 +69,7 @@ class DefaultNumberExpr extends DefaultExpr implements NumberExpr
 {
     private Number number;
 
-    public DefaultNumberExpr( Number number )
+    DefaultNumberExpr( Number number )
     {
         this.number = number;
     }

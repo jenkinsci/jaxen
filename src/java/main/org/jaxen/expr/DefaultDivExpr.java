@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 638 $
- * $Date: 2005-04-16 07:23:05 -0700 (Sat, 16 Apr 2005) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultDivExpr.java 638 2005-04-16 14:23:05Z elharo $
+ * $Id: DefaultDivExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 
 
@@ -68,7 +68,7 @@ import org.jaxen.function.NumberFunction;
 
 class DefaultDivExpr extends DefaultMultiplicativeExpr
 {
-    public DefaultDivExpr(Expr lhs,
+    DefaultDivExpr(Expr lhs,
                           Expr rhs)
     {
         super( lhs,

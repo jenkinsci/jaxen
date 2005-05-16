@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 331 $
- * $Date: 2003-08-26 12:54:15 -0700 (Tue, 26 Aug 2003) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultPathExpr.java 331 2003-08-26 19:54:15Z ssanders $
+ * $Id: DefaultPathExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 
 package org.jaxen.expr;
@@ -71,7 +71,7 @@ class DefaultPathExpr extends DefaultExpr implements PathExpr {
     private Expr filterExpr;
     private LocationPath locationPath;
 
-    public DefaultPathExpr(Expr filterExpr,
+    DefaultPathExpr(Expr filterExpr,
                            LocationPath locationPath) {
         this.filterExpr = filterExpr;
         this.locationPath = locationPath;

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 504 $
- * $Date: 2005-03-28 17:08:57 -0800 (Mon, 28 Mar 2005) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultArithExpr.java 504 2005-03-29 01:08:57Z elharo $
+ * $Id: DefaultArithExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 
 
@@ -65,7 +65,7 @@ package org.jaxen.expr;
 
 abstract class DefaultArithExpr extends DefaultBinaryExpr 
 {
-    public DefaultArithExpr(Expr lhs,
+    DefaultArithExpr(Expr lhs,
                             Expr rhs)
     {
         super( lhs,

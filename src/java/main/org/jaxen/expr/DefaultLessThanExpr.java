@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 485 $
- * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,14 +56,14 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultLessThanExpr.java 485 2005-03-21 22:39:16Z elharo $
+ * $Id: DefaultLessThanExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 
 package org.jaxen.expr;
 
 class DefaultLessThanExpr extends DefaultRelationalExpr
   {
-  public DefaultLessThanExpr( Expr lhs, Expr rhs )
+  DefaultLessThanExpr( Expr lhs, Expr rhs )
     {
     super( lhs, rhs );
     }

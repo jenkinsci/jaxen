@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 639 $
- * $Date: 2005-04-16 08:06:35 -0700 (Sat, 16 Apr 2005) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultAndExpr.java 639 2005-04-16 15:06:35Z elharo $
+ * $Id: DefaultAndExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 
 package org.jaxen.expr;
@@ -68,7 +68,7 @@ import org.jaxen.function.BooleanFunction;
 
 class DefaultAndExpr extends DefaultLogicalExpr
 {
-    public DefaultAndExpr(Expr lhs,
+    DefaultAndExpr(Expr lhs,
                           Expr rhs)
     {
         super( lhs,

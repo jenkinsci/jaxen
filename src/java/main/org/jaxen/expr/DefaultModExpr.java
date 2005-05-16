@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 504 $
- * $Date: 2005-03-28 17:08:57 -0800 (Mon, 28 Mar 2005) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultModExpr.java 504 2005-03-29 01:08:57Z elharo $
+ * $Id: DefaultModExpr.java 759 2005-05-16 10:49:42Z elharo $
  */
 package org.jaxen.expr;
 
@@ -66,7 +66,7 @@ import org.jaxen.function.NumberFunction;
 
 class DefaultModExpr extends DefaultMultiplicativeExpr
 {
-    public DefaultModExpr( Expr lhs,
+    DefaultModExpr( Expr lhs,
                            Expr rhs )
     {
         super( lhs,

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 485 $
- * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
+ * $Revision: 759 $
+ * $Date: 2005-05-16 03:49:42 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultPredicate.java 485 2005-03-21 22:39:16Z elharo $
+ * $Id: DefaultPredicate.java 759 2005-05-16 10:49:42Z elharo $
  */
 
 
@@ -70,7 +70,7 @@ class DefaultPredicate implements Predicate
 {
     private Expr expr;
 
-    public DefaultPredicate(Expr expr)
+    DefaultPredicate(Expr expr)
     {
         setExpr( expr );
     }
