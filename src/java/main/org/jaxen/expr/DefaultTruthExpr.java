@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 757 $
+ * $Date: 2005-05-16 03:42:17 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultTruthExpr.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: DefaultTruthExpr.java 757 2005-05-16 10:42:17Z elharo $
  */
 
 
@@ -127,21 +127,7 @@ abstract class DefaultTruthExpr extends DefaultBinaryExpr
         return ( lhs instanceof Number
                  ||
                  rhs instanceof Number );
-    }
+    } 
 
-    protected boolean isNumber(Object obj)
-    {
-        return ( obj instanceof Number );
-    }
-
-    protected boolean isString(Object obj)
-    {
-        return ( obj instanceof String );
-    }
-
-    protected boolean isBoolean(Object obj)
-    {
-        return ( obj instanceof Boolean );
-    }
 }
 
