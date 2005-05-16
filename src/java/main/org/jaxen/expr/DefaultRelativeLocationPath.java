@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 485 $
- * $Date: 2005-03-21 14:39:16 -0800 (Mon, 21 Mar 2005) $
+ * $Revision: 758 $
+ * $Date: 2005-05-16 03:48:48 -0700 (Mon, 16 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultRelativeLocationPath.java 485 2005-03-21 22:39:16Z elharo $
+ * $Id: DefaultRelativeLocationPath.java 758 2005-05-16 10:48:48Z elharo $
  */
 
 
@@ -65,9 +65,6 @@ package org.jaxen.expr;
 
 public class DefaultRelativeLocationPath extends DefaultLocationPath 
 {
-    public DefaultRelativeLocationPath()
-    {
-    }
 
     public String toString()
     {
