@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 760 $
- * $Date: 2005-05-16 04:09:08 -0700 (Mon, 16 May 2005) $
+ * $Revision: 762 $
+ * $Date: 2005-05-20 05:01:17 -0700 (Fri, 20 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 760 2005-05-16 11:09:08Z elharo $
+ * $Id: XPathReader.java 762 2005-05-20 12:01:17Z elharo $
  */
 
 
@@ -137,9 +137,6 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
             case INTEGER:
             case DOUBLE:
             case LITERAL:
-            // FIXME parentheses should be allowed when content of parentheses evaluates to a node-set
-            case LEFT_PAREN:
-            // case DOLLAR:
             {
                 filterExpr();
 
@@ -150,7 +147,8 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
                 }
 
                 break;
-            }
+            }                
+            case LEFT_PAREN:
             case DOLLAR:
             {
                 filterExpr();
