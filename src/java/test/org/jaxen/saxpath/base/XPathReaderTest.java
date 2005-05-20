@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 719 $
- * $Date: 2005-05-03 05:27:12 -0700 (Tue, 03 May 2005) $
+ * $Revision: 761 $
+ * $Date: 2005-05-20 04:57:14 -0700 (Fri, 20 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 719 2005-05-03 12:27:12Z elharo $
+ * $Id: XPathReaderTest.java 761 2005-05-20 11:57:14Z elharo $
  */
 
 
@@ -377,9 +377,14 @@ public class XPathReaderTest extends TestCase
     public void testLocationPathStartsWithVariable() throws SAXPathException
     {
 
-        setText( "$variable/foo" );
-        getReader().setUpParse( getText() );
-        getReader().step();
+        reader.parse( "$variable/foo" );
+
+    }
+
+    public void testLocationPathStartsWithParentheses() throws SAXPathException
+    {
+
+        reader.parse( "(//x)/foo" );
 
     }
 
