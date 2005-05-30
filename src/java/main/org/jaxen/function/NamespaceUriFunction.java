@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 764 $
- * $Date: 2005-05-29 04:42:21 -0700 (Sun, 29 May 2005) $
+ * $Revision: 765 $
+ * $Date: 2005-05-30 05:43:35 -0700 (Mon, 30 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceUriFunction.java 764 2005-05-29 11:42:21Z elharo $
+ * $Id: NamespaceUriFunction.java 765 2005-05-30 12:43:35Z elharo $
  */
 
 
@@ -123,7 +123,7 @@ public class NamespaceUriFunction implements Function
             }
             else if ( nav.isNamespace( first ) )
             {
-                return nav.getNamespaceStringValue( first );
+                return "";
             }
             else if ( nav.isDocument( first ) )
             {
