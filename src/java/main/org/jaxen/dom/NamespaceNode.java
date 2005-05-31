@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 748 $
- * $Date: 2005-05-10 05:01:14 -0700 (Tue, 10 May 2005) $
+ * $Revision: 783 $
+ * $Date: 2005-05-31 11:49:14 -0700 (Tue, 31 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceNode.java 748 2005-05-10 12:01:14Z elharo $
+ * $Id: NamespaceNode.java 783 2005-05-31 18:49:14Z elharo $
  */
 
 ////////////////////////////////////////////////////////////////////
@@ -158,8 +158,11 @@ public class NamespaceNode implements Node
         if (name.equals("xmlns")) {
             this.name = "";
         }
-        else {
+        else if (name.startsWith("xmlns:")) {
             this.name = name.substring(6); // the part after "xmlns:"
+        }
+        else { // workaround for Crimson bug; Crimson incorrectly reports the prefix as the node name
+            this.name = name;
         }
         this.parent = parent;
         this.value = attribute.getNodeValue();
