@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 423 $
- * $Date: 2005-01-29 19:19:37 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 776 $
+ * $Date: 2005-05-31 06:14:54 -0700 (Tue, 31 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 423 2005-01-30 03:19:37Z elharo $
+ * $Id: DocumentNavigator.java 776 2005-05-31 13:14:54Z elharo $
  */
 
 
@@ -244,7 +244,7 @@ public class DocumentNavigator extends org.jaxen.DefaultNavigator
     
     //
     
-    public Iterator getAttributeAxisIterator(Object o) throws UnsupportedAxisException {
+    public Iterator getAttributeAxisIterator(Object o) {
         if (isElement(o)) {
             return new IndexIterator(o, 0, ((Element)o).getAttributeCount()) {
                 public Object get(Object o, int i) {
@@ -255,7 +255,7 @@ public class DocumentNavigator extends org.jaxen.DefaultNavigator
         return JaxenConstants.EMPTY_ITERATOR;
     }
 
-    public Iterator getChildAxisIterator(Object o) throws UnsupportedAxisException {
+    public Iterator getChildAxisIterator(Object o) {
         if (isElement(o) || (o instanceof Document)) {
             return new IndexIterator(o, 0, ((ParentNode)o).getChildCount()) {
                 public Object get(Object o, int i) {
@@ -268,7 +268,7 @@ public class DocumentNavigator extends org.jaxen.DefaultNavigator
 
     //
 
-    public Iterator getParentAxisIterator(Object o) throws UnsupportedAxisException {
+    public Iterator getParentAxisIterator(Object o) {
         Object parent = null;
         if (o instanceof Node) {
             parent = ((Node)o).getParent();
@@ -278,7 +278,7 @@ public class DocumentNavigator extends org.jaxen.DefaultNavigator
         return (parent != null ? new SingleObjectIterator(parent) : null);
     }
 
-    public Object getParentNode(Object o) throws UnsupportedAxisException {
+    public Object getParentNode(Object o)  {
         return (o instanceof Node ? ((Node)o).getParent() : null);
     }
 
