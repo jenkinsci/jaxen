@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 784 $
- * $Date: 2005-05-31 11:55:47 -0700 (Tue, 31 May 2005) $
+ * $Revision: 786 $
+ * $Date: 2005-05-31 12:28:52 -0700 (Tue, 31 May 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 784 2005-05-31 18:55:47Z elharo $
+ * $Id: DocumentNavigator.java 786 2005-05-31 19:28:52Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -331,13 +331,23 @@ public class DocumentNavigator extends DefaultNavigator
                     for (int i = 0; i < length; i++) {
                         Attr att = (Attr) atts.item(i);
                         // work around crimson bug by testing URI rather than name
-                        if ("http://www.w3.org/2000/xmlns/".equals(att.getNamespaceURI())) {
+                        String attributeNamespace = att.getNamespaceURI();
+                        if ("http://www.w3.org/2000/xmlns/".equals(attributeNamespace)) {
                             NamespaceNode ns =
                                 new NamespaceNode((Node)contextNode, att);
                             // Add only if there's not a closer
                             // declaration in force.
                             String name = ns.getNodeName();
                             if (!nsMap.containsKey(name)) nsMap.put(name, ns);
+                        }
+                        else if (attributeNamespace != null) {
+                            String prefix = att.getPrefix();
+                            NamespaceNode ns =
+                                new NamespaceNode((Node)contextNode, prefix, attributeNamespace);
+                            // Add only if there's not a closer
+                            // declaration in force.
+                            if (!nsMap.containsKey(prefix)) nsMap.put(prefix, ns);
+                            
                         }
                     }
                 }
@@ -351,8 +361,6 @@ public class DocumentNavigator extends DefaultNavigator
                         nsMap.put(myPrefix, ns);
                     }
                 }
-                
-                // 3. ???? Look for the namespace of each attribute
                 
             }
             // Section 5.4 of the XPath rec requires
