@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 771 $
- * $Date: 2005-05-31 02:44:03 -0700 (Tue, 31 May 2005) $
+ * $Revision: 784 $
+ * $Date: 2005-05-31 11:55:47 -0700 (Tue, 31 May 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 771 2005-05-31 09:44:03Z elharo $
+ * $Id: DocumentNavigator.java 784 2005-05-31 18:55:47Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -320,27 +320,40 @@ public class DocumentNavigator extends DefaultNavigator
             // up to the root, noting what namespace
             // declarations are in force.
 
-            // TODO: deal with empty URI for
-            // canceling namespace scope
             for (Node n = (Node)contextNode;
                  n != null;
                  n = n.getParentNode()) {
+                
+                // 1. Look for namespace attributes
                 if (n.hasAttributes()) {
                     NamedNodeMap atts = n.getAttributes();
                     int length = atts.getLength();
                     for (int i = 0; i < length; i++) {
-                        Node att = atts.item(i);
-                        if (att.getNodeName().startsWith("xmlns")) {
+                        Attr att = (Attr) atts.item(i);
+                        // work around crimson bug by testing URI rather than name
+                        if ("http://www.w3.org/2000/xmlns/".equals(att.getNamespaceURI())) {
                             NamespaceNode ns =
                                 new NamespaceNode((Node)contextNode, att);
                             // Add only if there's not a closer
                             // declaration in force.
                             String name = ns.getNodeName();
-                            if (!nsMap.containsKey(name))
-                                nsMap.put(name, ns);
+                            if (!nsMap.containsKey(name)) nsMap.put(name, ns);
                         }
                     }
                 }
+                
+                // 2. Look for the namespace of the element itself
+                String myNamespace = n.getNamespaceURI();
+                if (myNamespace != null && ! "".equals(myNamespace)) {
+                    String myPrefix = n.getPrefix();
+                    if (!nsMap.containsKey(myPrefix)) {
+                        NamespaceNode ns = new NamespaceNode((Node) contextNode, myPrefix, myNamespace);
+                        nsMap.put(myPrefix, ns);
+                    }
+                }
+                
+                // 3. ???? Look for the namespace of each attribute
+                
             }
             // Section 5.4 of the XPath rec requires
             // this to be present.

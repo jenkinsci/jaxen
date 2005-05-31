@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 317 $
- * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 784 $
+ * $Date: 2005-05-31 11:55:47 -0700 (Tue, 31 May 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DocumentNavigatorTest.java 317 2003-06-29 17:55:51Z ssanders $
+ * $Id: DocumentNavigatorTest.java 784 2005-05-31 18:55:47Z elharo $
  */
 
 
@@ -107,4 +107,7 @@ public class DocumentNavigatorTest extends XPathTestBase
 
         return builder.parse( url );
     }
+    
+    
+    
 }
