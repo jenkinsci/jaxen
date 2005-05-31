@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 578 $
- * $Date: 2005-04-07 13:41:33 -0700 (Thu, 07 Apr 2005) $
+ * $Revision: 781 $
+ * $Date: 2005-05-31 08:39:25 -0700 (Tue, 31 May 2005) $
  *
  * ====================================================================
  *
@@ -56,17 +56,17 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FollowingSiblingAxisIterator.java 578 2005-04-07 20:41:33Z elharo $
+ * $Id: FollowingSiblingAxisIterator.java 781 2005-05-31 15:39:25Z elharo $
  */
 
 
 
 package org.jaxen.util;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import org.jaxen.JaxenConstants;
 import org.jaxen.Navigator;
 import org.jaxen.UnsupportedAxisException;
 
@@ -99,7 +99,7 @@ public class FollowingSiblingAxisIterator implements Iterator
             }
         }
         else {
-            siblingIter = Collections.EMPTY_LIST.iterator();
+            siblingIter = JaxenConstants.EMPTY_ITERATOR;
         }
 
     }
