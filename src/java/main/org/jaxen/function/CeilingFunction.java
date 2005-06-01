@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 791 $
+ * $Date: 2005-06-01 03:25:44 -0700 (Wed, 01 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: CeilingFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: CeilingFunction.java 791 2005-06-01 10:25:44Z elharo $
  */
 
 
@@ -92,7 +92,7 @@ public class CeilingFunction implements Function
     public static Double evaluate(Object obj,
                                   Navigator nav)
     {
-        Number value = NumberFunction.evaluate( obj,
+        Double value = NumberFunction.evaluate( obj,
                                                 nav );
 
         return new Double( Math.ceil( value.doubleValue() ) );
