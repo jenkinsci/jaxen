@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 772 2005-05-31 10:45:41Z elharo $
+ $Id: DefaultNameStep.java 793 2005-06-01 11:18:27Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -266,6 +266,14 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
                     continue;
                 }
 
+                /* See jaxen-106. Might be able to optimize this by doing
+                 * specific matching for individual axes. For instance on namespace axis
+                 * we should only get namespace nodes and on attribute axes we only get 
+                 * attribute nodes. Self and parent axes have single members.
+                 * Children, descendant, ancestor, and sibling axes never 
+                 * see any attributes or namespaces
+                 */
+                
                 // ensure only unique matching nodes in the result
                 while (axisNodeIter.hasNext()) {
                     Object eachAxisNode = axisNodeIter.next();

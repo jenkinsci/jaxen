@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 654 $
- * $Date: 2005-04-20 15:43:27 -0700 (Wed, 20 Apr 2005) $
+ * $Revision: 793 $
+ * $Date: 2005-06-01 04:18:27 -0700 (Wed, 01 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultStep.java 654 2005-04-20 22:43:27Z elharo $
+ * $Id: DefaultStep.java 793 2005-06-01 11:18:27Z elharo $
  */
 package org.jaxen.expr;
 
@@ -145,13 +145,20 @@ public abstract class DefaultStep implements Step
         final ArrayList newNodeSet = new ArrayList();
         final ContextSupport support = context.getContextSupport();
             
-        // ???? use iterator instead????
+        // ???? use iterator instead
         for ( int i = 0 ; i < contextSize ; ++i )
         {
             Object eachContextNode = contextNodeSet.get( i );
 
-            Iterator axisNodeIter = axis.iterator(eachContextNode, support);
 
+                /* See jaxen-106. Might be able to optimize this by doing
+                 * specific matching for individual axes. For instance on namespace axis
+                 * we should only get namespace nodes and on attribute axes we only get 
+                 * attribute nodes. Self and parent axes have single members.
+                 * Children, descendant, ancestor, and sibling axes never 
+                 * see any attributes or namespaces
+                 */
+            Iterator axisNodeIter = axis.iterator(eachContextNode, support);
             while ( axisNodeIter.hasNext() )
             {
                 Object eachAxisNode = axisNodeIter.next();
