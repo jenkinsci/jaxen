@@ -1,7 +1,7 @@
 package org.jaxen;
 
 /*
- $Id: Context.java 708 2005-05-01 19:48:27Z elharo $
+ $Id: Context.java 794 2005-06-01 11:19:23Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -55,7 +55,7 @@ import java.util.List;
  *  as the context of an expression evaluation.
  *
  *  <p>
- *  <b>NOTE:</b> This class is not typically used directly,
+ *  <strong>NOTE:</strong> This class is not typically used directly,
  *  but is exposed for writers of implementation-specific
  *  XPath packages.
  *  </p>
@@ -97,7 +97,7 @@ public class Context
     //     Constructors
     // ----------------------------------------------------------------------
 
-    /** Construct.
+    /** Create a new context.
      *
      *  @param contextSupport the context-support
      */
