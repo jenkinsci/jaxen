@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 792 $
+ * $Date: 2005-06-01 03:26:27 -0700 (Wed, 01 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: IdFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: IdFunction.java 792 2005-06-01 10:26:27Z elharo $
  */
 
 package org.jaxen.function;
@@ -93,8 +93,7 @@ public class IdFunction implements Function
 
     public static List evaluate (List contextNodes, Object arg, Navigator nav)
     {
-        if (contextNodes.size() == 0)
-            return Collections.EMPTY_LIST;
+        if (contextNodes.size() == 0) return Collections.EMPTY_LIST;
       
         List nodes = new ArrayList();
 
