@@ -1,5 +1,5 @@
 /*
- $Id: IterableChildAxis.java 755 2005-05-13 13:46:12Z elharo $
+ $Id: IterableChildAxis.java 790 2005-06-01 10:24:05Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -70,7 +70,7 @@ public class IterableChildAxis extends IterableAxis {
     }
 
     /**
-     * Gets the iterator for the child xpath axis.
+     * Gets the iterator for the child axis.
      * 
      * @param contextNode  the current context node to work from
      * @param support  the additional context information
@@ -83,7 +83,7 @@ public class IterableChildAxis extends IterableAxis {
     }
 
     /**
-     * Gets the iterator for the child XPath axis that supports named access.
+     * Gets an iterator for the child XPath axis that supports named access.
      * 
      * @param contextNode  the current context node to work from
      * @param support  the additional context information
