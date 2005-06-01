@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 786 $
- * $Date: 2005-05-31 12:28:52 -0700 (Tue, 31 May 2005) $
+ * $Revision: 789 $
+ * $Date: 2005-06-01 03:20:05 -0700 (Wed, 01 Jun 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 786 2005-05-31 19:28:52Z elharo $
+ * $Id: DocumentNavigator.java 789 2005-06-01 10:20:05Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -316,10 +316,9 @@ public class DocumentNavigator extends DefaultNavigator
 
             HashMap nsMap = new HashMap();
 
-            // Start at the current node at walk
-            // up to the root, noting what namespace
-            // declarations are in force.
-
+            // Starting at the current node, walk
+            // up to the root, noting the namespace
+            // declarations in scope.
             for (Node n = (Node)contextNode;
                  n != null;
                  n = n.getParentNode()) {
