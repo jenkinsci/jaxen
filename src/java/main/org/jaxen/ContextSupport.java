@@ -1,7 +1,7 @@
 package org.jaxen;
 
 /*
- $Id: ContextSupport.java 461 2005-02-10 17:40:02Z elharo $
+ $Id: ContextSupport.java 795 2005-06-01 11:19:59Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -63,14 +63,11 @@ import java.io.Serializable;
  *
  *  @author <a href="mailto:bob@eng.werken.com">bob mcwhirter</a>
  *
- *  @version $Id: ContextSupport.java 461 2005-02-10 17:40:02Z elharo $
+ *  @version $Id: ContextSupport.java 795 2005-06-01 11:19:59Z elharo $
  */
 public class ContextSupport
     implements Serializable
 {
-    // ----------------------------------------------------------------------
-    //     Instance methods
-    // ----------------------------------------------------------------------
 
     /** Function context. */
     private transient FunctionContext functionContext;
