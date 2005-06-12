@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 801 $
- * $Date: 2005-06-12 09:28:34 -0700 (Sun, 12 Jun 2005) $
+ * $Revision: 802 $
+ * $Date: 2005-06-12 09:48:15 -0700 (Sun, 12 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceNode.java 801 2005-06-12 16:28:34Z elharo $
+ * $Id: NamespaceNode.java 802 2005-06-12 16:48:15Z elharo $
  */
 
 ////////////////////////////////////////////////////////////////////
@@ -684,7 +684,7 @@ public class NamespaceNode implements Node
 
 
     public Object getFeature(String feature, String version) {
-        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+        return null;
     }
 
 
