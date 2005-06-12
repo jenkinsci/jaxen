@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 783 $
- * $Date: 2005-05-31 11:49:14 -0700 (Tue, 31 May 2005) $
+ * $Revision: 798 $
+ * $Date: 2005-06-12 06:03:59 -0700 (Sun, 12 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceNode.java 783 2005-05-31 18:49:14Z elharo $
+ * $Id: NamespaceNode.java 798 2005-06-12 13:03:59Z elharo $
  */
 
 ////////////////////////////////////////////////////////////////////
@@ -71,6 +71,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.UserDataHandler;
 
 
 /**
@@ -618,6 +619,70 @@ public class NamespaceNode implements Node
     }
     
     }
+
+
+
+    public String getBaseURI() {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+    }
+
+
+    public short compareDocumentPosition(Node other) throws DOMException {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+    }
+
+
+    public String getTextContent() throws DOMException {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+
+    }
+
+
+    public void setTextContent(String textContent) throws DOMException {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+    }
+
+
+    public boolean isSameNode(Node other) {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+    }
+
+
+    public String lookupPrefix(String namespaceURI) {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+
+    }
+
+
+    public boolean isDefaultNamespace(String namespaceURI) {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+    }
+
+
+    public String lookupNamespaceURI(String prefix) {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+    }
+
+
+    public boolean isEqualNode(Node arg) {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+    }
+
+
+    public Object getFeature(String feature, String version) {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+    }
+
+
+    public Object setUserData(String key, Object data, UserDataHandler handler) {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+    }
+
+
+    public Object getUserData(String key) {
+        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+    }
+    
 }
 
 // end of Namespace.java
