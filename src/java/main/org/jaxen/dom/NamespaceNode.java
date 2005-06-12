@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 798 $
- * $Date: 2005-06-12 06:03:59 -0700 (Sun, 12 Jun 2005) $
+ * $Revision: 801 $
+ * $Date: 2005-06-12 09:28:34 -0700 (Sun, 12 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceNode.java 798 2005-06-12 13:03:59Z elharo $
+ * $Id: NamespaceNode.java 801 2005-06-12 16:28:34Z elharo $
  */
 
 ////////////////////////////////////////////////////////////////////
@@ -633,18 +633,20 @@ public class NamespaceNode implements Node
 
 
     public String getTextContent() throws DOMException {
-        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
-
+        return value;
     }
 
 
     public void setTextContent(String textContent) throws DOMException {
-        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+        disallowModification();
     }
 
 
     public boolean isSameNode(Node other) {
-        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+        return this.isEqualNode(other) 
+          // a bit flaky (should really be this.getParentNode().isEqual(other.getParentNode())
+          // but we want this to compile in Java 1.4 without problems
+          && this.getParentNode() == other.getParentNode();
     }
 
 
@@ -665,7 +667,19 @@ public class NamespaceNode implements Node
 
 
     public boolean isEqualNode(Node arg) {
-        throw new UnsupportedOperationException("Changing interfaces in a JDK blows chunks!");
+        if (arg.getNodeType() == this.getNodeType()) {
+            NamespaceNode other = (NamespaceNode) arg;
+            if (other.name == null && this.name != null) return false;
+            else if (other.name != null && this.name == null) return false;
+            else if (other.value == null && this.value != null) return false;
+            else if (other.value != null && this.value == null) return false;
+            else if (other.name == null && this.name == null) {
+                return other.value.equals(this.value);
+            }
+
+            return other.name.equals(this.name) && other.value.equals(this.value);
+        }
+        return false;
     }
 
 
