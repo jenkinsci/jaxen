@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 762 $
- * $Date: 2005-05-20 05:01:17 -0700 (Fri, 20 May 2005) $
+ * $Revision: 803 $
+ * $Date: 2005-06-13 17:45:55 -0700 (Mon, 13 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,13 +56,14 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 762 2005-05-20 12:01:17Z elharo $
+ * $Id: XPathReader.java 803 2005-06-14 00:45:55Z elharo $
  */
 
 
 package org.jaxen.saxpath.base;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 import org.jaxen.saxpath.Axis;
 import org.jaxen.saxpath.Operator;
@@ -989,125 +990,71 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
 
     void additiveExpr() throws org.jaxen.saxpath.SAXPathException
     {
-        getXPathHandler().startAdditiveExpr();
-        getXPathHandler().startAdditiveExpr();
-
         multiplicativeExpr();
 
-        int operator = Operator.NO_OP;
-
-        switch ( LA(1) )
+        int la = LA(1);
+        while (la == PLUS || la == MINUS)
         {
-            case PLUS:
+            switch ( la )
             {
-                match( PLUS );
-                operator = Operator.ADD;
-                multiplicativeExpr();
-                break;
+                case PLUS:
+                {
+                    match( PLUS );
+                    getXPathHandler().startAdditiveExpr();
+                    multiplicativeExpr();
+                    getXPathHandler().endAdditiveExpr( Operator.ADD );
+                    break;
+                }
+                case MINUS:
+                {
+                    match( MINUS );
+                    getXPathHandler().startAdditiveExpr();
+                    multiplicativeExpr();
+                    getXPathHandler().endAdditiveExpr( Operator.SUBTRACT );
+                    break;
+                }
             }
-            case MINUS:
-            {
-                match( MINUS );
-                operator = Operator.SUBTRACT;
-                multiplicativeExpr();
-                break;
-            }
+            la = LA(1);
         }
-
-        getXPathHandler().endAdditiveExpr( operator );
-
-
-        operator = Operator.NO_OP; 
-        switch ( LA(1) )
-        {
-            case PLUS:
-            {
-                match( PLUS );
-                operator = Operator.ADD;
-                additiveExpr();
-                break;
-            }
-            case MINUS:
-            {
-                match( MINUS );
-                operator = Operator.SUBTRACT;
-                additiveExpr();
-                break;
-            }
-            default:
-            {
-                operator = Operator.NO_OP;
-                break;
-            }
-        }
-
-        getXPathHandler().endAdditiveExpr( operator );
     }
 
     void multiplicativeExpr() throws org.jaxen.saxpath.SAXPathException
     {
-        getXPathHandler().startMultiplicativeExpr();
-        getXPathHandler().startMultiplicativeExpr();
-
         unaryExpr();
 
-        int operator = Operator.NO_OP;
-
-        switch ( LA(1) )
+        int la = LA(1);
+        while (la == STAR || la == DIV || la == MOD)
         {
-            case STAR:
+            switch ( LA(1) )
             {
-                match( STAR );
-                unaryExpr();
-                operator = Operator.MULTIPLY;
-                break;                
+                case STAR:
+                {
+                    match( STAR );
+                    getXPathHandler().startMultiplicativeExpr();
+                    unaryExpr();
+                    getXPathHandler().endMultiplicativeExpr( Operator.MULTIPLY );
+                    break;
+                }
+                case DIV:
+                {
+                    match( DIV );
+                    getXPathHandler().startMultiplicativeExpr();
+                    unaryExpr();
+                    getXPathHandler().endMultiplicativeExpr( Operator.DIV );
+                    break;
+                }
+                case MOD:
+                {
+                    match( MOD );
+                    getXPathHandler().startMultiplicativeExpr();
+                    unaryExpr();
+                    getXPathHandler().endMultiplicativeExpr( Operator.MOD );
+                    break;
+                }
             }
-            case DIV:
-            {
-                match( DIV );
-                unaryExpr();
-                operator = Operator.DIV;
-                break;
-            }
-            case MOD:
-            {
-                match( MOD );
-                unaryExpr();
-                operator = Operator.MOD;
-                break;
-            }
+            la = LA(1);
         }
 
-        getXPathHandler().endMultiplicativeExpr( operator );
-
-        operator = Operator.NO_OP;
-
-        switch ( LA(1) )
-        {
-            case STAR:
-            {
-                match( STAR );
-                multiplicativeExpr();
-                operator = Operator.MULTIPLY;
-                break;
-            }
-            case DIV:
-            {
-                match( DIV );
-                multiplicativeExpr();
-                operator = Operator.DIV;
-                break;
-            }
-            case MOD:
-            {
-                match( MOD );
-                multiplicativeExpr();
-                operator = Operator.MOD;
-                break;
-            }
-        }
-
-        getXPathHandler().endMultiplicativeExpr( operator );
     }
 
     void unaryExpr() throws org.jaxen.saxpath.SAXPathException
