@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 590 $
- * $Date: 2005-04-09 06:58:44 -0700 (Sat, 09 Apr 2005) $
+ * $Revision: 816 $
+ * $Date: 2005-06-14 08:02:18 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: SAXPathParseException.java 590 2005-04-09 13:58:44Z elharo $
+ * $Id: SAXPathParseException.java 816 2005-06-14 15:02:18Z elharo $
  */
 
 
@@ -69,12 +69,12 @@ package org.jaxen.saxpath;
  */
 public class SAXPathParseException extends org.jaxen.saxpath.SAXPathException
 {
-    /** Construct with the given message.
+    /** Construct a new <code>SAXPathParseException</code> with the given detail message.
      *
-     *  @param msg the error message
+     *  @param message the error message
      */
-    public SAXPathParseException(String msg)
+    public SAXPathParseException(String message)
     {
-        super( msg );
+        super( message );
     }
 }
