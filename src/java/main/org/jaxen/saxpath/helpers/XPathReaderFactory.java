@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 694 $
- * $Date: 2005-05-01 05:29:49 -0700 (Sun, 01 May 2005) $
+ * $Revision: 820 $
+ * $Date: 2005-06-14 08:13:07 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderFactory.java 694 2005-05-01 12:29:49Z elharo $
+ * $Id: XPathReaderFactory.java 820 2005-06-14 15:13:07Z elharo $
  */
 
 
@@ -85,6 +85,8 @@ public class XPathReaderFactory
 
     /** The default driver to use if none is configured. */
     protected static final String DEFAULT_DRIVER = "org.jaxen.saxpath.base.XPathReader";
+    
+    private XPathReaderFactory() {}
     
     
     /** Create an <code>XPathReader</code> using the value of
@@ -127,9 +129,9 @@ public class XPathReaderFactory
      *  @param className the name of the class that implements
      *         the <code>XPathReader</code> interface.
      * 
-     * @return an XPathReader
+     *  @return an XPathReader
      *
-     *  @throws SAXPathException if the class can not be
+     *  @throws SAXPathException if the class cannot be
      *          instantiated for some reason, or if the
      *          class doesn't implement the <code>XPathReader</code>
      *          interface
@@ -143,7 +145,7 @@ public class XPathReaderFactory
         {
             // Use the full version of Class.forName(), so as to
             // work better in sandboxed environments, such as
-            // Servlet contains, and applets.
+            // servlet containers and applets.
 
             readerClass = Class.forName( className,
                                          true,
