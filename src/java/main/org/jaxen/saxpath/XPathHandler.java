@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 607 $
- * $Date: 2005-04-11 11:29:00 -0700 (Mon, 11 Apr 2005) $
+ * $Revision: 810 $
+ * $Date: 2005-06-14 06:46:45 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathHandler.java 607 2005-04-11 18:29:00Z elharo $
+ * $Id: XPathHandler.java 810 2005-06-14 13:46:45Z elharo $
  */
 
 
@@ -231,10 +231,10 @@ public interface XPathHandler
      */
     void startRelationalExpr() throws org.jaxen.saxpath.SAXPathException;
 
-    /** Receive notification of the start of a relational ('<', '>', '<=', or '>=') expression.
+    /** Receive notification of the start of a relational ('&lt;', '>', '&lt;=', or '>=') expression.
      *
      *  @param relationalOperator the operator specific to this particular
-     *         relational expression.  If null, this expression
+     *         relational expression.  If NO_OP, this expression
      *         is only a pass-through, and should not actually
      *         be instantiated.
      */
@@ -247,7 +247,7 @@ public interface XPathHandler
     /** Receive notification of the end of an additive ('+' or '-') expression.
      *
      *  @param additiveOperator the operator specific to this particular
-     *         additive expression.  If null, this expression
+     *         additive expression.   If NO_OP, this expression
      *         is only a pass-through, and should not actually
      *         be instantiated.
      */
@@ -273,7 +273,7 @@ public interface XPathHandler
     /** Receive notification of the end of a unary ('+' or '-') expression.
      *
      *  @param unaryOperator the operator specific to this particular
-     *         unary expression. If null, this expression is only
+     *         unary expression. If NO_OP, this expression is only
      *         a pass-through, and should not actually be instantiated.
      *         If not {@link org.jaxen.saxpath.Operator#NO_OP}, it will 
      *         always be {@link org.jaxen.saxpath.Operator#NEGATIVE}.
