@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 818 $
- * $Date: 2005-06-14 08:08:30 -0700 (Tue, 14 Jun 2005) $
+ * $Revision: 819 $
+ * $Date: 2005-06-14 08:10:44 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultXPathHandler.java 818 2005-06-14 15:08:30Z elharo $
+ * $Id: DefaultXPathHandler.java 819 2005-06-14 15:10:44Z elharo $
  */
 
 
@@ -72,12 +72,13 @@ import org.jaxen.saxpath.XPathHandler;
    Default base class for SAXPath event handlers. 
 
    This class is available as a convenience base class for SAXPath
-   applications: it provides a default implementation for all of the
-   callbacks in the core SAXPath handler class, {@link
-   org.jaxen.saxpath.XPathHandler}
+   applications: it provides a default do-nothing implementation 
+   for all of the callbacks in the core SAXPath handler class, {@link
+   org.jaxen.saxpath.XPathHandler}.
 
    Application writers can extend this class when they need to
-   implement only part of an interface; parser writers can instantiate
+   implement only part of the <code>XPathHandler</code>
+   interface. Parser writers can instantiate
    this class to provide default handlers when the application has not
    supplied its own. */
 
