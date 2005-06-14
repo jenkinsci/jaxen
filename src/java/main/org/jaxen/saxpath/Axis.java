@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 756 $
- * $Date: 2005-05-13 07:00:07 -0700 (Fri, 13 May 2005) $
+ * $Revision: 814 $
+ * $Date: 2005-06-14 07:55:30 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: Axis.java 756 2005-05-13 14:00:07Z elharo $
+ * $Id: Axis.java 814 2005-06-14 14:55:30Z elharo $
  */
 
 
@@ -68,10 +68,14 @@ import org.jaxen.JaxenRuntimeException;
 
 
 /**
- * Internal SAXPath class to avoid a lot of string comparisons. 
+ * 
+ * Internal SAXPath class that contains constants representing 
+ * XPath operators to avoid a lot of string comparisons. 
  */
 public class Axis
 {
+    
+    private Axis() {}
     
     // XXX Ultimately these should use the type-safe enum pattern instead
     /** Marker for an invalid axis */
