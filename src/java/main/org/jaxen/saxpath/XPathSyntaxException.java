@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 722 $
- * $Date: 2005-05-03 06:09:50 -0700 (Tue, 03 May 2005) $
+ * $Revision: 817 $
+ * $Date: 2005-06-14 08:06:22 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathSyntaxException.java 722 2005-05-03 13:09:50Z elharo $
+ * $Id: XPathSyntaxException.java 817 2005-06-14 15:06:22Z elharo $
  */
 
 package org.jaxen.saxpath;
@@ -67,13 +67,14 @@ package org.jaxen.saxpath;
  * This is a compile-time error that is detectable irrespective of 
  * the context in which the XPath expression is evaluated.
  */
-public class XPathSyntaxException extends org.jaxen.saxpath.SAXPathException
+public class XPathSyntaxException extends SAXPathException
 {
     private String xpath;
     private int    position;
+    private final static String lineSeparator = System.getProperty("line.separator");
 
     /**
-     * Creates a new XPathSyntaxException
+     * Creates a new XPathSyntaxException.
      * 
      * @param xpath the incorrect XPath expression 
      * @param position the index of the character at which the syntax error was detected
@@ -156,10 +157,9 @@ public class XPathSyntaxException extends org.jaxen.saxpath.SAXPathException
         StringBuffer buf = new StringBuffer();
 
         buf.append( getMessage() );
-        // FIXME platform dependent line separator
-        buf.append( "\n" );
+        buf.append( lineSeparator );
         buf.append( getXPath() );
-        buf.append( "\n" );
+        buf.append( lineSeparator );
 
         buf.append( getPositionMarker() );
 
