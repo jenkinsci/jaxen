@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 811 $
+ * $Date: 2005-06-14 06:57:35 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,36 +56,93 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: Operator.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: Operator.java 811 2005-06-14 13:57:35Z elharo $
  */
-
-
-
 
 package org.jaxen.saxpath;
 
+/**
+ * Constants used to represent XPath operators.
+ */
 public interface Operator
 {
+    /**
+     * Indicates that we're passing through a grammar production without
+     * actually activating it. For example in the expression
+     * <code>1</code> is matches AdditiveExpr and MultiplicativeExpr in 
+     * the XPath grammar, even though it has neither a plus, 
+     * minus, multiplication, or other sign.
+     */
     final static int NO_OP               =  0;
+    
     // Equality
+    /**
+     * The equal to operator <code>=</code>. This is equivalent to <code>==</code>
+     * in Java. This is a comparison operator, not an assignment operator.
+     */
     final static int EQUALS              =  1;
+    
+    /**
+     * The not equal to operator <code>!=</code>
+     */
     final static int NOT_EQUALS          =  2;
     
     // Relational
+    /**
+     * The less-than operator <code>&lt;</code>
+     */
     final static int LESS_THAN           =  3;
+    
+    /**
+     * The less-than-or-equal-to operator <code>&lt;=</code>
+     */
     final static int LESS_THAN_EQUALS    =  4;
+
+    /**
+     * The greater-than operator <code>></code>
+     */
     final static int GREATER_THAN        =  5;
+
+    /**
+     * The greater-than or equals operator <code>>=</code>
+     */
     final static int GREATER_THAN_EQUALS =  6;
     
     // Additive
+
+    /**
+     * The addition operator <code>+</code>
+     */
     final static int ADD                 =  7;
+
+    /**
+     * The subtraction operator <code>-</code>
+     */
     final static int SUBTRACT            =  8;
 
     // Multiplicative
+
+    /**
+     * The multiplication operator <code>*</code>
+     */
     final static int MULTIPLY            =  9;
+
+    /**
+     * The remainder operator <code>mod</code>. This is equivalent to
+     * <code>%</code> in Java. 
+     */
     final static int MOD                 = 10;
+
+    /**
+     * The floating point division operator <code>div</code>.  This is equivalent to
+     * <code>/</code> in Java. 
+     */
     final static int DIV                 = 11;
 
     // Unary
+
+    /**
+     * Unary <code>-</code>
+     */
     final static int NEGATIVE            = 12;
 }
