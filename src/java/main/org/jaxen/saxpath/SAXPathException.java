@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 734 $
- * $Date: 2005-05-04 05:55:48 -0700 (Wed, 04 May 2005) $
+ * $Revision: 813 $
+ * $Date: 2005-06-14 07:40:57 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,13 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: SAXPathException.java 734 2005-05-04 12:55:48Z elharo $
+ * $Id: SAXPathException.java 813 2005-06-14 14:40:57Z elharo $
  */
 
-
-
-
 package org.jaxen.saxpath;
+
+import java.io.PrintStream;
+import java.io.PrintWriter;
 
 /** Base of all SAXPath exceptions.
  *
@@ -126,9 +126,9 @@ public class SAXPathException extends Exception
     /** Overridden to print this exception's stack, followed by the
      *	source exception's, if any.
      *
-     * @param s the stream on whcih to print the stack trace
+     * @param s the stream on which to print the stack trace
      */
-    public void printStackTrace ( java.io.PrintStream s )
+    public void printStackTrace ( PrintStream s )
     {
     	super.printStackTrace ( s );
     	if (cause != null) {
@@ -140,9 +140,9 @@ public class SAXPathException extends Exception
     /** Overridden to print this exception's stack, followed by the
      *	source exception's, if any.
      *
-     * @param s the writer on whcih to print the stack trace
+     * @param s the writer on which to print the stack trace
      */
-    public void printStackTrace (java.io.PrintWriter s)
+    public void printStackTrace ( PrintWriter s )
     {
     	super.printStackTrace ( s );
     	if (cause != null) {

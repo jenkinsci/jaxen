@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 590 $
- * $Date: 2005-04-09 06:58:44 -0700 (Sat, 09 Apr 2005) $
+ * $Revision: 813 $
+ * $Date: 2005-06-14 07:40:57 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,10 +56,8 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 590 2005-04-09 13:58:44Z elharo $
+ * $Id: XPathReader.java 813 2005-06-14 14:40:57Z elharo $
  */
-
-
 
 
 package org.jaxen.saxpath;
@@ -73,12 +71,12 @@ package org.jaxen.saxpath;
  */
 public interface XPathReader extends SAXPathEventSource
 {
-    /** Perform parsing of the textual XPath expression,
-     *  and produce event callbacks to an {@link org.jaxen.saxpath.XPathHandler}.
+    /** Parse an XPath expression,
+     *  and send event callbacks to an {@link org.jaxen.saxpath.XPathHandler}.
      *
      *  @param xpath the textual XPath expression to parse
      *
-     *  @throws org.jaxen.saxpath.SAXPathException in the event an error occurs
+     *  @throws SAXPathException if the expression is syntactically incorrect
      */
-    void parse(String xpath) throws org.jaxen.saxpath.SAXPathException;
+    void parse(String xpath) throws SAXPathException;
 }
