@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 810 $
- * $Date: 2005-06-14 06:46:45 -0700 (Tue, 14 Jun 2005) $
+ * $Revision: 812 $
+ * $Date: 2005-06-14 07:19:53 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathHandler.java 810 2005-06-14 13:46:45Z elharo $
+ * $Id: XPathHandler.java 812 2005-06-14 14:19:53Z elharo $
  */
 
 
@@ -76,7 +76,7 @@ package org.jaxen.saxpath;
  *  <p>
  *  The callbacks very closely match the productions
  *  listed in the W3C XPath specification.  Gratuitous
- *  productions (ie, Expr/startExpr()/endExpr())are not
+ *  productions (e.g. Expr/startExpr()/endExpr()) are not
  *  included in this API.
  *  </p>
  *

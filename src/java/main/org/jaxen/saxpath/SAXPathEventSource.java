@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 362 $
- * $Date: 2004-06-14 18:36:01 -0700 (Mon, 14 Jun 2004) $
+ * $Revision: 812 $
+ * $Date: 2005-06-14 07:19:53 -0700 (Tue, 14 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: SAXPathEventSource.java 362 2004-06-15 01:36:01Z proyal $
+ * $Id: SAXPathEventSource.java 812 2005-06-14 14:19:53Z elharo $
  */
 
 
@@ -75,14 +75,14 @@ public interface SAXPathEventSource
     /** Set the {@link org.jaxen.saxpath.XPathHandler} to receive
      *  event callbacks during the parse.
      *
-     *  @param handler The handler to receive callbacks.
+     *  @param handler the handler to receive callbacks
      */
     void setXPathHandler(XPathHandler handler);
     
     /** Retrieve the current {@link org.jaxen.saxpath.XPathHandler}
      *  which receives the event callbacks.
      *
-     *  @return The currently installed  <code>XPathHandler</code>.
+     *  @return the currently installed  <code>XPathHandler</code>
      */
     XPathHandler getXPathHandler();
     
