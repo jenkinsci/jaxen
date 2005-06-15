@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 799 $
- * $Date: 2005-06-12 06:30:36 -0700 (Sun, 12 Jun 2005) $
+ * $Revision: 837 $
+ * $Date: 2005-06-15 10:58:32 -0700 (Wed, 15 Jun 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 799 2005-06-12 13:30:36Z elharo $
+ * $Id: DocumentNavigator.java 837 2005-06-15 17:58:32Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -715,7 +715,7 @@ public class DocumentNavigator extends DefaultNavigator
     }
 
     /**
-     * Use JAXP to load a namespace aware document from a given URI
+     * Use JAXP to load a namespace aware document from a given URI.
      *
      * @param uri is the URI of the document to load
      * @return the new W3C DOM Level 2 Document instance
@@ -736,10 +736,10 @@ public class DocumentNavigator extends DefaultNavigator
         }
         catch (SAXException e) {
            throw new FunctionCallException("XML error in document() function: " + e.getMessage(), e);
-         }
+        }
         catch (IOException e) {
            throw new FunctionCallException("I/O error in document() function: " + e.getMessage(), e);
-         }
+        }
         
     }
 
