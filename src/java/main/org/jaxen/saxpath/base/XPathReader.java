@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 832 $
- * $Date: 2005-06-15 07:45:18 -0700 (Wed, 15 Jun 2005) $
+ * $Revision: 834 $
+ * $Date: 2005-06-15 09:57:16 -0700 (Wed, 15 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 832 2005-06-15 14:45:18Z elharo $
+ * $Id: XPathReader.java 834 2005-06-15 16:57:16Z elharo $
  */
 
 
@@ -896,37 +896,39 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
         //                 GREATER_THAN != Operator.GREATER_THAN
         //                 GREATER_THAN_EQUALS != Operator.GREATER_THAN_EQUALS
         //                 LESS_THAN_EQUALS != Operator.LESS_THAN_EQUALS
-        while (la == LESS_THAN || la == GREATER_THAN || la == LESS_THAN_EQUALS || la == GREATER_THAN_EQUALS)
-        {
+        while (la == LESS_THAN_SIGN 
+            || la == GREATER_THAN_SIGN 
+            || la == LESS_THAN_OR_EQUALS_SIGN 
+            || la == GREATER_THAN_OR_EQUALS_SIGN ) {
             switch ( la )
             {
-                case LESS_THAN:
+                case LESS_THAN_SIGN:
                 {
-                    match( LESS_THAN );
+                    match( LESS_THAN_SIGN );
                     getXPathHandler().startRelationalExpr();
                     additiveExpr();
                     getXPathHandler().endRelationalExpr( Operator.LESS_THAN );
                     break;
                 }
-                case GREATER_THAN:
+                case GREATER_THAN_SIGN:
                 {
-                    match( GREATER_THAN );
+                    match( GREATER_THAN_SIGN );
                     getXPathHandler().startRelationalExpr();
                     additiveExpr();
                     getXPathHandler().endRelationalExpr( Operator.GREATER_THAN );
                     break;
                 }
-                case GREATER_THAN_EQUALS:
+                case GREATER_THAN_OR_EQUALS_SIGN:
                 {
-                    match( GREATER_THAN_EQUALS );
+                    match( GREATER_THAN_OR_EQUALS_SIGN );
                     getXPathHandler().startRelationalExpr();
                     additiveExpr();
                     getXPathHandler().endRelationalExpr( Operator.GREATER_THAN_EQUALS );
                     break;
                 }
-                case LESS_THAN_EQUALS:
+                case LESS_THAN_OR_EQUALS_SIGN:
                 {
-                    match( LESS_THAN_EQUALS );
+                    match( LESS_THAN_OR_EQUALS_SIGN );
                     getXPathHandler().startRelationalExpr();
                     additiveExpr();
                     getXPathHandler().endRelationalExpr( Operator.LESS_THAN_EQUALS );
