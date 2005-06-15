@@ -2,8 +2,8 @@ package org.jaxen.dom4j;
 
 /*
  * $Header$
- * $Revision: 517 $
- * $Date: 2005-04-02 16:05:09 -0800 (Sat, 02 Apr 2005) $
+ * $Revision: 841 $
+ * $Date: 2005-06-15 16:42:39 -0700 (Wed, 15 Jun 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom4j;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 517 2005-04-03 00:05:09Z elharo $
+ * $Id: DocumentNavigator.java 841 2005-06-15 23:42:39Z bewins $
 */
 
 import java.util.ArrayList;
@@ -323,7 +323,7 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
         List nsList = new ArrayList();
         HashSet prefixes = new HashSet();
         for ( Element context = element; context != null; context = context.getParent() ) {
-            List declaredNS = context.declaredNamespaces();
+            List declaredNS = new ArrayList(context.declaredNamespaces());
             declaredNS.add(context.getNamespace());
 
             for ( Iterator iter = context.attributes().iterator(); iter.hasNext(); )
