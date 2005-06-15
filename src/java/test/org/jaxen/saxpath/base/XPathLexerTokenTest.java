@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 726 $
- * $Date: 2005-05-03 12:40:20 -0700 (Tue, 03 May 2005) $
+ * $Revision: 838 $
+ * $Date: 2005-06-15 10:59:20 -0700 (Wed, 15 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexerTokenTest.java 726 2005-05-03 19:40:20Z elharo $
+ * $Id: XPathLexerTokenTest.java 838 2005-06-15 17:59:20Z elharo $
  */
 
 
@@ -194,22 +194,22 @@ public class XPathLexerTokenTest extends TestCase
 
     public void testLessThan()
     {
-        runTest( "<", new int[]{ TokenTypes.LESS_THAN, TokenTypes.EOF } );
+        runTest( "<", new int[]{ TokenTypes.LESS_THAN_SIGN, TokenTypes.EOF } );
     }
 
     public void testLessThanEquals()
     {
-        runTest( "<=", new int[]{ TokenTypes.LESS_THAN_EQUALS, TokenTypes.EOF } );
+        runTest( "<=", new int[]{ TokenTypes.LESS_THAN_OR_EQUALS_SIGN, TokenTypes.EOF } );
     }
 
     public void testGreaterThan()
     {
-        runTest( ">", new int[]{ TokenTypes.GREATER_THAN, TokenTypes.EOF } );
+        runTest( ">", new int[]{ TokenTypes.GREATER_THAN_SIGN, TokenTypes.EOF } );
     }
 
     public void testGreaterThanEquals()
     {
-        runTest( ">=", new int[]{ TokenTypes.GREATER_THAN_EQUALS, TokenTypes.EOF } );
+        runTest( ">=", new int[]{ TokenTypes.GREATER_THAN_OR_EQUALS_SIGN, TokenTypes.EOF } );
     }
 
     public void testOperatorAnd()
