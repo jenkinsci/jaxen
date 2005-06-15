@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 821 $
- * $Date: 2005-06-14 08:26:47 -0700 (Tue, 14 Jun 2005) $
+ * $Revision: 830 $
+ * $Date: 2005-06-15 06:25:23 -0700 (Wed, 15 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 821 2005-06-14 15:26:47Z elharo $
+ * $Id: XPathReader.java 830 2005-06-15 13:25:23Z elharo $
  */
 
 
@@ -858,54 +858,32 @@ public class XPathReader extends TokenTypes implements org.jaxen.saxpath.XPathRe
 
     private void equalityExpr() throws SAXPathException
     {
-        getXPathHandler().startEqualityExpr();
-        getXPathHandler().startEqualityExpr();
-
         relationalExpr();
 
-        int operator = Operator.NO_OP;
-
-        switch ( LA(1) )
+        int la = LA(1);
+        while (la == EQUALS || la == NOT_EQUALS)
         {
-            case EQUALS:
+            switch ( la )
             {
-                match( EQUALS );
-                relationalExpr();
-                operator = Operator.EQUALS;
-                break;
+                case EQUALS:
+                {
+                    match( EQUALS );
+                    getXPathHandler().startEqualityExpr();
+                    relationalExpr();
+                    getXPathHandler().endEqualityExpr( Operator.EQUALS );
+                    break;
+                }
+                case NOT_EQUALS:
+                {
+                    match( NOT_EQUALS );
+                    getXPathHandler().startEqualityExpr();
+                    relationalExpr();
+                    getXPathHandler().endEqualityExpr( Operator.NOT_EQUALS );
+                    break;
+                }
             }
-            case NOT_EQUALS:
-            {
-                match( NOT_EQUALS );
-                relationalExpr();
-                operator = Operator.NOT_EQUALS;
-                break;
-            }
+            la = LA(1);
         }
-
-        getXPathHandler().endEqualityExpr( operator );
-
-        operator = Operator.NO_OP;
-
-        switch ( LA(1) )
-        {
-            case EQUALS:
-            {
-                match( EQUALS );
-                equalityExpr();
-                operator = Operator.EQUALS;
-                break;
-            }
-            case NOT_EQUALS:
-            {
-                match( NOT_EQUALS );
-                equalityExpr();
-                operator = Operator.NOT_EQUALS;
-                break;
-            }
-        }
-
-        getXPathHandler().endEqualityExpr( operator );
     }
 
     private void relationalExpr() throws SAXPathException
