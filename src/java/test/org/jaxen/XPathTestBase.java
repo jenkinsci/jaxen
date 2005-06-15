@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 542 $
- * $Date: 2005-04-05 10:45:05 -0700 (Tue, 05 Apr 2005) $
+ * $Revision: 842 $
+ * $Date: 2005-06-15 16:52:40 -0700 (Wed, 15 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathTestBase.java 542 2005-04-05 17:45:05Z elharo $
+ * $Id: XPathTestBase.java 842 2005-06-15 23:52:40Z bewins $
  */
 
 
@@ -76,6 +76,8 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.jaxen.function.StringFunction;
 import org.jaxen.saxpath.helpers.XPathReaderFactory;
+import org.jaxen.dom4j.DocumentNavigator;
+import org.jaxen.pattern.Pattern;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -459,5 +461,24 @@ public abstract class XPathTestBase extends TestCase
         }
         return result.toString();
     }
-    
+
+
+
+    public void testGetNodeType() throws FunctionCallException, UnsupportedAxisException
+    {
+        Navigator nav = getNavigator();
+        Object document = nav.getDocument("xml/testNamespaces.xml");
+        int count = 0;
+        Iterator descendantOrSelfAxisIterator = nav.getDescendantOrSelfAxisIterator(document);
+        while (descendantOrSelfAxisIterator.hasNext()) {
+            Object node = descendantOrSelfAxisIterator.next();
+            Iterator namespaceAxisIterator = nav.getNamespaceAxisIterator(node);
+            while (namespaceAxisIterator.hasNext()) {
+                count++;
+                assertEquals("Node type mismatch", Pattern.NAMESPACE_NODE, nav.getNodeType(namespaceAxisIterator.next()));
+            }
+        }
+        assertEquals(25, count);
+    }
+
 }
