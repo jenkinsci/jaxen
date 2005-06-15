@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 833 $
- * $Date: 2005-06-15 09:42:25 -0700 (Wed, 15 Jun 2005) $
+ * $Revision: 835 $
+ * $Date: 2005-06-15 10:17:00 -0700 (Wed, 15 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: TokenTypes.java 833 2005-06-15 16:42:25Z elharo $
+ * $Id: TokenTypes.java 835 2005-06-15 17:17:00Z elharo $
  */
 
 package org.jaxen.saxpath.base;
@@ -113,7 +113,7 @@ class TokenTypes
 
     static final int COMMA = 32;
 
-    String getTokenText( int tokenType )
+    static String getTokenText( int tokenType )
     {
         switch( tokenType )
         {
