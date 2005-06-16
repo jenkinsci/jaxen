@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 378 $
- * $Date: 2004-09-18 17:07:30 -0700 (Sat, 18 Sep 2004) $
+ * $Revision: 844 $
+ * $Date: 2005-06-16 05:50:11 -0700 (Thu, 16 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LocaleFunctionSupport.java 378 2004-09-19 00:07:30Z bewins $
+ * $Id: LocaleFunctionSupport.java 844 2005-06-16 12:50:11Z elharo $
  */
 
 package org.jaxen.function.ext;
@@ -70,7 +70,7 @@ import org.jaxen.Navigator;
 import org.jaxen.function.StringFunction;
 
 /**
- * <p>An abastract base class for Locale-specific extension 
+ * <p>An abstract base class for Locale-specific extension 
  * functions. This class provides convenience methods that
  * can be inherited, specifically to find a Locale from
  * an XPath function argument value.
@@ -83,8 +83,7 @@ public abstract class LocaleFunctionSupport implements Function
 
     /** 
      * Attempts to convert the given function argument value 
-     * into a Locale either via casting, 
-     * extracting it from a List
+     * into a Locale either via casting, extracting it from a List
      * or looking up the named Locale using reflection.
      *
      * @param value is either a Locale, a List containing a Locale
@@ -119,11 +118,12 @@ public abstract class LocaleFunctionSupport implements Function
     }
     
     /** 
-     * Tries to find a Locale instance by name using xml:lang style encodings
-     * like 'en', 'en-US', 'en-US-Brooklyn'.
+     * Tries to find a Locale instance by name using 
+     * <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</a>
+     * language tags such as 'en', 'en-US', 'en-US-Brooklyn'.
      *
-     * @param localeText is the xml:lang encoding of a Locale
-     * @return the Locale for the given text or null if one could not
+     * @param localeText the <code>xml:lang</code> encoding of a Locale
+     * @return the locale for the given text or null if one could not
      *      be found 
      */
     protected Locale findLocale(String localeText) {
@@ -156,8 +156,8 @@ public abstract class LocaleFunctionSupport implements Function
      * Finds the locale with the given language name with no country
      * or variant, such as Locale.ENGLISH or Locale.FRENCH
      *
-     * @param language is the language code to look for
-     * @return the Locale for the given language or null if one could not
+     * @param language the language code to look for
+     * @return the locale for the given language or null if one could not
      *      be found 
      */
     protected Locale findLocaleForLanguage(String language) {
