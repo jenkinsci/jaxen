@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 835 $
- * $Date: 2005-06-15 10:17:00 -0700 (Wed, 15 Jun 2005) $
+ * $Revision: 846 $
+ * $Date: 2005-06-16 06:30:12 -0700 (Thu, 16 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 835 2005-06-15 17:17:00Z elharo $
+ * $Id: XPathReader.java 846 2005-06-16 13:30:12Z elharo $
  */
 
 
@@ -1011,17 +1011,14 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
 
     private void unaryExpr() throws SAXPathException
     {
-        getXPathHandler().startUnaryExpr();
-
-        int operator = Operator.NO_OP;
-
         switch ( LA(1) )
         {
             case TokenTypes.MINUS:
             {
+                getXPathHandler().startUnaryExpr();
                 match( TokenTypes.MINUS );
-                operator = Operator.NEGATIVE;
                 unaryExpr();
+                getXPathHandler().endUnaryExpr( Operator.NEGATIVE );
                 break;
             }
             default:
@@ -1031,7 +1028,7 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
             }
         }
 
-        getXPathHandler().endUnaryExpr( operator );
+        
     }
 
     private void unionExpr() throws SAXPathException
