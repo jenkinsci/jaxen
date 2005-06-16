@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 843 $
+ * $Date: 2005-06-16 05:38:37 -0700 (Thu, 16 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LocationPath.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: LocationPath.java 843 2005-06-16 12:38:37Z elharo $
  */
 
 
@@ -70,8 +70,6 @@ public interface LocationPath extends Expr
     void addStep(Step step);
 
     List getSteps();
-
-    String getText();
     
-    public boolean isAbsolute();
+    boolean isAbsolute();
 }
