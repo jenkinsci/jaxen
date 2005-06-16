@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 844 $
- * $Date: 2005-06-16 05:50:11 -0700 (Thu, 16 Jun 2005) $
+ * $Revision: 845 $
+ * $Date: 2005-06-16 05:51:23 -0700 (Thu, 16 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LocaleFunctionSupport.java 844 2005-06-16 12:50:11Z elharo $
+ * $Id: LocaleFunctionSupport.java 845 2005-06-16 12:51:23Z elharo $
  */
 
 package org.jaxen.function.ext;
@@ -119,10 +119,10 @@ public abstract class LocaleFunctionSupport implements Function
     
     /** 
      * Tries to find a Locale instance by name using 
-     * <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</a>
+     * <a href="http://www.ietf.org/rfc/rfc3066.txt" target="_top">RFC 3066</a>
      * language tags such as 'en', 'en-US', 'en-US-Brooklyn'.
      *
-     * @param localeText the <code>xml:lang</code> encoding of a Locale
+     * @param localeText the RFC 3066 language tag
      * @return the locale for the given text or null if one could not
      *      be found 
      */
