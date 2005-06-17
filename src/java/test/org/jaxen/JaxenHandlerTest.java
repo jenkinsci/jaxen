@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 666 $
- * $Date: 2005-04-26 12:04:27 -0700 (Tue, 26 Apr 2005) $
+ * $Revision: 856 $
+ * $Date: 2005-06-17 06:37:04 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenHandlerTest.java 666 2005-04-26 19:04:27Z elharo $
+ * $Id: JaxenHandlerTest.java 856 2005-06-17 13:37:04Z elharo $
  */
 
 
@@ -67,6 +67,7 @@ import junit.framework.TestCase;
 
 import org.jaxen.expr.DefaultXPathFactory;
 import org.jaxen.expr.XPathExpr;
+import org.jaxen.saxpath.SAXPathException;
 import org.jaxen.saxpath.XPathReader;
 import org.jaxen.saxpath.XPathSyntaxException;
 import org.jaxen.saxpath.helpers.XPathReaderFactory;
@@ -149,28 +150,9 @@ public class JaxenHandlerTest extends TestCase
 
             for ( int i = 0; i < paths.length; i++ ) {
                 path = paths[i];
-                
-                // System.err.println("-----------------");
-                // System.err.println( "parsing: " + path );
-                // System.err.println("-----------------");
-
                 reader.parse(path);
-
-                XPathExpr xpath = handler.getXPathExpr(false);
-
-                // System.err.println("-----------------");
-                // System.err.println( xpath.toString() );
-                // System.err.println("-----------------");
-                // System.err.println( xpath.getText() );
-
-                xpath = handler.getXPathExpr();
-
-                // System.err.println("-----------------");
-                // System.err.println("-----------------");
-
-                // System.err.println( xpath.toString() );
-                // System.err.println("-----------------");
-                // System.err.println( xpath.getText() );
+                handler.getXPathExpr(false);
+                handler.getXPathExpr();
             }
         }
         catch (Exception e)
@@ -180,42 +162,25 @@ public class JaxenHandlerTest extends TestCase
         }
     }
 
-    public void testBogusPaths()
+    public void testBogusPaths() throws SAXPathException
     {
-        try
-        {
-            XPathReader reader = XPathReaderFactory.createReader();
-            JaxenHandler handler = new JaxenHandler();
-            handler.setXPathFactory( new DefaultXPathFactory() );
-            reader.setXPathHandler( handler );
-            
-            for ( int i = 0; i < bogusPaths.length; i++ ) {
-                String path = bogusPaths[i];
-                
-                System.out.println("-----------------");
-                System.out.println( "parsing bogus path : " + path );
-                System.out.println("-----------------");
+        XPathReader reader = XPathReaderFactory.createReader();
+        JaxenHandler handler = new JaxenHandler();
+        handler.setXPathFactory( new DefaultXPathFactory() );
+        reader.setXPathHandler( handler );
+        
+        for ( int i = 0; i < bogusPaths.length; i++ ) {
+            String path = bogusPaths[i];
 
-                try
-                {                    
-                    reader.parse(path);
-                    XPathExpr xpath = handler.getXPathExpr(false);
-                    System.out.println( "Parsed as: " + xpath );
-                    fail( "Parsed bogus path as: " + xpath );
-                }
-                catch (XPathSyntaxException e)
-                {
-                    System.out.println("-----------------");
-                    System.out.println( "Exception: ");
-                    System.out.println( e.getMultilineMessage() );
-                    System.out.println("-----------------");
-                }
+            try
+            {                    
+                reader.parse(path);
+                XPathExpr xpath = handler.getXPathExpr(false);
+                fail( "Parsed bogus path as: " + xpath );
             }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            fail( e.getMessage() );
+            catch (XPathSyntaxException e)
+            {
+            }
         }
     }
 }
