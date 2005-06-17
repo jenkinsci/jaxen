@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 412 $
- * $Date: 2005-01-29 12:16:30 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 853 $
+ * $Date: 2005-06-17 06:24:41 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PatternHandlerTest.java 412 2005-01-29 20:16:30Z elharo $
+ * $Id: PatternHandlerTest.java 853 2005-06-17 13:24:41Z elharo $
  */
 
 
@@ -106,14 +106,6 @@ public class PatternHandlerTest extends TestCase
     public PatternHandlerTest(String name)
     {
         super( name );
-    }
-
-    public void setUp()
-    {
-    }
-
-    public void tearDown()
-    {
     }
 
     public void testValidPaths()
