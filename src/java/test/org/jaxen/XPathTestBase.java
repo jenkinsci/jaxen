@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 847 $
- * $Date: 2005-06-16 12:28:22 -0700 (Thu, 16 Jun 2005) $
+ * $Revision: 850 $
+ * $Date: 2005-06-17 06:17:16 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathTestBase.java 847 2005-06-16 19:28:22Z bewins $
+ * $Id: XPathTestBase.java 850 2005-06-17 13:17:16Z elharo $
  */
 
 
@@ -67,7 +67,6 @@ import org.jaxen.function.StringFunction;
 import org.jaxen.saxpath.helpers.XPathReaderFactory;
 import org.jaxen.pattern.Pattern;
 
-import javax.xml.parsers.ParserConfigurationException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -86,7 +85,7 @@ public abstract class XPathTestBase extends TestCase
         super(name);
     }
 
-    public void setUp() throws ParserConfigurationException
+    public void setUp()
     {
         this.contextSupport = null;
         System.setProperty(XPathReaderFactory.DRIVER_PROPERTY,
@@ -156,7 +155,7 @@ public abstract class XPathTestBase extends TestCase
         return null;
     }
 
-    protected void assertInvalidXPath(Object context, String xpathStr) throws JaxenException
+    protected void assertInvalidXPath(Object context, String xpathStr)
     {
         try
         {
@@ -451,7 +450,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    /* test cases for the use of = with nodesets
+    /* test cases for the use of = with node-sets
     */
     public void testid53662() throws JaxenException
     {
