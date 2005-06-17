@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 368 $
- * $Date: 2004-07-05 13:22:46 -0700 (Mon, 05 Jul 2004) $
+ * $Revision: 855 $
+ * $Date: 2005-06-17 06:31:48 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PriorityTest.java 368 2004-07-05 20:22:46Z proyal $
+ * $Id: PriorityTest.java 855 2005-06-17 13:31:48Z elharo $
  */
 
 
@@ -67,12 +67,15 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+
+import org.jaxen.JaxenException;
+import org.jaxen.saxpath.SAXPathException;
 import org.jaxen.saxpath.helpers.XPathReaderFactory;
 
 /** Tests the use of priority in the Pattern implementations.
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 368 $
+  * @version $Revision: 855 $
   */
 public class PriorityTest extends TestCase
 {
@@ -95,10 +98,6 @@ public class PriorityTest extends TestCase
     {
         System.setProperty( XPathReaderFactory.DRIVER_PROPERTY,
                             "" );
-    }
-
-    public void tearDown()
-    {
     }
 
     public void testDocumentNode() throws Exception
@@ -141,16 +140,13 @@ public class PriorityTest extends TestCase
         testPriority( "*", -0.5, Pattern.ELEMENT_NODE );
     }
     
-    protected void testPriority(String expr, double priority, short nodeType) throws Exception 
+    protected void testPriority(String expr, double priority, short nodeType) 
+     throws JaxenException, SAXPathException  
     {
-        System.out.println( "parsing: " + expr );
         
         Pattern pattern = PatternParser.parse( expr );
         double d = pattern.getPriority();
         short nt = pattern.getMatchType();
-        
-        System.out.println( "expr: " + expr + " has priority: " + d + " nodeType: " + nt );
-        System.out.println( "pattern: " + pattern );
         
         assertEquals( "expr: " + expr,
                       new Double( priority ),
