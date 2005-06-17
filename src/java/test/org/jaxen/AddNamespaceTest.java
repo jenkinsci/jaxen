@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 858 $
- * $Date: 2005-06-17 06:53:29 -0700 (Fri, 17 Jun 2005) $
+ * $Revision: 859 $
+ * $Date: 2005-06-17 06:54:48 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: AddNamespaceTest.java 858 2005-06-17 13:53:29Z elharo $
+ * $Id: AddNamespaceTest.java 859 2005-06-17 13:54:48Z elharo $
  */
 
 
@@ -73,36 +73,19 @@ public class AddNamespaceTest extends TestCase
         super( name );
     }
     
-    public void testDefaultContext()
+    public void testDefaultContext() throws SAXPathException
     {
-        try
-        {
-            MockXPath xpath = new MockXPath("foo");
-            
-            xpath.addNamespace("cheese",
-                               "http://cheese.org");
-            
-            xpath.addNamespace("squeeze",
-                               "http://squeeze.org");
+        MockXPath xpath = new MockXPath("foo");
+        xpath.addNamespace("cheese",
+                           "http://cheese.org");
+        xpath.addNamespace("squeeze",
+                           "http://squeeze.org");
+        NamespaceContext nsContext = xpath.getNamespaceContext();
+        assertEquals( "http://cheese.org",
+                      nsContext.translateNamespacePrefixToUri( "cheese" ) );
+        assertEquals( "http://squeeze.org",
+                      nsContext.translateNamespacePrefixToUri( "squeeze" ) );
 
-            NamespaceContext nsContext = xpath.getNamespaceContext();
-
-            assertEquals( "http://cheese.org",
-                          nsContext.translateNamespacePrefixToUri( "cheese" ) );
-
-            assertEquals( "http://squeeze.org",
-                          nsContext.translateNamespacePrefixToUri( "squeeze" ) );
-                          
-
-        }
-        catch (JaxenException e)
-        {
-            fail( e.getMessage() );
-        }
-        catch (SAXPathException e)
-        {
-            fail( e.getMessage() );
-        }
     }
 }
 
