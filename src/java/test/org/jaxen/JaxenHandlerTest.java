@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 856 $
- * $Date: 2005-06-17 06:37:04 -0700 (Fri, 17 Jun 2005) $
+ * $Revision: 857 $
+ * $Date: 2005-06-17 06:51:15 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenHandlerTest.java 856 2005-06-17 13:37:04Z elharo $
+ * $Id: JaxenHandlerTest.java 857 2005-06-17 13:51:15Z elharo $
  */
 
 
@@ -74,12 +74,10 @@ import org.jaxen.saxpath.helpers.XPathReaderFactory;
 
 public class JaxenHandlerTest extends TestCase
 {
-    String[] ignore_paths = {
+    
+    private String[] paths = {
         "foo[.='bar']",
         "foo[.!='bar']",
-    };
-    
-    String[] paths = {
         "/",
         "*",
         "//foo",
@@ -117,9 +115,7 @@ public class JaxenHandlerTest extends TestCase
         "/foo/bar[@a='1' and @c!='2']",
     };
 
-    String[] bogusPaths = { "//:p" };
-    
-    String[] ignore_bogusPaths = {        
+    private String[] bogusPaths = { "//:p" ,       
         // this path is bogus because of a trailing /
         "/foo/bar/",
         
