@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 851 $
- * $Date: 2005-06-17 06:21:18 -0700 (Fri, 17 Jun 2005) $
+ * $Revision: 852 $
+ * $Date: 2005-06-17 06:22:31 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathTestBase.java 851 2005-06-17 13:21:18Z elharo $
+ * $Id: XPathTestBase.java 852 2005-06-17 13:22:31Z elharo $
  */
 
 
@@ -107,15 +107,7 @@ public abstract class XPathTestBase extends TestCase
 
     protected void assertCountXPath(int expectedSize, Object context, String xpathStr) throws JaxenException
     {
-        try
-        {
-            assertCountXPath2(expectedSize, context, xpathStr);
-        }
-        catch (UnsupportedAxisException e)
-        {
-            log(debug,
-                    "      ## SKIPPED -- Unsupported Axis");
-        }
+        assertCountXPath2(expectedSize, context, xpathStr);
     }
 
     protected Object assertCountXPath2(int expectedSize, Object context, String xpathStr) throws JaxenException
