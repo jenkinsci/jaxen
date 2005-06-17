@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 859 $
- * $Date: 2005-06-17 06:54:48 -0700 (Fri, 17 Jun 2005) $
+ * $Revision: 860 $
+ * $Date: 2005-06-17 06:56:39 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: AddNamespaceTest.java 859 2005-06-17 13:54:48Z elharo $
+ * $Id: AddNamespaceTest.java 860 2005-06-17 13:56:39Z elharo $
  */
 
 
@@ -75,7 +75,7 @@ public class AddNamespaceTest extends TestCase
     
     public void testDefaultContext() throws SAXPathException
     {
-        MockXPath xpath = new MockXPath("foo");
+        XPath xpath = new BaseXPath("foo");
         xpath.addNamespace("cheese",
                            "http://cheese.org");
         xpath.addNamespace("squeeze",
@@ -87,18 +87,5 @@ public class AddNamespaceTest extends TestCase
                       nsContext.translateNamespacePrefixToUri( "squeeze" ) );
 
     }
-}
 
-class MockXPath extends BaseXPath
-{
-
-    public MockXPath(String expr) throws SAXPathException
-    {
-        super( expr );
-    }
-
-    public Navigator getNavigator()
-    {
-        return null;
-    }
 }
