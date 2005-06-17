@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 850 $
- * $Date: 2005-06-17 06:17:16 -0700 (Fri, 17 Jun 2005) $
+ * $Revision: 851 $
+ * $Date: 2005-06-17 06:21:18 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathTestBase.java 850 2005-06-17 13:17:16Z elharo $
+ * $Id: XPathTestBase.java 851 2005-06-17 13:21:18Z elharo $
  */
 
 
@@ -76,8 +76,8 @@ public abstract class XPathTestBase extends TestCase
     protected static String VAR_URI   = "http://jaxen.org/test-harness/var";
     protected static String TESTS_XML = "xml/test/tests.xml";
 
-    protected static boolean verbose = true;
-    protected static boolean debug = true;
+    protected static boolean verbose = false;
+    protected static boolean debug = false;
     private ContextSupport contextSupport;
 
     public XPathTestBase(String name)
@@ -102,11 +102,7 @@ public abstract class XPathTestBase extends TestCase
     public void log(boolean actualVerbose,
                     String text)
     {
-        if (!actualVerbose)
-        {
-            return;
-        }
-        System.out.println(text);
+        if (actualVerbose) System.out.println(text);
     }
 
     protected void assertCountXPath(int expectedSize, Object context, String xpathStr) throws JaxenException
