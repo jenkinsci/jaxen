@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 317 $
- * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 858 $
+ * $Date: 2005-06-17 06:53:29 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: AddNamespaceTest.java 317 2003-06-29 17:55:51Z ssanders $
+ * $Id: AddNamespaceTest.java 858 2005-06-17 13:53:29Z elharo $
  */
 
 
@@ -72,17 +72,7 @@ public class AddNamespaceTest extends TestCase
     {
         super( name );
     }
-
-    public void setUp()
-    {
-
-    }
-
-    public void tearDown()
-    {
-
-    }
-
+    
     public void testDefaultContext()
     {
         try
