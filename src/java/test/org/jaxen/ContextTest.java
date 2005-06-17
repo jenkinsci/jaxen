@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 675 $
- * $Date: 2005-04-28 12:20:31 -0700 (Thu, 28 Apr 2005) $
+ * $Revision: 863 $
+ * $Date: 2005-06-17 07:06:40 -0700 (Fri, 17 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: ContextTest.java 675 2005-04-28 19:20:31Z elharo $
+ * $Id: ContextTest.java 863 2005-06-17 14:06:40Z elharo $
  */
 
 
@@ -64,15 +64,18 @@ package org.jaxen;
 
 import junit.framework.TestCase;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.jaxen.dom.DOMXPath;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
 
 public class ContextTest extends TestCase
 {
@@ -146,26 +149,20 @@ public class ContextTest extends TestCase
                       original.getPosition() );
     }
 
-    public void testXMLPrefixIsAlwaysBound()
+    public void testXMLPrefixIsAlwaysBound() 
+      throws ParserConfigurationException, SAXException, IOException, JaxenException
     {  
-         
-        try
-        {
-           DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-           factory.setNamespaceAware(true);
-           DocumentBuilder builder = factory.newDocumentBuilder();
-           Document doc = builder.parse( "xml/basic.xml" );
-           Element root = doc.getDocumentElement();
-           root.setAttributeNS("http://www.w3.org/XML/1998/namespace", "xml:lang", "en");
-           XPath xpath = new DOMXPath( "/*/@xml:lang" );
-           List result = xpath.selectNodes( doc );
-           assertEquals(1, result.size());
-       }
-       catch (Exception e)
-        {
-            e.printStackTrace();
-            fail( e.getMessage() );
-        }
+
+       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+       factory.setNamespaceAware(true);
+       DocumentBuilder builder = factory.newDocumentBuilder();
+       Document doc = builder.parse( "xml/basic.xml" );
+       Element root = doc.getDocumentElement();
+       root.setAttributeNS("http://www.w3.org/XML/1998/namespace", "xml:lang", "en");
+       XPath xpath = new DOMXPath( "/*/@xml:lang" );
+       List result = xpath.selectNodes( doc );
+       assertEquals(1, result.size());
+
     }    
 
     
