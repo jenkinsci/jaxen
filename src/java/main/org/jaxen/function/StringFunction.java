@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 873 $
- * $Date: 2005-06-19 06:35:17 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 874 $
+ * $Date: 2005-06-19 06:50:31 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 873 2005-06-19 13:35:17Z elharo $
+ * $Id: StringFunction.java 874 2005-06-19 13:50:31Z elharo $
  */
 
 
@@ -83,8 +83,7 @@ import java.util.Locale;
  */
 public class StringFunction implements Function
 {
-    
-    // XXX This is not thread-safe
+
     private static DecimalFormat format = (DecimalFormat) NumberFormat.getInstance(Locale.ENGLISH);
     
     static {
@@ -197,7 +196,7 @@ public class StringFunction implements Function
 
     }
 
-    public static String stringValue(double value)
+    private static String stringValue(double value)
     {
         
         // DecimalFormat formats negative zero as "-0".
@@ -213,7 +212,7 @@ public class StringFunction implements Function
         
     }
 
-    public static String stringValue(boolean value)
+    private static String stringValue(boolean value)
     {
         return value ? "true" : "false";
     }
