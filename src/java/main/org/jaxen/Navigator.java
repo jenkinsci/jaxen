@@ -2,8 +2,8 @@ package org.jaxen;
 
 /*
  * $Header$
- * $Revision: 677 $
- * $Date: 2005-04-28 19:43:45 -0700 (Thu, 28 Apr 2005) $
+ * $Revision: 875 $
+ * $Date: 2005-06-19 06:58:23 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -58,11 +58,13 @@ package org.jaxen;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: Navigator.java 677 2005-04-29 02:43:45Z elharo $
+ * $Id: Navigator.java 875 2005-06-19 13:58:23Z elharo $
 */
 
 import java.io.Serializable;
 import java.util.Iterator;
+
+import org.jaxen.saxpath.SAXPathException;
 
 /** Interface for navigating around an arbitrary object
  *  model, using XPath semantics.
@@ -78,7 +80,7 @@ import java.util.Iterator;
  *  @author <a href="mailto:bob@eng.werken.com">bob mcwhirter</a>
  *  @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
  *
- *  @version $Id: Navigator.java 677 2005-04-29 02:43:45Z elharo $
+ *  @version $Id: Navigator.java 875 2005-06-19 13:58:23Z elharo $
  */
 public interface Navigator extends Serializable
 {
@@ -435,6 +437,8 @@ public interface Navigator extends Serializable
     // ----------------------------------------------------------------------
 
     /** Retrieve the string-value of a comment node.
+     * This may be the empty string if the comment is empty,
+     * but must not be null.
      *
      *  @param comment the comment node
      *
@@ -443,6 +447,8 @@ public interface Navigator extends Serializable
     String getCommentStringValue(Object comment);
 
     /** Retrieve the string-value of an element node.
+     * This may be the empty string if the element is empty,
+     * but must not be null.
      *
      *  @param element the comment node.
      *
@@ -450,7 +456,9 @@ public interface Navigator extends Serializable
      */
     String getElementStringValue(Object element);
 
-    /** Retrieve the string-value of an attribute node.
+    /** Retrieve the string-value of an attribute node. 
+     *  This should be the XML 1.0 normalized attribute value.
+     *  This may be the empty string but must not be null. 
      *
      *  @param attr the attribute node
      *
@@ -459,6 +467,8 @@ public interface Navigator extends Serializable
     String getAttributeStringValue(Object attr);
 
     /** Retrieve the string-value of a namespace node.
+     * This is generally the namespace URI.
+     * This may be the empty string but must not be null.
      *
      *  @param ns the namespace node
      *
@@ -467,12 +477,14 @@ public interface Navigator extends Serializable
     String getNamespaceStringValue(Object ns);
 
     /** Retrieve the string-value of a text node.
+     * This must not be null and should not be the empty string.
+     * The XPath data model does not allow empty text nodes.
      *
-     *  @param txt the text node
+     *  @param text the text node
      *
      *  @return the string-value of the node
      */
-    String getTextStringValue(Object txt);
+    String getTextStringValue(Object text);
 
     // ----------------------------------------------------------------------
     //     General utilities
@@ -515,11 +527,10 @@ public interface Navigator extends Serializable
      *
      *  @return a new XPath expression object
      *
-     *  @throws org.jaxen.saxpath.SAXPathException if an error occurs while parsing the
-     *          XPath expression
+     *  @throws SAXPathException if the string is not a syntactically 
+     *      correct XPath expression
      */
-    XPath parseXPath(String xpath)
-        throws org.jaxen.saxpath.SAXPathException;
+    XPath parseXPath(String xpath) throws SAXPathException;
 
     /**
      *  Returns the element whose ID is given by elementId.
