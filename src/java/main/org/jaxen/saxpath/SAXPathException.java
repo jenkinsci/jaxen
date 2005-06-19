@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 815 $
- * $Date: 2005-06-14 07:59:02 -0700 (Tue, 14 Jun 2005) $
+ * $Revision: 892 $
+ * $Date: 2005-06-19 16:23:18 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: SAXPathException.java 815 2005-06-14 14:59:02Z elharo $
+ * $Id: SAXPathException.java 892 2005-06-19 23:23:18Z elharo $
  */
 
 package org.jaxen.saxpath;
@@ -70,9 +70,6 @@ import java.io.PrintWriter;
  */
 public class SAXPathException extends Exception
 {
-
-    /** The source exception, if any */
-    private Throwable cause;
 
     /** Create a new SAXPathException with a given message.
      *
@@ -90,7 +87,7 @@ public class SAXPathException extends Exception
     public SAXPathException(Throwable cause)
     {
     	super ( cause.getMessage() );
-    	this.cause = cause;
+    	initCause(cause);
     }
 
     /**
@@ -102,19 +99,42 @@ public class SAXPathException extends Exception
      */
     public SAXPathException(String message, Throwable cause) {
         super( message );
-        this.cause = cause;
+        initCause(cause);
     }
     
-    /** Return the exception that caused this exception,
-     *  or null <code>null</code> if there's no such root exception.
+    
+    private Throwable cause;
+    private boolean causeSet = false;
+
+    /**
+     * Returns the exception that caused this exception.
+     * This is necessary to implement Java 1.4 chained exception 
+     * functionality in a Java 1.3-compatible way.
      * 
      * @return the exception that caused this exception
      */
-    public Throwable getCause()
-    {
+    public Throwable getCause() {
         return cause;
     }
+    
 
+    /**
+     * Sets the exception that caused this exception.
+     * This is necessary to implement Java 1.4 chained exception 
+     * functionality in a Java 1.3-compatible way.
+     * 
+     * @param cause the exception wrapped in this runtime exception
+     * 
+     * @return this exception
+     */
+    public Throwable initCause(Throwable cause) {
+        if (causeSet) throw new IllegalStateException("Cause cannot be reset");
+        if (cause == this) throw new IllegalArgumentException("Exception cannot be its own cause");
+        causeSet = true;
+        this.cause = cause;
+        return this;
+    }
+    
     /** Overridden to print this exception's stack, followed by the
      *	source exception's, if any.
      */
@@ -131,9 +151,9 @@ public class SAXPathException extends Exception
     public void printStackTrace ( PrintStream s )
     {
     	super.printStackTrace ( s );
-    	if (cause != null) {
-    	    s.println ( "root case:" );
-    	    cause.printStackTrace ( s );
+    	if (getCause() != null) {
+    	    s.println ( "root cause:" );
+    	    getCause().printStackTrace ( s );
     	}
     }
 
@@ -145,9 +165,9 @@ public class SAXPathException extends Exception
     public void printStackTrace ( PrintWriter s )
     {
     	super.printStackTrace ( s );
-    	if (cause != null) {
-    	    s.println ( "root case:" );
-    	    cause.printStackTrace ( s );
+    	if (getCause() != null) {
+    	    s.println ( "root cause:" );
+    	    getCause().printStackTrace ( s );
     	}
     }
 

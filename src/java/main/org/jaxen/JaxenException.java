@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 734 $
- * $Date: 2005-05-04 05:55:48 -0700 (Wed, 04 May 2005) $
+ * $Revision: 892 $
+ * $Date: 2005-06-19 16:23:18 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,11 +56,14 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenException.java 734 2005-05-04 12:55:48Z elharo $
+ * $Id: JaxenException.java 892 2005-06-19 23:23:18Z elharo $
  */
 
 
 package org.jaxen;
+
+import java.io.PrintStream;
+import java.io.PrintWriter;
 
 
 /**
@@ -103,6 +106,71 @@ public class JaxenException extends org.jaxen.saxpath.SAXPathException
         super( message, nestedException );
     }
     
+    private Throwable cause;
+    private boolean causeSet = false;
+
+    /**
+     * Returns the exception that caused this exception.
+     * This is necessary to implement Java 1.4 chained exception 
+     * functionality in a Java 1.3-compatible way.
+     * 
+     * @return the exception that caused this exception
+     */
+    public Throwable getCause() {
+        return cause;
+    }
+    
+
+    /**
+     * Sets the exception that caused this exception.
+     * This is necessary to implement Java 1.4 chained exception 
+     * functionality in a Java 1.3-compatible way.
+     * 
+     * @param cause the exception wrapped in this runtime exception
+     * 
+     * @return this exception
+     */
+    public Throwable initCause(Throwable cause) {
+        if (causeSet) throw new IllegalStateException("Cause cannot be reset");
+        if (cause == this) throw new IllegalArgumentException("Exception cannot be its own cause");
+        causeSet = true;
+        this.cause = cause;
+        return this;
+    }
+
+
+    // XXX These are not compatible with Java 1.3
+    public void printStackTrace( PrintStream s ) {
+        super.printStackTrace( s );
+        if ( getCause() != null ) 
+        {
+            s.println( "Root cause:" );
+            getCause().printStackTrace( s );
+        }
+    }
+    
+    public void printStackTrace( PrintWriter w ) {
+        super.printStackTrace( w );
+        if ( getCause() != null ) 
+        {
+            w.println( "Root cause:" );
+            getCause().printStackTrace( w );
+        }
+    }
+    
+    public void printStackTrace() {
+        printStackTrace(System.out);
+    }
+    
+    // XXX Is this compatible with Java 1.3?
+    public Throwable fillInStackTrace() {
+        if ( getCause() == null ) {
+            return super.fillInStackTrace(); 
+        } 
+        else {
+            return getCause().fillInStackTrace();
+        }
+    }    
     
 }
 
