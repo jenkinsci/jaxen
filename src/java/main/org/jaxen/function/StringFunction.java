@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 870 $
- * $Date: 2005-06-19 06:25:50 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 871 $
+ * $Date: 2005-06-19 06:28:25 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 870 2005-06-19 13:25:50Z elharo $
+ * $Id: StringFunction.java 871 2005-06-19 13:28:25Z elharo $
  */
 
 
@@ -199,7 +199,10 @@ public class StringFunction implements Function
 
     public static String stringValue(double value)
     {
-        return format.format(value);
+        // XXX need to clone object for thread-safety
+        // could we use thread locals instead?
+        DecimalFormat copy = (DecimalFormat) format.clone();
+        return copy.format(value);
     }
 
     public static String stringValue(boolean value)
