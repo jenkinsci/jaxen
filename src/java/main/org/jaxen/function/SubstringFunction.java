@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 390 $
- * $Date: 2005-01-13 18:22:00 -0800 (Thu, 13 Jan 2005) $
+ * $Revision: 877 $
+ * $Date: 2005-06-19 07:08:55 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -103,24 +103,27 @@ public class SubstringFunction implements Function
         // Round the value and subtract 1 as Java strings are zero based
         int start = RoundFunction.evaluate(d1, nav).intValue() - 1;
 
-        int len = strlen;
+        int length = strlen;
         if (argc == 3){
             Double d2 = NumberFunction.evaluate(args.get(2), nav);
 
             if (!d2.isNaN()){
-                len = RoundFunction.evaluate(d2, nav ).intValue();
+                length = RoundFunction.evaluate(d2, nav ).intValue();
             }
             else {
-                len = 0;
+                length = 0;
             }
         }
 
-        int end = start + len;
+        if (length < 0) return "";
+        
+        int end = start + length;
 
         // negative start is treated as 0
         if ( start < 0){
             start = 0;
-        }else if (start > strlen){
+        }
+        else if (start > strlen){
             return "";
         }
 
