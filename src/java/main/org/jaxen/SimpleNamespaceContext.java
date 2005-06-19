@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 744 $
- * $Date: 2005-05-08 11:56:31 -0700 (Sun, 08 May 2005) $
+ * $Revision: 885 $
+ * $Date: 2005-06-19 12:24:26 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleNamespaceContext.java 744 2005-05-08 18:56:31Z elharo $
+ * $Id: SimpleNamespaceContext.java 885 2005-06-19 19:24:26Z elharo $
  */
 
 
@@ -91,13 +91,14 @@ public class SimpleNamespaceContext implements NamespaceContext, Serializable
      * @param namespaces the initial namespace bindings in scope. The keys in this
      *     must be strings containing the prefixes and the values are strings
      *     containing the namespace URIs.
+     *     
+     * @throws NullPointerException if the argument is null   
      */
     public SimpleNamespaceContext(Map namespaces)
     {
-        // FIXME this is dangerous. The Map is outside the control of this object.
-        // We should copy rather than store a reference. Furthermore we should check that
+        // FIXME this is dangerous. We should check that
         // the contents are strings.
-        this.namespaces = namespaces;
+        this.namespaces = new HashMap(namespaces);
     }
 
     /**
