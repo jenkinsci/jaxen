@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 889 $
- * $Date: 2005-06-19 12:43:35 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 890 $
+ * $Date: 2005-06-19 12:48:13 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: QualifiedName.java 889 2005-06-19 19:43:35Z elharo $
+ * $Id: QualifiedName.java 890 2005-06-19 19:48:13Z elharo $
  */
 
 package org.jaxen;
@@ -92,17 +92,20 @@ class QualifiedName
 
     public boolean equals( Object o )
     {
-        if ( !(o instanceof QualifiedName) )
-            return false;
+        // Because this class is package protected and used in only
+        // two other classes, it's never actually compared to anything 
+        // other than another QualifiedName. No instanceof test is
+        // necessary here.
+        QualifiedName other = (QualifiedName) o;
         
-        QualifiedName other = (QualifiedName)o;
-        
-        if ( namespaceURI == null )
+        if ( namespaceURI == null ) {
             return ( other.namespaceURI == null &&
                      other.localName.equals(localName) );
-        else
+        }
+        else {
             return ( namespaceURI.equals(other.namespaceURI) &&
                      other.localName.equals(localName) );
+        }
     }
     
 }
