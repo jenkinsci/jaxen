@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 680 $
- * $Date: 2005-04-28 20:08:14 -0700 (Thu, 28 Apr 2005) $
+ * $Revision: 889 $
+ * $Date: 2005-06-19 12:43:35 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: QualifiedName.java 680 2005-04-29 03:08:14Z elharo $
+ * $Id: QualifiedName.java 889 2005-06-19 19:43:35Z elharo $
  */
 
 package org.jaxen;
@@ -69,30 +69,19 @@ package org.jaxen;
 class QualifiedName
 {
     private String namespaceURI;
-
     private String localName;
 
     /** Constructs a QualifiedName object.
      *
      *  @param namespaceURI namespace URI that qualifies the name, or
-     *                      <code>null</code> for default namespace.
-     *  @param localName    local name that is qualified by the namespace uri.
-     *                      must not be <code>null</code>.
+     *                      <code>null</code> for default namespace
+     *  @param localName    local name that is qualified by the namespace uri;
+     *                      must not be <code>null</code>
      */
     QualifiedName( String namespaceURI, String localName )
     {
         this.namespaceURI = namespaceURI;
         this.localName = localName;
-    }
-
-    String getNamespaceURI()
-    {
-        return namespaceURI;
-    }
-
-    String getLocalName()
-    {
-        return localName;
     }
 
     public int hashCode()
