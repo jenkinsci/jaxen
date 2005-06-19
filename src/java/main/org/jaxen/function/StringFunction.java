@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 874 $
- * $Date: 2005-06-19 06:50:31 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 882 $
+ * $Date: 2005-06-19 07:21:55 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 874 2005-06-19 13:50:31Z elharo $
+ * $Id: StringFunction.java 882 2005-06-19 14:21:55Z elharo $
  */
 
 
@@ -111,7 +111,7 @@ public class StringFunction implements Function
                              context.getNavigator() );
         }
 
-        throw new FunctionCallException( "string() requires one argument." );
+        throw new FunctionCallException( "string() takes at most argument." );
     }
     
     public static String evaluate(Object obj,
