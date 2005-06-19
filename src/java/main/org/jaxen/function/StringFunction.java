@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 871 $
- * $Date: 2005-06-19 06:28:25 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 872 $
+ * $Date: 2005-06-19 06:31:27 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 871 2005-06-19 13:28:25Z elharo $
+ * $Id: StringFunction.java 872 2005-06-19 13:31:27Z elharo $
  */
 
 
@@ -199,6 +199,11 @@ public class StringFunction implements Function
 
     public static String stringValue(double value)
     {
+        
+        // DecimalFormat formats negative zero as "-0".
+        // Therefore we need to test for zero explicitly here.
+        if (value == 0) return "0";
+        
         // XXX need to clone object for thread-safety
         // could we use thread locals instead?
         DecimalFormat copy = (DecimalFormat) format.clone();
