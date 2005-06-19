@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 866 $
- * $Date: 2005-06-19 05:52:00 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 868 $
+ * $Date: 2005-06-19 06:03:26 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 866 2005-06-19 12:52:00Z elharo $
+ * $Id: StringFunction.java 868 2005-06-19 13:03:26Z elharo $
  */
 
 
@@ -193,12 +193,16 @@ public class StringFunction implements Function
     public static String stringValue(double value)
     {
         if (Double.isNaN(value)) return "NaN";
+        else if (Double.isInfinite(value)) {
+            if (value > 0) return "Infinity";
+            else return "-Infinity";
+        }
         return format.format(value);
     }
 
-    public static String stringValue(boolean bool)
+    public static String stringValue(boolean value)
     {
-        return bool ? "true" : "false";
+        return value ? "true" : "false";
     }
 
 }
