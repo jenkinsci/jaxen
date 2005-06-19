@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 637 $
- * $Date: 2005-04-16 07:18:12 -0700 (Sat, 16 Apr 2005) $
+ * $Revision: 866 $
+ * $Date: 2005-06-19 05:52:00 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 637 2005-04-16 14:18:12Z elharo $
+ * $Id: StringFunction.java 866 2005-06-19 12:52:00Z elharo $
  */
 
 
@@ -192,6 +192,7 @@ public class StringFunction implements Function
 
     public static String stringValue(double value)
     {
+        if (Double.isNaN(value)) return "NaN";
         return format.format(value);
     }
 
