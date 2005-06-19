@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 868 $
- * $Date: 2005-06-19 06:03:26 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 870 $
+ * $Date: 2005-06-19 06:25:50 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 868 2005-06-19 13:03:26Z elharo $
+ * $Id: StringFunction.java 870 2005-06-19 13:25:50Z elharo $
  */
 
 
@@ -69,7 +69,9 @@ import org.jaxen.Navigator;
 import org.jaxen.UnsupportedAxisException;
 import org.jaxen.JaxenRuntimeException;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
 import java.util.Iterator;
 import java.util.Locale;
@@ -82,11 +84,16 @@ import java.util.Locale;
 public class StringFunction implements Function
 {
     
-    private static NumberFormat format = NumberFormat.getInstance(Locale.ENGLISH);
+    // XXX This is not thread-safe
+    private static DecimalFormat format = (DecimalFormat) NumberFormat.getInstance(Locale.ENGLISH);
     
     static {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.ENGLISH);
+        symbols.setNaN("NaN");
+        symbols.setInfinity("Infinity");
         format.setGroupingUsed(false);
         format.setMaximumFractionDigits(32);
+        format.setDecimalFormatSymbols(symbols);
     }
 
     public Object call(Context context,
@@ -192,11 +199,6 @@ public class StringFunction implements Function
 
     public static String stringValue(double value)
     {
-        if (Double.isNaN(value)) return "NaN";
-        else if (Double.isInfinite(value)) {
-            if (value > 0) return "Infinity";
-            else return "-Infinity";
-        }
         return format.format(value);
     }
 
