@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 872 $
- * $Date: 2005-06-19 06:31:27 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 873 $
+ * $Date: 2005-06-19 06:35:17 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 872 2005-06-19 13:31:27Z elharo $
+ * $Id: StringFunction.java 873 2005-06-19 13:35:17Z elharo $
  */
 
 
@@ -204,10 +204,13 @@ public class StringFunction implements Function
         // Therefore we need to test for zero explicitly here.
         if (value == 0) return "0";
         
-        // XXX need to clone object for thread-safety
-        // could we use thread locals instead?
-        DecimalFormat copy = (DecimalFormat) format.clone();
-        return copy.format(value);
+        // need to synchronize object for thread-safety
+        String result = null;
+        synchronized (format) {
+            result = format.format(value);
+        }
+        return result;
+        
     }
 
     public static String stringValue(boolean value)
