@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 898 $
- * $Date: 2005-06-20 04:17:04 -0700 (Mon, 20 Jun 2005) $
+ * $Revision: 899 $
+ * $Date: 2005-06-20 04:18:51 -0700 (Mon, 20 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 898 2005-06-20 11:17:04Z elharo $
+ * $Id: BaseXPath.java 899 2005-06-20 11:18:51Z elharo $
  */
 
 
@@ -712,13 +712,14 @@ public class BaseXPath implements XPath, Serializable
      *  expression.  If multiple nodes match, only one node will be
      *  returned. The selected node will be the first
      *  selected node in document-order, as defined by the XPath
-     *  specification.  
+     *  specification. If the XPath expression selects a double,
+     *  String, or boolean, then that object is returned.
      *  </p>
      *
      * @param context the Context against which this expression is evaluated
      *
      * @return the first node in document order of all nodes selected
-     *          by this XPath expression; can this return a non-node????
+     *          by this XPath expression
      * @throws JaxenException if an XPath error occurs during expression evaluation
      *
      *  @see #selectNodesForContext
