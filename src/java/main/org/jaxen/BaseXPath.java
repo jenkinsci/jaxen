@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 738 $
- * $Date: 2005-05-06 10:17:13 -0700 (Fri, 06 May 2005) $
+ * $Revision: 897 $
+ * $Date: 2005-06-20 04:05:55 -0700 (Mon, 20 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 738 2005-05-06 17:17:13Z elharo $
+ * $Id: BaseXPath.java 897 2005-06-20 11:05:55Z elharo $
  */
 
 
@@ -70,6 +70,7 @@ import org.jaxen.expr.XPathExpr;
 import org.jaxen.function.BooleanFunction;
 import org.jaxen.function.NumberFunction;
 import org.jaxen.function.StringFunction;
+import org.jaxen.saxpath.SAXPathException;
 import org.jaxen.saxpath.XPathReader;
 import org.jaxen.saxpath.helpers.XPathReaderFactory;
 import org.jaxen.util.SingletonList;
@@ -130,7 +131,7 @@ public class BaseXPath implements XPath, Serializable
         {
             throw new org.jaxen.XPathSyntaxException( e );
         }
-        catch (org.jaxen.saxpath.SAXPathException e)
+        catch (SAXPathException e)
         {
             throw new JaxenException( e );
         }
@@ -212,10 +213,10 @@ public class BaseXPath implements XPath, Serializable
      *  expression. If multiple nodes match, multiple nodes
      *  will be returned. Nodes will be returned
      *  in document-order, as defined by the XPath
-     *  specification.  
+     *  specification. If the expression selects a non-node-set
+     *  (i.e. a number, boolean, or string) then a List
+     *  containing just that one object is returned.
      *  </p>
-     * 
-     * ???? what if the expression return a non-node-set?
      *
      * @param node the node, node-set or Context object for evaluation. This value can be null.
      *
@@ -692,7 +693,9 @@ public class BaseXPath implements XPath, Serializable
      *  expression on the given Context object. 
      *  If multiple nodes match, multiple nodes
      *  will be returned in document-order, as defined by the XPath
-     *  specification.
+     *  specification. If the expression selects a non-node-set
+     *  (i.e. a number, boolean, or string) then a List
+     *  containing just that one object is returned.
      *  </p>
      *
      * @param context the Context which gets evaluated
