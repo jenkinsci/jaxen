@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 892 $
- * $Date: 2005-06-19 16:23:18 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 895 $
+ * $Date: 2005-06-19 17:17:47 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: SAXPathException.java 892 2005-06-19 23:23:18Z elharo $
+ * $Id: SAXPathException.java 895 2005-06-20 00:17:47Z elharo $
  */
 
 package org.jaxen.saxpath;
@@ -133,14 +133,6 @@ public class SAXPathException extends Exception
         causeSet = true;
         this.cause = cause;
         return this;
-    }
-    
-    /** Overridden to print this exception's stack, followed by the
-     *	source exception's, if any.
-     */
-    public void printStackTrace ()
-    {
-        printStackTrace ( System.err );
     }
 
     /** Print this exception's stack trace, followed by the
