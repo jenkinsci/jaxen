@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 805 $
- * $Date: 2005-06-14 00:40:31 -0700 (Tue, 14 Jun 2005) $
+ * $Revision: 896 $
+ * $Date: 2005-06-19 17:52:53 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 805 2005-06-14 07:40:31Z elharo $
+ * $Id: XPathReaderTest.java 896 2005-06-20 00:52:53Z elharo $
  */
 
 
@@ -446,50 +446,4 @@ public class XPathReaderTest extends TestCase
 
     }
 
-    public void testNumberPredicate() throws SAXPathException
-    {
-
-        this.text = "[1]";
-        this.reader.setUpParse( this.text );
-        this.reader.predicate();
-        this.expected.startPredicate();
-
-        this.expected.startOrExpr();
-        this.expected.startAndExpr();
-        this.expected.startEqualityExpr();
-        this.expected.startEqualityExpr();
-        this.expected.startRelationalExpr();
-        this.expected.startRelationalExpr();
-        this.expected.startAdditiveExpr();
-        this.expected.startAdditiveExpr();
-        this.expected.startMultiplicativeExpr();
-        this.expected.startMultiplicativeExpr();
-        this.expected.startUnaryExpr();
-        this.expected.startUnionExpr();
-        this.expected.startPathExpr();
-        this.expected.startFilterExpr();
-
-        this.expected.number( 1 );
-
-        this.expected.endFilterExpr();
-        this.expected.endPathExpr();
-        this.expected.endUnionExpr( false );
-        this.expected.endUnaryExpr( Operator.NO_OP );
-        this.expected.endMultiplicativeExpr( Operator.NO_OP );
-        this.expected.endMultiplicativeExpr( Operator.NO_OP );
-        this.expected.endAdditiveExpr( Operator.NO_OP );
-        this.expected.endAdditiveExpr( Operator.NO_OP );
-        this.expected.endRelationalExpr( Operator.NO_OP );
-        this.expected.endRelationalExpr( Operator.NO_OP );
-        this.expected.endEqualityExpr( Operator.NO_OP );
-        this.expected.endEqualityExpr( Operator.NO_OP );
-        this.expected.endAndExpr( false );
-        this.expected.endOrExpr( false );
-
-        this.expected.endPredicate();
-
-        assertEquals( this.expected,
-          this.actual );
-
-    }
 }
