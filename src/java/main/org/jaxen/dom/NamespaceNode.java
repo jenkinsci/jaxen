@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 825 $
- * $Date: 2005-06-14 10:12:55 -0700 (Tue, 14 Jun 2005) $
+ * $Revision: 910 $
+ * $Date: 2005-06-20 15:33:03 -0700 (Mon, 20 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceNode.java 825 2005-06-14 17:12:55Z elharo $
+ * $Id: NamespaceNode.java 910 2005-06-20 22:33:03Z elharo $
  */
 
 ////////////////////////////////////////////////////////////////////
@@ -317,8 +317,8 @@ public class NamespaceNode implements Node
      */
     public Document getOwnerDocument ()
     {
-                    // FIXME: this could cause confusion
-        return (parent == null ? null : parent.getOwnerDocument());
+        if (parent == null) return null;
+        return parent.getOwnerDocument();
     }
 
 
