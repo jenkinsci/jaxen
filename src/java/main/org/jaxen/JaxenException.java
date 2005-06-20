@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 892 $
- * $Date: 2005-06-19 16:23:18 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 894 $
+ * $Date: 2005-06-19 17:14:03 -0700 (Sun, 19 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenException.java 892 2005-06-19 23:23:18Z elharo $
+ * $Id: JaxenException.java 894 2005-06-20 00:14:03Z elharo $
  */
 
 
@@ -160,17 +160,7 @@ public class JaxenException extends org.jaxen.saxpath.SAXPathException
     
     public void printStackTrace() {
         printStackTrace(System.out);
-    }
-    
-    // XXX Is this compatible with Java 1.3?
-    public Throwable fillInStackTrace() {
-        if ( getCause() == null ) {
-            return super.fillInStackTrace(); 
-        } 
-        else {
-            return getCause().fillInStackTrace();
-        }
-    }    
+    } 
     
 }
 
