@@ -1,5 +1,5 @@
 /*
- $Id: Performance.java 915 2005-06-21 13:57:19Z elharo $
+ $Id: Performance.java 917 2005-06-21 14:01:50Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -45,7 +45,7 @@
  */
 package org.jaxen.dom4j;
 
-import java.io.File;
+import java.net.URL;
 
 import org.dom4j.Document;
 import org.dom4j.Element;
@@ -55,7 +55,8 @@ class Performance {
     
     public static void main(String[] args) {
         try {
-            Document doc = new SAXReader().read(new File("D:/dev/jaxen/xml/much_ado.xml"));
+            URL u = new URL("http://www.ibiblio.org/xml/examples/shakespeare/much_ado.xml");
+            Document doc = new SAXReader().read(u);
             Dom4jXPath xpath = new Dom4jXPath("PLAY/ACT/SCENE/SPEECH/SPEAKER");
             
             long start = System.currentTimeMillis();
