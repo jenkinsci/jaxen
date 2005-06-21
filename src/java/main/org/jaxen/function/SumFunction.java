@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 443 $
- * $Date: 2005-02-07 17:32:20 -0800 (Mon, 07 Feb 2005) $
+ * $Revision: 927 $
+ * $Date: 2005-06-21 11:32:50 -0700 (Tue, 21 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SumFunction.java 443 2005-02-08 01:32:20Z elharo $
+ * $Id: SumFunction.java 927 2005-06-21 18:32:50Z elharo $
  */
 
 
@@ -73,11 +73,29 @@ import org.jaxen.Navigator;
 /**
  * <p><b>4.4</b> <code><i>number</i> sum(<i>node-set</i>)</code> 
  * 
+ * 
+ * <blockquote src="http://www.w3.org/TR/xpath">
+ * The sum function returns the sum, for each node in the argument node-set, 
+ * of the result of converting the string-values of the node to a number.
+ * </blockquote>
+ * 
  * @author bob mcwhirter (bob @ werken.com)
+ * @see <a href="http://www.w3.org/TR/xpath#function-sum" target="_top">Section 4.4 of the XPath Specification</a>
  */
 public class SumFunction implements Function
 {
 
+    /** Returns the nearest integer to the number.
+     *
+     * @param context the context at the point in the
+     *         expression when the function is called
+     * @param args a list that contains exactly one item, also a <code>List</code>
+     * 
+     * @return a <code>Double</code> containing the sum of the items in <code>args.get(0)</code>
+     * 
+     * @throws FunctionCallException if <code>args</code> has more or less than one item;
+     *     or if the first argument is not a <code>List</code>
+     */
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
@@ -91,21 +109,30 @@ public class SumFunction implements Function
         throw new FunctionCallException( "sum() requires one argument." );
     }
 
+    /** 
+     * Returns the sum of the items in a list.
+     * If necessary, each item in the list is first converted to a <code>Double</code>
+     * as if by the XPath <code>number()</code> function.
+     * 
+     * @param obj a <code>List</code> of numbers to be summed
+     * @param nav ignored
+     * 
+     * @return the sum of the list
+     * 
+     * @throws FunctionCallException if <code>obj</code> is not a <code>List</code>
+     */
     public static Double evaluate(Object obj,
                                   Navigator nav) throws FunctionCallException
     {
         double sum  = 0;
-        double term = 0;
 
         if (obj instanceof List)
         {
             Iterator nodeIter = ((List)obj).iterator();
-
             while ( nodeIter.hasNext() )
             {
-                term = NumberFunction.evaluate( nodeIter.next(),
+                double term = NumberFunction.evaluate( nodeIter.next(),
                                                 nav ).doubleValue();
-
                 sum += term;
             }
         }
