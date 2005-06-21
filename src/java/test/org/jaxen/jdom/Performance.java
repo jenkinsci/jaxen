@@ -1,5 +1,5 @@
 /*
- $Id: Performance.java 330 2003-07-27 23:14:21Z bob $
+ $Id: Performance.java 916 2005-06-21 14:00:39Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -52,7 +52,7 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 
-public class Performance {
+class Performance {
     
     public static void main(String[] args) {
         try {
