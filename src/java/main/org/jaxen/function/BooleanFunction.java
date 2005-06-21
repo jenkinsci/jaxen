@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 921 $
- * $Date: 2005-06-21 08:24:21 -0700 (Tue, 21 Jun 2005) $
+ * $Revision: 922 $
+ * $Date: 2005-06-21 08:25:16 -0700 (Tue, 21 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BooleanFunction.java 921 2005-06-21 15:24:21Z elharo $
+ * $Id: BooleanFunction.java 922 2005-06-21 15:25:16Z elharo $
  */
 
 
@@ -146,7 +146,7 @@ public class BooleanFunction implements Function
      * <li>Lists are false if they're empty; true if they're not.</li>
      * <li>Booleans are false if they're false; true if they're true.</li>
      * <li>Strings are false if they're empty; true if they're not.</li>
-     * <li>Numbers are false if they're 0; true if they're not.</li>
+     * <li>Numbers are false if they're 0 or NaN; true if they're not.</li>
      * <li>All other objects are true.</li>
      * </ul>
      * 
