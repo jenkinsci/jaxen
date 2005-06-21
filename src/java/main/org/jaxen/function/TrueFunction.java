@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 567 $
- * $Date: 2005-04-06 04:10:50 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 923 $
+ * $Date: 2005-06-21 08:50:03 -0700 (Tue, 21 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: TrueFunction.java 567 2005-04-06 11:10:50Z elharo $
+ * $Id: TrueFunction.java 923 2005-06-21 15:50:03Z elharo $
  */
 
 
@@ -69,13 +69,27 @@ import org.jaxen.Function;
 import org.jaxen.FunctionCallException;
 
 /**
- * <p><b>4.3</b> <code><i>boolean</i> true()</code> 
+ * <p><b>4.3</b> <code><i>boolean</i> true()</code></p>
+ * 
+ * <p>Returns true.</p>
  * 
  * @author bob mcwhirter (bob @ werken.com)
+ * 
+ * @see <a href="http://www.w3.org/TR/xpath#function-true">XPath Specification</a>
  */
 public class TrueFunction implements Function
 {
 
+    /** Returns <code>Boolean.TRUE</code>
+     *
+     * @param context the context at the point in the
+     *         expression when the function is called
+     * @param args an empty list
+     * 
+     * @return <code>Boolean.TRUE</code>
+     * 
+     * @throws FunctionCallException if <code>args</code> is not empty
+     */
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
@@ -90,7 +104,7 @@ public class TrueFunction implements Function
     /**
      * Returns true.
      * 
-     * @return Boolean.TRUE
+     * @return <code>Boolean.TRUE</code>
      */
     public static Boolean evaluate()
     {

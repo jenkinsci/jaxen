@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 568 $
- * $Date: 2005-04-06 14:47:37 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 923 $
+ * $Date: 2005-06-21 08:50:03 -0700 (Tue, 21 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FalseFunction.java 568 2005-04-06 21:47:37Z elharo $
+ * $Id: FalseFunction.java 923 2005-06-21 15:50:03Z elharo $
  */
 
 
@@ -71,11 +71,25 @@ import org.jaxen.FunctionCallException;
 /**
  * <p><b>4.3</b> <code><i>boolean</i> false()</code> 
  * 
+ * <p>Returns false.</p>
+ * 
  * @author bob mcwhirter (bob @ werken.com)
+ * 
+ * @see <a href="http://www.w3.org/TR/xpath#function-false">XPath Specification</a>
  */
 public class FalseFunction implements Function
 {
 
+    /** Returns <code>Boolean.FALSE</code>
+     *
+     * @param context the context at the point in the
+     *         expression when the function is called
+     * @param args an empty list
+     * 
+     * @return <code>Boolean.FALSE</code>
+     * 
+     * @throws FunctionCallException if <code>args</code> is not empty
+     */
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
