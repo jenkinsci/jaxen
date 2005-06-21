@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 925 $
- * $Date: 2005-06-21 11:24:46 -0700 (Tue, 21 Jun 2005) $
+ * $Revision: 926 $
+ * $Date: 2005-06-21 11:26:22 -0700 (Tue, 21 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: RoundFunction.java 925 2005-06-21 18:24:46Z elharo $
+ * $Id: RoundFunction.java 926 2005-06-21 18:26:22Z elharo $
  */
 
 
@@ -121,9 +121,9 @@ public class RoundFunction implements Function
      * @param obj the object to be rounded
      * @param nav ignored
      * 
-     * @return a <code>Double</code> containing the integer nearest to <code>obj</code>
+     * @return the integer nearest to <code>obj</code>
      */
-    public static Number evaluate(Object obj,
+    public static Double evaluate(Object obj,
                                   Navigator nav)
     {
         Double d  = NumberFunction.evaluate( obj,
