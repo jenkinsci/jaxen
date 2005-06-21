@@ -1,5 +1,5 @@
 /*
- $Id: Performance.java 330 2003-07-27 23:14:21Z bob $
+ $Id: Performance.java 915 2005-06-21 13:57:19Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -51,7 +51,7 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-public class Performance {
+class Performance {
     
     public static void main(String[] args) {
         try {
