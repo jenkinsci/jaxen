@@ -1,5 +1,5 @@
 /*
- $Id: Performance.java 342 2003-09-29 01:56:00Z ssanders $
+ $Id: Performance.java 918 2005-06-21 14:05:57Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -52,7 +52,7 @@ import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Builder;
 
-public class Performance {
+class Performance {
     
     public static void main(String[] args) {
         try {
