@@ -1,5 +1,5 @@
 /*
- $Id: Performance.java 919 2005-06-21 14:06:44Z elharo $
+ $Id: Performance.java 920 2005-06-21 14:08:28Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -45,8 +45,6 @@
  */
 package org.jaxen.xom;
 
-import java.io.File;
-
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Builder;
@@ -54,8 +52,9 @@ import nu.xom.Builder;
 class Performance {
     
     public static void main(String[] args) {
+        
         try {
-            Document doc = new Builder().build(new File("D:/dev/jaxen/xml/much_ado.xml"));
+            Document doc = new Builder().build("http://www.ibiblio.org/xml/examples/shakespeare/much_ado.xml");
             XOMXPath xpath = new XOMXPath("PLAY/ACT/SCENE/SPEECH/SPEAKER");
             
             long start = System.currentTimeMillis();
