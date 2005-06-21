@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 895 $
- * $Date: 2005-06-19 17:17:47 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 912 $
+ * $Date: 2005-06-21 05:37:32 -0700 (Tue, 21 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: SAXPathException.java 895 2005-06-20 00:17:47Z elharo $
+ * $Id: SAXPathException.java 912 2005-06-21 12:37:32Z elharo $
  */
 
 package org.jaxen.saxpath;
@@ -70,7 +70,21 @@ import java.io.PrintWriter;
  */
 public class SAXPathException extends Exception
 {
-
+    
+    static double javaVersion = 1.4;
+    
+    static {
+        try {
+            String versionString = System.getProperty("java.version");
+            versionString = versionString.substring(0, 3);
+            javaVersion = Double.valueOf(versionString).doubleValue();
+        }
+        catch (Exception ex) {
+            // The version string format changed so presumably it's
+            // 1.4 or later.
+        }
+    }
+    
     /** Create a new SAXPathException with a given message.
      *
      *  @param message the error message
@@ -143,9 +157,9 @@ public class SAXPathException extends Exception
     public void printStackTrace ( PrintStream s )
     {
     	super.printStackTrace ( s );
-    	if (getCause() != null) {
-    	    s.println ( "root cause:" );
-    	    getCause().printStackTrace ( s );
+    	if (javaVersion < 1.4 && getCause() != null) {
+    	    s.print( "Caused by: " );
+    	    getCause().printStackTrace( s );
     	}
     }
 
@@ -156,10 +170,10 @@ public class SAXPathException extends Exception
      */
     public void printStackTrace ( PrintWriter s )
     {
-    	super.printStackTrace ( s );
-    	if (getCause() != null) {
-    	    s.println ( "root cause:" );
-    	    getCause().printStackTrace ( s );
+    	super.printStackTrace( s );
+    	if (javaVersion < 1.4 && getCause() != null) {
+    	    s.print( "Caused by: " );
+    	    getCause().printStackTrace( s );
     	}
     }
 
