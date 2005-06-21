@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 896 $
- * $Date: 2005-06-19 17:52:53 -0700 (Sun, 19 Jun 2005) $
+ * $Revision: 914 $
+ * $Date: 2005-06-21 05:54:02 -0700 (Tue, 21 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 896 2005-06-20 00:52:53Z elharo $
+ * $Id: XPathReaderTest.java 914 2005-06-21 12:54:02Z elharo $
  */
 
 
@@ -74,10 +74,8 @@ import org.jaxen.JaxenException;
 import org.jaxen.XPath;
 import org.jaxen.dom.DOMXPath;
 import org.jaxen.saxpath.Axis;
-import org.jaxen.saxpath.Operator;
 import org.jaxen.saxpath.SAXPathException;
 import org.jaxen.saxpath.XPathSyntaxException;
-import org.jaxen.saxpath.conformance.ConformanceXPathHandler;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
