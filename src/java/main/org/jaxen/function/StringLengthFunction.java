@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 932 $
+ * $Date: 2005-06-22 05:50:42 -0700 (Wed, 22 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,13 +56,15 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringLengthFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: StringLengthFunction.java 932 2005-06-22 12:50:42Z elharo $
  */
 
 
 package org.jaxen.function;
 
 import java.util.List;
+
+import nu.xom.IllegalCharacterDataException;
 
 import org.jaxen.Context;
 import org.jaxen.Function;
@@ -72,7 +74,14 @@ import org.jaxen.Navigator;
 /**
  * <p><b>4.2</b> <code><i>number</i> string-length(<i>string</i>)</code> 
  * 
+ * 
+ * <blockquote src="http://www.w3.org/TR/xpath">
+ * 
+ *
+ * </blockquote>
+ * 
  * @author bob mcwhirter (bob @ werken.com)
+ * @see <a href="http://www.w3.org/TR/xpath#function-string-length" target="_top">Seciton 4.2 of the XPath Specification</a>
  */
 public class StringLengthFunction implements Function
 {
@@ -94,10 +103,31 @@ public class StringLengthFunction implements Function
         throw new FunctionCallException( "string-length() requires one argument." );
     }
 
-    public static Number evaluate(Object obj, Navigator nav )
+    public static Double evaluate(Object obj, Navigator nav ) throws FunctionCallException
     {
         String str = StringFunction.evaluate( obj, nav );
-
-        return new Double(str.length());
+        // String.length() counts UTF-16 code points; not Unicode characters
+        char[] data = str.toCharArray();
+        int length = 0;
+        for (int i = 0; i < data.length; i++) {
+            char c = data[i];
+            length++;
+            // if this is a high surrogate; assume the next character is
+            // is a low surrogate and skip it
+            if (c >= 0xD800) {
+                try {
+                    char low = data[i+1];
+                    if (low < 0xDC00 || low > 0xDFFF) {
+                        throw new FunctionCallException("Bad surrogate pair in string " + str);
+                    }
+                    i++; // increment past low surrogate
+                }
+                catch (ArrayIndexOutOfBoundsException ex) {
+                    throw new FunctionCallException("Bad surrogate pair in string " + str);
+                }
+            }
+        }
+        return new Double(length);
     }
+    
 }
