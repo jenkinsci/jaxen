@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 933 $
- * $Date: 2005-06-22 06:07:58 -0700 (Wed, 22 Jun 2005) $
+ * $Revision: 937 $
+ * $Date: 2005-06-22 10:13:47 -0700 (Wed, 22 Jun 2005) $
  *
  * ====================================================================
  *
@@ -122,7 +122,6 @@ public class SubstringFunction implements Function
 
         if (substringLength < 0) return "";
         
-        int end = start + substringLength;
 
         // negative start is treated as 0
         if ( start < 0){
@@ -131,6 +130,8 @@ public class SubstringFunction implements Function
         else if (start > stringLength){
             return "";
         }
+
+        int end = start + substringLength;
 
         if (end > stringLength){
             end = stringLength;
