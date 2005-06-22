@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 932 $
- * $Date: 2005-06-22 05:50:42 -0700 (Wed, 22 Jun 2005) $
+ * $Revision: 935 $
+ * $Date: 2005-06-22 09:32:21 -0700 (Wed, 22 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringLengthFunction.java 932 2005-06-22 12:50:42Z elharo $
+ * $Id: StringLengthFunction.java 935 2005-06-22 16:32:21Z elharo $
  */
 
 
@@ -64,24 +64,27 @@ package org.jaxen.function;
 
 import java.util.List;
 
-import nu.xom.IllegalCharacterDataException;
-
 import org.jaxen.Context;
 import org.jaxen.Function;
 import org.jaxen.FunctionCallException;
 import org.jaxen.Navigator;
 
 /**
- * <p><b>4.2</b> <code><i>number</i> string-length(<i>string</i>)</code> 
+ * <p><b>4.2</b> <code><i>number</i> string-length(<i>string</i>)</code></p> 
  * 
- * 
- * <blockquote src="http://www.w3.org/TR/xpath">
- * 
- *
- * </blockquote>
+ * <p>
+ * The <b>string-length</b> function returns the number of <strong>Unicode characters</strong>
+ * in its argument. This is <strong>not</strong> necessarily 
+ * the same as the number <strong>Java chars</strong>
+ * in the corresponding Java string. In particular, if the Java <code>String</code>
+ * contains surrogate pairs each such pair will be counted as only one character
+ * by this function. If the argument is omitted, 
+ * it returns the length of the string-value of the context node.
+ * </p>
  * 
  * @author bob mcwhirter (bob @ werken.com)
- * @see <a href="http://www.w3.org/TR/xpath#function-string-length" target="_top">Seciton 4.2 of the XPath Specification</a>
+ * @see <a href="http://www.w3.org/TR/xpath#function-string-length" target="_top">Section 
+ *      4.2 of the XPath Specification</a>
  */
 public class StringLengthFunction implements Function
 {
