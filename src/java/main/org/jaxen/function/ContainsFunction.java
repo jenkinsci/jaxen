@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 934 $
+ * $Date: 2005-06-22 06:49:05 -0700 (Wed, 22 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: ContainsFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: ContainsFunction.java 934 2005-06-22 13:49:05Z elharo $
  */
 
 package org.jaxen.function;
@@ -71,11 +71,36 @@ import org.jaxen.Navigator;
 /**
  *  <p><b>4.2</b> <code><i>boolean</i> contains(<i>string</i>,<i>string</i>)</code> 
  *  
- *   @author bob mcwhirter (bob @ werken.com)
+ * <blockquote src="http://www.w3.org/TR/xpath">
+ * The <b>contains</b> function returns true if the first argument 
+ * string contains the second argument string, and otherwise returns false.
+ * </blockquote>
+ * 
+ * @author bob mcwhirter (bob @ werken.com)
+ * 
+ * @see <a href="http://www.w3.org/TR/xpath#function-contains">XPath Specification</a>
  */
 public class ContainsFunction implements Function
 {
 
+    /** 
+     * <p>
+     *  Returns true if the string-value of the 
+     *  first item in <code>args<code> contains string-value of the second 
+     *  item; false otherwise.
+     *  If necessary one or both items are converted to a string as if by the XPath
+     *  <code>string()</code> function.
+     * </p>
+     *
+     * @param context the context at the point in the
+     *         expression when the function is called
+     * @param args a list containing exactly two items
+     * 
+     * @return the result of evaluating the function; 
+     *     <code>Boolean.TRUE</code> or <code>Boolean.FALSE</code>
+     * 
+     * @throws FunctionCallException if <code>args</code> does not have exactly two items
+     */
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
@@ -89,6 +114,19 @@ public class ContainsFunction implements Function
         throw new FunctionCallException("contains() requires two arguments.");
     }
 
+    /** 
+     * <p>Returns true if the first string contains the second string; false otherwise.
+     * If necessary one or both arguments are converted to a string as if by the XPath
+     * <code>string()</code> function.
+     * </p>
+     * 
+     * @param strArg the containing string
+     * @param matchArg the contained string
+     * @param nav ignored
+     * 
+     * @return <code>Boolean.TRUE</code> if true if the first string contains 
+     *     the second string; <code>Boolean.FALSE</code> otherwise.
+     */
     public static Boolean evaluate(Object strArg,
                                    Object matchArg,
                                    Navigator nav) 
