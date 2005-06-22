@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 937 $
- * $Date: 2005-06-22 10:13:47 -0700 (Wed, 22 Jun 2005) $
+ * $Revision: 938 $
+ * $Date: 2005-06-22 10:19:12 -0700 (Wed, 22 Jun 2005) $
  *
  * ====================================================================
  *
@@ -119,10 +119,12 @@ public class SubstringFunction implements Function
                 substringLength = 0;
             }
         }
-
-        if (substringLength < 0) return "";
         
+        if (substringLength < 0) return "";
 
+        int end = start + substringLength;
+        if (argc == 2) end = stringLength;
+            
         // negative start is treated as 0
         if ( start < 0){
             start = 0;
@@ -131,11 +133,10 @@ public class SubstringFunction implements Function
             return "";
         }
 
-        int end = start + substringLength;
-
         if (end > stringLength){
             end = stringLength;
         }
+        else if (end < start) return "";
         
         if (stringLength == str.length()) {
             // easy case; no surrogate pairs
