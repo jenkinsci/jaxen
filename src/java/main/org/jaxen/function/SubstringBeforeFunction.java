@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 318 $
- * $Date: 2003-06-29 11:15:15 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 941 $
+ * $Date: 2005-06-22 14:53:03 -0700 (Wed, 22 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SubstringBeforeFunction.java 318 2003-06-29 18:15:15Z ssanders $
+ * $Id: SubstringBeforeFunction.java 941 2005-06-22 21:53:03Z elharo $
  */
 
 
@@ -72,11 +72,37 @@ import org.jaxen.Navigator;
 /**
  * <p><b>4.2</b> <code><i>string</i> substring-before(<i>string</i>,<i>string</i>)</code> 
  * 
+ * 
+ * <blockquote src="http://www.w3.org/TR/xpath#function-substring-before">
+ * The substring-before function returns the substring of the first argument 
+ * string that precedes the first occurrence of the second argument string 
+ * in the first argument string, or the empty string if the 
+ * first argument string does not contain the second argument string. 
+ * For example, substring-before("1999/04/01","/") returns 1999.
+ * </blockquote>
+ * 
  * @author bob mcwhirter (bob @ werken.com)
+ * 
+ * @see <a href="http://www.w3.org/TR/xpath#function-substring-before" target="_top">XPath Specification</a>
  */
 public class SubstringBeforeFunction implements Function
 {
 
+    /** 
+     * Returns the part of the string-value of the first item in <code>args</code>
+     * that comes before the string-value of the second item in <code>args</code>;
+     * or the empty string if the second string is not a substring of the first string.
+     *
+     * @param context the context at the point in the
+     *         expression when the function is called
+     * @param args a list that contains two items
+     * 
+     * @return a <code>String</code> containing that 
+     *     part of the string-value of the first item in <code>args</code>
+     *     that comes before the string-value of the second item in <code>args</code>
+     * 
+     * @throws FunctionCallException if <code>args</code> does not have length two
+     */
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
@@ -90,6 +116,20 @@ public class SubstringBeforeFunction implements Function
         throw new FunctionCallException( "substring-before() requires two arguments." );
     }
 
+    /** 
+     * Returns the part of <code>strArg</code> that precedes the first occurence 
+     * of <code>matchArg</code>; or the empty string if the 
+     * <code>strArg</code> does not contain <code>matchArg</code>
+     * 
+     * @param strArg the string from which the substring is extracted
+     * @param matchArg the string that marks the boundary of the substring
+     * @param nav the <code>Navigator</code> used to calculate the string-values of
+     *     the first two arguments
+     * 
+     * @return a <code>String</code> the part of <code>strArg</code> that precedes the first occurence 
+     * of <code>matchArg</code>
+     * 
+     */
     public static String evaluate(Object strArg,
                                   Object matchArg,
                                   Navigator nav)
