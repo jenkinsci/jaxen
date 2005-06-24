@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 376 $
- * $Date: 2004-09-16 14:38:19 -0700 (Thu, 16 Sep 2004) $
+ * $Revision: 953 $
+ * $Date: 2005-06-24 12:57:19 -0700 (Fri, 24 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NormalizeSpaceFunction.java 376 2004-09-16 21:38:19Z bewins $
+ * $Id: NormalizeSpaceFunction.java 953 2005-06-24 19:57:19Z elharo $
  */
 
 
@@ -70,9 +70,25 @@ import org.jaxen.FunctionCallException;
 import org.jaxen.Navigator;
 
 /**
- * <p><b>4.2</b> <code><i>string</i> normalize-space(<i>string</i>)</code> 
+ * <p>
+ * <b>4.2</b> <code><i>string</i> normalize-space(<i>string</i>)</code>
+ * 
+ * 
+ * <blockquote src="http://www.w3.org/TR/xpath#function-normalize-space"> 
+ * The <b>normalize-space</b> function
+ * returns the argument string with whitespace normalized by stripping
+ * leading and trailing whitespace and replacing sequences of whitespace
+ * characters by a single space. Whitespace characters are the same as
+ * those allowed by the <a href="http://www.w3.org/TR/REC-xml#NT-S" target="_top">S</a>
+ * production in XML. If the argument is omitted, it defaults to the
+ * context node converted to a string, in other words the <a
+ * href="http://www.w3.org/TR/xpath#dt-string-value"  
+ * target="_top">string-value</a> of the context node.
+ * </blockquote>
  * 
  * @author James Strachan (james@metastuff.com)
+ * @see <a href="http://www.w3.org/TR/xpath#function-normalize-space"
+ *      target="_top">Section 4.2 of the XPath Specification</a>
  */
 public class NormalizeSpaceFunction implements Function
 {
