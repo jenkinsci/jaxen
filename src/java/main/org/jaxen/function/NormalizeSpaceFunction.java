@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 960 $
- * $Date: 2005-06-25 05:35:08 -0700 (Sat, 25 Jun 2005) $
+ * $Revision: 961 $
+ * $Date: 2005-06-25 05:37:25 -0700 (Sat, 25 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NormalizeSpaceFunction.java 960 2005-06-25 12:35:08Z elharo $
+ * $Id: NormalizeSpaceFunction.java 961 2005-06-25 12:37:25Z elharo $
  */
 
 
@@ -161,7 +161,7 @@ public class NormalizeSpaceFunction implements Function
                 {
                     read++;
                 }
-                while(read < buffer.length && Character.isWhitespace(buffer[read]));
+                while(read < buffer.length && isXMLSpace(buffer[read]));
             }
             else
             {
