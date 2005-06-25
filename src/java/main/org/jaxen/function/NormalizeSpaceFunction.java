@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 959 $
- * $Date: 2005-06-25 05:24:50 -0700 (Sat, 25 Jun 2005) $
+ * $Revision: 960 $
+ * $Date: 2005-06-25 05:35:08 -0700 (Sat, 25 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NormalizeSpaceFunction.java 959 2005-06-25 12:24:50Z elharo $
+ * $Id: NormalizeSpaceFunction.java 960 2005-06-25 12:35:08Z elharo $
  */
 
 
@@ -151,8 +151,7 @@ public class NormalizeSpaceFunction implements Function
         int read = 0;
         while (read < buffer.length)
         {
-            // legal per XML????
-            if (Character.isWhitespace(buffer[read]))
+            if (isXMLSpace(buffer[read]))
             {
                 if (wroteOne)
                 {
@@ -173,6 +172,11 @@ public class NormalizeSpaceFunction implements Function
         }
 
         return new String(buffer, 0, lastWrite);
+    }
+    
+    
+    private static boolean isXMLSpace(char c) {
+        return c == ' ' || c == '\n' || c == '\r' || c == '\t';
     }
     
 }
