@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 961 $
- * $Date: 2005-06-25 05:37:25 -0700 (Sat, 25 Jun 2005) $
+ * $Revision: 962 $
+ * $Date: 2005-06-25 05:38:29 -0700 (Sat, 25 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NormalizeSpaceFunction.java 961 2005-06-25 12:37:25Z elharo $
+ * $Id: NormalizeSpaceFunction.java 962 2005-06-25 12:38:29Z elharo $
  */
 
 
@@ -122,7 +122,7 @@ public class NormalizeSpaceFunction implements Function
                              context.getNavigator() );
         }
     
-        throw new FunctionCallException( "normalize-space() requires one argument" );
+        throw new FunctionCallException( "normalize-space() cannot have more than one argument" );
     }
 
     /** 
