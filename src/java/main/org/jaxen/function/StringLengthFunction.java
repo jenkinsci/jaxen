@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 935 $
- * $Date: 2005-06-22 09:32:21 -0700 (Wed, 22 Jun 2005) $
+ * $Revision: 965 $
+ * $Date: 2005-06-25 08:07:05 -0700 (Sat, 25 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringLengthFunction.java 935 2005-06-22 16:32:21Z elharo $
+ * $Id: StringLengthFunction.java 965 2005-06-25 15:07:05Z elharo $
  */
 
 
@@ -89,6 +89,20 @@ import org.jaxen.Navigator;
 public class StringLengthFunction implements Function
 {
 
+    /**
+     * <p>
+     * Returns the number of Unicode characters in the string-value of the argument.
+     * </p>
+     * 
+     * @param context the context at the point in the
+     *         expression when the function is called
+     * @param args a list containing the item whose string-value is to be counted.
+     *     If empty, the length of the context node's string-value is returned.
+     * 
+     * @return a <code>Double</code> giving the number of Unicode characters
+     * 
+     * @throws FunctionCallException if args has more than one item
+     */
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
@@ -106,8 +120,23 @@ public class StringLengthFunction implements Function
         throw new FunctionCallException( "string-length() requires one argument." );
     }
 
-    public static Double evaluate(Object obj, Navigator nav ) throws FunctionCallException
+    /**
+     * <p>
+     * Returns the number of Unicode characters in the string-value of 
+     * an object.
+     * </p>
+     * 
+     * @param obj the object whose string-value is counted
+     * @param nav used to calculate the string-values of the first two arguments
+     * 
+     * @return a <code>Double</code> giving the number of Unicode characters
+     * 
+     * @throws FunctionCallException if the string contains mismatched surrogates
+     */
+    public static Double evaluate(Object obj, Navigator nav) throws FunctionCallException
     {
+        
+        // could/should I push the mismnatching checks into StringFunction.evaluate()????
         String str = StringFunction.evaluate( obj, nav );
         // String.length() counts UTF-16 code points; not Unicode characters
         char[] data = str.toCharArray();
