@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 962 $
- * $Date: 2005-06-25 05:38:29 -0700 (Sat, 25 Jun 2005) $
+ * $Revision: 963 $
+ * $Date: 2005-06-25 05:39:28 -0700 (Sat, 25 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NormalizeSpaceFunction.java 962 2005-06-25 12:38:29Z elharo $
+ * $Id: NormalizeSpaceFunction.java 963 2005-06-25 12:39:28Z elharo $
  */
 
 
@@ -136,7 +136,7 @@ public class NormalizeSpaceFunction implements Function
      * @param nav the context at the point in the
      *         expression when the function is called
      * 
-     * @return a normalized <code>String</code>
+     * @return the normalized string-value
      */
     public static String evaluate(Object strArg,
                                   Navigator nav) 
