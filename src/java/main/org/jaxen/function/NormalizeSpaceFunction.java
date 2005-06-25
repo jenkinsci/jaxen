@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 956 $
- * $Date: 2005-06-25 05:08:38 -0700 (Sat, 25 Jun 2005) $
+ * $Revision: 959 $
+ * $Date: 2005-06-25 05:24:50 -0700 (Sat, 25 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NormalizeSpaceFunction.java 956 2005-06-25 12:08:38Z elharo $
+ * $Id: NormalizeSpaceFunction.java 959 2005-06-25 12:24:50Z elharo $
  */
 
 
@@ -111,7 +111,12 @@ public class NormalizeSpaceFunction implements Function
     public Object call(Context context,
                        List args) throws FunctionCallException
     {
-        if (args.size() >= 1) // != 1 ????
+        
+        if (args.size() == 0) {
+            return evaluate( context.getNodeSet(),
+                             context.getNavigator() );
+        }
+        else if (args.size() == 1)
         {
             return evaluate( args.get(0),
                              context.getNavigator() );
