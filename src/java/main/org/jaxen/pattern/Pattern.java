@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 619 $
- * $Date: 2005-04-15 13:19:47 -0700 (Fri, 15 Apr 2005) $
+ * $Revision: 978 $
+ * $Date: 2005-06-26 09:18:13 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Pattern.java 619 2005-04-15 20:19:47Z elharo $
+ * $Id: Pattern.java 978 2005-06-26 16:18:13Z elharo $
  */
 
 package org.jaxen.pattern;
@@ -68,7 +68,7 @@ import org.jaxen.JaxenException;
   * the XSLT processing model.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 619 $
+  * @version $Revision: 978 $
   */
 public abstract class Pattern {
 
@@ -96,8 +96,8 @@ public abstract class Pattern {
     //public static final short DOCUMENT_FRAGMENT_NODE = 11;
     //public static final short NOTATION_NODE = 12;
     
-    /** Matches a Namespace Node - NOTE this differs from DOM */
-    // XXXX: ????
+    /** Matches a Namespace Node */
+    // This has the same value as the DOM Level 3 XPathNamespace type
     public static final short NAMESPACE_NODE = 13;
     
     /** Does not match any valid node */
@@ -113,13 +113,22 @@ public abstract class Pattern {
     public static final short NO_NODE = 14;
     
     
-    /** @return true if the pattern matches the given node
+    /** 
+     * 
+     * @param node ????
+     * @param context ????
+     * @return true if the pattern matches the given node
+     * @throws JaxenException  if ????
       */
     public abstract boolean matches( Object node, Context context ) throws JaxenException;
     
     /** Returns the default resolution policy of the pattern according to the
       * <a href="http://www.w3.org/TR/xslt11/#conflict">
-      * XSLT conflict resolution rules</a>. 
+      * XSLT conflict resolution rules</a>.
+      *  
+     * @return 0.5; the default priority defined in XSLT
+     * 
+     * @see <a href="http://www.w3.org/TR/xslt#conflict" target="_top">Section 5.5 of the XSLT specification</a>
       * 
       */
     public double getPriority() 
@@ -141,8 +150,10 @@ public abstract class Pattern {
     }
 
     
-    /** @return the type of node the pattern matches;
-      * ANY_NODE unless overridden
+    /** 
+     * Returns the type of node the pattern matches.
+     * 
+     * @return <code>ANY_NODE</code> unless overridden
       */
     public short getMatchType() 
     {
