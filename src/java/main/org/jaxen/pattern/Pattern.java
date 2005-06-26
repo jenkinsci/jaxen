@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 978 $
- * $Date: 2005-06-26 09:18:13 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 979 $
+ * $Date: 2005-06-26 09:18:57 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Pattern.java 978 2005-06-26 16:18:13Z elharo $
+ * $Id: Pattern.java 979 2005-06-26 16:18:57Z elharo $
  */
 
 package org.jaxen.pattern;
@@ -68,7 +68,7 @@ import org.jaxen.JaxenException;
   * the XSLT processing model.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 978 $
+  * @version $Revision: 979 $
   */
 public abstract class Pattern {
 
@@ -182,6 +182,8 @@ public abstract class Pattern {
     }
     
     /** Returns a textual representation of this pattern
+     * 
+     * @return the usual string form of this XSLT pattern
      */
     public abstract String getText();
 
