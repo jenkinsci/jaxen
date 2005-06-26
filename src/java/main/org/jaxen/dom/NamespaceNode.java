@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 910 $
- * $Date: 2005-06-20 15:33:03 -0700 (Mon, 20 Jun 2005) $
+ * $Revision: 977 $
+ * $Date: 2005-06-26 09:13:33 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceNode.java 910 2005-06-20 22:33:03Z elharo $
+ * $Id: NamespaceNode.java 977 2005-06-26 16:13:33Z elharo $
  */
 
 ////////////////////////////////////////////////////////////////////
@@ -131,7 +131,8 @@ public class NamespaceNode implements Node
      */
     public final static short NAMESPACE_NODE = Pattern.NAMESPACE_NODE;
 
-
+    // FIXME "Note: Numeric codes up to 200 are reserved to W3C for possible future use."
+    // Ww should be using higher codes.
 
     ////////////////////////////////////////////////////////////////////
     // Protected Constructors.
