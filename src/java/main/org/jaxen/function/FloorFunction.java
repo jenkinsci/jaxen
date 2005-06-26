@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 924 $
- * $Date: 2005-06-21 11:12:52 -0700 (Tue, 21 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FloorFunction.java 924 2005-06-21 18:12:52Z elharo $
+ * $Id: FloorFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -92,6 +92,11 @@ import org.jaxen.Navigator;
 public class FloorFunction implements Function
 {
 
+    /**
+     * Create a new <code>FloorFunction</code> object.
+     */
+    public FloorFunction() {}
+    
     /** Returns the largest integer less than or equal to a number.
      *
      * @param context the context at the point in the

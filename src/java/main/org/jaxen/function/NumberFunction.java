@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 972 $
- * $Date: 2005-06-26 08:19:57 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NumberFunction.java 972 2005-06-26 15:19:57Z elharo $
+ * $Id: NumberFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 package org.jaxen.function;
@@ -136,7 +136,7 @@ import org.jaxen.Navigator;
  * @author bob mcwhirter (bob @ werken.com)
  * 
  * @see <a href="http://www.w3.org/TR/xpath#function-number"
- *      target="_top">XPath Specification</a>
+ *      target="_top">Section 4.4 of the XPath Specification</a>
  */
 public class NumberFunction implements Function
 {
@@ -144,6 +144,11 @@ public class NumberFunction implements Function
     private final static Double NaN = new Double( Double.NaN );
     
     
+    /**
+     * Create a new <code>NumberFunction</code> object.
+     */
+    public NumberFunction() {}
+
     /** 
      * Returns the number value of <code>args.get(0)</code>,
      * or the number value of the context node if <code>args</code>

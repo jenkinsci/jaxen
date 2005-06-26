@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 973 $
- * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: TranslateFunction.java 973 2005-06-26 15:26:27Z elharo $
+ * $Id: TranslateFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -114,6 +114,11 @@ public class TranslateFunction implements Function
      /* The translation is done thru a HashMap. Performance tip (for anyone
       * who needs to improve the performance of this particular function):
       * Cache the HashMaps, once they are constructed. */
+    
+    /**
+     * Create a new <code>TranslateFunction</code> object.
+     */
+    public TranslateFunction() {}
     
     
     /** Returns a copy of the first argument in which

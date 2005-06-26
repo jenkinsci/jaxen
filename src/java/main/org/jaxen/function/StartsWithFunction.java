@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 973 $
- * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StartsWithFunction.java 973 2005-06-26 15:26:27Z elharo $
+ * $Id: StartsWithFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -79,11 +79,16 @@ import org.jaxen.Navigator;
  * </blockquote>
  * 
  * @author bob mcwhirter (bob @ werken.com)
- * @see <a href="http://www.w3.org/TR/xpath#function-starts-with" target="_top">XPath Specification</a>
+ * @see <a href="http://www.w3.org/TR/xpath#function-starts-with" target="_top">Section 4.2 of the XPath Specification</a>
  */
 public class StartsWithFunction implements Function
 {
-
+    
+    /**
+     * Create a new <code>StartsWithFunction</code> object.
+     */
+    public StartsWithFunction() {}
+    
     /** 
      * Returns true if the string-value of the first item in <code>args</code>
      * starts with the string-value of the second item in <code>args</code>. 

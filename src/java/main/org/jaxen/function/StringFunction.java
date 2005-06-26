@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 955 $
- * $Date: 2005-06-24 15:41:48 -0700 (Fri, 24 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 955 2005-06-24 22:41:48Z elharo $
+ * $Id: StringFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -208,6 +208,11 @@ public class StringFunction implements Function
         format.setDecimalFormatSymbols(symbols);
     }
 
+    /**
+     * Create a new <code>StringFunction</code> object.
+     */
+    public StringFunction() {}
+    
     /**
      * Returns the string-value of  
      * <code>args.get(0)</code> or of the context node if ,code>args</code> is empty.

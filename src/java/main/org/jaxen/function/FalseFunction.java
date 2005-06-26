@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 973 $
- * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FalseFunction.java 973 2005-06-26 15:26:27Z elharo $
+ * $Id: FalseFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -80,6 +80,11 @@ import org.jaxen.FunctionCallException;
 public class FalseFunction implements Function
 {
 
+    /**
+     * Create a new <code>FalseFunction</code> object.
+     */
+    public FalseFunction() {}
+    
     /** Returns <code>Boolean.FALSE</code>
      *
      * @param context the context at the point in the

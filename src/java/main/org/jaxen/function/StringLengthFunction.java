@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 965 $
- * $Date: 2005-06-25 08:07:05 -0700 (Sat, 25 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringLengthFunction.java 965 2005-06-25 15:07:05Z elharo $
+ * $Id: StringLengthFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -89,6 +89,13 @@ import org.jaxen.Navigator;
 public class StringLengthFunction implements Function
 {
 
+    
+    /**
+     * Create a new <code>StringLengthFunction</code> object.
+     */
+    public StringLengthFunction() {}
+    
+    
     /**
      * <p>
      * Returns the number of Unicode characters in the string-value of the argument.

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 951 $
- * $Date: 2005-06-24 08:03:03 -0700 (Fri, 24 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NameFunction.java 951 2005-06-24 15:03:03Z elharo $
+ * $Id: NameFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -90,6 +90,12 @@ import org.jaxen.Navigator;
  */
 public class NameFunction implements Function
 {
+    
+    
+    /**
+     * Create a new <code>NameFunction</code> object.
+     */
+    public NameFunction() {}
     
     /**
      * Returns the name of the specified node or the name of the context node if 

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 954 $
- * $Date: 2005-06-24 15:22:50 -0700 (Fri, 24 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NotFunction.java 954 2005-06-24 22:22:50Z elharo $
+ * $Id: NotFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 package org.jaxen.function;
@@ -82,6 +82,11 @@ import org.jaxen.Navigator;
 public class NotFunction implements Function
 {
 
+    /**
+     * Create a new <code>NotFunction</code> object.
+     */
+    public NotFunction() {}
+    
     /**
      * Returns <code>Boolean.TRUE</code> if the boolean value of 
      * <code>args.get(0)</code> is false, and <code>Boolean.FALSE</code> otherwise.

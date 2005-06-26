@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 923 $
- * $Date: 2005-06-21 08:50:03 -0700 (Tue, 21 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: TrueFunction.java 923 2005-06-21 15:50:03Z elharo $
+ * $Id: TrueFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -80,10 +80,15 @@ import org.jaxen.FunctionCallException;
 public class TrueFunction implements Function
 {
 
+    /**
+     * Create a new <code>TrueFunction</code> object.
+     */
+    public TrueFunction() {}
+
+    
     /** Returns <code>Boolean.TRUE</code>
      *
-     * @param context the context at the point in the
-     *         expression when the function is called
+     * @param context ignored
      * @param args an empty list
      * 
      * @return <code>Boolean.TRUE</code>

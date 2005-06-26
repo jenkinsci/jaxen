@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 973 $
- * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SubstringBeforeFunction.java 973 2005-06-26 15:26:27Z elharo $
+ * $Id: SubstringBeforeFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -70,7 +70,7 @@ import org.jaxen.FunctionCallException;
 import org.jaxen.Navigator;
 
 /**
- * <p><b>4.2</b> <code><i>string</i> substring-before(<i>string</i>,<i>string</i>)</code> 
+ * <p><b>4.2</b> <code><i>string</i> substring-before(<i>string</i>,<i>string</i>)</code></p>
  * 
  * 
  * <blockquote src="http://www.w3.org/TR/xpath#function-substring-before">
@@ -88,6 +88,13 @@ import org.jaxen.Navigator;
 public class SubstringBeforeFunction implements Function
 {
 
+    
+    /**
+     * Create a new <code>SubstringBeforeFunction</code> object.
+     */
+    public SubstringBeforeFunction() {}
+    
+    
     /** 
      * Returns the part of the string-value of the first item in <code>args</code>
      * that comes before the string-value of the second item in <code>args</code>;

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 973 $
- * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SumFunction.java 973 2005-06-26 15:26:27Z elharo $
+ * $Id: SumFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -73,8 +73,7 @@ import org.jaxen.Navigator;
 /**
  * <p><b>4.4</b> <code><i>number</i> sum(<i>node-set</i>)</code> </p>
  * 
- * 
- * <blockquote src="http://www.w3.org/TR/xpath">
+ * <blockquote src="http://www.w3.org/TR/xpath#function-sum">
  * The sum function returns the sum, for each node in the argument node-set, 
  * of the result of converting the string-values of the node to a number.
  * </blockquote>
@@ -85,6 +84,11 @@ import org.jaxen.Navigator;
 public class SumFunction implements Function
 {
 
+    /**
+     * Create a new <code>SumFunction</code> object.
+     */
+    public SumFunction() {}
+    
     /** Returns the sum of its arguments.
      *
      * @param context the context at the point in the

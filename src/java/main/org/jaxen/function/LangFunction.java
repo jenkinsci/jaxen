@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 973 $
- * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LangFunction.java 973 2005-06-26 15:26:27Z elharo $
+ * $Id: LangFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -116,6 +116,13 @@ public class LangFunction implements Function
     private static final String LANG_LOCALNAME = "lang";
     private static final String XMLNS_URI = 
         "http://www.w3.org/XML/1998/namespace";
+    
+
+    /**
+     * Create a new <code>LangFunction</code> object.
+     */
+    public LangFunction() {}
+    
     
     /**
      * <p>

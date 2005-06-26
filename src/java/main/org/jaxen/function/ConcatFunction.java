@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 929 $
- * $Date: 2005-06-21 11:52:09 -0700 (Tue, 21 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: ConcatFunction.java 929 2005-06-21 18:52:09Z elharo $
+ * $Id: ConcatFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -83,6 +83,11 @@ import org.jaxen.Navigator;
 public class ConcatFunction implements Function
 {
 
+    /**
+     * Create a new <code>ConcatFunction</code> object.
+     */
+    public ConcatFunction() {}
+    
     /** 
      * Concatenates the arguments and returns the resulting string.
      * Non-string items are first converted to strings as if by the 

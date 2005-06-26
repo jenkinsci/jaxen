@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 952 $
- * $Date: 2005-06-24 12:37:35 -0700 (Fri, 24 Jun 2005) $
+ * $Revision: 974 $
+ * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceUriFunction.java 952 2005-06-24 19:37:35Z elharo $
+ * $Id: NamespaceUriFunction.java 974 2005-06-26 16:07:23Z elharo $
  */
 
 
@@ -100,6 +100,11 @@ import org.jaxen.Navigator;
  */
 public class NamespaceUriFunction implements Function
 {
+
+    /**
+     * Create a new <code>NamespaceUriFunction</code> object.
+     */
+    public NamespaceUriFunction() {}
 
     /**
      * Returns the namespace URI of the specified node or the namespace URI of the context node if 
