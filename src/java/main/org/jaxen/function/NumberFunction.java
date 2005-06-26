@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 945 $
- * $Date: 2005-06-23 07:53:20 -0700 (Thu, 23 Jun 2005) $
+ * $Revision: 972 $
+ * $Date: 2005-06-26 08:19:57 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NumberFunction.java 945 2005-06-23 14:53:20Z elharo $
+ * $Id: NumberFunction.java 972 2005-06-26 15:19:57Z elharo $
  */
 
 package org.jaxen.function;
@@ -140,34 +140,52 @@ import org.jaxen.Navigator;
  */
 public class NumberFunction implements Function
 {
+
     private final static Double NaN = new Double( Double.NaN );
     
+    
+    /** 
+     * Returns the number value of <code>args.get(0)</code>,
+     * or the number value of the context node if <code>args</code>
+     * is empty.
+     *
+     * @param context the context at the point in the
+     *         expression when the function is called
+     * @param args a list containing the single item to be converted to a 
+     *     <code>Double</code>
+     * 
+     * @return a <code>Double</code>
+     * 
+     * @throws FunctionCallException if <code>args</code> has more than one item
+     */
     public Object call(Context context, List args) throws FunctionCallException
     {
         if (args.size() == 1)
         {
             return evaluate( args.get(0), context.getNavigator() );
         }
+        else if (args.size() == 0)
+        {
+            return evaluate( context.getNodeSet(), context.getNavigator() );
+        }
     
-        throw new FunctionCallException( "number() requires one argument." );
+        throw new FunctionCallException( "number() takes at most one argument." );
     }
 
+    /** 
+     * Returns the number value of <code>obj</code>.
+     *
+     * @param obj the object to be converted to a number
+     * @param nav the <code>Navigator</code> used to calculate the string-value
+     *     of node-sets
+     * 
+     * @return a <code>Double</code>
+     */
     public static Double evaluate(Object obj, Navigator nav)
     {
         if( obj instanceof Double )
         {
             return (Double) obj;
-        }
-        else if ( obj instanceof Boolean )
-          {
-          if ( obj == Boolean.TRUE )
-          {
-              return new Double( 1 );
-          }
-          else
-          {
-              return new Double( 0 );
-          }
         }
         else if ( obj instanceof String )
         {
@@ -190,7 +208,17 @@ public class NumberFunction implements Function
         {
             return evaluate( StringFunction.evaluate( obj, nav ), nav );
         }
-    
+        else if ( obj instanceof Boolean )
+          {
+          if ( obj == Boolean.TRUE )
+          {
+              return new Double( 1 );
+          }
+          else
+          {
+              return new Double( 0 );
+          }
+        }    
         return NaN;
     }
   
