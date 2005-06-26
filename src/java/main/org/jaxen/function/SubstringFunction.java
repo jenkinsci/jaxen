@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 940 $
- * $Date: 2005-06-22 14:30:38 -0700 (Wed, 22 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -129,7 +129,7 @@ import org.jaxen.Navigator;
  * </li>
  * 
  * <li>
- * <p>
+ * <p>.
  * <code>substring("12345", 1, 0 div 0)</code> returns
  * 
  * <code>""</code>

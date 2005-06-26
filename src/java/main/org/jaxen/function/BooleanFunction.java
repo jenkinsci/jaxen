@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 922 $
- * $Date: 2005-06-21 08:25:16 -0700 (Tue, 21 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BooleanFunction.java 922 2005-06-21 15:25:16Z elharo $
+ * $Id: BooleanFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 
@@ -111,6 +111,7 @@ import org.jaxen.Navigator;
  * </blockquote>
  * 
  * @author bob mcwhirter (bob @ werken.com)
+ * @see <a href="http://www.w3.org/TR/xpath#function-boolean">Section 4.3 of the XPath Specification</a>
  */
 public class BooleanFunction implements Function
 {
@@ -150,7 +151,7 @@ public class BooleanFunction implements Function
      * <li>All other objects are true.</li>
      * </ul>
      * 
-     * @param obj the object to convert to a boolean.
+     * @param obj the object to convert to a boolean
      * @param nav ignored
      * 
      * @return <code>Boolean.TRUE</code> or <code>Boolean.FALSE</code>

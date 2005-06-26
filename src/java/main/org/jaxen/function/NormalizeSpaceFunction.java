@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 963 $
- * $Date: 2005-06-25 05:39:28 -0700 (Sat, 25 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NormalizeSpaceFunction.java 963 2005-06-25 12:39:28Z elharo $
+ * $Id: NormalizeSpaceFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 
@@ -72,7 +72,7 @@ import org.jaxen.Navigator;
 /**
  * <p>
  * <b>4.2</b> <code><i>string</i> normalize-space(<i>string</i>)</code>
- * 
+ * </p>
  * 
  * <blockquote src="http://www.w3.org/TR/xpath#function-normalize-space"> 
  * The <b>normalize-space</b> function

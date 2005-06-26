@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 923 $
- * $Date: 2005-06-21 08:50:03 -0700 (Tue, 21 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FalseFunction.java 923 2005-06-21 15:50:03Z elharo $
+ * $Id: FalseFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 
@@ -75,7 +75,7 @@ import org.jaxen.FunctionCallException;
  * 
  * @author bob mcwhirter (bob @ werken.com)
  * 
- * @see <a href="http://www.w3.org/TR/xpath#function-false">XPath Specification</a>
+ * @see <a href="http://www.w3.org/TR/xpath#function-false">Section 4.3 of the XPath Specification</a>
  */
 public class FalseFunction implements Function
 {
@@ -104,7 +104,7 @@ public class FalseFunction implements Function
     /**
      * Returns false.
      * 
-     * @return Boolean.FALSE
+     * @return <code>Boolean.FALSE</code>
      */
     public static Boolean evaluate()
     {

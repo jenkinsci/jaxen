@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 950 $
- * $Date: 2005-06-23 10:27:23 -0700 (Thu, 23 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LocalNameFunction.java 950 2005-06-23 17:27:23Z elharo $
+ * $Id: LocalNameFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 
@@ -81,8 +81,8 @@ import org.jaxen.Navigator;
  *
  * </blockquote>
  * 
- *  @author bob mcwhirter (bob @ werken.com)
- * @see <a href="http://www.w3.org/TR/xpath#function-local-name" target="_top">XPath Specification</a>
+ * @author bob mcwhirter (bob @ werken.com)
+ * @see <a href="http://www.w3.org/TR/xpath#function-local-name" target="_top">Section 4.1 of the XPath Specification</a>
  */
 public class LocalNameFunction implements Function
 {
@@ -121,7 +121,7 @@ public class LocalNameFunction implements Function
      * Returns the local-name of <code>list.get(0)</code>
      * 
      * @param list a list of nodes
-     * @param nav the <code>Navigator</code> used to retirve the local name
+     * @param nav the <code>Navigator</code> used to retrieve the local name
      * 
      * @return the local-name of <code>list.get(0)</code>
      * 

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 964 $
- * $Date: 2005-06-25 07:58:41 -0700 (Sat, 25 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: IdFunction.java 964 2005-06-25 14:58:41Z elharo $
+ * $Id: IdFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 package org.jaxen.function;
@@ -115,7 +115,7 @@ public class IdFunction implements Function
 
     /** 
      * Returns the node with the specified ID.
-     * @param contextNodes the context-node-set. The first item in this list
+     * @param contextNodes the context node-set. The first item in this list
      *     determines the document in which the search is performed.
      * @param arg the ID or IDs to search for
      * @param nav the navigator used to calculate string-values and search

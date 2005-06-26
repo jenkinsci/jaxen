@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 970 $
- * $Date: 2005-06-26 06:02:18 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: TranslateFunction.java 970 2005-06-26 13:02:18Z elharo $
+ * $Id: TranslateFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 
@@ -118,15 +118,15 @@ public class TranslateFunction implements Function
     
     /** Returns a copy of the first argument in which
      * characters found in the second argument are replaced by
-     * correpsonding characters from the third argument.
+     * corresponding characters from the third argument.
      *
      * @param context the context at the point in the
      *         expression when the function is called
      * @param args a list that contains exactly three items
      * 
      * @return a <code>String</code> built from <code>args.get(0)</code> 
-     *     in which occurrences of characters in<code>args.get(1)</code> 
-     *     are replaced by the correpsonding characters in <code>args.get(2)</code> 
+     *     in which occurrences of characters in <code>args.get(1)</code> 
+     *     are replaced by the corresponding characters in <code>args.get(2)</code> 
      * 
      * @throws FunctionCallException if <code>args</code> does not have exactly three items
      */

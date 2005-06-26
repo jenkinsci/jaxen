@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 941 $
- * $Date: 2005-06-22 14:53:03 -0700 (Wed, 22 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SubstringAfterFunction.java 941 2005-06-22 21:53:03Z elharo $
+ * $Id: SubstringAfterFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 
@@ -126,8 +126,9 @@ public class SubstringAfterFunction implements Function
      * @param nav the <code>Navigator</code> used to calculate the string-values of
      *     the first two arguments
      * 
-     * @return a <code>String</code> the part of <code>strArg</code> that precedes the first occurence 
-     * of <code>matchArg</code>
+     * @return a <code>String</code> containing
+     *     the part of <code>strArg</code> that precedes the first occurence 
+     *     of <code>matchArg</code>
      * 
      */
     public static String evaluate(Object strArg,

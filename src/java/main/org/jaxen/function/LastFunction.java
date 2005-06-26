@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 948 $
- * $Date: 2005-06-23 09:41:04 -0700 (Thu, 23 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LastFunction.java 948 2005-06-23 16:41:04Z elharo $
+ * $Id: LastFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 package org.jaxen.function;
@@ -70,8 +70,8 @@ import org.jaxen.FunctionCallException;
 /**
  * <p><b>4.1</b> <code><i>number</i> last()</code> </p>
  * 
- * <blockquote src="http://www.w3.org/TR/xpath">
- * The last function returns a number equal to 
+ * <blockquote src="http://www.w3.org/TR/xpath#function-last">
+ * The <b>last</b> function returns a number equal to 
  * the context size from the expression evaluation context.
  * </blockquote>
  * 

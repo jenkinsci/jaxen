@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 924 $
- * $Date: 2005-06-21 11:12:52 -0700 (Tue, 21 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: CeilingFunction.java 924 2005-06-21 18:12:52Z elharo $
+ * $Id: CeilingFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 
@@ -88,7 +88,7 @@ import org.jaxen.Navigator;
  * 
  *  @author bob mcwhirter (bob @ werken.com)
  *  
- *  @see <a href="http://www.w3.org/TR/xpath#function-ceiling">XPath Specification</a>
+ *  @see <a href="http://www.w3.org/TR/xpath#function-ceiling">Section 4.4 of the XPath Specification</a>
  *  @see <a href="http://www.w3.org/1999/11/REC-xpath-19991116-errata/">XPath Specification Errata</a>
  *  
  */
@@ -126,8 +126,8 @@ public class CeilingFunction implements Function
      * @param obj the object whose ceiling is returned
      * @param nav ignored
      * 
-     * @return a <code>Double</code> containing the smallest integer greater than or equal
-     *     <code>obj</code>
+     * @return a <code>Double</code> containing the smallest integer 
+     *     greater than or equal to <code>obj</code>
      */
     public static Double evaluate(Object obj,
                                   Navigator nav)

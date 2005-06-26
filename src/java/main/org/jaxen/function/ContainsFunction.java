@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 934 $
- * $Date: 2005-06-22 06:49:05 -0700 (Wed, 22 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: ContainsFunction.java 934 2005-06-22 13:49:05Z elharo $
+ * $Id: ContainsFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 package org.jaxen.function;
@@ -78,7 +78,7 @@ import org.jaxen.Navigator;
  * 
  * @author bob mcwhirter (bob @ werken.com)
  * 
- * @see <a href="http://www.w3.org/TR/xpath#function-contains">XPath Specification</a>
+ * @see <a href="http://www.w3.org/TR/xpath#function-contains">Section 4.2 of the XPath Specification</a>
  */
 public class ContainsFunction implements Function
 {
@@ -86,7 +86,7 @@ public class ContainsFunction implements Function
     /** 
      * <p>
      *  Returns true if the string-value of the 
-     *  first item in <code>args<code> contains string-value of the second 
+     *  first item in <code>args</code> contains string-value of the second 
      *  item; false otherwise.
      *  If necessary one or both items are converted to a string as if by the XPath
      *  <code>string()</code> function.
@@ -122,7 +122,7 @@ public class ContainsFunction implements Function
      * 
      * @param strArg the containing string
      * @param matchArg the contained string
-     * @param nav ignored
+     * @param nav used to calculate the string-values of the first two arguments
      * 
      * @return <code>Boolean.TRUE</code> if true if the first string contains 
      *     the second string; <code>Boolean.FALSE</code> otherwise.

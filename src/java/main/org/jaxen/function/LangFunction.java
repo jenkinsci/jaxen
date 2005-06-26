@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 947 $
- * $Date: 2005-06-23 09:03:17 -0700 (Thu, 23 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LangFunction.java 947 2005-06-23 16:03:17Z elharo $
+ * $Id: LangFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 
@@ -99,7 +99,7 @@ import org.jaxen.UnsupportedAxisException;
  * </p>
  * 
  * <pre>
- * &lt;para xml:lang=&quot;en&quot;/&gt;
+ *  &lt;para xml:lang=&quot;en&quot;/&gt;
  *  &lt;div xml:lang=&quot;en&quot;&gt;&lt;para/&gt;&lt;/div&gt;
  *  &lt;para xml:lang=&quot;EN&quot;/&gt;
  *  &lt;para xml:lang=&quot;en-us&quot;/&gt;

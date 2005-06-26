@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 949 $
- * $Date: 2005-06-23 09:49:50 -0700 (Thu, 23 Jun 2005) $
+ * $Revision: 973 $
+ * $Date: 2005-06-26 08:26:27 -0700 (Sun, 26 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PositionFunction.java 949 2005-06-23 16:49:50Z elharo $
+ * $Id: PositionFunction.java 973 2005-06-26 15:26:27Z elharo $
  */
 
 
@@ -94,7 +94,8 @@ public class PositionFunction implements Function
      * @throws FunctionCallException if <code>args</code> is not empty
      * 
      * @see Context#getSize()
-     */    public Object call(Context context, List args) throws FunctionCallException 
+     */
+    public Object call(Context context, List args) throws FunctionCallException 
     {
         if ( args.size() == 0 )
         {
