@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 974 $
- * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 980 $
+ * $Date: 2005-06-28 05:54:25 -0700 (Tue, 28 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FloorFunction.java 974 2005-06-26 16:07:23Z elharo $
+ * $Id: FloorFunction.java 980 2005-06-28 12:54:25Z elharo $
  */
 
 
@@ -70,7 +70,7 @@ import org.jaxen.FunctionCallException;
 import org.jaxen.Navigator;
 
 /**
- * <p><b>4.4</b> <code><i>number</i> floor(<i>number</i>)</code> 
+ * <p><b>4.4</b> <code><i>number</i> floor(<i>number</i>)</code></p> 
  * 
  * 
  * <blockquote src="http://www.w3.org/TR/xpath">

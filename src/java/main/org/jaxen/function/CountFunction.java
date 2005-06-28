@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 974 $
- * $Date: 2005-06-26 09:07:23 -0700 (Sun, 26 Jun 2005) $
+ * $Revision: 980 $
+ * $Date: 2005-06-28 05:54:25 -0700 (Tue, 28 Jun 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: CountFunction.java 974 2005-06-26 16:07:23Z elharo $
+ * $Id: CountFunction.java 980 2005-06-28 12:54:25Z elharo $
  */
 
 package org.jaxen.function;
@@ -68,7 +68,7 @@ import org.jaxen.Function;
 import org.jaxen.FunctionCallException;
 
 /**
- *  <p><b>4.1</b> <code><i>number</i> count(<i>node-set</i>)</code> 
+ *  <p><b>4.1</b> <code><i>number</i> count(<i>node-set</i>)</code></p> 
  *  
  * <blockquote src="http://www.w3.org/TR/xpath#function-count">
  * The <b>count</b> function returns the number of nodes in the argument node-set.
