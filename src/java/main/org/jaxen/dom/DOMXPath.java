@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 747 $
- * $Date: 2005-05-10 04:50:17 -0700 (Tue, 10 May 2005) $
+ * $Revision: 983 $
+ * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
  *
  * ====================================================================
  *
@@ -32,7 +32,7 @@
  * end-user documentation provided with the redistribution and/or in the 
  * software itself an acknowledgement equivalent to the following:
  *     "This product includes software developed by the
- *      Jaxen Project (http://www.jaxen.org/)."
+ *      Jaxen Project <http://www.jaxen.org/>."
  * Alternatively, the acknowledgment may be graphical using the logos 
  * available at http://www.jaxen.org/
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DOMXPath.java 747 2005-05-10 11:50:17Z elharo $
+ * $Id: DOMXPath.java 983 2005-06-28 13:44:46Z elharo $
  */
 
 // XPath.java - top-level entry point for DOM XPath matching.
@@ -81,7 +81,7 @@ import org.jaxen.JaxenException;
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
  * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  *
- * @version $Revision: 747 $
+ * @version $Revision: 983 $
  */
 public class DOMXPath extends BaseXPath
 {

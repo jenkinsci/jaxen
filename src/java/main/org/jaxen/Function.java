@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 676 $
- * $Date: 2005-04-28 19:30:17 -0700 (Thu, 28 Apr 2005) $
+ * $Revision: 983 $
+ * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
  *
  * ====================================================================
  *
@@ -32,7 +32,7 @@
  * end-user documentation provided with the redistribution and/or in the 
  * software itself an acknowledgement equivalent to the following:
  *     "This product includes software developed by the
- *      Jaxen Project (http://www.jaxen.org/)."
+ *      Jaxen Project <http://www.jaxen.org/>."
  * Alternatively, the acknowledgment may be graphical using the logos 
  * available at http://www.jaxen.org/
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Function.java 676 2005-04-29 02:30:17Z elharo $
+ * $Id: Function.java 983 2005-06-28 13:44:46Z elharo $
  */
 
 

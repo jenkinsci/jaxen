@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 359 $
- * $Date: 2004-04-18 21:46:18 -0700 (Sun, 18 Apr 2004) $
+ * $Revision: 983 $
+ * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
  *
  * ====================================================================
  *
@@ -32,7 +32,7 @@
  * end-user documentation provided with the redistribution and/or in the 
  * software itself an acknowledgement equivalent to the following:
  *     "This product includes software developed by the
- *      Jaxen Project (http://www.jaxen.org/)."
+ *      Jaxen Project <http://www.jaxen.org/>."
  * Alternatively, the acknowledgment may be graphical using the logos 
  * available at http://www.jaxen.org/
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NameStep.java 359 2004-04-19 04:46:18Z bob $
+ * $Id: NameStep.java 983 2005-06-28 13:44:46Z elharo $
  */
 package org.jaxen.expr;
 

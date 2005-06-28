@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 296 $
- * $Date: 2002-11-18 00:50:27 -0800 (Mon, 18 Nov 2002) $
+ * $Revision: 983 $
+ * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
  *
  * ====================================================================
  *
@@ -32,7 +32,7 @@
  * end-user documentation provided with the redistribution and/or in the 
  * software itself an acknowledgement equivalent to the following:
  *     "This product includes software developed by the
- *      Jaxen Project (http://www.jaxen.org/)."
+ *      Jaxen Project <http://www.jaxen.org/>."
  * Alternatively, the acknowledgment may be graphical using the logos 
  * available at http://www.jaxen.org/
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SingletonList.java 296 2002-11-18 08:50:27Z szegedia $
+ * $Id: SingletonList.java 983 2005-06-28 13:44:46Z elharo $
  */
 
 
@@ -68,7 +68,7 @@ import java.util.AbstractList;
 /**
  * A utility class that implements singleton lists
  * (to avoid dependency on JDK 1.3).
- * @version $Id: SingletonList.java 296 2002-11-18 08:50:27Z szegedia $
+ * @version $Id: SingletonList.java 983 2005-06-28 13:44:46Z elharo $
  * @author Attila Szegedi
  */
 public class SingletonList extends AbstractList {

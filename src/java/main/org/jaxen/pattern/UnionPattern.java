@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 270 $
- * $Date: 2002-05-20 01:34:12 -0700 (Mon, 20 May 2002) $
+ * $Revision: 983 $
+ * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
  *
  * ====================================================================
  *
@@ -32,7 +32,7 @@
  * end-user documentation provided with the redistribution and/or in the 
  * software itself an acknowledgement equivalent to the following:
  *     "This product includes software developed by the
- *      Jaxen Project (http://www.jaxen.org/)."
+ *      Jaxen Project <http://www.jaxen.org/>."
  * Alternatively, the acknowledgment may be graphical using the logos 
  * available at http://www.jaxen.org/
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: UnionPattern.java 270 2002-05-20 08:34:12Z jstrachan $
+ * $Id: UnionPattern.java 983 2005-06-28 13:44:46Z elharo $
  */
 
 package org.jaxen.pattern;
@@ -67,7 +67,7 @@ import org.jaxen.JaxenException;
 /** <p><code>UnionPattern</code> represents a union pattern.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 270 $
+  * @version $Revision: 983 $
   */
 public class UnionPattern extends Pattern {
 

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 696 $
- * $Date: 2005-05-01 06:10:06 -0700 (Sun, 01 May 2005) $
+ * $Revision: 983 $
+ * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
  *
  * ====================================================================
  *
@@ -32,7 +32,7 @@
  * end-user documentation provided with the redistribution and/or in the 
  * software itself an acknowledgement equivalent to the following:
  *     "This product includes software developed by the
- *      Jaxen Project (http://www.jaxen.org/)."
+ *      Jaxen Project <http://www.jaxen.org/>."
  * Alternatively, the acknowledgment may be graphical using the logos 
  * available at http://www.jaxen.org/
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Expr.java 696 2005-05-01 13:10:06Z elharo $
+ * $Id: Expr.java 983 2005-06-28 13:44:46Z elharo $
  */
 
 

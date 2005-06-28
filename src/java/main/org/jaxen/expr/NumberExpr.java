@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 335 $
- * $Date: 2003-09-04 21:08:48 -0700 (Thu, 04 Sep 2003) $
+ * $Revision: 983 $
+ * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
  *
  * ====================================================================
  *
@@ -32,7 +32,7 @@
  * end-user documentation provided with the redistribution and/or in the
  * software itself an acknowledgement equivalent to the following:
  *     "This product includes software developed by the
- *      Jaxen Project (http://www.jaxen.org/)."
+ *      Jaxen Project <http://www.jaxen.org/>."
  * Alternatively, the acknowledgment may be graphical using the logos
  * available at http://www.jaxen.org/
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: NumberExpr.java 335 2003-09-05 04:08:48Z proyal $
+ * $Id: NumberExpr.java 983 2005-06-28 13:44:46Z elharo $
  */
 package org.jaxen.expr;
 

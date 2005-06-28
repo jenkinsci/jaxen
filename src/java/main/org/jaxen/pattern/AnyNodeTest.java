@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 552 $
- * $Date: 2005-04-06 02:07:07 -0700 (Wed, 06 Apr 2005) $
+ * $Revision: 983 $
+ * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
  *
  * ====================================================================
  *
@@ -32,7 +32,7 @@
  * end-user documentation provided with the redistribution and/or in the 
  * software itself an acknowledgement equivalent to the following:
  *     "This product includes software developed by the
- *      Jaxen Project (http://www.jaxen.org/)."
+ *      Jaxen Project <http://www.jaxen.org/>."
  * Alternatively, the acknowledgment may be graphical using the logos 
  * available at http://www.jaxen.org/
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: AnyNodeTest.java 552 2005-04-06 09:07:07Z elharo $
+ * $Id: AnyNodeTest.java 983 2005-06-28 13:44:46Z elharo $
  */
 
 package org.jaxen.pattern;
@@ -66,7 +66,7 @@ import org.jaxen.Context;
 /** <p><code>AnyNodeTest</code> matches any node.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 552 $
+  * @version $Revision: 983 $
   */
 public class AnyNodeTest extends NodeTest {
 
