@@ -2,8 +2,8 @@ package org.jaxen.util;
 
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 996 $
+ * $Date: 2005-07-24 04:51:14 -0700 (Sun, 24 Jul 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.util;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: PrecedingAxisIterator.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: PrecedingAxisIterator.java 996 2005-07-24 11:51:14Z elharo $
 */
 
 import org.jaxen.JaxenConstants;
@@ -70,7 +70,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
-import java.util.Stack;
 
 /**
  * This implementation of 'preceding' works like so:
@@ -94,7 +93,7 @@ public class PrecedingAxisIterator implements Iterator
     private Iterator ancestorOrSelf;
     private Iterator precedingSibling;
     private ListIterator childrenOrSelf;
-    private Stack stack;
+    private ArrayList stack;
 
     private Navigator navigator;
 
@@ -105,7 +104,7 @@ public class PrecedingAxisIterator implements Iterator
         this.ancestorOrSelf = navigator.getAncestorOrSelfAxisIterator(contextNode);
         this.precedingSibling = JaxenConstants.EMPTY_ITERATOR;
         this.childrenOrSelf = JaxenConstants.EMPTY_LIST_ITERATOR;
-        this.stack = new Stack();
+        this.stack = new ArrayList();
     }
 
 
@@ -131,7 +130,7 @@ public class PrecedingAxisIterator implements Iterator
                 }
                 else
                 {
-                    childrenOrSelf = (ListIterator) stack.pop();
+                    childrenOrSelf = (ListIterator) stack.remove(stack.size()-1);
                 }
             }
             return true;
@@ -176,7 +175,7 @@ public class PrecedingAxisIterator implements Iterator
             if (childrenOrSelf.hasPrevious())
             {
                 // if this isn't 'self' construct 'descendant-or-self'
-                stack.push(childrenOrSelf);
+                stack.add(childrenOrSelf);
                 childrenOrSelf = childrenOrSelf(result);
                 continue;
             }

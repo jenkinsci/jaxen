@@ -2,8 +2,8 @@ package org.jaxen.util;
 
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 996 $
+ * $Date: 2005-07-24 04:51:14 -0700 (Sun, 24 Jul 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.util;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DescendantAxisIterator.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: DescendantAxisIterator.java 996 2005-07-24 11:51:14Z elharo $
 */
 
 import org.jaxen.Navigator;
@@ -67,12 +67,12 @@ import org.jaxen.JaxenRuntimeException;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Stack;
+import java.util.ArrayList;
 
 public class DescendantAxisIterator implements Iterator
 {
 
-    private Stack stack = new Stack();
+    private ArrayList stack = new ArrayList();
     private Iterator children;
     private Navigator navigator;
 
@@ -97,7 +97,7 @@ public class DescendantAxisIterator implements Iterator
             {
                 return false;
             }
-            children = (Iterator) stack.pop();
+            children = (Iterator) stack.remove(stack.size()-1);
         }
         return true;
     }
@@ -109,7 +109,7 @@ public class DescendantAxisIterator implements Iterator
             if (hasNext())
             {
                 Object node = children.next();
-                stack.push(children);
+                stack.add(children);
                 children = navigator.getChildAxisIterator(node);
                 return node;
             }
