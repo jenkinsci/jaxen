@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 317 $
- * $Date: 2003-06-29 10:55:51 -0700 (Sun, 29 Jun 2003) $
+ * $Revision: 1001 $
+ * $Date: 2005-07-30 12:05:49 -0700 (Sat, 30 Jul 2005) $
  *
  * ====================================================================
  *
@@ -56,18 +56,22 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DocumentNavigatorTest.java 317 2003-06-29 17:55:51Z ssanders $
+ * $Id: DocumentNavigatorTest.java 1001 2005-07-30 19:05:49Z elharo $
  */
 
 
 package org.jaxen.dom4j;
+
+import java.util.Iterator;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
 import org.dom4j.io.SAXReader;
+import org.jaxen.FunctionCallException;
 import org.jaxen.Navigator;
+import org.jaxen.UnsupportedAxisException;
 import org.jaxen.XPathTestBase;
 
 public class DocumentNavigatorTest extends XPathTestBase
@@ -77,9 +81,7 @@ public class DocumentNavigatorTest extends XPathTestBase
     public DocumentNavigatorTest(String name)
     {
         super( name );
-
         this.reader = new SAXReader();
-
         this.reader.setMergeAdjacentText( true );
     }
 
@@ -107,4 +109,24 @@ public class DocumentNavigatorTest extends XPathTestBase
     {
         return reader.read( url );
     }
+    
+    /**
+     * reported as JAXEN-104.
+     * @throws FunctionCallException
+     * @throws UnsupportedAxisException
+     */
+    public void testConcurrentModification() throws FunctionCallException, UnsupportedAxisException
+    {
+        Navigator nav = new DocumentNavigator();
+        Object document = nav.getDocument("xml/testNamespaces.xml");
+        Iterator descendantOrSelfAxisIterator = nav.getDescendantOrSelfAxisIterator(document);
+        while (descendantOrSelfAxisIterator.hasNext()) {
+            Object node = descendantOrSelfAxisIterator.next();
+            Iterator namespaceAxisIterator = nav.getNamespaceAxisIterator(node);
+            while (namespaceAxisIterator.hasNext()) {
+                namespaceAxisIterator.next();
+            }
+        }
+    }
+    
 }
