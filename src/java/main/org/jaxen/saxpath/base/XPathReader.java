@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1005 $
+ * $Date: 2005-08-09 05:01:49 -0700 (Tue, 09 Aug 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: XPathReader.java 1005 2005-08-09 12:01:49Z elharo $
  */
 
 
@@ -116,7 +116,8 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
 
         if ( LA(1) != TokenTypes.EOF )
         {
-            throwUnexpected();
+            XPathSyntaxException ex = createSyntaxException( "Unexpected '" + LT(1).getTokenText() + "'" );
+            throw ex;
         }
 
         lexer  = null;
@@ -143,7 +144,7 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
 
                 if ( LA(1) == TokenTypes.SLASH || LA(1) == TokenTypes.DOUBLE_SLASH )
                 {
-                    XPathSyntaxException ex = this.createSyntaxException("Node-set expected");
+                    XPathSyntaxException ex = createSyntaxException("Node-set expected");
                     throw ex;
                 }
 
@@ -200,7 +201,8 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
             }
             default:
             {
-                throwUnexpected();
+                XPathSyntaxException ex = createSyntaxException( "Unexpected '" + LT(1).getTokenText() + "'" );
+                throw ex;
             }
         }
 
@@ -378,8 +380,8 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
             }
             default:
             {
-                throwUnexpected();
-                break;
+                XPathSyntaxException ex = createSyntaxException( "Unexpected '" + LT(1).getTokenText() + "'" );
+                throw ex;
             }
         }
     }
@@ -484,7 +486,8 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
             }
             default:
             {
-                throw createSyntaxException( "Expected one of '.', '..', '@', '*', <QName>" );
+                XPathSyntaxException ex = createSyntaxException( "Expected one of '.', '..', '@', '*', <QName>" );
+                throw ex;
             }
         }
 
@@ -529,7 +532,8 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
                 }
                 default:
                 {
-                    throw createSyntaxException( "Expected one of '.', '..', '@', '*', <QName>" );
+                    XPathSyntaxException ex = createSyntaxException( "Expected one of '.', '..', '@', '*', <QName>" );
+                    throw ex;
                 }
             }
 
@@ -635,7 +639,8 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
                 break;
             }
             default:
-                throw createSyntaxException("Expected <QName> or *");
+                XPathSyntaxException ex = createSyntaxException("Expected <QName> or *");
+                throw ex;
         }
     }
 
@@ -696,7 +701,8 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
         }
         else
         {
-            throw createSyntaxException( "Expected node-type" );
+            XPathSyntaxException ex = createSyntaxException( "Expected node-type" );
+            throw ex;
         }
     }
 
@@ -1065,7 +1071,9 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
             return token;
         }
 
-        throw createSyntaxException( "Expected: " + TokenTypes.getTokenText( tokenType ) );
+        
+        XPathSyntaxException ex = createSyntaxException( "Expected: " + TokenTypes.getTokenText( tokenType ) );
+        throw ex;
     }
 
     private int LA(int position)
@@ -1124,10 +1132,5 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
         throw new XPathSyntaxException( xpath,
                                         position,
                                         message );
-    }
-
-    private void throwUnexpected() throws SAXPathException
-    {
-        throw createSyntaxException( "Unexpected '" + LT(1).getTokenText() + "'" );
     }
 }
