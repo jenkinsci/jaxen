@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1004 $
- * $Date: 2005-08-09 04:34:40 -0700 (Tue, 09 Aug 2005) $
+ * $Revision: 1009 $
+ * $Date: 2005-08-09 08:28:53 -0700 (Tue, 09 Aug 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathTestBase.java 1004 2005-08-09 11:34:40Z elharo $
+ * $Id: XPathTestBase.java 1009 2005-08-09 15:28:53Z elharo $
  */
 
 
@@ -208,6 +208,7 @@ public abstract class XPathTestBase extends TestCase
 
     protected abstract Navigator getNavigator();
 
+    // be more specific; throws Exception????
     protected abstract Object getDocument(String url) throws Exception;
 
     public void testGetNodeType() throws FunctionCallException, UnsupportedAxisException
