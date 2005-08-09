@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 914 $
- * $Date: 2005-06-21 05:54:02 -0700 (Tue, 21 Jun 2005) $
+ * $Revision: 1006 $
+ * $Date: 2005-08-09 05:14:29 -0700 (Tue, 09 Aug 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 914 2005-06-21 12:54:02Z elharo $
+ * $Id: XPathReaderTest.java 1006 2005-08-09 12:14:29Z elharo $
  */
 
 
@@ -444,4 +444,27 @@ public class XPathReaderTest extends TestCase
 
     }
 
+    public void testNoSpaceAfterDiv() throws JaxenException 
+    {
+        XPath xpath = new DOMXPath( "105 div10" );
+        Double result = (Double) xpath.evaluate(doc);
+        assertEquals(10.5, result.doubleValue(), 0.000001);
+    }
+
+
+    public void testNoSpaceAfterMod() throws JaxenException 
+    {
+        XPath xpath = new DOMXPath( "105 mod10" );
+        Double result = (Double) xpath.evaluate(doc);
+        assertEquals(5, result.intValue());
+    }
+
+
+    public void testNoSpaceAfterPlus() throws JaxenException 
+    {
+        XPath xpath = new DOMXPath( "105 +10" );
+        Double result = (Double) xpath.evaluate(doc);
+        assertEquals(115, result.intValue());
+    }
+    
 }
