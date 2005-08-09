@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1008 $
+ * $Date: 2005-08-09 08:16:40 -0700 (Tue, 09 Aug 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexer.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: XPathLexer.java 1008 2005-08-09 15:16:40Z elharo $
  */
 
 
@@ -432,9 +432,8 @@ class XPathLexer
              &&
              ( LA(2) == 'o' )
              &&
-             ( LA(3) == 'd' ) 
-             &&
-             ( ! isIdentifierChar( LA(4) ) ) )
+             ( LA(3) == 'd' )
+           )
         {
             token = new Token( TokenTypes.MOD,
                                getXPath(),
@@ -457,9 +456,8 @@ class XPathLexer
              &&
              ( LA(2) == 'i' )
              &&
-             ( LA(3) == 'v' ) 
-             &&
-             ( ! isIdentifierChar( LA(4) ) ) )
+             ( LA(3) == 'v' )
+            )
         {
             token = new Token( TokenTypes.DIV,
                                getXPath(),
@@ -483,8 +481,7 @@ class XPathLexer
              ( LA(2) == 'n' )
              &&
              ( LA(3) == 'd' )
-             &&
-             ( ! isIdentifierChar( LA(4) ) ) )
+           )
         {
             token = new Token( TokenTypes.AND,
                                getXPath(),
@@ -505,9 +502,8 @@ class XPathLexer
     
         if ( ( LA(1) == 'o' )
              &&
-             ( LA(2) == 'r' ) 
-             &&
-             ( ! isIdentifierChar( LA(3) ) ) )
+             ( LA(2) == 'r' )
+           )
         {
             token = new Token( TokenTypes.OR,
                                getXPath(),
