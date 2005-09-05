@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1011 $
+ * $Date: 2005-09-05 06:23:32 -0700 (Mon, 05 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FunctionCallException.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: FunctionCallException.java 1011 2005-09-05 13:23:32Z elharo $
  */
 
 
@@ -111,7 +111,7 @@ public class FunctionCallException extends JaxenException
      * 
      * @return the exception that caused this fucntion call to fail
      * 
-     * @deprecated
+     * @deprecated replaced by {@link #getCause()}
      */
     public Throwable getNestedException() {
         return getCause();
