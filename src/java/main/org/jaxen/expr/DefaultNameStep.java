@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 793 2005-06-01 11:18:27Z elharo $
+ $Id: DefaultNameStep.java 1012 2005-09-06 13:41:01Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -69,6 +69,8 @@ import org.jaxen.saxpath.Axis;
  *
  * @author bob mcwhirter (bob@werken.com)
  * @author Stephen Colebourne
+ * @deprecated this class will become non-public in the future;
+ *     use the interface instead
  */
 public class DefaultNameStep extends DefaultStep implements NameStep {
     

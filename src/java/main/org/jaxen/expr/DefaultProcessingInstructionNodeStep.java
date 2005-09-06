@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1012 $
+ * $Date: 2005-09-06 06:41:01 -0700 (Tue, 06 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultProcessingInstructionNodeStep.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: DefaultProcessingInstructionNodeStep.java 1012 2005-09-06 13:41:01Z elharo $
  */
 
 
@@ -67,6 +67,10 @@ import org.jaxen.ContextSupport;
 import org.jaxen.Navigator;
 import org.jaxen.expr.iter.IterableAxis;
 
+/**
+ * @deprecated this class will become non-public in the future;
+ *     use the interface instead
+ */
 public class DefaultProcessingInstructionNodeStep extends DefaultStep
     implements ProcessingInstructionNodeStep
 {
