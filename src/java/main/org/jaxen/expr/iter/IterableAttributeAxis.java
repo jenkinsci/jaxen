@@ -1,5 +1,5 @@
 /*
- $Id: IterableAttributeAxis.java 423 2005-01-30 03:19:37Z elharo $
+ $Id: IterableAttributeAxis.java 1013 2005-09-11 12:10:58Z elharo $
 
  Copyright 2003 (C) The Werken Company. All Rights Reserved.
  
@@ -52,7 +52,10 @@ import org.jaxen.NamedAccessNavigator;
 import org.jaxen.UnsupportedAxisException;
 
 /**
- * Provide access to the attribute xpath axis.
+ * Provide access to the XPath attribute axis.
+ * This axis does not include namespace declarations such as 
+ * <code>xmlns</code> and <code>xmlns:<i>prefix</i></code>.
+ * It does include attributes defaulted from the DTD.
  * 
  * @author Bob McWhirter
  * @author James Strachan
@@ -63,14 +66,14 @@ public class IterableAttributeAxis extends IterableAxis {
     /**
      * Constructor.
      * 
-     * @param value  the axis value
+     * @param value the axis value
      */
     public IterableAttributeAxis(int value) {
         super(value);
     }
 
     /**
-     * Gets the iterator for the child xpath axis.
+     * Gets an iterator for the attribute axis.
      * 
      * @param contextNode  the current context node to work from
      * @param support  the additional context information
@@ -80,7 +83,7 @@ public class IterableAttributeAxis extends IterableAxis {
     }
 
     /**
-     * Gets the iterator for the attribute xpath axis that supports named access.
+     * Gets the iterator for the attribute axis that supports named access.
      * 
      * @param contextNode  the current context node to work from
      * @param support  the additional context information
@@ -104,7 +107,7 @@ public class IterableAttributeAxis extends IterableAxis {
      * Does this axis support named access?
      * 
      * @param support  the additional context information
-     * @return true if named access supported. If not iterator() will be used.
+     * @return true if named access is supported. If not iterator() will be used.
      */
     public boolean supportsNamedAccess(ContextSupport support) {
         return (support.getNavigator() instanceof NamedAccessNavigator);
