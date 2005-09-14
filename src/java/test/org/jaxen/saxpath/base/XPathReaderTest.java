@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1007 $
- * $Date: 2005-08-09 05:26:52 -0700 (Tue, 09 Aug 2005) $
+ * $Revision: 1015 $
+ * $Date: 2005-09-14 06:04:43 -0700 (Wed, 14 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderTest.java 1007 2005-08-09 12:26:52Z elharo $
+ * $Id: XPathReaderTest.java 1015 2005-09-14 13:04:43Z elharo $
  */
 
 
@@ -477,6 +477,13 @@ public class XPathReaderTest extends TestCase
     public void testNoSpaceAfterOr() throws JaxenException 
     {
         XPath xpath = new DOMXPath("true() orfalse()");
+        Boolean result = (Boolean) xpath.evaluate(doc);
+        assertTrue(result.booleanValue());
+    }
+    
+    public void testAndImmediatelyFollowedByRelativeLocationPath() throws JaxenException  
+    {
+        XPath xpath = new DOMXPath("true() andfoo");
         Boolean result = (Boolean) xpath.evaluate(doc);
         assertTrue(result.booleanValue());
     }
