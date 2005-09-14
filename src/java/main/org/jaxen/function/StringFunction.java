@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1014 $
+ * $Date: 2005-09-14 06:03:59 -0700 (Wed, 14 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: StringFunction.java 1014 2005-09-14 13:03:59Z elharo $
  */
 
 
@@ -279,41 +279,49 @@ public class StringFunction implements Function
                 obj = list.get(0);
             }
             
-            if (nav != null && (nav.isElement(obj) || nav.isDocument(obj)))
-            {
-                Iterator descendantAxisIterator = nav.getDescendantAxisIterator(obj);
-                StringBuffer sb = new StringBuffer();
-                while (descendantAxisIterator.hasNext())
+            if (nav != null) {
+                // This stack of instanceof really suggests there's 
+                // a failure to take adavantage of polymorphism here
+                if (nav.isElement(obj))
                 {
-                    Object descendant = descendantAxisIterator.next();
-                    if (nav.isText(descendant))
+                    return nav.getElementStringValue(obj);
+                }
+                else if (nav.isAttribute(obj))
+                {
+                    return nav.getAttributeStringValue(obj);
+                }
+    
+                else if (nav.isDocument(obj))
+                {
+                    Iterator childAxisIterator = nav.getChildAxisIterator(obj);
+                    while (childAxisIterator.hasNext())
                     {
-                        sb.append(nav.getTextStringValue(descendant));
+                        Object descendant = childAxisIterator.next();
+                        if (nav.isElement(descendant))
+                        {
+                            return nav.getElementStringValue(descendant);
+                        }
                     }
                 }
-                return sb.toString();
+                else if (nav.isProcessingInstruction(obj))
+                {
+                    return nav.getProcessingInstructionData(obj);
+                }
+                else if (nav.isComment(obj))
+                {
+                    return nav.getCommentStringValue(obj);
+                }
+                else if (nav.isText(obj))
+                {
+                    return nav.getTextStringValue(obj);
+                }
+                else if (nav.isNamespace(obj))
+                {
+                    return nav.getNamespaceStringValue(obj);
+                }
             }
-            else if (nav != null && nav.isAttribute(obj))
-            {
-                return nav.getAttributeStringValue(obj);
-            }
-            else if (nav != null && nav.isText(obj))
-            {
-                return nav.getTextStringValue(obj);
-            }
-            else if (nav != null && nav.isProcessingInstruction(obj))
-            {
-                return nav.getProcessingInstructionData(obj);
-            }
-            else if (nav != null && nav.isComment(obj))
-            {
-                return nav.getCommentStringValue(obj);
-            }
-            else if (nav != null && nav.isNamespace(obj))
-            {
-                return nav.getNamespaceStringValue(obj);
-            }
-            else if (obj instanceof String)
+            
+            if (obj instanceof String)
             {
                 return (String) obj;
             }
@@ -325,12 +333,14 @@ public class StringFunction implements Function
             {
                 return stringValue(((Number) obj).doubleValue());
             }
-            return "";
+            
         }
         catch (UnsupportedAxisException e)
         {
             throw new JaxenRuntimeException(e);
         }
+        
+        return "";
 
     }
 
