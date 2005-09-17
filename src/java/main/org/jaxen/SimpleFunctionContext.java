@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1016 $
+ * $Date: 2005-09-17 03:59:50 -0700 (Sat, 17 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleFunctionContext.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: SimpleFunctionContext.java 1016 2005-09-17 10:59:50Z elharo $
  */
 
 
@@ -139,8 +139,13 @@ public class SimpleFunctionContext implements FunctionContext
             return (Function) this.functions.get( key );
         }
         else {
-            throw new UnresolvableException( "Function " +
-                                             prefix + ":" + localName );
+            String name;
+            if (prefix != null && ! "".equals(prefix)) {
+                name = ':' + prefix;
+            }
+            else name = "";
+            name += localName;
+            throw new UnresolvableException( "No Such Function " + name );
         }
     }
 }
