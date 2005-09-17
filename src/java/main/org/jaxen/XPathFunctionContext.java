@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1019 $
+ * $Date: 2005-09-17 04:43:03 -0700 (Sat, 17 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathFunctionContext.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: XPathFunctionContext.java 1019 2005-09-17 11:43:03Z elharo $
  */
 
 
@@ -97,7 +97,7 @@ import org.jaxen.function.ext.UpperFunction;
 import org.jaxen.function.xslt.DocumentFunction;
 
 /** A <code>FunctionContext</code> implementing the core XPath
- *  function library, with extensions.
+ *  function library, plus Jaxen extensions.
  *
  *  <p>
  *  The core XPath function library is provided through this
@@ -116,6 +116,7 @@ import org.jaxen.function.xslt.DocumentFunction;
  *
  *  <p>
  *  Extension functions:
+ *  </p>
  *
  *  <ul>
  *     <li>matrix-concat(..)</li>
@@ -150,6 +151,29 @@ public class XPathFunctionContext extends SimpleFunctionContext
      */
     public XPathFunctionContext()
     {
+        registerXPathFunctions();
+        registerXSLTFunctions();
+        registerExtensionFunctions();
+        
+    }
+
+    /** Create a new XPath function context.
+     *  All core XPath functions are registered.
+     *  
+     * @param includeExtensionFunctions if true extension functions are included;
+     *     if false, they aren't.
+     */
+    public XPathFunctionContext(boolean includeExtensionFunctions)
+    {
+        registerXPathFunctions();
+        if (includeExtensionFunctions) {
+            registerXSLTFunctions();
+            registerExtensionFunctions();
+        }
+    }
+
+    private void registerXPathFunctions() {
+
         registerFunction( null,  // namespace URI
                           "boolean",
                           new BooleanFunction() );
@@ -257,13 +281,17 @@ public class XPathFunctionContext extends SimpleFunctionContext
         registerFunction( null,  // namespace URI
                           "translate",
                           new TranslateFunction() );
-        
-        // XSLT extension function
+    }
+
+    private void registerXSLTFunctions() {
+
+        // extension functions defined in XSLT
         registerFunction( null,  // namespace URI
                           "document",
                           new DocumentFunction() );
+    }
 
-        // register extension functions
+    private void registerExtensionFunctions() {
         // extension functions should go into a namespace, but which one?
         // for now, keep them in default namespace to not break any code
 
@@ -286,6 +314,7 @@ public class XPathFunctionContext extends SimpleFunctionContext
         registerFunction( null,  // namespace URI
                           "ends-with",
                           new EndsWithFunction() );
-        
     }
+
+    
 }
