@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1031 $
+ * $Date: 2005-09-22 05:55:24 -0700 (Thu, 22 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PositionFunction.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: PositionFunction.java 1031 2005-09-22 12:55:24Z elharo $
  */
 
 
@@ -107,7 +107,7 @@ public class PositionFunction implements Function
             return evaluate( context );
         }
         
-        throw new FunctionCallException( "position() requires no arguments." );
+        throw new FunctionCallException( "position() does not take any arguments." );
     }
     
     /**
