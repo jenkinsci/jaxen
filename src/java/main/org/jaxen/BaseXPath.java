@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1011 $
- * $Date: 2005-09-05 06:23:32 -0700 (Mon, 05 Sep 2005) $
+ * $Revision: 1029 $
+ * $Date: 2005-09-22 04:59:20 -0700 (Thu, 22 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 1011 2005-09-05 13:23:32Z elharo $
+ * $Id: BaseXPath.java 1029 2005-09-22 11:59:20Z elharo $
  */
 
 
@@ -475,12 +475,7 @@ public class BaseXPath implements XPath, Serializable
      */
     public NamespaceContext getNamespaceContext()
     {
-        NamespaceContext answer = getContextSupport().getNamespaceContext();
-        if ( answer == null ) {
-            answer = createNamespaceContext();
-            getContextSupport().setNamespaceContext( answer );
-        }
-        return answer;
+        return getContextSupport().getNamespaceContext();
     }
 
     /** Retrieve the <code>FunctionContext</code> used by this XPath
@@ -503,12 +498,7 @@ public class BaseXPath implements XPath, Serializable
      */
     public FunctionContext getFunctionContext()
     {
-        FunctionContext answer = getContextSupport().getFunctionContext();
-        if ( answer == null ) {
-            answer = createFunctionContext();
-            getContextSupport().setFunctionContext( answer );
-        }
-        return answer;
+        return getContextSupport().getFunctionContext();
     }
 
     /** Retrieve the <code>VariableContext</code> used by this XPath
@@ -531,12 +521,7 @@ public class BaseXPath implements XPath, Serializable
      */
     public VariableContext getVariableContext()
     {
-        VariableContext answer = getContextSupport().getVariableContext();
-        if ( answer == null ) {
-            answer = createVariableContext();
-            getContextSupport().setVariableContext( answer );
-        }
-        return answer;
+        return getContextSupport().getVariableContext();
     }
     
     
