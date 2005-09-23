@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1034 $
+ * $Date: 2005-09-23 06:58:46 -0700 (Fri, 23 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: IdFunction.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: IdFunction.java 1034 2005-09-23 13:58:46Z elharo $
  */
 
 package org.jaxen.function;
@@ -82,6 +82,13 @@ import org.jaxen.Navigator;
  * the attribute be declared to have type ID in the DTD. 
  * </p>
  * 
+ * <p>
+ * There should be no more than one element in any document with a 
+ * certain ID. However, if there are multiple such elements--i.e. if 
+ * there are duplicate IDs--then this function selects only the first element 
+ * in document order with the specified ID. 
+ * </p>
+ * 
  * @author Erwin Bolwidt (ejb @ klomp.org)
  * @author J\u00e9r\u00f4me N\u00e8gre (jerome.negre @ e-xmlmedia.fr)
  * 
@@ -96,15 +103,16 @@ public class IdFunction implements Function
     public IdFunction() {}
     
     /** 
-     * Returns the node with the specified ID.
+     * Returns a list of the nodes with the specified IDs.
      *
      * @param context the context at the point in the
      *         expression when the function is called
      * @param args a list with exactly one item which is either a string
      *     a node-set
      * 
-     * @return a <code>List</code> containing the node with the specified ID; or 
-     *     an empty list if there is no such node
+     * @return a <code>List</code> containing the first node in document 
+     *     with each of the specified IDs; or 
+     *     an empty list if there are no such nodes
      * 
      * @throws FunctionCallException if <code>args</code> has more or less than one item
      */
@@ -119,15 +127,17 @@ public class IdFunction implements Function
     }
 
     /** 
-     * Returns the node with the specified ID.
+     * Returns a list of the nodes with the specified IDs.
+     * 
      * @param contextNodes the context node-set. The first item in this list
      *     determines the document in which the search is performed.
      * @param arg the ID or IDs to search for
      * @param nav the navigator used to calculate string-values and search
      *     by ID
      * 
-     * @return a <code>List</code> containing the node with the specified ID; or 
-     *     an empty list if there is no such node
+     * @return a <code>List</code> containing the first node in document 
+     *     with each of the specified IDs; or 
+     *     an empty list if there are no such nodes
      * 
      */
     public static List evaluate(List contextNodes, Object arg, Navigator nav)
