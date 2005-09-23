@@ -2,8 +2,8 @@ package org.jaxen;
 
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1035 $
+ * $Date: 2005-09-23 16:49:20 -0700 (Fri, 23 Sep 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: Navigator.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: Navigator.java 1035 2005-09-23 23:49:20Z elharo $
 */
 
 import java.io.Serializable;
@@ -80,7 +80,7 @@ import org.jaxen.saxpath.SAXPathException;
  *  @author <a href="mailto:bob@eng.werken.com">bob mcwhirter</a>
  *  @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
  *
- *  @version $Id: Navigator.java 983 2005-06-28 13:44:46Z elharo $
+ *  @version $Id: Navigator.java 1035 2005-09-23 23:49:20Z elharo $
  */
 public interface Navigator extends Serializable
 {
@@ -216,7 +216,7 @@ public interface Navigator extends Serializable
     Iterator getNamespaceAxisIterator(Object contextNode)
         throws UnsupportedAxisException;
 
-    /** Retrieve an <code>Iterator</code> matching the <code>self</code> xpath
+    /** Retrieve an <code>Iterator</code> matching the <code>self</code> XPath
      *  axis.
      *
      *  @param contextNode the original context node
@@ -369,7 +369,7 @@ public interface Navigator extends Serializable
     // ----------------------------------------------------------------------
 
     /** Returns whether the given object is a document node. A document node
-     *  is the node that is selected by the xpath expression <code>/</code>.
+     *  is the node that is selected by the XPath expression <code>/</code>.
      *
      *  @param object the object to test
      *
@@ -518,7 +518,7 @@ public interface Navigator extends Serializable
     String translateNamespacePrefixToUri(String prefix,
                                          Object element);
 
-    /** Returns a parsed form of the given xpath string, which will be suitable
+    /** Returns a parsed form of the given XPath string, which will be suitable
      *  for queries on documents that use the same navigator as this one.
      *
      *  @see XPath
