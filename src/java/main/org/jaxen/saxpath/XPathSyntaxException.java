@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1042 $
+ * $Date: 2005-09-24 12:35:48 -0700 (Sat, 24 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathSyntaxException.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: XPathSyntaxException.java 1042 2005-09-24 19:35:48Z elharo $
  */
 
 package org.jaxen.saxpath;
@@ -129,7 +129,7 @@ public class XPathSyntaxException extends SAXPathException
      * 
      * @return the position marker 
      */
-    public String getPositionMarker()
+    private String getPositionMarker()
     {
         int pos = getPosition();
         StringBuffer buf = new StringBuffer(pos+1);
