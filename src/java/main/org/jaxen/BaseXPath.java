@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1046 $
- * $Date: 2005-09-24 15:38:43 -0700 (Sat, 24 Sep 2005) $
+ * $Revision: 1050 $
+ * $Date: 2005-09-24 16:05:15 -0700 (Sat, 24 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 1046 2005-09-24 22:38:43Z elharo $
+ * $Id: BaseXPath.java 1050 2005-09-24 23:05:15Z elharo $
  */
 
 
@@ -554,11 +554,9 @@ public class BaseXPath implements XPath, Serializable
         return this.exprText;
     }
 
-    /** Returns the string version of this xpath.
+    /** Returns a string representation of the parse tree.
      *
-     *  @return the normalized XPath expression string
-     *
-     *  @see #toString
+     *  @return a string representation of the parse tree.
      */
     public String debug()
     {
