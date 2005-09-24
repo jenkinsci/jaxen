@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1041 $
+ * $Date: 2005-09-24 12:27:31 -0700 (Sat, 24 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LinkedIterator.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: LinkedIterator.java 1041 2005-09-24 19:27:31Z elharo $
  */
 
 
@@ -67,6 +67,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * @deprecated elharo this class is undocumented and untested.
+ *     It will be removed in a future release.
+ */
 public class LinkedIterator implements Iterator
 {
     private List iterators;
