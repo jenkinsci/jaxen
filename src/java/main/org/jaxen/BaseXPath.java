@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1029 $
- * $Date: 2005-09-22 04:59:20 -0700 (Thu, 22 Sep 2005) $
+ * $Revision: 1046 $
+ * $Date: 2005-09-24 15:38:43 -0700 (Sat, 24 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 1029 2005-09-22 11:59:20Z elharo $
+ * $Id: BaseXPath.java 1046 2005-09-24 22:38:43Z elharo $
  */
 
 
@@ -366,15 +366,16 @@ public class BaseXPath implements XPath, Serializable
      *  <p>
      *  This is a convenience method for adding mappings to the
      *  default {@link NamespaceContext} in place for this XPath.
-     *  If you have installed a specific custom <code>NamespaceContext</code>,
+     *  If you have installed a custom <code>NamespaceContext</code>
+     *  that is not a <code>SimpleNamespaceContext</code>,
      *  then this method will throw a <code>JaxenException</code>.
      *  </p>
      *
      *  @param prefix the namespace prefix
      *  @param uri the namespace URI
      *
-     *  @throws JaxenException if a <code>NamespaceContext</code>
-     *          used by this XPath has been explicitly installed
+     *  @throws JaxenException if the <code>NamespaceContext</code>
+     *          used by this XPath is not a <code>SimpleNamespaceContext</code>
      */
     public void addNamespace(String prefix,
                              String uri) throws JaxenException
@@ -387,7 +388,7 @@ public class BaseXPath implements XPath, Serializable
             return;
         }
 
-        throw new JaxenException("Operation not permitted while using a custom namespace context.");
+        throw new JaxenException("Operation not permitted while using a non-simple namespace context.");
     }
 
 
