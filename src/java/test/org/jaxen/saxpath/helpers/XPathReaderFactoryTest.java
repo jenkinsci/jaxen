@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1043 $
- * $Date: 2005-09-24 15:25:04 -0700 (Sat, 24 Sep 2005) $
+ * $Revision: 1044 $
+ * $Date: 2005-09-24 15:28:17 -0700 (Sat, 24 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderFactoryTest.java 1043 2005-09-24 22:25:04Z elharo $
+ * $Id: XPathReaderFactoryTest.java 1044 2005-09-24 22:28:17Z elharo $
  */
 
 package org.jaxen.saxpath.helpers;
@@ -72,6 +72,11 @@ public class XPathReaderFactoryTest extends TestCase
     {
         super( name );
     }
+    
+    
+    protected void tearDown() {
+        System.setProperty( XPathReaderFactory.DRIVER_PROPERTY, "" );
+    }
 
     public void testDefault() throws SAXPathException
     {
@@ -86,18 +91,9 @@ public class XPathReaderFactoryTest extends TestCase
         System.setProperty( XPathReaderFactory.DRIVER_PROPERTY,
                             "org.jaxen.saxpath.helpers.MockXPathReader"  );
 
-        try
-        {
-            XPathReader reader = XPathReaderFactory.createReader();
-            assertNotNull( reader );
-            assertSame( MockXPathReader.class,
-                        reader.getClass() );
-        }
-        finally
-        {
-            System.setProperty( XPathReaderFactory.DRIVER_PROPERTY,
-                                "" );
-        }
+        XPathReader reader = XPathReaderFactory.createReader();
+        assertNotNull( reader );
+        assertSame( MockXPathReader.class, reader.getClass() );
     }
 
     public void testInvalidByProperty() 
@@ -113,11 +109,6 @@ public class XPathReaderFactoryTest extends TestCase
         catch (SAXPathException e) {
             // expected and correct
             assertNotNull(e.getMessage());
-        }
-        finally
-        {
-            System.setProperty( XPathReaderFactory.DRIVER_PROPERTY,
-                                "" );
         }
     }
 
@@ -135,26 +126,13 @@ public class XPathReaderFactoryTest extends TestCase
         {
             // expected and correct
         }
-        finally
-        {
-            System.setProperty( XPathReaderFactory.DRIVER_PROPERTY,
-                                "" );
-        }
     }
 
-    public void testValidExplicit()
+    public void testValidExplicit() throws SAXPathException
     {
-        try
-        {
-            XPathReader reader = XPathReaderFactory.createReader( "org.jaxen.saxpath.helpers.MockXPathReader" );
-            assertNotNull( reader );
-            assertSame( MockXPathReader.class,
-                        reader.getClass() );
-        }
-        catch (org.jaxen.saxpath.SAXPathException e)
-        {
-            fail( e.getMessage() );
-        }
+        XPathReader reader = XPathReaderFactory.createReader( "org.jaxen.saxpath.helpers.MockXPathReader" );
+        assertNotNull( reader );
+        assertSame( MockXPathReader.class, reader.getClass() );
     }
 
     public void testInvalidExplicit()
