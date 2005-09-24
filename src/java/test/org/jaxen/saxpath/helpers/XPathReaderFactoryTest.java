@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 421 $
- * $Date: 2005-01-29 19:15:58 -0800 (Sat, 29 Jan 2005) $
+ * $Revision: 1043 $
+ * $Date: 2005-09-24 15:25:04 -0700 (Sat, 24 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,15 +56,14 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderFactoryTest.java 421 2005-01-30 03:15:58Z elharo $
+ * $Id: XPathReaderFactoryTest.java 1043 2005-09-24 22:25:04Z elharo $
  */
-
-
 
 package org.jaxen.saxpath.helpers;
 
 import junit.framework.TestCase;
 
+import org.jaxen.saxpath.SAXPathException;
 import org.jaxen.saxpath.XPathReader;
 
 public class XPathReaderFactoryTest extends TestCase
@@ -74,31 +73,15 @@ public class XPathReaderFactoryTest extends TestCase
         super( name );
     }
 
-    public void setUp()
-    {
-    }
-
-    public void tearDown()
-    {
-    }
-
-    public void testDefault()
+    public void testDefault() throws SAXPathException
     {
         System.setProperty( XPathReaderFactory.DRIVER_PROPERTY,
                             "" );
-        try
-        {
-            XPathReader reader = XPathReaderFactory.createReader();
-
-            assertNotNull( reader );
-        }
-        catch (org.jaxen.saxpath.SAXPathException e)
-        {
-            fail( e.getMessage() );
-        }
+        XPathReader reader = XPathReaderFactory.createReader();
+        assertNotNull( reader );
     }
 
-    public void testValidByProperty()
+    public void testValidByProperty() throws SAXPathException
     {
         System.setProperty( XPathReaderFactory.DRIVER_PROPERTY,
                             "org.jaxen.saxpath.helpers.MockXPathReader"  );
@@ -106,15 +89,9 @@ public class XPathReaderFactoryTest extends TestCase
         try
         {
             XPathReader reader = XPathReaderFactory.createReader();
-
             assertNotNull( reader );
-
             assertSame( MockXPathReader.class,
                         reader.getClass() );
-        }
-        catch (org.jaxen.saxpath.SAXPathException e)
-        {
-            fail( e.getMessage() );
         }
         finally
         {
@@ -123,7 +100,7 @@ public class XPathReaderFactoryTest extends TestCase
         }
     }
 
-    public void testInvalidByProperty()
+    public void testInvalidByProperty() 
     {
         System.setProperty( XPathReaderFactory.DRIVER_PROPERTY,
                             "java.lang.String" );
@@ -131,12 +108,11 @@ public class XPathReaderFactoryTest extends TestCase
         try
         {
             XPathReaderFactory.createReader();
-
             fail( "Should have thrown SAXPathException" );
         }
-        catch (org.jaxen.saxpath.SAXPathException e)
-        {
+        catch (SAXPathException e) {
             // expected and correct
+            assertNotNull(e.getMessage());
         }
         finally
         {
@@ -153,7 +129,6 @@ public class XPathReaderFactoryTest extends TestCase
         try
         {
             XPathReaderFactory.createReader();
-
             fail( "Should have thrown SAXPathException" );
         }
         catch (org.jaxen.saxpath.SAXPathException e)
@@ -172,9 +147,7 @@ public class XPathReaderFactoryTest extends TestCase
         try
         {
             XPathReader reader = XPathReaderFactory.createReader( "org.jaxen.saxpath.helpers.MockXPathReader" );
-
             assertNotNull( reader );
-
             assertSame( MockXPathReader.class,
                         reader.getClass() );
         }
@@ -189,7 +162,6 @@ public class XPathReaderFactoryTest extends TestCase
         try
         {
             XPathReaderFactory.createReader( "java.lang.String" );
-
             fail( "Should have thrown SAXPathException" );
         }
         catch (org.jaxen.saxpath.SAXPathException e)
@@ -203,7 +175,6 @@ public class XPathReaderFactoryTest extends TestCase
         try
         {
             XPathReaderFactory.createReader( "i.am.a.class.that.does.not.Exist" );
-
             fail( "Should have thrown SAXPathException" );
         }
         catch (org.jaxen.saxpath.SAXPathException e)
