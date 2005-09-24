@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1038 $
+ * $Date: 2005-09-24 04:48:01 -0700 (Sat, 24 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,14 +56,11 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenException.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: JaxenException.java 1038 2005-09-24 11:48:01Z elharo $
  */
 
 
 package org.jaxen;
-
-import java.io.PrintStream;
-import java.io.PrintWriter;
 
 
 /**
@@ -119,57 +116,6 @@ public class JaxenException extends org.jaxen.saxpath.SAXPathException
      */
     public JaxenException(String message, Throwable nestedException) {
         super( message, nestedException );
-    }
-    
-    private Throwable cause;
-    private boolean causeSet = false;
-
-    /**
-     * Returns the exception that caused this exception.
-     * This is necessary to implement Java 1.4 chained exception 
-     * functionality in a Java 1.3-compatible way.
-     * 
-     * @return the exception that caused this exception
-     */
-    public Throwable getCause() {
-        return cause;
-    }
-    
-
-    /**
-     * Sets the exception that caused this exception.
-     * This is necessary to implement Java 1.4 chained exception 
-     * functionality in a Java 1.3-compatible way.
-     * 
-     * @param cause the exception wrapped in this runtime exception
-     * 
-     * @return this exception
-     */
-    public Throwable initCause(Throwable cause) {
-        if (causeSet) throw new IllegalStateException("Cause cannot be reset");
-        if (cause == this) throw new IllegalArgumentException("Exception cannot be its own cause");
-        causeSet = true;
-        this.cause = cause;
-        return this;
-    }
-
-    public void printStackTrace( PrintStream s ) {
-        super.printStackTrace( s );
-        if ( javaVersion < 1.4 && getCause() != null ) 
-        {
-            s.print( "Caused by: " );
-            getCause().printStackTrace( s );
-        }
-    }
-    
-    public void printStackTrace( PrintWriter w ) {
-        super.printStackTrace( w );
-        // Avoid double printing the cause in 1.4 and later
-        if ( javaVersion < 1.4 && getCause() != null ) 
-        {
-            w.print( "Caused by: " );
-            getCause().printStackTrace( w );
-        }
     }
     
 }
