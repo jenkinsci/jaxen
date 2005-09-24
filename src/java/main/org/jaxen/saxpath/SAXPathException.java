@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1037 $
+ * $Date: 2005-09-24 04:46:45 -0700 (Sat, 24 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: SAXPathException.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: SAXPathException.java 1037 2005-09-24 11:46:45Z elharo $
  */
 
 package org.jaxen.saxpath;
@@ -71,7 +71,7 @@ import java.io.PrintWriter;
 public class SAXPathException extends Exception
 {
     
-    static double javaVersion = 1.4;
+    private static double javaVersion = 1.4;
     
     static {
         try {
