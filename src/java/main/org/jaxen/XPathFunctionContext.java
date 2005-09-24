@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1019 $
- * $Date: 2005-09-17 04:43:03 -0700 (Sat, 17 Sep 2005) $
+ * $Revision: 1036 $
+ * $Date: 2005-09-24 04:38:54 -0700 (Sat, 24 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathFunctionContext.java 1019 2005-09-17 11:43:03Z elharo $
+ * $Id: XPathFunctionContext.java 1036 2005-09-24 11:38:54Z elharo $
  */
 
 
@@ -151,10 +151,7 @@ public class XPathFunctionContext extends SimpleFunctionContext
      */
     public XPathFunctionContext()
     {
-        registerXPathFunctions();
-        registerXSLTFunctions();
-        registerExtensionFunctions();
-        
+        this(true);
     }
 
     /** Create a new XPath function context.
