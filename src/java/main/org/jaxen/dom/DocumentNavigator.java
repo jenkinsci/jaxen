@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 1056 $
- * $Date: 2005-09-25 04:42:20 -0700 (Sun, 25 Sep 2005) $
+ * $Revision: 1059 $
+ * $Date: 2005-09-25 05:24:39 -0700 (Sun, 25 Sep 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1056 2005-09-25 11:42:20Z elharo $
+ * $Id: DocumentNavigator.java 1059 2005-09-25 12:24:39Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -205,6 +205,25 @@ public class DocumentNavigator extends DefaultNavigator
                     }
                 };
         }
+    }
+    
+    
+    /** 
+     * Return the XPath parent of this DOM node.
+     * XPath has slightly different definition of parent than DOM does.
+     * In particular, the parent of an attribute is not null.
+     * 
+     * @param o 
+     * 
+     * @return the parent of the specified node; or null if
+     *     the node does not have a parent
+     */
+    public Object getParentNode(Object o) {
+        Node node = (Node) o;
+        if (node.getNodeType() == Node.ATTRIBUTE_NODE) {
+            return ((Attr) node).getOwnerElement();
+        }
+        return node.getParentNode();
     }
 
 
