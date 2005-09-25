@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 998 $
- * $Date: 2005-07-24 12:15:11 -0700 (Sun, 24 Jul 2005) $
+ * $Revision: 1056 $
+ * $Date: 2005-09-25 04:42:20 -0700 (Sun, 25 Sep 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 998 2005-07-24 19:15:11Z elharo $
+ * $Id: DocumentNavigator.java 1056 2005-09-25 11:42:20Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -765,7 +765,7 @@ public class DocumentNavigator extends DefaultNavigator
     }
 
     // XXX What should these two methods return if the argument is not a 
-    // processign instruction?
+    // processing instruction?
     
     /**
      * Get the target of a processing instruction node.
