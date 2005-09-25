@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1057 $
+ * $Date: 2005-09-25 04:43:14 -0700 (Sun, 25 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PatternParser.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: PatternParser.java 1057 2005-09-25 11:43:14Z elharo $
  */
 
 
@@ -283,7 +283,7 @@ public class PatternParser
         List predicates = step.getPredicates();
         if ( ! predicates.isEmpty() ) 
         {
-            DefaultFilterExpr filter = new DefaultFilterExpr(new PredicateSet());
+            FilterExpr filter = new DefaultFilterExpr(new PredicateSet());
             for ( Iterator iter = predicates.iterator(); iter.hasNext(); )
             {
                 filter.addPredicate( (Predicate) iter.next() );
