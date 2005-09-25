@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1054 $
+ * $Date: 2005-09-25 04:40:36 -0700 (Sun, 25 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: VariableContext.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: VariableContext.java 1054 2005-09-25 11:40:36Z elharo $
  */
 
 
@@ -109,7 +109,7 @@ public interface VariableContext
      *                       reference expression had no prefix, the namespace
      *                       URI is <code>null</code>.
      *  @param prefix        the prefix that was used in the variable reference
-     *                       expression
+     *                       expression; this value is ignored and has no effect
      *  @param localName     the local name of the variable-reference
      *                       expression. If there is no prefix, then this is
      *                       the whole name of the variable.
