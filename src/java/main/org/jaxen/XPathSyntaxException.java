@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1055 $
+ * $Date: 2005-09-25 04:41:31 -0700 (Sun, 25 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,16 +56,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathSyntaxException.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: XPathSyntaxException.java 1055 2005-09-25 11:41:31Z elharo $
  */
 
 
 package org.jaxen;
 
-/** Indicates an error during parsing of an XPath
- *  expression.
- *
- *  @see XPath
+/** Indicates an error during parsing of an XPath expression.
  *
  *  @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  *  @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
