@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1016 $
- * $Date: 2005-09-17 03:59:50 -0700 (Sat, 17 Sep 2005) $
+ * $Revision: 1053 $
+ * $Date: 2005-09-25 04:39:21 -0700 (Sun, 25 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleFunctionContext.java 1016 2005-09-17 10:59:50Z elharo $
+ * $Id: SimpleFunctionContext.java 1053 2005-09-25 11:39:21Z elharo $
  */
 
 
@@ -81,10 +81,9 @@ public class SimpleFunctionContext implements FunctionContext
     /** Table of functions. */
     private HashMap functions;
 
-    /** Construct.
-     *
+    /** 
      *  <p>
-     *  Construct with an empty function lookup table.
+     *  Construct an empty function context.
      *  </p>
      */
     public SimpleFunctionContext()
@@ -101,10 +100,10 @@ public class SimpleFunctionContext implements FunctionContext
      *  </p>
      *
      *  <p>
-     *  Functions may exist either in an namespace or not.
+     *  Functions may exist either in a namespace or not.
      *  Namespace prefix-to-URI resolution is the responsibility
      *  of a {@link NamespaceContext}.  Within this <code>FunctionContext</code>
-     *  functions are only referenced using the URI, <b>not</b>
+     *  functions are only referenced using the URI, <strong>not</strong>
      *  the prefix.
      *  </p>
      *
@@ -124,7 +123,7 @@ public class SimpleFunctionContext implements FunctionContext
                                  String localName,
                                  Function function )
     {
-        this.functions.put( new QualifiedName(namespaceURI, localName),
+        this.functions.put( new QualifiedName(namespaceURI, null, localName),
                             function );
     }
 
@@ -133,19 +132,13 @@ public class SimpleFunctionContext implements FunctionContext
                                 String localName )
         throws UnresolvableException
     {
-        Object key = new QualifiedName( namespaceURI, localName );
+        QualifiedName key = new QualifiedName( namespaceURI, prefix, localName );
 
         if ( this.functions.containsKey(key) ) {
             return (Function) this.functions.get( key );
         }
         else {
-            String name;
-            if (prefix != null && ! "".equals(prefix)) {
-                name = ':' + prefix;
-            }
-            else name = "";
-            name += localName;
-            throw new UnresolvableException( "No Such Function " + name );
+            throw new UnresolvableException( "No Such Function " + key.getClarkForm() );
         }
     }
 }
