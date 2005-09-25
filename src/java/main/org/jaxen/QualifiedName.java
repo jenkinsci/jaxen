@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1052 $
+ * $Date: 2005-09-25 04:33:40 -0700 (Sun, 25 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: QualifiedName.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: QualifiedName.java 1052 2005-09-25 11:33:40Z elharo $
  */
 
 package org.jaxen;
@@ -80,14 +80,14 @@ class QualifiedName
      */
     QualifiedName( String namespaceURI, String localName )
     {
+        if (namespaceURI == null) namespaceURI = "";
         this.namespaceURI = namespaceURI;
         this.localName = localName;
     }
 
     public int hashCode()
     {
-        return ( localName.hashCode() ^
-                 ( namespaceURI == null ? 0 : namespaceURI.hashCode() ) );
+        return ( localName.hashCode() ^ namespaceURI.hashCode() );
     }
 
     public boolean equals( Object o )
@@ -97,15 +97,16 @@ class QualifiedName
         // other than another QualifiedName. No instanceof test is
         // necessary here.
         QualifiedName other = (QualifiedName) o;
-        
-        if ( namespaceURI == null ) {
-            return ( other.namespaceURI == null &&
-                     other.localName.equals(localName) );
-        }
-        else {
-            return ( namespaceURI.equals(other.namespaceURI) &&
-                     other.localName.equals(localName) );
-        }
+        return ( namespaceURI.equals(other.namespaceURI) &&
+                 other.localName.equals(localName) );
+    }
+    
+    /**
+     * @return James Clark's namespace form
+     */
+    String getClarkForm() {
+        if ("".equals(namespaceURI)) return localName;
+        return "{" + namespaceURI + "}" + localName;
     }
     
 }

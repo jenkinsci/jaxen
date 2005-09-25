@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1052 $
+ * $Date: 2005-09-25 04:33:40 -0700 (Sun, 25 Sep 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleVariableContext.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: SimpleVariableContext.java 1052 2005-09-25 11:33:40Z elharo $
  */
 
 
@@ -140,7 +140,7 @@ public class SimpleVariableContext implements VariableContext, Serializable
                                     String localName )
         throws UnresolvableException
     {
-        Object key = new QualifiedName( namespaceURI, localName );
+        QualifiedName key = new QualifiedName( namespaceURI, localName );
 
         if ( this.variables.containsKey(key) )
         {
@@ -148,8 +148,7 @@ public class SimpleVariableContext implements VariableContext, Serializable
         }
         else
         {
-            throw new UnresolvableException( "Variable {" + namespaceURI +
-                                             "}" + prefix + ":" + localName );
+            throw new UnresolvableException( "Variable " + key.getClarkForm() );
         }
     }
 }
