@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1068 $
- * $Date: 2005-10-01 03:17:39 -0700 (Sat, 01 Oct 2005) $
+ * $Revision: 1072 $
+ * $Date: 2005-10-01 04:13:39 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexer.java 1068 2005-10-01 10:17:39Z elharo $
+ * $Id: XPathLexer.java 1072 2005-10-01 11:13:39Z elharo $
  */
 
 
@@ -524,7 +524,6 @@ class XPathLexer
             switch ( LA(1) )
             {
                 case '.':
-                {
                     if ( periodAllowed )
                     {
                         periodAllowed = false;
@@ -535,8 +534,6 @@ class XPathLexer
                         break loop;
                     }
                     break;
-                }
-                
                 case '0':
                 case '1':
                 case '2':
@@ -547,14 +544,10 @@ class XPathLexer
                 case '7':
                 case '8':
                 case '9':
-                {
                     consume();
                     break;
-                }
                 default:
-                {
                     break loop;
-                }
             }
         }
     
