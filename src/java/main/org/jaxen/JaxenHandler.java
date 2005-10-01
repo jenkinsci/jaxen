@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1064 $
- * $Date: 2005-10-01 02:28:16 -0700 (Sat, 01 Oct 2005) $
+ * $Revision: 1065 $
+ * $Date: 2005-10-01 02:33:45 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenHandler.java 1064 2005-10-01 09:28:16Z elharo $
+ * $Id: JaxenHandler.java 1065 2005-10-01 09:33:45Z elharo $
  */
 
 
@@ -236,7 +236,7 @@ public class JaxenHandler implements XPathHandler
         push( getXPathFactory().createAbsoluteLocationPath() );
     }
 
-    public void endAbsoluteLocationPath()
+    public void endAbsoluteLocationPath() throws JaxenException
     {
         endLocationPath();
     }
@@ -248,12 +248,12 @@ public class JaxenHandler implements XPathHandler
         push( getXPathFactory().createRelativeLocationPath() );
     }
 
-    public void endRelativeLocationPath()
+    public void endRelativeLocationPath() throws JaxenException
     {
         endLocationPath();
     }
 
-    protected void endLocationPath() 
+    protected void endLocationPath() throws JaxenException 
     {
         LocationPath path = (LocationPath) peekFrame().removeFirst();
 
