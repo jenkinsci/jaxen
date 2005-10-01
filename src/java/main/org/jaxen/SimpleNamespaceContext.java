@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1076 $
+ * $Date: 2005-10-01 13:35:46 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleNamespaceContext.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: SimpleNamespaceContext.java 1076 2005-10-01 20:35:46Z elharo $
  */
 
 
@@ -93,11 +93,18 @@ public class SimpleNamespaceContext implements NamespaceContext, Serializable
      *     containing the namespace URIs.
      *     
      * @throws NullPointerException if the argument is null   
+     * @throws ClassCastException if any keys or values in the map are not strings   
      */
     public SimpleNamespaceContext(Map namespaces)
     {
-        // FIXME this is dangerous. We should check that
-        // the contents are strings.
+        Iterator entries = namespaces.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry entry = (Map.Entry) entries.next();
+            if (! (entry.getKey() instanceof String)
+              || ! (entry.getValue() instanceof String)) {
+                throw new ClassCastException("Non-string namespace binding");
+            }
+        }
         this.namespaces = new HashMap(namespaces);
     }
 
