@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 1082 $
- * $Date: 2005-10-01 15:07:41 -0700 (Sat, 01 Oct 2005) $
+ * $Revision: 1083 $
+ * $Date: 2005-10-01 15:12:53 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1082 2005-10-01 22:07:41Z elharo $
+ * $Id: DocumentNavigator.java 1083 2005-10-01 22:12:53Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -818,13 +818,16 @@ public class DocumentNavigator extends DefaultNavigator
      * 
      * @param obj the processing instruction
      * @return the target of the processing instruction
+     * @throws ClassCastException if obj is not a processing instruxtion
      * 
      */
     public String getProcessingInstructionTarget(Object obj)
-    {
-        ProcessingInstruction pi = (ProcessingInstruction) obj;
-
-        return pi.getTarget();
+    {      
+        if (isProcessingInstruction(obj)) {
+            ProcessingInstruction pi = (ProcessingInstruction) obj;
+            return pi.getTarget();
+        }
+        throw new ClassCastException(obj + " is not a processing instruction");
     }
 
     /**
@@ -832,14 +835,16 @@ public class DocumentNavigator extends DefaultNavigator
      * 
      * @param obj the processing instruction
      * @return the target of the processing instruction
-     * 
+     * @throws ClassCastException if obj is not a processing instruxtion
      * 
      */
     public String getProcessingInstructionData(Object obj)
     {
-        ProcessingInstruction pi = (ProcessingInstruction) obj;
-
-        return pi.getData();
+        if (isProcessingInstruction(obj)) {
+            ProcessingInstruction pi = (ProcessingInstruction) obj;
+            return pi.getData();
+        }
+        throw new ClassCastException(obj + " is not a processing instruction");
     }
 
     
