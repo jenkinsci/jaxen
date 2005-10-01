@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1067 $
- * $Date: 2005-10-01 03:14:22 -0700 (Sat, 01 Oct 2005) $
+ * $Revision: 1068 $
+ * $Date: 2005-10-01 03:17:39 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexer.java 1067 2005-10-01 10:14:22Z elharo $
+ * $Id: XPathLexer.java 1068 2005-10-01 10:17:39Z elharo $
  */
 
 
@@ -178,10 +178,6 @@ class XPathLexer
                     if ( LA(2) == '=' )
                     {
                         token = notEquals();
-                    }
-                    else
-                    {
-                        token = null;
                     }
                     break;
                 }
