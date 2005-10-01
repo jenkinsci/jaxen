@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1072 $
- * $Date: 2005-10-01 04:13:39 -0700 (Sat, 01 Oct 2005) $
+ * $Revision: 1073 $
+ * $Date: 2005-10-01 04:19:40 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexer.java 1072 2005-10-01 11:13:39Z elharo $
+ * $Id: XPathLexer.java 1073 2005-10-01 11:19:40Z elharo $
  */
 
 
@@ -551,24 +551,10 @@ class XPathLexer
             }
         }
     
-        Token token = null;
-    
-        if ( periodAllowed )
-        {
-            token = new Token( TokenTypes.INTEGER,
+        return new Token( TokenTypes.DOUBLE,
                                getXPath(),
                                start,
                                currentPosition() );
-        }
-        else
-        {
-            token = new Token( TokenTypes.DOUBLE,
-                               getXPath(),
-                               start,
-                               currentPosition() );
-        }
-    
-        return token;
     }
     
     private Token whitespace()

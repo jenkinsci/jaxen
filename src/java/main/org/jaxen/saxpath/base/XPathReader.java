@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1005 $
- * $Date: 2005-08-09 05:01:49 -0700 (Tue, 09 Aug 2005) $
+ * $Revision: 1073 $
+ * $Date: 2005-10-01 04:19:40 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 1005 2005-08-09 12:01:49Z elharo $
+ * $Id: XPathReader.java 1073 2005-10-01 11:19:40Z elharo $
  */
 
 
@@ -136,7 +136,6 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
 
         switch ( LA(1) )
         {
-            case TokenTypes.INTEGER:
             case TokenTypes.DOUBLE:
             case TokenTypes.LITERAL:
             {
@@ -216,20 +215,6 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
         getXPathHandler().number( Double.parseDouble( token.getTokenText() ) );
     }
 
-    private void numberInteger() throws SAXPathException
-    {
-        Token token = match( TokenTypes.INTEGER );
-        
-        String text = token.getTokenText();
-        try {
-            getXPathHandler().number( Integer.parseInt( text ) );
-        }
-        catch (NumberFormatException ex) {
-            getXPathHandler().number( Double.parseDouble( text ) );
-        }
-        
-    }
-
     private void literal() throws SAXPathException
     {
         Token token = match( TokenTypes.LITERAL );
@@ -290,11 +275,6 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
 
         switch ( LA(1) )
         {
-            case TokenTypes.INTEGER:
-            {
-                numberInteger();
-                break;
-            }
             case TokenTypes.DOUBLE:
             {
                 numberDouble();
