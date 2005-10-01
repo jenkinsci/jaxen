@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 1079 $
- * $Date: 2005-10-01 14:46:00 -0700 (Sat, 01 Oct 2005) $
+ * $Revision: 1081 $
+ * $Date: 2005-10-01 14:54:33 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1079 2005-10-01 21:46:00Z elharo $
+ * $Id: DocumentNavigator.java 1081 2005-10-01 21:54:33Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -443,8 +443,15 @@ public class DocumentNavigator extends DefaultNavigator
      */
     public String getElementNamespaceUri (Object element)
     {
-        String uri = ((Node)element).getNamespaceURI();
-        return uri;
+        try {
+            Node node = (Node) element;
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                return node.getNamespaceURI();
+            }
+        }
+        catch (ClassCastException ex) {
+        }
+        return null;
     }
 
 
@@ -494,8 +501,15 @@ public class DocumentNavigator extends DefaultNavigator
      */
     public String getAttributeNamespaceUri (Object attribute)
     {
-        String uri = ((Node)attribute).getNamespaceURI();
-        return uri;
+        try {
+            Node node = (Node) attribute;
+            if (node.getNodeType() == Node.ATTRIBUTE_NODE) {
+                return node.getNamespaceURI();
+            }
+        }
+        catch (ClassCastException ex) {
+        }
+        return null;
     }
 
 
