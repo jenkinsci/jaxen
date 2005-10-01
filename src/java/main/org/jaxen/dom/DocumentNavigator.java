@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 1059 $
- * $Date: 2005-09-25 05:24:39 -0700 (Sun, 25 Sep 2005) $
+ * $Revision: 1079 $
+ * $Date: 2005-10-01 14:46:00 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1059 2005-09-25 12:24:39Z elharo $
+ * $Id: DocumentNavigator.java 1079 2005-10-01 21:46:00Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -468,14 +468,19 @@ public class DocumentNavigator extends DefaultNavigator
      *
      * @param element the target node
      * @return a string representing the qualified (i.e. possibly
-     *   prefixed) name if the node is an element, or null otherwise
+     *   prefixed) name if the argument is an element, or null otherwise
      */
     public String getElementQName (Object element)
     {
-        // XXX doesn't this work on an attribute too?
-        String qname = ((Node)element).getNodeName();
-        if (qname == null) qname = ((Node)element).getLocalName();
-        return qname;
+        try {
+            Node node = (Node) element;
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                return node.getNodeName();
+            }
+        }
+        catch (ClassCastException ex) {
+        }
+        return null;
     }
 
 
@@ -513,15 +518,21 @@ public class DocumentNavigator extends DefaultNavigator
      * Get the qualified name of an attribute.
      *
      * @param attribute the target node
+     * 
      * @return a string representing the qualified (i.e. possibly
-     * prefixed) name if the node is an attribute, or null otherwise
+     * prefixed) name if the argument is an attribute, or null otherwise
      */
     public String getAttributeQName (Object attribute)
     {
-        // XXX wouldn't this work on an element too?
-        String qname = ((Node)attribute).getNodeName();
-        if (qname == null) qname = ((Node)attribute).getLocalName();
-        return qname;
+        try {
+            Node node = (Node) attribute;
+            if (node.getNodeType() == Node.ATTRIBUTE_NODE) {
+                return node.getNodeName();
+            }
+        }
+        catch (ClassCastException ex) {
+        }
+        return null;
     }
 
 
