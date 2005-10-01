@@ -2,8 +2,8 @@ package org.jaxen.util;
 
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1087 $
+ * $Date: 2005-10-01 16:06:11 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen.util;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: AncestorOrSelfAxisIterator.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: AncestorOrSelfAxisIterator.java 1087 2005-10-01 23:06:11Z elharo $
 */
 
 import java.util.Iterator;
@@ -95,7 +95,7 @@ public class AncestorOrSelfAxisIterator implements Iterator
                 contextNode = navigator.getParentNode(contextNode);
                 return result;
             }
-            throw new NoSuchElementException(); // XXX provide exception message
+            throw new NoSuchElementException("Exhausted ancestor or self axis");
         }
         catch (UnsupportedAxisException e)
         {
