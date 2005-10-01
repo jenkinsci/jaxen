@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1008 $
- * $Date: 2005-08-09 08:16:40 -0700 (Tue, 09 Aug 2005) $
+ * $Revision: 1067 $
+ * $Date: 2005-10-01 03:14:22 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathLexer.java 1008 2005-08-09 15:16:40Z elharo $
+ * $Id: XPathLexer.java 1067 2005-10-01 10:14:22Z elharo $
  */
 
 
@@ -181,7 +181,7 @@ class XPathLexer
                     }
                     else
                     {
-                        token = not();
+                        token = null;
                     }
                     break;
                 }
@@ -713,18 +713,6 @@ class XPathLexer
                                  currentPosition()+2 );
     
         consume();
-        consume();
-    
-        return token;
-    }
-    
-    private Token not()
-    {
-        Token token = new Token( TokenTypes.NOT,
-                                 getXPath(),
-                                 currentPosition(),
-                                 currentPosition() + 1 );
-    
         consume();
     
         return token;
