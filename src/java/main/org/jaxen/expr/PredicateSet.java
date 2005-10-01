@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1085 $
+ * $Date: 2005-10-01 15:55:35 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: PredicateSet.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: PredicateSet.java 1085 2005-10-01 22:55:35Z elharo $
  */
 
 
@@ -125,17 +125,65 @@ public class PredicateSet implements Serializable
         return buf.toString();
     }
 
-    // FIXME: Note - this could be *MUCH* more efficient
-    // currently this creates many redundant collections and should halt
-    // evaluation on the first matching item.
     protected boolean evaluateAsBoolean(List contextNodeSet,
                                       ContextSupport support) throws JaxenException
     {
-        List result = evaluatePredicates( contextNodeSet, support );
-
-        return ! result.isEmpty();
+        return anyMatchingNode( contextNodeSet, support );
     }
 
+   private boolean anyMatchingNode(List contextNodeSet, ContextSupport support)
+     throws JaxenException {
+        // Easy way out (necessary)
+        if (predicates.size() == 0) {
+            return false;
+        }
+        Iterator predIter = predicates.iterator();
+
+        // initial list to filter
+        List nodes2Filter = contextNodeSet;
+        // apply all predicates
+        while(predIter.hasNext()) {
+            final int nodes2FilterSize = nodes2Filter.size();
+            // Set up a dummy context with a list to hold each node
+            Context predContext = new Context(support);
+            List tempList = new ArrayList(1);
+            predContext.setNodeSet(tempList);
+            // loop through the current nodes to filter and add to the
+            // filtered nodes list if the predicate succeeds
+            for (int i = 0; i < nodes2FilterSize; ++i) {
+                Object contextNode = nodes2Filter.get(i);
+                tempList.clear();
+                tempList.add(contextNode);
+                predContext.setNodeSet(tempList);
+                // ????
+                predContext.setPosition(i + 1);
+                predContext.setSize(nodes2FilterSize);
+                Object predResult = ((Predicate)predIter.next()).evaluate(predContext);
+                if (predResult instanceof Number) {
+                    // Here we assume nodes are in forward or reverse order
+                    // as appropriate for axis
+                    int proximity = ((Number) predResult).intValue();
+                    if (proximity == (i + 1)) {
+                        return true;
+                    }
+                }
+                else {
+                    Boolean includes =
+                        BooleanFunction.evaluate(predResult,
+                                                predContext.getNavigator());
+                    if (includes.booleanValue()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        
+        return false;
+    }
+   
+    
+    
+    
    protected List evaluatePredicates(List contextNodeSet, ContextSupport support)
             throws JaxenException {
         // Easy way out (necessary)
