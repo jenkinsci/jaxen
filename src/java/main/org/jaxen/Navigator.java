@@ -2,8 +2,8 @@ package org.jaxen;
 
 /*
  * $Header$
- * $Revision: 1035 $
- * $Date: 2005-09-23 16:49:20 -0700 (Fri, 23 Sep 2005) $
+ * $Revision: 1080 $
+ * $Date: 2005-10-01 14:48:02 -0700 (Sat, 01 Oct 2005) $
  *
  * ====================================================================
  *
@@ -58,7 +58,7 @@ package org.jaxen;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: Navigator.java 1035 2005-09-23 23:49:20Z elharo $
+ * $Id: Navigator.java 1080 2005-10-01 21:48:02Z elharo $
 */
 
 import java.io.Serializable;
@@ -80,7 +80,7 @@ import org.jaxen.saxpath.SAXPathException;
  *  @author <a href="mailto:bob@eng.werken.com">bob mcwhirter</a>
  *  @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
  *
- *  @version $Id: Navigator.java 1035 2005-09-23 23:49:20Z elharo $
+ *  @version $Id: Navigator.java 1080 2005-10-01 21:48:02Z elharo $
  */
 public interface Navigator extends Serializable
 {
@@ -308,19 +308,19 @@ public interface Navigator extends Serializable
      */
     String getElementNamespaceUri(Object element);    
 
-    /** Retrieve the name of the given element node.
+    /** Retrieve the local name of the given element node.
      *
      *  @param element the context element node
      *
-     *  @return the name of the element node
+     *  @return the local name of the element node
      */
     String getElementName(Object element);    
 
-    /** Retrieve the QName of the given element node.
+    /** Retrieve the qualified name of the given element node.
      *
      *  @param element the context element node
      *
-     *  @return the QName of the element node
+     *  @return the qualified name of the element node
      */
     String getElementQName(Object element);
 
@@ -332,15 +332,15 @@ public interface Navigator extends Serializable
      */
     String getAttributeNamespaceUri(Object attr);    
 
-    /** Retrieve the name of the given attribute node.
+    /** Retrieve the local name of the given attribute node.
      *
      *  @param attr the context attribute node
      *
-     *  @return the name of the attribute node
+     *  @return the local name of the attribute node
      */
     String getAttributeName(Object attr);
 
-    /** Retrieve the QName of the given attribute node.
+    /** Retrieve the qualified name of the given attribute node.
      *
      *  @param attr the context attribute node
      *
