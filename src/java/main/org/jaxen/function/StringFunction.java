@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1095 $
- * $Date: 2005-10-06 05:26:39 -0700 (Thu, 06 Oct 2005) $
+ * $Revision: 1096 $
+ * $Date: 2005-10-06 08:48:16 -0700 (Thu, 06 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 1095 2005-10-06 12:26:39Z elharo $
+ * $Id: StringFunction.java 1096 2005-10-06 15:48:16Z elharo $
  */
 
 
@@ -214,8 +214,8 @@ public class StringFunction implements Function
     public StringFunction() {}
     
     /**
-     * Returns the string-value of  
-     * <code>args.get(0)</code> or of the context node if ,code>args</code> is empty.
+     * Returns the string-value of <code>args.get(0)</code> 
+     * or of the context node if <code>args</code> is empty.
      * 
      * @param context the context at the point in the
      *         expression where the function is called
@@ -245,9 +245,14 @@ public class StringFunction implements Function
     }
     
     /**
-     * Returns the string-value of <code>obj</code>.
+     * Returns the XPath string-value of <code>obj</code>.
+     * This operation is only defined if obj is a node, node-set,
+     * <code>String</code>, <code>Number</code>, or 
+     * <code>Boolean</code>. For other types this function
+     * returns the empty string. 
      * 
-     * @param obj the object whose string-value is calculated
+     * @param obj the node, node-set, string, number, or boolean
+     *      whose string-value is calculated
      * @param nav the navigator used to calculate the string-value
      * 
      * @return a <code>String</code>. May be empty but is never null.
