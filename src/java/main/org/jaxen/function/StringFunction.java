@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1014 $
- * $Date: 2005-09-14 06:03:59 -0700 (Wed, 14 Sep 2005) $
+ * $Revision: 1095 $
+ * $Date: 2005-10-06 05:26:39 -0700 (Thu, 06 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringFunction.java 1014 2005-09-14 13:03:59Z elharo $
+ * $Id: StringFunction.java 1095 2005-10-06 12:26:39Z elharo $
  */
 
 
@@ -257,10 +257,6 @@ public class StringFunction implements Function
     {
         try
         {
-            if (obj == null) {
-                return "";
-            }
-            
             // Workaround because XOM uses lists for Text nodes
             // so we need to check for that first
             if (nav != null && nav.isText(obj))
@@ -281,7 +277,7 @@ public class StringFunction implements Function
             
             if (nav != null) {
                 // This stack of instanceof really suggests there's 
-                // a failure to take adavantage of polymorphism here
+                // a failure to take advantage of polymorphism here
                 if (nav.isElement(obj))
                 {
                     return nav.getElementStringValue(obj);
