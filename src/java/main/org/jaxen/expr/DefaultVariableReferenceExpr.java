@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1099 $
+ * $Date: 2005-10-18 05:03:34 -0700 (Tue, 18 Oct 2005) $
  *
  * ====================================================================
  *
@@ -56,10 +56,8 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultVariableReferenceExpr.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: DefaultVariableReferenceExpr.java 1099 2005-10-18 12:03:34Z elharo $
  */
-
-
 
 package org.jaxen.expr;
 
@@ -69,13 +67,13 @@ import org.jaxen.UnresolvableException;
 class DefaultVariableReferenceExpr extends DefaultExpr implements VariableReferenceExpr
 {
     private String prefix;
-    private String variableName;
+    private String localName;
 
     DefaultVariableReferenceExpr(String prefix,
                                         String variableName)
     {
         this.prefix       = prefix;
-        this.variableName = variableName;
+        this.localName = variableName;
     }
 
     public String getPrefix()
@@ -85,31 +83,29 @@ class DefaultVariableReferenceExpr extends DefaultExpr implements VariableRefere
 
     public String getVariableName()
     {
-        return this.variableName;
+        return this.localName;
     }
 
     public String toString()
     {
-        String prefix = getPrefix();
 
         if ( prefix == null )
         {
-            return "[(DefaultVariableReferenceExpr): " + getVariableName() + "]";
+            return "[(DefaultVariableReferenceExpr): " + localName + "]";
         }
 
-        return "[(DefaultVariableReferenceExpr): " + getPrefix() + ":" + getVariableName() + "]";
+        return "[(DefaultVariableReferenceExpr): " + prefix + ":" + localName + "]";
     }
 
     public String getText()
     {
-        String prefix = getPrefix();
 
         if ( prefix == null )
         {
-            return "$" + getVariableName();
+            return "$" + localName;
         }
 
-        return "$" + prefix + ":" + getVariableName();
+        return "$" + prefix + ":" + localName;
     }
 
     public Object evaluate(Context context)
@@ -119,8 +115,8 @@ class DefaultVariableReferenceExpr extends DefaultExpr implements VariableRefere
             context.translateNamespacePrefixToUri( getPrefix() );
 
         return context.getVariableValue( namespaceURI,
-                                         getPrefix(),
-                                         getVariableName() );
+                                         prefix,
+                                         localName );
     }
     
     public void accept(Visitor visitor)
