@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1110 $
+ * $Date: 2005-11-03 09:12:31 -0800 (Thu, 03 Nov 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultNavigator.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: DefaultNavigator.java 1110 2005-11-03 17:12:31Z elharo $
  */
 
 
@@ -263,11 +263,11 @@ public abstract class DefaultNavigator implements Navigator
     }
     
     /**
-     *  Default implementation that cannot find parent. Subclasses for
-     *  models with parent should override this method.
+     * Default inefficient implementation. Subclasses 
+     * should override this method.
      *
      * @param contextNode   the node whose parent to return
-     * @return null
+     * @return the parent node
      * @throws UnsupportedAxisException if the parent axis is not supported
      */
     public Object getParentNode(Object contextNode) throws UnsupportedAxisException
