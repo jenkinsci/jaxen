@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1112 $
+ * $Date: 2005-11-03 14:16:01 -0800 (Thu, 03 Nov 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PatternHandler.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: PatternHandler.java 1112 2005-11-03 22:16:01Z elharo $
  */
 
 
@@ -105,6 +105,8 @@ public class PatternHandler extends JaxenHandler
      *  This method is only valid once <code>XPathReader.parse(...)</code>
      *  successfully returned.
      *  </p>
+     *  
+     *  @param shouldSimplify ????
      *
      *  @return The Pattern expression tree.
      */
@@ -112,7 +114,7 @@ public class PatternHandler extends JaxenHandler
     {
         if ( shouldSimplify && ! this.simplified )
         {
-            //System.err.println("simplifyin....");
+            //System.err.println("simplifying....");
             this.pattern.simplify();
             this.simplified = true;
         }
@@ -123,7 +125,7 @@ public class PatternHandler extends JaxenHandler
     
     
     
-    public void endXPath() throws JaxenException
+    public void endXPath()
     {
         this.pattern = (Pattern) pop();
 
@@ -132,7 +134,7 @@ public class PatternHandler extends JaxenHandler
         popFrame();
     }
 
-    public void endPathExpr() throws JaxenException
+    public void endPathExpr()
     {
         //System.err.println("endPathExpr()");
 
@@ -182,7 +184,7 @@ public class PatternHandler extends JaxenHandler
 */
     }
 
-    public void startAbsoluteLocationPath() throws JaxenException
+    public void startAbsoluteLocationPath()
     {
         //System.err.println("startAbsoluteLocationPath()");
         pushFrame();
@@ -196,7 +198,7 @@ public class PatternHandler extends JaxenHandler
         endLocationPath();
     }
 
-    public void startRelativeLocationPath() throws JaxenException
+    public void startRelativeLocationPath()
     {
         //System.err.println("startRelativeLocationPath()");
         pushFrame();
@@ -254,7 +256,7 @@ public class PatternHandler extends JaxenHandler
     
     public void startNameStep(int axis,
                               String prefix,
-                              String localName) throws JaxenException
+                              String localName)
     {
         //System.err.println("startNameStep(" + axis + ", " + prefix + ", " + localName + ")");
         pushFrame();
@@ -280,7 +282,7 @@ public class PatternHandler extends JaxenHandler
         }
     }
 
-    public void startTextNodeStep(int axis) throws JaxenException
+    public void startTextNodeStep(int axis)
     {
         //System.err.println("startTextNodeStep()");
         pushFrame();
@@ -288,7 +290,7 @@ public class PatternHandler extends JaxenHandler
         push( new NodeTypeTest( Pattern.TEXT_NODE ) );
     }
     
-    public void startCommentNodeStep(int axis) throws JaxenException
+    public void startCommentNodeStep(int axis)
     {
         //System.err.println("startCommentNodeStep()");
         pushFrame();
@@ -296,7 +298,7 @@ public class PatternHandler extends JaxenHandler
         push( new NodeTypeTest( Pattern.COMMENT_NODE ) );
     }
 
-    public void startAllNodeStep(int axis) throws JaxenException
+    public void startAllNodeStep(int axis)
     {
         //System.err.println("startAllNodeStep()");
         pushFrame();
@@ -305,7 +307,7 @@ public class PatternHandler extends JaxenHandler
     }
 
     public void startProcessingInstructionNodeStep(int axis,
-                                                   String name) throws JaxenException
+                                                   String name)
     {
         //System.err.println("startProcessingInstructionStep()");
         pushFrame();
@@ -329,7 +331,7 @@ public class PatternHandler extends JaxenHandler
     }
     
 
-    public void startUnionExpr() throws JaxenException
+    public void startUnionExpr()
     {
         //System.err.println("startUnionExpr()");
     }
