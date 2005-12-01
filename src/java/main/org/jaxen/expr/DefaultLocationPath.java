@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1114 $
+ * $Date: 2005-12-01 03:33:06 -0800 (Thu, 01 Dec 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultLocationPath.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: DefaultLocationPath.java 1114 2005-12-01 11:33:06Z elharo $
  */
 package org.jaxen.expr;
 
@@ -142,8 +142,7 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
     public Object evaluate(Context context) throws JaxenException
     {
         List nodeSet = context.getNodeSet();
-        List contextNodeSet = new ArrayList(nodeSet.size());
-        contextNodeSet.addAll(nodeSet);
+        List contextNodeSet = new ArrayList(nodeSet);
         ContextSupport support = context.getContextSupport();
         Context stepContext = new Context(support);
         Iterator stepIter = getSteps().iterator();
