@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 983 $
- * $Date: 2005-06-28 06:44:46 -0700 (Tue, 28 Jun 2005) $
+ * $Revision: 1116 $
+ * $Date: 2005-12-01 03:38:21 -0800 (Thu, 01 Dec 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SingleObjectIterator.java 983 2005-06-28 13:44:46Z elharo $
+ * $Id: SingleObjectIterator.java 1116 2005-12-01 11:38:21Z elharo $
  */
 
 
@@ -65,6 +65,11 @@ package org.jaxen.util;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * Simple utility class that wraps an iterator around one object.
+ * This is a little more efficent than creating a one-object list.
+ *
+ */
 public class SingleObjectIterator implements Iterator
 {
     private Object  object;
