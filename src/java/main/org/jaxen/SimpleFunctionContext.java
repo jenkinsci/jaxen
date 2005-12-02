@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1053 $
- * $Date: 2005-09-25 04:39:21 -0700 (Sun, 25 Sep 2005) $
+ * $Revision: 1118 $
+ * $Date: 2005-12-02 08:11:55 -0800 (Fri, 02 Dec 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SimpleFunctionContext.java 1053 2005-09-25 11:39:21Z elharo $
+ * $Id: SimpleFunctionContext.java 1118 2005-12-02 16:11:55Z elharo $
  */
 
 
@@ -123,7 +123,7 @@ public class SimpleFunctionContext implements FunctionContext
                                  String localName,
                                  Function function )
     {
-        this.functions.put( new QualifiedName(namespaceURI, null, localName),
+        this.functions.put( new QualifiedName(namespaceURI, localName),
                             function );
     }
 
@@ -132,7 +132,7 @@ public class SimpleFunctionContext implements FunctionContext
                                 String localName )
         throws UnresolvableException
     {
-        QualifiedName key = new QualifiedName( namespaceURI, prefix, localName );
+        QualifiedName key = new QualifiedName( namespaceURI, localName );
 
         if ( this.functions.containsKey(key) ) {
             return (Function) this.functions.get( key );

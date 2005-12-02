@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1053 $
- * $Date: 2005-09-25 04:39:21 -0700 (Sun, 25 Sep 2005) $
+ * $Revision: 1118 $
+ * $Date: 2005-12-02 08:11:55 -0800 (Fri, 02 Dec 2005) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: QualifiedName.java 1053 2005-09-25 11:39:21Z elharo $
+ * $Id: QualifiedName.java 1118 2005-12-02 16:11:55Z elharo $
  */
 
 package org.jaxen;
@@ -70,7 +70,6 @@ class QualifiedName
 {
     private String namespaceURI;
     private String localName;
-    private String prefix;
 
     /** Constructs a QualifiedName object.
      *
@@ -79,10 +78,9 @@ class QualifiedName
      *  @param localName    local name that is qualified by the namespace uri;
      *                      must not be <code>null</code>
      */
-    QualifiedName( String namespaceURI, String prefix, String localName )
+    QualifiedName( String namespaceURI, String localName )
     {
         if (namespaceURI == null) namespaceURI = "";
-        if (prefix == null) prefix = "";
         this.namespaceURI = namespaceURI;
         this.localName = localName;
     }
@@ -108,8 +106,7 @@ class QualifiedName
      */
     String getClarkForm() {
         if ("".equals(namespaceURI)) return localName;
-        else if ("".equals(prefix)) return "{" + namespaceURI + "}" + localName;
-        else return "{" + namespaceURI + "}" + prefix + ":" + localName;
+        else return "{" + namespaceURI + "}" + ":" + localName;
     }
     
 }
