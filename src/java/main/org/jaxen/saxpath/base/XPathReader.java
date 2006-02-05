@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1073 $
- * $Date: 2005-10-01 04:19:40 -0700 (Sat, 01 Oct 2005) $
+ * $Revision: 1124 $
+ * $Date: 2006-02-05 12:54:23 -0800 (Sun, 05 Feb 2006) $
  *
  * ====================================================================
  *
@@ -56,7 +56,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 1073 2005-10-01 11:19:40Z elharo $
+ * $Id: XPathReader.java 1124 2006-02-05 20:54:23Z elharo $
  */
 
 
@@ -208,13 +208,6 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
         getXPathHandler().endPathExpr();
     }
 
-    private void numberDouble() throws SAXPathException
-    {
-        Token token = match( TokenTypes.DOUBLE );
-
-        getXPathHandler().number( Double.parseDouble( token.getTokenText() ) );
-    }
-
     private void literal() throws SAXPathException
     {
         Token token = match( TokenTypes.LITERAL );
@@ -277,7 +270,9 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
         {
             case TokenTypes.DOUBLE:
             {
-                numberDouble();
+                Token token = match( TokenTypes.DOUBLE );
+                
+                getXPathHandler().number( Double.parseDouble( token.getTokenText() ) );
                 break;
             }
             case TokenTypes.LITERAL:
