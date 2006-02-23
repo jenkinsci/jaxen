@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1129 $
+ * $Date: 2006-02-23 04:06:09 -0800 (Thu, 23 Feb 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenException.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: JaxenException.java 1129 2006-02-23 12:06:09Z elharo $
  */
 
 
@@ -67,7 +67,7 @@ public class JaxenException extends org.jaxen.saxpath.SAXPathException
             versionString = versionString.substring(0, 3);
             javaVersion = Double.valueOf(versionString).doubleValue();
         }
-        catch (Exception ex) {
+        catch (RuntimeException ex) {
             // The version string format changed so presumably it's
             // 1.4 or later.
         }
