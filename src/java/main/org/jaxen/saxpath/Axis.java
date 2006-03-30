@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1133 $
+ * $Date: 2006-03-30 05:56:36 -0800 (Thu, 30 Mar 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: Axis.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: Axis.java 1133 2006-03-30 13:56:36Z elharo $
  */
 
 
@@ -174,6 +174,9 @@ public class Axis
      */
     public static int lookup(String axisName)
     {
+        
+        // XXX All these equals calls are a small HotSpot;
+        // Need to replace this with a static HashMap
         if ( "child".equals( axisName ) )
         {
             return CHILD;
