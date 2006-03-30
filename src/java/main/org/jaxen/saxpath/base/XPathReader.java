@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1131 $
+ * $Date: 2006-03-30 05:47:25 -0800 (Thu, 30 Mar 2006) $
  *
  * ====================================================================
  *
@@ -43,13 +43,13 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: XPathReader.java 1131 2006-03-30 13:47:25Z elharo $
  */
 
 
 package org.jaxen.saxpath.base;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import org.jaxen.saxpath.Axis;
 import org.jaxen.saxpath.Operator;
@@ -65,7 +65,7 @@ import org.jaxen.saxpath.helpers.DefaultXPathHandler;
  */
 public class XPathReader implements org.jaxen.saxpath.XPathReader
 {
-    private LinkedList tokens;
+    private ArrayList  tokens;
     private XPathLexer lexer;
 
     private XPathHandler handler;
@@ -113,7 +113,7 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
 
     void setUpParse(String xpath)
     {
-        this.tokens = new LinkedList();
+        this.tokens = new ArrayList();
         this.lexer = new XPathLexer( xpath );
     }
 
@@ -1029,7 +1029,7 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
 
         if ( token.getTokenType() == tokenType )
         {
-            tokens.removeFirst();
+            tokens.remove(0);
             return token;
         }
 
