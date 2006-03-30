@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1132 $
+ * $Date: 2006-03-30 05:53:11 -0800 (Thu, 30 Mar 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenHandler.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: JaxenHandler.java 1132 2006-03-30 13:53:11Z elharo $
  */
 
 
@@ -82,7 +82,10 @@ public class JaxenHandler implements XPathHandler
     protected boolean simplified;
 
     /**
-     * ????
+     * This may be changed to an ArrayList in the future (i.e. version &gt;= 1.2). 
+     * You really shouldn't be accessing this field directly, but
+     * if you are please try to use it as a generic List. Don't use the 
+     * methods that are only available in LinkedList.
      */
     protected LinkedList stack;
 
