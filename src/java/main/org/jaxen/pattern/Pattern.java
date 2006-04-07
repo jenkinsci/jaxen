@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1134 $
+ * $Date: 2006-04-07 10:11:52 -0700 (Fri, 07 Apr 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Pattern.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: Pattern.java 1134 2006-04-07 17:11:52Z elharo $
  */
 
 package org.jaxen.pattern;
@@ -54,7 +54,7 @@ import org.jaxen.JaxenException;
   * the XSLT processing model.</p>
   *
   * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
-  * @version $Revision: 1128 $
+  * @version $Revision: 1134 $
   */
 public abstract class Pattern {
 
@@ -109,7 +109,7 @@ public abstract class Pattern {
     public abstract boolean matches( Object node, Context context ) throws JaxenException;
     
     /** Returns the default resolution policy of the pattern according to the
-      * <a href="http://www.w3.org/TR/xslt11/#conflict">
+      * <a href="http://www.w3.org/TR/xslt#conflict">
       * XSLT conflict resolution rules</a>.
       *  
      * @return 0.5; the default priority defined in XSLT
