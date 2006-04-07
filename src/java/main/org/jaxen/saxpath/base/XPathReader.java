@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1131 $
- * $Date: 2006-03-30 05:47:25 -0800 (Thu, 30 Mar 2006) $
+ * $Revision: 1137 $
+ * $Date: 2006-04-07 16:47:37 -0700 (Fri, 07 Apr 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 1131 2006-03-30 13:47:25Z elharo $
+ * $Id: XPathReader.java 1137 2006-04-07 23:47:37Z elharo $
  */
 
 
@@ -1043,6 +1043,8 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
         return LT(position).getTokenType();
     }
 
+    
+    // XXX This method's a HotSpot; could we improve it?
     private Token LT(int position)
     {
         if ( tokens.size() <= ( position - 1 ) )
