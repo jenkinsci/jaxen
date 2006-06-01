@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1154 $
+ * $Date: 2006-06-01 06:19:30 -0700 (Thu, 01 Jun 2006) $
  *
  * ====================================================================
  *
@@ -42,18 +42,23 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: QualifiedName.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: QualifiedName.java 1154 2006-06-01 13:19:30Z elharo $
  */
 
 package org.jaxen;
 
+import java.io.Serializable;
+
 /** A local name (that matches the XML NCName production) and a namespace URI
  *  with which the local name is qualified.
  *
- *  @author Erwin Bolwidt ( ejb @ klomp.org )
+ *  @author Erwin Bolwidt ( ejb@klomp.org )
  */
-class QualifiedName
+class QualifiedName implements Serializable
 {
+
+    private static final long serialVersionUID = 2734958615642751535L;
+    
     private String namespaceURI;
     private String localName;
 
