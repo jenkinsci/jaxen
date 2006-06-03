@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1161 $
+ * $Date: 2006-06-03 13:36:00 -0700 (Sat, 03 Jun 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathSyntaxException.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: XPathSyntaxException.java 1161 2006-06-03 20:36:00Z elharo $
  */
 
 
@@ -55,6 +55,11 @@ package org.jaxen;
  */
 public class XPathSyntaxException extends JaxenException
 {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1980601567207604059L;
+
     /** The textual XPath expression */
     private String xpath;
 

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1129 $
- * $Date: 2006-02-23 04:06:09 -0800 (Thu, 23 Feb 2006) $
+ * $Revision: 1161 $
+ * $Date: 2006-06-03 13:36:00 -0700 (Sat, 03 Jun 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: JaxenException.java 1129 2006-02-23 12:06:09Z elharo $
+ * $Id: JaxenException.java 1161 2006-06-03 20:36:00Z elharo $
  */
 
 
@@ -59,6 +59,10 @@ package org.jaxen;
 public class JaxenException extends org.jaxen.saxpath.SAXPathException
 {
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 7132891439526672639L;
     static double javaVersion = 1.4;
     
     static {
@@ -105,4 +109,3 @@ public class JaxenException extends org.jaxen.saxpath.SAXPathException
     }
     
 }
-

@@ -1,5 +1,5 @@
 /*
- $Id: DocumentNavigator.java 1128 2006-02-05 21:49:04Z elharo $
+ $Id: DocumentNavigator.java 1161 2006-06-03 20:36:00Z elharo $
 
  Copyright 2003 The Werken Company. All Rights Reserved.
  
@@ -62,6 +62,11 @@ public class DocumentNavigator
     extends DefaultNavigator
     implements NamedAccessNavigator
 {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -1768605107626726499L;
 
     /** Empty Class array. */
     private static final Class[] EMPTY_CLASS_ARRAY = new Class[0];
