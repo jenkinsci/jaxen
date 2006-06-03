@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 1128 2006-02-05 21:49:04Z elharo $
+ $Id: DefaultNameStep.java 1162 2006-06-03 20:52:26Z elharo $
 
  Copyright 2003 The Werken Company. All Rights Reserved.
  
@@ -62,6 +62,11 @@ import org.jaxen.saxpath.Axis;
  */
 public class DefaultNameStep extends DefaultStep implements NameStep {
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 428414912247718390L;
+
     /** 
      * Our prefix, bound through the current Context.
      * The empty-string ("") if no prefix was specified.

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1162 $
+ * $Date: 2006-06-03 13:52:26 -0700 (Sat, 03 Jun 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultCommentNodeStep.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: DefaultCommentNodeStep.java 1162 2006-06-03 20:52:26Z elharo $
  */
 
 
@@ -59,6 +59,10 @@ import org.jaxen.expr.iter.IterableAxis;
  */
 public class DefaultCommentNodeStep extends DefaultStep implements CommentNodeStep
 {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 4340788283861875606L;
     public DefaultCommentNodeStep(IterableAxis axis, PredicateSet predicateSet)
     {
         super( axis, predicateSet );

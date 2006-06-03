@@ -1,5 +1,5 @@
 /*
- $Id: IterableAttributeAxis.java 1128 2006-02-05 21:49:04Z elharo $
+ $Id: IterableAttributeAxis.java 1162 2006-06-03 20:52:26Z elharo $
 
  Copyright 2003 The Werken Company. All Rights Reserved.
  
@@ -50,6 +50,11 @@ import org.jaxen.UnsupportedAxisException;
  * @author Stephen Colebourne
  */
 public class IterableAttributeAxis extends IterableAxis {
+    
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     
     /**
      * Constructor.

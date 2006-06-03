@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1162 $
+ * $Date: 2006-06-03 13:52:26 -0700 (Sat, 03 Jun 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Dom4jXPath.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: Dom4jXPath.java 1162 2006-06-03 20:52:26Z elharo $
  */
 
 
@@ -71,10 +71,15 @@ import org.jaxen.JaxenException;
  * @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  * @author <a href="mailto:jstachan@apache.org">James Strachan</a>
  *
- * @version $Revision: 1128 $
+ * @version $Revision: 1162 $
  */
 public class Dom4jXPath extends BaseXPath
 {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -75510941087659775L;
+
     /** Construct given an XPath expression string.
      *
      *  @param xpathExpr the XPath expression

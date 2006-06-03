@@ -2,8 +2,8 @@ package org.jaxen.dom4j;
 
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1162 $
+ * $Date: 2006-06-03 13:52:26 -0700 (Sat, 03 Jun 2006) $
  *
  * ====================================================================
  *
@@ -45,7 +45,7 @@ package org.jaxen.dom4j;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: DocumentNavigator.java 1162 2006-06-03 20:52:26Z elharo $
 */
 
 import java.util.ArrayList;
@@ -91,6 +91,10 @@ import org.jaxen.util.SingleObjectIterator;
 public class DocumentNavigator extends DefaultNavigator implements NamedAccessNavigator
 {
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 5582300797286535936L;
     private transient SAXReader reader;
 
     /** Singleton implementation.
@@ -350,7 +354,7 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
         return null;
     }
 
-    /** Returns a parsed form of the given xpath string, which will be suitable
+    /** Returns a parsed form of the given XPath string, which will be suitable
      *  for queries on DOM4J documents.
      */
     public XPath parseXPath (String xpath) throws SAXPathException
