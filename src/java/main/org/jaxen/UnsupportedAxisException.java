@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1159 $
- * $Date: 2006-06-03 13:25:34 -0700 (Sat, 03 Jun 2006) $
+ * $Revision: 1160 $
+ * $Date: 2006-06-03 13:26:02 -0700 (Sat, 03 Jun 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: UnsupportedAxisException.java 1159 2006-06-03 20:25:34Z elharo $
+ * $Id: UnsupportedAxisException.java 1160 2006-06-03 20:26:02Z elharo $
  */
 
 
@@ -68,10 +68,10 @@ public class UnsupportedAxisException extends JaxenException
 
     /** Create a new UnsupportedAxisException.
      *
-     *  @param msg the error message
+     *  @param message the error message
      */
-    public UnsupportedAxisException(String msg)
+    public UnsupportedAxisException(String message)
     {
-        super( msg );
+        super( message );
     }
 }
