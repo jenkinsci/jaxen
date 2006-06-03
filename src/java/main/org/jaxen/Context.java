@@ -1,7 +1,7 @@
 package org.jaxen;
 
 /*
- $Id: Context.java 1128 2006-02-05 21:49:04Z elharo $
+ $Id: Context.java 1158 2006-06-03 20:13:51Z elharo $
 
  Copyright 2003 The Werken Company. All Rights Reserved.
  
@@ -65,6 +65,11 @@ import java.util.List;
 public class Context
     implements Serializable
 {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 2315979994685591055L;
+
     // ----------------------------------------------------------------------
     //     Instance members
     // ----------------------------------------------------------------------
