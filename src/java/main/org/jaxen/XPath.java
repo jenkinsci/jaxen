@@ -1,7 +1,7 @@
 package org.jaxen;
 
 /*
- $Id: XPath.java 1128 2006-02-05 21:49:04Z elharo $
+ $Id: XPath.java 1157 2006-06-03 20:07:37Z elharo $
 
  Copyright 2003 The Werken Company. All Rights Reserved.
  
@@ -206,7 +206,7 @@ public interface XPath
      *  will be returned.
      *
      *  <p>
-     *  <b>NOTE:</b> In most cases, nodes will be returned
+     *  <strong>NOTE:</strong> In most cases, nodes will be returned
      *  in document-order, as defined by the XML Canonicalization
      *  specification.  The exception occurs when using XPath
      *  expressions involving the <code>union</code> operator

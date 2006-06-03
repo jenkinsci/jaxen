@@ -2,8 +2,8 @@ package org.jaxen;
 
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1157 $
+ * $Date: 2006-06-03 13:07:37 -0700 (Sat, 03 Jun 2006) $
  *
  * ====================================================================
  *
@@ -45,7 +45,7 @@ package org.jaxen;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: Navigator.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: Navigator.java 1157 2006-06-03 20:07:37Z elharo $
 */
 
 import java.io.Serializable;
@@ -67,7 +67,7 @@ import org.jaxen.saxpath.SAXPathException;
  *  @author <a href="mailto:bob@eng.werken.com">bob mcwhirter</a>
  *  @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
  *
- *  @version $Id: Navigator.java 1128 2006-02-05 21:49:04Z elharo $
+ *  @version $Id: Navigator.java 1157 2006-06-03 20:07:37Z elharo $
  */
 public interface Navigator extends Serializable
 {
@@ -486,7 +486,7 @@ public interface Navigator extends Serializable
     String getNamespacePrefix(Object ns);
 
     
-    /** Translate a namespace prefix to a namespace URI, <b>possibly</b>
+    /** Translate a namespace prefix to a namespace URI, <strong>possibly</strong>
      *  considering a particular element node.
      *
      *  <p>
