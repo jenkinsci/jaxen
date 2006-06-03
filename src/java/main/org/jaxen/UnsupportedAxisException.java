@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1159 $
+ * $Date: 2006-06-03 13:25:34 -0700 (Sat, 03 Jun 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: UnsupportedAxisException.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: UnsupportedAxisException.java 1159 2006-06-03 20:25:34Z elharo $
  */
 
 
@@ -61,6 +61,11 @@ package org.jaxen;
  */
 public class UnsupportedAxisException extends JaxenException
 {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 3385500112257420949L;
+
     /** Create a new UnsupportedAxisException.
      *
      *  @param msg the error message
