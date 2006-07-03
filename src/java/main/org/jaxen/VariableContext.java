@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1168 $
+ * $Date: 2006-07-03 04:58:31 -0700 (Mon, 03 Jul 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: VariableContext.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: VariableContext.java 1168 2006-07-03 11:58:31Z elharo $
  */
 
 
@@ -69,6 +69,10 @@ package org.jaxen;
  *  A variable may validly be assigned the <code>null</code> value,
  *  but an unbound variable (one that this context does not know about)
  *  should cause an {@link UnresolvableException} to be thrown.
+ *  </p>
+ *  
+ *  <p>
+ *  Implementations of this interface should implement <code>Serializable</code>.
  *  </p>
  *
  *  @see SimpleVariableContext
