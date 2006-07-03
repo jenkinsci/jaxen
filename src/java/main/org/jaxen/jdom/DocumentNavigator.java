@@ -2,8 +2,8 @@ package org.jaxen.jdom;
 
 /*
  * $Header$
- * $Revision: 1161 $
- * $Date: 2006-06-03 13:36:00 -0700 (Sat, 03 Jun 2006) $
+ * $Revision: 1173 $
+ * $Date: 2006-07-03 11:16:50 -0700 (Mon, 03 Jul 2006) $
  *
  * ====================================================================
  *
@@ -45,7 +45,7 @@ package org.jaxen.jdom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1161 2006-06-03 20:36:00Z elharo $
+ * $Id: DocumentNavigator.java 1173 2006-07-03 18:16:50Z elharo $
 */
 
 import java.util.HashMap;
@@ -259,6 +259,20 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
                 ns = (Namespace)additional.next();
                 if ( !nsMap.containsKey(ns.getPrefix()) )
                     nsMap.put( ns.getPrefix(), new XPathNamespace(elem, ns) );
+            }
+
+            Iterator attributes = current.getAttributes().iterator();
+
+            while ( attributes.hasNext() ) {
+
+                Attribute attribute = (Attribute)attributes.next();
+
+                Namespace attrNS = attribute.getNamespace();
+            
+                if ( attrNS != Namespace.NO_NAMESPACE ) {
+                    if ( !nsMap.containsKey(attrNS.getPrefix()) )
+                        nsMap.put( attrNS.getPrefix(), new XPathNamespace(elem, attrNS) );
+                }
             }
 
             if (current.getParent() instanceof Element) {
