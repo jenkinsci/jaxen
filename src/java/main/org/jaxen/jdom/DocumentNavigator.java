@@ -2,8 +2,8 @@ package org.jaxen.jdom;
 
 /*
  * $Header$
- * $Revision: 1173 $
- * $Date: 2006-07-03 11:16:50 -0700 (Mon, 03 Jul 2006) $
+ * $Revision: 1177 $
+ * $Date: 2006-07-10 06:53:52 -0700 (Mon, 10 Jul 2006) $
  *
  * ====================================================================
  *
@@ -45,7 +45,7 @@ package org.jaxen.jdom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1173 2006-07-03 18:16:50Z elharo $
+ * $Id: DocumentNavigator.java 1177 2006-07-10 13:53:52Z elharo $
 */
 
 import java.util.HashMap;
@@ -196,11 +196,11 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
      * Retrieves an <code>Iterator</code> over the child elements that
      * match the supplied name.
      *
-     * @param contextNode  the origin context node
-     * @param localName  the local name of the children to return, always present
+     * @param contextNode      the origin context node
+     * @param localName        the local name of the children to return, always present
      * @param namespacePrefix  the prefix of the namespace of the children to return
-     * @param namespaceURI  the uri of the namespace of the children to return
-     * @return an Iterator that traverses the named children, or null if none
+     * @param namespaceURI     the URI of the namespace of the children to return
+     * @return an Iterator     that traverses the named children, or null if none
      */
     public Iterator getChildAxisIterator(
             Object contextNode, String localName, String namespacePrefix, String namespaceURI) {
@@ -352,11 +352,11 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
      * Retrieves an <code>Iterator</code> over the attribute elements that
      * match the supplied name.
      *
-     * @param contextNode  the origin context node
-     * @param localName  the local name of the attributes to return, always present
+     * @param contextNode      the origin context node
+     * @param localName        the local name of the attributes to return, always present
      * @param namespacePrefix  the prefix of the namespace of the attributes to return
-     * @param namespaceURI  the URI of the namespace of the attributes to return
-     * @return an Iterator that traverses the named attributes, not null
+     * @param namespaceURI     the URI of the namespace of the attributes to return
+     * @return an Iterator     that traverses the named attributes, not null
      */
     public Iterator getAttributeAxisIterator(
             Object contextNode, String localName, String namespacePrefix, String namespaceURI) {
