@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1179 $
+ * $Date: 2006-07-16 04:07:25 -0700 (Sun, 16 Jul 2006) $
  *
  * ====================================================================
  *
@@ -42,23 +42,28 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FunctionCallException.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: FunctionCallException.java 1179 2006-07-16 11:07:25Z elharo $
  */
 
 
 package org.jaxen;
 
-/** <code>FunctionCallException</code> is thrown if an exception
- * occurs during the evaluation of a function.
- * This exception may include a root exception, such as if the 
- * real exception was failure to load an XML document via the
- * document() function call.
+/** 
+ * Thrown if an exception occurs during the evaluation of a function.
+ * This exception may include a root exception--for instance an 
+ * <code>IOException</code> if the real problem was failure to 
+ * load an XML document via the XSLT <code>document()</code> function.
  *
  * @author bob mcwhirter (bob @ werken.com)
  * @author <a href="mailto:jstrachan@apache.org">James Strachan</a>
  */
 public class FunctionCallException extends JaxenException
 {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 7908649612495640943L;
 
     /**
      * Create a new FunctionCallException with the specified detail message.
@@ -92,10 +97,10 @@ public class FunctionCallException extends JaxenException
     /**
      * <p>
      * Returns the exception that caused this function call to fail.
-     * Use getCause() instead.
+     * Use <code>getCause</code> instead.
      * </p>
      * 
-     * @return the exception that caused this fucntion call to fail
+     * @return the exception that caused this function call to fail
      * 
      * @deprecated replaced by {@link #getCause()}
      */
