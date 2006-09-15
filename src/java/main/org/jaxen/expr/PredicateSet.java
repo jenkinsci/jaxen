@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1194 $
+ * $Date: 2006-09-15 14:03:23 -0700 (Fri, 15 Sep 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: PredicateSet.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: PredicateSet.java 1194 2006-09-15 21:03:23Z elharo $
  */
 
 
@@ -62,6 +62,9 @@ import org.jaxen.function.BooleanFunction;
 
 public class PredicateSet implements Serializable
 {
+
+    private static final long serialVersionUID = -7166491740228977853L;
+    
     private List predicates;
 
     public PredicateSet()
