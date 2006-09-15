@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1193 $
+ * $Date: 2006-09-15 13:41:38 -0700 (Fri, 15 Sep 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReaderFactory.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: XPathReaderFactory.java 1193 2006-09-15 20:41:38Z elharo $
  */
 
 
@@ -163,11 +163,6 @@ public class XPathReaderFactory
         catch (InstantiationException e)
         {
             throw new SAXPathException( e );
-        }
-
-        if ( reader == null )
-        {
-            throw new SAXPathException( "Unable to create XPathReader" );
         }
         
         return reader;
