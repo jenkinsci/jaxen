@@ -2,8 +2,8 @@ package org.jaxen.jdom;
 
 /*
  * $Header$
- * $Revision: 1197 $
- * $Date: 2006-09-21 04:43:13 -0700 (Thu, 21 Sep 2006) $
+ * $Revision: 1198 $
+ * $Date: 2006-09-21 04:48:05 -0700 (Thu, 21 Sep 2006) $
  *
  * ====================================================================
  *
@@ -45,7 +45,7 @@ package org.jaxen.jdom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1197 2006-09-21 11:43:13Z elharo $
+ * $Id: DocumentNavigator.java 1198 2006-09-21 11:48:05Z elharo $
 */
 
 import java.util.HashMap;
@@ -220,8 +220,8 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
                 return JaxenConstants.EMPTY_ITERATOR;
             }
             if (namespaceURI != null) {
-                // TODO Verify that JDOM's equals method does not consider the prefix
-                if (Namespace.getNamespace(namespacePrefix, namespaceURI).equals(el.getNamespace()) == false) {
+                // JDOM's equals method does not consider the prefix when comparing namespace objects
+                if (!Namespace.getNamespace(namespacePrefix, namespaceURI).equals(el.getNamespace())) {
                     return JaxenConstants.EMPTY_ITERATOR;
                 }
             }
