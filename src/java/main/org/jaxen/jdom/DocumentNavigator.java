@@ -2,8 +2,8 @@ package org.jaxen.jdom;
 
 /*
  * $Header$
- * $Revision: 1196 $
- * $Date: 2006-09-21 04:22:44 -0700 (Thu, 21 Sep 2006) $
+ * $Revision: 1197 $
+ * $Date: 2006-09-21 04:43:13 -0700 (Thu, 21 Sep 2006) $
  *
  * ====================================================================
  *
@@ -45,7 +45,7 @@ package org.jaxen.jdom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1196 2006-09-21 11:22:44Z elharo $
+ * $Id: DocumentNavigator.java 1197 2006-09-21 11:43:13Z elharo $
 */
 
 import java.util.HashMap;
@@ -194,7 +194,7 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
 
     /**
      * Retrieves an <code>Iterator</code> over the child elements that
-     * match the supplied name.
+     * match the supplied local name and namespace URI.
      *
      * @param contextNode      the origin context node
      * @param localName        the local name of the children to return, always present
@@ -225,6 +225,10 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
                     return JaxenConstants.EMPTY_ITERATOR;
                 }
             }
+            else if(el.getNamespace() != Namespace.NO_NAMESPACE) { 
+                return JaxenConstants.EMPTY_ITERATOR; 
+            }
+            
             return new SingleObjectIterator(el);
         }
 
