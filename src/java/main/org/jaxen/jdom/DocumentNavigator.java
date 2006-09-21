@@ -2,8 +2,8 @@ package org.jaxen.jdom;
 
 /*
  * $Header$
- * $Revision: 1177 $
- * $Date: 2006-07-10 06:53:52 -0700 (Mon, 10 Jul 2006) $
+ * $Revision: 1196 $
+ * $Date: 2006-09-21 04:22:44 -0700 (Thu, 21 Sep 2006) $
  *
  * ====================================================================
  *
@@ -45,7 +45,7 @@ package org.jaxen.jdom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1177 2006-07-10 13:53:52Z elharo $
+ * $Id: DocumentNavigator.java 1196 2006-09-21 11:22:44Z elharo $
 */
 
 import java.util.HashMap;
@@ -198,7 +198,7 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
      *
      * @param contextNode      the origin context node
      * @param localName        the local name of the children to return, always present
-     * @param namespacePrefix  the prefix of the namespace of the children to return
+     * @param namespacePrefix  ignored; prefixes are not used when matching in XPath
      * @param namespaceURI     the URI of the namespace of the children to return
      * @return an Iterator     that traverses the named children, or null if none
      */
@@ -220,6 +220,7 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
                 return JaxenConstants.EMPTY_ITERATOR;
             }
             if (namespaceURI != null) {
+                // TODO Verify that JDOM's equals method does not consider the prefix
                 if (Namespace.getNamespace(namespacePrefix, namespaceURI).equals(el.getNamespace()) == false) {
                     return JaxenConstants.EMPTY_ITERATOR;
                 }
