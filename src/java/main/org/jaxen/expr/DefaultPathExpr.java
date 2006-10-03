@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1162 $
- * $Date: 2006-06-03 13:52:26 -0700 (Sat, 03 Jun 2006) $
+ * $Revision: 1201 $
+ * $Date: 2006-10-03 09:24:32 -0700 (Tue, 03 Oct 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultPathExpr.java 1162 2006-06-03 20:52:26Z elharo $
+ * $Id: DefaultPathExpr.java 1201 2006-10-03 16:24:32Z elharo $
  */
 
 package org.jaxen.expr;
@@ -55,9 +55,6 @@ import org.jaxen.JaxenException;
 
 class DefaultPathExpr extends DefaultExpr implements PathExpr {
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = -6593934674727004281L;
     private Expr filterExpr;
     private LocationPath locationPath;
@@ -100,6 +97,7 @@ class DefaultPathExpr extends DefaultExpr implements PathExpr {
         }
 
         if (getLocationPath() != null) {
+            if (!getLocationPath().getSteps().isEmpty()) buf.append("/");
             buf.append(getLocationPath().getText());
         }
 
