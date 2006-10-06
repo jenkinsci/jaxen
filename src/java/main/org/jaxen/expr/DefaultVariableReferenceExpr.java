@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1200 $
- * $Date: 2006-10-03 09:19:05 -0700 (Tue, 03 Oct 2006) $
+ * $Revision: 1205 $
+ * $Date: 2006-10-06 06:19:57 -0700 (Fri, 06 Oct 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultVariableReferenceExpr.java 1200 2006-10-03 16:19:05Z elharo $
+ * $Id: DefaultVariableReferenceExpr.java 1205 2006-10-06 13:19:57Z elharo $
  */
 
 package org.jaxen.expr;
@@ -78,24 +78,20 @@ class DefaultVariableReferenceExpr extends DefaultExpr implements VariableRefere
 
     public String toString()
     {
-
-        if ( prefix == null )
+        return "[(DefaultVariableReferenceExpr): " + getQName() + "]";
+    }
+    
+    private String getQName() {
+        if ( "".equals(prefix) )
         {
-            return "[(DefaultVariableReferenceExpr): " + localName + "]";
+            return localName;
         }
-
-        return "[(DefaultVariableReferenceExpr): " + prefix + ":" + localName + "]";
+        return prefix + ":" + localName;
     }
 
     public String getText()
     {
-
-        if ( "".equals(prefix) )
-        {
-            return "$" + localName;
-        }
-
-        return "$" + prefix + ":" + localName;
+        return "$" + getQName();
     }
 
     public Object evaluate(Context context)
