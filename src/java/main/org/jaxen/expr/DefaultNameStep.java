@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 1162 2006-06-03 20:52:26Z elharo $
+ $Id: DefaultNameStep.java 1203 2006-10-06 13:11:45Z elharo $
 
  Copyright 2003 The Werken Company. All Rights Reserved.
  
@@ -405,7 +405,9 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
      * @return a debugging string
      */
     public String toString() {
-        return "[(DefaultNameStep): " + getPrefix() + ":" + getLocalName() + "]";
+        String prefix = getPrefix();
+        String qName = "".equals(prefix) ? getLocalName() : getPrefix() + ":" + getLocalName();
+        return "[(DefaultNameStep): " +  qName +  "]";
     }
 
 }
