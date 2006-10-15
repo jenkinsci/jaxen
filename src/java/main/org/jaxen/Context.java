@@ -1,7 +1,7 @@
 package org.jaxen;
 
 /*
- $Id: Context.java 1217 2006-10-15 21:03:31Z elharo $
+ $Id: Context.java 1218 2006-10-15 21:06:01Z elharo $
 
  Copyright 2003 The Werken Company. All Rights Reserved.
  
@@ -278,6 +278,7 @@ public class Context
             List dupeNodeSet = new ArrayList( thisNodeSet.size() );
             dupeNodeSet.addAll( thisNodeSet );
             dupe.setNodeSet( dupeNodeSet );
+            dupe.setPosition(this.position);
         }
 
         return dupe;
