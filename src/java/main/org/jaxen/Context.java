@@ -1,7 +1,7 @@
 package org.jaxen;
 
 /*
- $Id: Context.java 1218 2006-10-15 21:06:01Z elharo $
+ $Id: Context.java 1219 2006-10-15 21:08:16Z elharo $
 
  Copyright 2003 The Werken Company. All Rights Reserved.
  
@@ -63,9 +63,8 @@ import java.util.List;
  *
  *  @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  */
-public class Context
-    implements Serializable
-{
+public class Context implements Serializable {
+    
     /**
      * 
      */
@@ -99,8 +98,8 @@ public class Context
     {
         this.contextSupport = contextSupport;
         this.nodeSet        = Collections.EMPTY_LIST;
-        this.size = 0;
-        // XXX What should position be?
+        this.size           = 0;
+        this.position       = 0;
     }
     
     // ----------------------------------------------------------------------
