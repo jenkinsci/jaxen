@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1227 $
+ * $Date: 2006-11-08 07:47:57 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,9 +42,24 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: EqualityExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: EqualityExpr.java 1227 2006-11-08 15:47:57Z elharo $
  */
 package org.jaxen.expr;
+
+/**
+ * Represents an XPath equality expression. This is production 23 in the 
+ * <a href="http://www.w3.org/TR/xpath#NT-EqualityExpr">XPath 1.0 specification</a>:
+ * 
+ * <table><tr valign="baseline">
+ * <td><a name="NT-EqualityExpr"></a>[23]&nbsp;&nbsp;&nbsp;</td><td>EqualityExpr</td><td>&nbsp;&nbsp;&nbsp;::=&nbsp;&nbsp;&nbsp;</td><td><a href="http://www.w3.org/TR/xpath#NT-RelationalExpr">RelationalExpr</a></td><td></td></tr>
+ * <tr valign="baseline">
+ * <td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-EqualityExpr">EqualityExpr</a> '=' <a href="http://www.w3.org/TR/xpath#NT-RelationalExpr">RelationalExpr</a></td><td></td>
+ * </tr>
+ * <tr valign="baseline">
+ * <td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-EqualityExpr">EqualityExpr</a> '!=' <a href="http://www.w3.org/TR/xpath#NT-RelationalExpr">RelationalExpr</a></td><td></td></tr>
+ * </table>
+ * 
+ */
 public interface EqualityExpr extends BinaryExpr{
     public String getOperator();
 }
