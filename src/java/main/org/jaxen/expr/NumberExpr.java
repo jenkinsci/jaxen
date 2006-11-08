@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1237 $
+ * $Date: 2006-11-08 09:17:32 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -43,11 +43,26 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: NumberExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: NumberExpr.java 1237 2006-11-08 17:17:32Z elharo $
  */
 package org.jaxen.expr;
 
+/**
+ * Represents an XPath floating point literal. This is production 30 in the 
+ * <a href="http://www.w3.org/TR/xpath#NT-Number">XPath 1.0 specification</a>:
+ * 
+ * <pre>[30] Number ::=  Digits ('.' Digits?)?   
+ *              | '.' Digits</pre>
+ * 
+ */
 public interface NumberExpr extends Expr
 {
+    
+    
+    /**
+     * Returns a <code>java.lang.Double</code> representing the number.
+     * 
+     * @return a <code>java.lang.Double</code> representing the number
+     */
     public Number getNumber();
 }
