@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1222 $
+ * $Date: 2006-11-08 05:59:38 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathFunctionContext.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: XPathFunctionContext.java 1222 2006-11-08 13:59:38Z elharo $
  */
 
 
@@ -78,7 +78,6 @@ import org.jaxen.function.TrueFunction;
 import org.jaxen.function.ext.EndsWithFunction;
 import org.jaxen.function.ext.EvaluateFunction;
 import org.jaxen.function.ext.LowerFunction;
-import org.jaxen.function.ext.MatrixConcatFunction;
 import org.jaxen.function.ext.UpperFunction;
 import org.jaxen.function.xslt.DocumentFunction;
 
@@ -96,8 +95,7 @@ import org.jaxen.function.xslt.DocumentFunction;
  *  default instance, it is inadvisable to call 
  *  {@link #registerFunction(String, String, Function)}
  *  as that will extend the global function context, affecting other
- *  users.  But that's your call, really, now isn't
- *  it?  That may be what you really want to do.
+ *  users. 
  *  </p>
  *
  *  <p>
@@ -105,7 +103,6 @@ import org.jaxen.function.xslt.DocumentFunction;
  *  </p>
  *
  *  <ul>
- *     <li>matrix-concat(..)</li>
  *     <li>evaluate(..)</li>
  *     <li>upper-case(..)</li>
  *     <li>lower-case(..)</li>
@@ -144,7 +141,7 @@ public class XPathFunctionContext extends SimpleFunctionContext
      *  All core XPath functions are registered.
      *  
      * @param includeExtensionFunctions if true extension functions are included;
-     *     if false, they aren't.
+     *     if false, they aren't
      */
     public XPathFunctionContext(boolean includeExtensionFunctions)
     {
@@ -277,10 +274,6 @@ public class XPathFunctionContext extends SimpleFunctionContext
     private void registerExtensionFunctions() {
         // extension functions should go into a namespace, but which one?
         // for now, keep them in default namespace to not break any code
-
-        registerFunction( null,  // namespace URI
-                          "matrix-concat",
-                          new MatrixConcatFunction() );
 
         registerFunction( null,  // namespace URI
                           "evaluate",
