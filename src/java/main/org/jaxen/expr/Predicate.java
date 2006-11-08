@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1241 $
- * $Date: 2006-11-08 10:07:25 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1246 $
+ * $Date: 2006-11-08 10:53:45 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Predicate.java 1241 2006-11-08 18:07:25Z elharo $
+ * $Id: Predicate.java 1246 2006-11-08 18:53:45Z elharo $
  */
 
 
@@ -66,7 +66,7 @@ import org.jaxen.JaxenException;
 public interface Predicate extends Serializable, Visitable
 {
     /**
-     * Returns the expression in this predicate..
+     * Returns the expression in this predicate.
      * 
      * @return the expression between the brackets
      */
