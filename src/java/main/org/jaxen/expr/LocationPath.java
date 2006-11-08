@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1235 $
+ * $Date: 2006-11-08 09:02:21 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,20 +42,47 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LocationPath.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: LocationPath.java 1235 2006-11-08 17:02:21Z elharo $
  */
-
-
 
 package org.jaxen.expr;
 
 import java.util.List;
 
+/**
+ * Represents an XPath location path such as <code>//foo/bar</code>
+ * or <code>pre:baz[position()=last()]</code>.
+ * This is production 1 in the 
+ * <a href="http://www.w3.org/TR/xpath#NT-LocationPath">XPath 1.0 specification</a>:
+ * 
+ * <pre>[1]  LocationPath ::= RelativeLocationPath    
+ *                    | AbsoluteLocationPath</pre>
+ * 
+ */
 public interface LocationPath extends Expr
 {
+    
+    /**
+     * Add the next step to this location path.
+     * 
+     * @param step
+     */
     void addStep(Step step);
 
+    /**
+     * Returns the ordered list of steps in this location path.
+     * This list may be live.
+     * 
+     * @return the ordered list of steps in this location path
+     */
     List getSteps();
     
+    /**
+     * Returns true if this is an absolute location path; false if it isn't. 
+     * Absolute location paths all begiune with <code>/</code> 
+     * or <code>//</code>.
+     * 
+     * @return true if this is an absol;ute location path; false if it isn't
+     */
     boolean isAbsolute();
 }
