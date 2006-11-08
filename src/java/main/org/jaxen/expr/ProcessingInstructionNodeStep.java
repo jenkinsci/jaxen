@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1226 $
+ * $Date: 2006-11-08 07:44:33 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,11 +42,20 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: ProcessingInstructionNodeStep.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: ProcessingInstructionNodeStep.java 1226 2006-11-08 15:44:33Z elharo $
  */
 package org.jaxen.expr;
 
+/**
+ * Represents the XPath node-test <code>processing-instruction()</code>.
+ * 
+ */
 public interface ProcessingInstructionNodeStep extends Step
 {
+    /**
+     * Returns the target matched by this processing instruction node-step. 
+     * 
+     * @return the target of the processing instruction
+     */
     public String getName();
 }

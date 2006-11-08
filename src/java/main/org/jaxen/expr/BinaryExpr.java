@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1226 $
+ * $Date: 2006-11-08 07:44:33 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,15 +42,36 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BinaryExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: BinaryExpr.java 1226 2006-11-08 15:44:33Z elharo $
  */
 
 
 
 package org.jaxen.expr;
 
+
+/**
+ * Represents a binary expression. 
+ * This does not match anything in the XPath 1.0 grammar, but in jaxen
+ * it includes the usual binary operations such as addition, multiplication,
+ * logical and, loginal or, and so forth.
+ * 
+ */
 public interface BinaryExpr extends Expr
 {
+    
+    /**
+     * Returns the left-hand side of the binary expression.
+     * 
+     * @return the left hand side expression
+     */
     Expr getLHS();
+
+    
+    /**
+     * Returns the right-hand side of the binary expression.
+     * 
+     * @return the right-hand side expression
+     */
     Expr getRHS();
 }
