@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1242 $
+ * $Date: 2006-11-08 10:13:03 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,9 +42,29 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: RelationalExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: RelationalExpr.java 1242 2006-11-08 18:13:03Z elharo $
  */
 package org.jaxen.expr; 
+
+/**
+ * Represents an XPath relational expression such as 
+ * <code>count(//p) > count(//div)</code>. 
+ * This is production 24 in the 
+ * <a href="http://www.w3.org/TR/xpath#NT-RelationalExpr">XPath 1.0 specification</a>:
+ *
+ *<table><tr valign="baseline"><td><a name="NT-RelationalExpr"></a>[24]&nbsp;&nbsp;&nbsp;</td><td>RelationalExpr</td><td>&nbsp;&nbsp;&nbsp;::=&nbsp;&nbsp;&nbsp;</td><td><a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr">AdditiveExpr</a></td><td></td>
+ *</tr><tr valign="baseline">
+ *<td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-RelationalExpr">RelationalExpr</a> '&lt;' <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr">AdditiveExpr</a></td><td></td>
+ *</tr><tr valign="baseline">
+ *<td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-RelationalExpr">RelationalExpr</a> '&gt;' <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr">AdditiveExpr</a></td><td></td>
+ *</tr>
+ *<tr valign="baseline">
+ *<td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-RelationalExpr">RelationalExpr</a> '&lt;=' <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr">AdditiveExpr</a></td><td></td>
+ * </tr>
+ * <tr valign="baseline">
+ * <td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-RelationalExpr">RelationalExpr</a> '&gt;=' <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr">AdditiveExpr</a></td><td></td>v * </tr></table>
+ * 
+ */
 public interface RelationalExpr extends BinaryExpr{
     public String getOperator();
 }
