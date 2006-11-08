@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1223 $
- * $Date: 2006-11-08 06:02:13 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1243 $
+ * $Date: 2006-11-08 10:19:11 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Expr.java 1223 2006-11-08 14:02:13Z elharo $
+ * $Id: Expr.java 1243 2006-11-08 18:19:11Z elharo $
  */
 
 
@@ -77,7 +77,7 @@ public interface Expr extends Serializable, Visitable
      * <code>//para</code>. In practice, this is usually a noop.
      * Jaxen does not currently perform any simplification.
      * 
-     * @return the text form of this XPath expression
+     * @return the simplified expression
      */
     Expr   simplify();
     
