@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1162 $
- * $Date: 2006-06-03 13:52:26 -0700 (Sat, 03 Jun 2006) $
+ * $Revision: 1238 $
+ * $Date: 2006-11-08 09:18:09 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultNumberExpr.java 1162 2006-06-03 20:52:26Z elharo $
+ * $Id: DefaultNumberExpr.java 1238 2006-11-08 17:18:09Z elharo $
  */
 
 
@@ -58,9 +58,9 @@ class DefaultNumberExpr extends DefaultExpr implements NumberExpr
      * 
      */
     private static final long serialVersionUID = -6021898973386269611L;
-    private Number number;
+    private Double number;
 
-    DefaultNumberExpr( Number number )
+    DefaultNumberExpr( Double number )
     {
         this.number = number;
     }
