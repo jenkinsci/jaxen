@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1233 $
+ * $Date: 2006-11-08 08:45:15 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,13 +42,22 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LiteralExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: LiteralExpr.java 1233 2006-11-08 16:45:15Z elharo $
  */
 
 
 
 package org.jaxen.expr;
 
+
+/**
+ * Represents an XPath Literal. This is production 29 in the 
+ * <a href="http://www.w3.org/TR/xpath#NT-Literal">XPath 1.0 specification</a>:
+ * 
+ * <pre>[29] Literal ::= '"' [^"]* '"'   
+ *               | "'" [^']* "'"</pre>
+ * 
+ */
 public interface LiteralExpr extends Expr
 {
     public String getLiteral();
