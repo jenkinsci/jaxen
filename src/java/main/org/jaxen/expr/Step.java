@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1244 $
+ * $Date: 2006-11-08 10:25:11 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Step.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: Step.java 1244 2006-11-08 18:25:11Z elharo $
  */
 
 package org.jaxen.expr;
@@ -71,29 +71,51 @@ public interface Step extends Predicated, Visitable
     /**
      * Performs the node-test part of evaluating the step for the given node
      * (which must be on the axis).
+     * 
+     * @return true if the node matches this step; false if it doesn't
      */    
     boolean matches(Object node,
                     ContextSupport contextSupport) throws JaxenException;
 
+    /**
+     * Returns a <code>String</code> containing the XPath expression.
+     * 
+     * @return the text form of this step
+     */
     String getText();
 
+    /**
+     * Simplifies the XPath step. In practice, this is usually a noop.
+     * Jaxen does not currently perform any simplification.
+     */
     void simplify();
 
     /**
      * Get an identifier for the current axis.
+     * 
+     * @return the axis identifier
      * @see org.jaxen.saxpath.Axis
      */
     public int getAxis();
 
     /**
      * Get an Iterator for the current axis starting in the given contextNode.
-     */    
+     * 
+     * @param contextNode the node from which to follow this step
+     * @param support the remaining context for the traversal
+     * @return an iterator over the nodes along the axis
+     * @throws UnsupportedAxisException if the navigator does not support this step's axis
+     * 
+     */
     Iterator axisIterator(Object contextNode,
                           ContextSupport support) throws UnsupportedAxisException;
+    
 
     /**
      * For each node in the given context calls matches() for every node on the
      * axis, then filters the result by each of the predicates.
+     * 
+     * @return a list of matching nodes
      */
     List evaluate(Context context) throws JaxenException;
 
