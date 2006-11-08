@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1249 $
+ * $Date: 2006-11-08 11:49:27 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: XPathExpr.java 1249 2006-11-08 19:49:27Z elharo $
  */
 
 
@@ -55,13 +55,56 @@ import java.util.List;
 import org.jaxen.Context;
 import org.jaxen.JaxenException;
 
+
+/**
+ * A wrapper around an XPath expression. 
+ * 
+ */
 public interface XPathExpr extends Serializable
 {
+    
+    /**
+     * Returns the wrapped expression object.
+     * 
+     * @return the wrapped Expr object
+     */
     Expr getRootExpr();
+    
+    
+    /**
+     * Changes the wrapped expression object.
+     * 
+     * @param the new expression object to wrap
+     */
     void setRootExpr(Expr rootExpr);
+    
+    /**
+     * Returns a String containing the XPath expression.
+     * 
+     * @return the text form of this XPath expression
+     */
     String getText();
-    void simplify();
-
+    
+    /**
+     * Simplifies the XPath expression. For example, the expression
+     * <code>//para[1 = 1]</code> could be simplified to 
+     * <code>//para</code>. In practice, this is usually a noop.
+     * Jaxen does not currently perform any simplification.
+     * 
+     * @return the simplified expression
+     */
+    void   simplify();
+    
+    
+    /**
+     * Evaluates the expression and returns a list cintaing the resulting nodes,
+     * or a singleton list containing a <code>Double</code>, <code>String</code>, 
+     * or <code>Boolean</code>. 
+     * 
+     * @param context the context in which to evaluate this expression
+     * @return a list
+     * @throws JaxenException
+     */
     List asList(Context context) throws JaxenException;
 
 }

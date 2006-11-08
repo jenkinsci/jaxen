@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1249 $
+ * $Date: 2006-11-08 11:49:27 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultXPathFactory.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: DefaultXPathFactory.java 1249 2006-11-08 19:49:27Z elharo $
  */
 package org.jaxen.expr;
 
@@ -65,6 +65,12 @@ import org.jaxen.expr.iter.IterableSelfAxis;
 import org.jaxen.saxpath.Axis;
 import org.jaxen.saxpath.Operator;
 
+/**
+ * The concrete implementation of the XPathFactory anstract factory.
+ *
+ *
+ * @see XPathFactory
+ */
 public class DefaultXPathFactory implements XPathFactory
 {
     public XPathExpr createXPath( Expr rootExpr ) throws JaxenException
