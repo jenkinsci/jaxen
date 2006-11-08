@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1228 $
+ * $Date: 2006-11-08 08:00:22 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,10 +42,29 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: MultiplicativeExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: MultiplicativeExpr.java 1228 2006-11-08 16:00:22Z elharo $
  */
 package org.jaxen.expr;
 
+/**
+ * Represents an XPath multiplicative expression. This is production 26 in the 
+ * <a href="http://www.w3.org/TR/xpath#NT-UnionExpr">XPath 1.0 specification</a>:
+ * 
+ * <table><tr valign="baseline">
+ * <td><a name="NT-MultiplicativeExpr"></a>[26]&nbsp;&nbsp;&nbsp;</td><td>MultiplicativeExpr</td><td>&nbsp;&nbsp;&nbsp;::=&nbsp;&nbsp;&nbsp;</td><td><a href="http://www.w3.org/TR/xpath#NT-UnaryExpr">UnaryExpr</a></td><td></td>
+ * </tr>
+ * <tr valign="baseline">
+ * <td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-MultiplicativeExpr">MultiplicativeExpr</a> <a href="http://www.w3.org/TR/xpath#NT-MultiplyOperator">MultiplyOperator</a> <a href="http://www.w3.org/TR/xpath#NT-UnaryExpr">UnaryExpr</a></td><td></td>
+ * 
+ * </tr>
+ * <tr valign="baseline">
+ * <td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-MultiplicativeExpr">MultiplicativeExpr</a> 'div' <a href="http://www.w3.org/TR/xpath#NT-UnaryExpr">UnaryExpr</a></td><td></td>
+ * </tr>
+ * <tr valign="baseline">
+ * <td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-MultiplicativeExpr">MultiplicativeExpr</a> 'mod' <a href="http://www.w3.org/TR/xpath#NT-UnaryExpr">UnaryExpr</a></td><td></td>
+ * </tr></table>
+ * 
+ */
 public interface MultiplicativeExpr extends BinaryExpr{
     public String getOperator();
 }
