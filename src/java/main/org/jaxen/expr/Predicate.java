@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1241 $
+ * $Date: 2006-11-08 10:07:25 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Predicate.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: Predicate.java 1241 2006-11-08 18:07:25Z elharo $
  */
 
 
@@ -53,15 +53,61 @@ import java.io.Serializable;
 import org.jaxen.Context;
 import org.jaxen.JaxenException;
 
+
+/**
+ * Represents an XPath predicate such as <code>[position() = last()]</code>.
+ * This is production 8 and 9 in the 
+ * <a href="http://www.w3.org/TR/xpath#NT-Predicate">XPath 1.0 specification</a>:
+ * 
+ * <pre> [8] Predicate     ::= '[' PredicateExpr ']'   
+ * [9] PredicateExpr ::= Expr</pre>
+ * 
+ */
 public interface Predicate extends Serializable, Visitable
 {
+    /**
+     * Returns the expression in this predicate..
+     * 
+     * @return the expression between the brackets
+     */
     Expr getExpr();
+    
+    /**
+     * Change the expression used by this predicate.
+     * 
+     * @param the new expression
+     */
     void setExpr(Expr expr);
 
+    /**
+     * Simplify the expression in this predicate.
+     * 
+     * @see Expr#simplify()
+     */
     void simplify();
 
+    /**
+     * Returns the string form of the predicate, 
+     * including the square brackets.
+     * 
+     * @return the bracketed form of this predicate
+     */
     String getText();
 
+    /**
+     * Evaluates this predicate's expression and returns the result.
+     * The result will be a <code>java.lang.Double</code> for expressions that 
+     * return a number, a <code>java.lang.String</code> for expressions that 
+     * return a string, a <code>java.lang.Boolean</code> for expressions that 
+     * return a boolean, and a <code>java.util.List</code> for expressions that
+     * return a node-set. In the latter case, the elements of the list are 
+     * the actual objects from the source document model. Copies are not made.
+     *
+     * @param context the context in which the expression is evaluated
+     * @return an object representing the result of the evaluation
+     * @throws JaxenException
+     * @see Expr#evaluate(Context)
+     */
     Object evaluate(Context context) throws JaxenException;
 
 }

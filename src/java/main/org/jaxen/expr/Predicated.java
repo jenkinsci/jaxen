@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1241 $
+ * $Date: 2006-11-08 10:07:25 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Predicated.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: Predicated.java 1241 2006-11-08 18:07:25Z elharo $
  */
 
 
@@ -52,9 +52,32 @@ package org.jaxen.expr;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Interface for objects which can have one or more predicates.
+ *
+ */
 public interface Predicated extends Serializable
 {
+    /**
+     * Add an additional predicate to this object.
+     * 
+     * @param predicate the predicate to add
+     */
     void addPredicate(Predicate predicate);
+    
+    
+    /**
+     * Returns a possibly empty list of predicates.
+     * 
+     * @return the list of predicates
+     */
     List getPredicates();
+    
+    
+    /**
+     * Returns a possibly empty set of predicates.
+     * 
+     * @return the set of predicates
+     */
     PredicateSet getPredicateSet();
 }
