@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1247 $
+ * $Date: 2006-11-08 11:06:30 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,14 +42,29 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: UnaryExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: UnaryExpr.java 1247 2006-11-08 19:06:30Z elharo $
  */
 
 
 
 package org.jaxen.expr;
 
+/**
+ * Represents an XPath unary expression such as <code>-78</code>.
+ * This is production 27 in the 
+ * <a href="http://www.w3.org/TR/xpath#NT-UnaryExpr">XPath 1.0 specification</a>:
+ * 
+ * <pre>[27] UnaryExpr ::= UnionExpr | '-' UnaryExpr</pre>
+ * 
+ */
 public interface UnaryExpr extends Expr
 {
+    
+    /**
+     * Returns the expression following the minus sign.
+     * 
+     * @return the expression following the minus sign
+     */
     Expr getExpr();
+    
 }
