@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1239 $
- * $Date: 2006-11-08 09:53:14 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1240 $
+ * $Date: 2006-11-08 09:53:53 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PathExpr.java 1239 2006-11-08 17:53:14Z elharo $
+ * $Id: PathExpr.java 1240 2006-11-08 17:53:53Z elharo $
  */
 
 
@@ -72,7 +72,7 @@ public interface PathExpr extends Expr
     
     
     /**
-     * Changes thes expression's filter expression.
+     * Changes the expression's filter expression.
      * 
      * @param the new filter expression
      */
