@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1239 $
+ * $Date: 2006-11-08 09:53:14 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,17 +42,47 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PathExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: PathExpr.java 1239 2006-11-08 17:53:14Z elharo $
  */
 
 
 
 package org.jaxen.expr;
 
+/**
+ * Represents an XPath path expression.
+ * This is production 19 in the 
+ * <a href="http://www.w3.org/TR/xpath#NT-PathExpr">XPath 1.0 specification</a>:
+ * 
+ * <pre>[19] PathExpr ::= LocationPath    
+ *                | FilterExpr    
+ *                | FilterExpr '/' RelativeLocationPath   
+ *                | FilterExpr '//' RelativeLocationPath  </pre>
+ * 
+ */
 public interface PathExpr extends Expr
 {
+    
+    /**
+     * Returns the filter expression that starts the path expression.
+     * 
+     * @return the filter expression that starts the path expression
+     */
     Expr getFilterExpr();
+    
+    
+    /**
+     * Changes thes expression's filter expression.
+     * 
+     * @param the new filter expression
+     */
     void setFilterExpr(Expr filterExpr);
 
+    /**
+     * Returns the location path part of this path expression.
+     * 
+     * @return the location path part of this expression
+     */
     LocationPath getLocationPath();
+    
 }
