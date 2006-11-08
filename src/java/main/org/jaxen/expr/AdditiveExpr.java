@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1224 $
+ * $Date: 2006-11-08 06:41:19 -0800 (Wed, 08 Nov 2006) $
  *
  * ====================================================================
  *
@@ -43,11 +43,25 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: AdditiveExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: AdditiveExpr.java 1224 2006-11-08 14:41:19Z elharo $
  */
 package org.jaxen.expr;
 
-public interface AdditiveExpr extends BinaryExpr
+/**
+ * Represents an XPath additive expression. This is production 25 in the 
+ * <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr">XPath 1.0 specification</a>:
+ * 
+ * <table><tr valign="baseline"><td><a name="NT-AdditiveExpr"></a>[25]&nbsp;&nbsp;&nbsp;</td><td>AdditiveExpr</td><td>&nbsp;&nbsp;&nbsp;::=&nbsp;&nbsp;&nbsp;</td><td><a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr#NT-MultiplicativeExpr">MultiplicativeExpr</a></td><td></td>
+ * </tr>
+ * <tr valign="baseline">
+ * <td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr">AdditiveExpr</a> '+' <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr#NT-MultiplicativeExpr">MultiplicativeExpr</a></td><td></td>
+ * </tr>
+ *
+ * <tr valign="baseline">
+ * <td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr#NT-AdditiveExpr">AdditiveExpr</a> '-' <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr#NT-MultiplicativeExpr">MultiplicativeExpr</a>
+ * </tr></table>
+ * 
+ */public interface AdditiveExpr extends BinaryExpr
 {
     String getOperator();
 }
