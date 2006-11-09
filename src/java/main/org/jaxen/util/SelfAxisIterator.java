@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1255 $
+ * $Date: 2006-11-09 10:20:12 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,16 +42,29 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SelfAxisIterator.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: SelfAxisIterator.java 1255 2006-11-09 18:20:12Z elharo $
  */
 
 
 
 package org.jaxen.util;
 
+/**
+ * 
+ * Represents the XPath self axis. The "<code>self</code> axis contains 
+ * just the context node itself."
+ * 
+ * @version 1.2b12
+ *
+ */
 public class SelfAxisIterator extends SingleObjectIterator
 {
 
+    /**
+     * Create a new <code>self</code> axis iterator.
+     * 
+     * @param contextNode the node to start from
+     */
     public SelfAxisIterator(Object node)
     {
         super(node);

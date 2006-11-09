@@ -2,8 +2,8 @@ package org.jaxen.util;
 
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1255 $
+ * $Date: 2006-11-09 10:20:12 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -45,16 +45,31 @@ package org.jaxen.util;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DescendantOrSelfAxisIterator.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: DescendantOrSelfAxisIterator.java 1255 2006-11-09 18:20:12Z elharo $
 */
 
 import org.jaxen.Navigator;
 
+/**
+ * Represents the XPath <code>descendant-or-self</code> axis. 
+ * The "<code>descendant-or-self</code> axis contains the context node
+ * and the descendants of the context node."
+ * 
+ * @version 1.2b12
+ */
 public class DescendantOrSelfAxisIterator extends DescendantAxisIterator
 {
+
+    /**
+     * Create a new <code>desscendant-or-self</code> axis iterator.
+     * 
+     * @param contextNode the node to start from
+     * @param navigator the object model specific navigator
+     */
     public DescendantOrSelfAxisIterator(Object contextNode,
                                         Navigator navigator)
     {
         super(navigator, new SingleObjectIterator(contextNode));
     }
+    
 }

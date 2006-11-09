@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1254 $
- * $Date: 2006-11-09 08:55:16 -0800 (Thu, 09 Nov 2006) $
+ * $Revision: 1255 $
+ * $Date: 2006-11-09 10:20:12 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SingleObjectIterator.java 1254 2006-11-09 16:55:16Z elharo $
+ * $Id: SingleObjectIterator.java 1255 2006-11-09 18:20:12Z elharo $
  */
 
 
@@ -110,7 +110,7 @@ public class SingleObjectIterator implements Iterator
     /**
      * This operation is not supported.
      * 
-     * @throws UnsupportedOperationException
+     * @throws UnsupportedOperationException always
      */
     public void remove()
     {

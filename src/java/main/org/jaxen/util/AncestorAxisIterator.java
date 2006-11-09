@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1255 $
+ * $Date: 2006-11-09 10:20:12 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: AncestorAxisIterator.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: AncestorAxisIterator.java 1255 2006-11-09 18:20:12Z elharo $
  */
 
 
@@ -52,8 +52,24 @@ package org.jaxen.util;
 
 import org.jaxen.Navigator;
 
+/**
+ * Represents the XPath <code>ancestor</code> axis. 
+ * The "<code>ancestor</code> axis contains the ancestors of the context node; 
+ * the ancestors of the context node consist of the parent of context node and 
+ * the parent's parent and so on; thus, the ancestor axis will always include 
+ * the root node, unless the context node is the root node."
+ * 
+ * @version 1.2b12
+ */
 public class AncestorAxisIterator extends AncestorOrSelfAxisIterator
 {
+
+    /**
+     * Create a new ancestor axis iterator.
+     * 
+     * @param contextNode the node to start from
+     * @param navigator the object model specific navigator
+     */
     public AncestorAxisIterator(Object contextNode,
                                 Navigator navigator)
     {
@@ -61,4 +77,5 @@ public class AncestorAxisIterator extends AncestorOrSelfAxisIterator
                navigator );
         next();
     }
+    
 }

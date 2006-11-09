@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1255 $
+ * $Date: 2006-11-09 10:20:12 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LinkedIterator.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: LinkedIterator.java 1255 2006-11-09 18:20:12Z elharo $
  */
 
 
@@ -54,7 +54,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- * @deprecated elharo this class is undocumented and untested.
+ * @deprecated This class is undocumented and untested.
  *     It will be removed in a future release.
  */
 public class LinkedIterator implements Iterator
@@ -107,6 +107,11 @@ public class LinkedIterator implements Iterator
         return ((Iterator)this.iterators.get( this.cur )).next();
     }
 
+    /**
+     * This operation is not supported.
+     * 
+     * @throws UnsupportedOperationException
+     */
     public void remove()
     {
         throw new UnsupportedOperationException();
