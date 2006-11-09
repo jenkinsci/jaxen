@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1249 $
- * $Date: 2006-11-08 11:49:27 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1251 $
+ * $Date: 2006-11-09 08:11:38 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultXPathFactory.java 1249 2006-11-08 19:49:27Z elharo $
+ * $Id: DefaultXPathFactory.java 1251 2006-11-09 16:11:38Z elharo $
  */
 package org.jaxen.expr;
 
@@ -301,82 +301,46 @@ public class DefaultXPathFactory implements XPathFactory
         return new DefaultPredicate( predicateExpr );
     }
 
-    protected IterableAxis getIterableAxis( int axis )
+    protected IterableAxis getIterableAxis( int axis ) throws JaxenException
     {
-        IterableAxis iter = null;
+
         switch( axis )
         {
             case Axis.CHILD:
-                {
-                    iter = new IterableChildAxis( axis );
-                    break;
-                }
+                 return new IterableChildAxis( axis );
             case Axis.DESCENDANT:
-                {
-                    iter = new IterableDescendantAxis( axis );
-                    break;
-                }
+                 return  new IterableDescendantAxis( axis );
             case Axis.PARENT:
-                {
-                    iter = new IterableParentAxis( axis );
-                    break;
-                }
+                return new IterableParentAxis( axis );
             case Axis.FOLLOWING_SIBLING:
-                {
-                    iter = new IterableFollowingSiblingAxis( axis );
-                    break;
-                }
+                return  new IterableFollowingSiblingAxis( axis );
             case Axis.PRECEDING_SIBLING:
-                {
-                    iter = new IterablePrecedingSiblingAxis( axis );
-                    break;
-                }
+                return new IterablePrecedingSiblingAxis( axis );
             case Axis.FOLLOWING:
-                {
-                    iter = new IterableFollowingAxis( axis );
-                    break;
-                }
+                return new IterableFollowingAxis( axis );
             case Axis.PRECEDING:
-                {
-                    iter = new IterablePrecedingAxis( axis );
-                    break;
-                }
+                return new IterablePrecedingAxis( axis );
             case Axis.ATTRIBUTE:
-                {
-                    iter = new IterableAttributeAxis( axis );
-                    break;
-                }
+                return new IterableAttributeAxis( axis );
             case Axis.NAMESPACE:
-                {
-                    iter = new IterableNamespaceAxis( axis );
-                    break;
-                }
+                return new IterableNamespaceAxis( axis );
             case Axis.SELF:
-                {
-                    iter = new IterableSelfAxis( axis );
-                    break;
-                }
+                return new IterableSelfAxis( axis );
             case Axis.DESCENDANT_OR_SELF:
-                {
-                    iter = new IterableDescendantOrSelfAxis( axis );
-                    break;
-                }
+                return new IterableDescendantOrSelfAxis( axis );
             case Axis.ANCESTOR_OR_SELF:
-                {
-                    iter = new IterableAncestorOrSelfAxis( axis );
-                    break;
-                }
+                return new IterableAncestorOrSelfAxis( axis );
             case Axis.ANCESTOR:
-                {
-                    iter = new IterableAncestorAxis( axis );
-                    break;
-                }
+                return new IterableAncestorAxis( axis );
+            default:
+                throw new JaxenException("Unrecognized axis code: " + axis);
         }
-        return iter;
+
     }
 
     public PredicateSet createPredicateSet() throws JaxenException
     {
         return new PredicateSet();
     }
+    
 }
