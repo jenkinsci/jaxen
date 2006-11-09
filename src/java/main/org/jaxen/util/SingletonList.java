@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1253 $
+ * $Date: 2006-11-09 08:39:19 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SingletonList.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: SingletonList.java 1253 2006-11-09 16:39:19Z elharo $
  */
 
 
@@ -53,25 +53,49 @@ import java.util.AbstractList;
 
 /**
  * A utility class that implements singleton lists
- * (to avoid dependency on JDK 1.3).
- * @version $Id: SingletonList.java 1128 2006-02-05 21:49:04Z elharo $
+ * (to avoid dependency on JDK 1.3). Many operations 
+ * including <code>add()</code> and <code>remove()</code> throw
+ * UnsupportedOperationExceptions. 
+ * 
+ * @version 1.2b12
  * @author Attila Szegedi
+ * 
  */
 public class SingletonList extends AbstractList {
+    
     private final Object element;
     
+    /**
+     * Creates a new singleton list. 
+     * 
+     * @param element the single member of the list
+     */
     public SingletonList(Object element) {
         this.element = element;
     }
     
+    /** 
+     * Returns 1.
+     * 
+     * @return 1
+     */
     public int size() {
         return 1;
     }
 
+    /**
+     * Returns the single element in the list.
+     * 
+     * @return the only element in the list
+     * 
+     * @throws IndexOutOfBoundsException if index is not 0
+     * 
+     */
     public Object get(int index) {
         if(index == 0) {
             return element;
         }
         throw new IndexOutOfBoundsException(index + " != 0");
     }
+    
 }
