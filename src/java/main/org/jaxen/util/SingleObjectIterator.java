@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1254 $
+ * $Date: 2006-11-09 08:55:16 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: SingleObjectIterator.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: SingleObjectIterator.java 1254 2006-11-09 16:55:16Z elharo $
  */
 
 
@@ -58,20 +58,44 @@ import java.util.NoSuchElementException;
  */
 public class SingleObjectIterator implements Iterator
 {
+    
     private Object  object;
     private boolean seen;
 
+    /**
+     * Creates a new single object iterator.
+     * 
+     * @param object the object to iterate over
+     */
     public SingleObjectIterator(Object object)
     {
         this.object = object;
         this.seen   = false;
     }
 
+
+    /**
+     * Returns true if this iterator's element has not yet been seen; false if it has.
+     * 
+     * @return true if this iterator has another element; false if it doesn't
+     * 
+     * @see java.util.Iterator#hasNext()
+     */
     public boolean hasNext()
     {
         return ! this.seen;
     }
 
+    /**
+     * Returns the single element in this iterator if it has not yet
+     * been seen. 
+     * 
+     * @return the next element in this iterator
+     * 
+     * @throws NoSuchElementException if the element has already been seen
+     * 
+     * @see java.util.Iterator#next()
+     */
     public Object next()
     {
         if ( hasNext() )
@@ -83,8 +107,14 @@ public class SingleObjectIterator implements Iterator
         throw new NoSuchElementException();
     }
 
+    /**
+     * This operation is not supported.
+     * 
+     * @throws UnsupportedOperationException
+     */
     public void remove()
     {
         throw new UnsupportedOperationException();
     }
+    
 }
