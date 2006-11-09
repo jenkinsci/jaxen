@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1242 $
- * $Date: 2006-11-08 10:13:03 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1252 $
+ * $Date: 2006-11-09 08:21:05 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: RelationalExpr.java 1242 2006-11-08 18:13:03Z elharo $
+ * $Id: RelationalExpr.java 1252 2006-11-09 16:21:05Z elharo $
  */
 package org.jaxen.expr; 
 
@@ -65,6 +65,5 @@ package org.jaxen.expr;
  * <td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-RelationalExpr">RelationalExpr</a> '&gt;=' <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr">AdditiveExpr</a></td><td></td>v * </tr></table>
  * 
  */
-public interface RelationalExpr extends BinaryExpr{
-    public String getOperator();
+public interface RelationalExpr extends BinaryExpr {
 }

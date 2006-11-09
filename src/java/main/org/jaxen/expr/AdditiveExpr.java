@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1224 $
- * $Date: 2006-11-08 06:41:19 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1252 $
+ * $Date: 2006-11-09 08:21:05 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: AdditiveExpr.java 1224 2006-11-08 14:41:19Z elharo $
+ * $Id: AdditiveExpr.java 1252 2006-11-09 16:21:05Z elharo $
  */
 package org.jaxen.expr;
 
@@ -61,7 +61,7 @@ package org.jaxen.expr;
  * <td></td><td></td><td></td><td>| <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr#NT-AdditiveExpr">AdditiveExpr</a> '-' <a href="http://www.w3.org/TR/xpath#NT-AdditiveExpr#NT-MultiplicativeExpr">MultiplicativeExpr</a>
  * </tr></table>
  * 
- */public interface AdditiveExpr extends BinaryExpr
+ */
+public interface AdditiveExpr extends BinaryExpr
 {
-    String getOperator();
 }

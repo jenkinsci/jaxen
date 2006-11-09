@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1227 $
- * $Date: 2006-11-08 07:47:57 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1252 $
+ * $Date: 2006-11-09 08:21:05 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: EqualityExpr.java 1227 2006-11-08 15:47:57Z elharo $
+ * $Id: EqualityExpr.java 1252 2006-11-09 16:21:05Z elharo $
  */
 package org.jaxen.expr;
 
@@ -61,5 +61,4 @@ package org.jaxen.expr;
  * 
  */
 public interface EqualityExpr extends BinaryExpr{
-    public String getOperator();
 }

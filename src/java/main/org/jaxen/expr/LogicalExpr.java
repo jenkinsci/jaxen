@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1229 $
- * $Date: 2006-11-08 08:15:30 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1252 $
+ * $Date: 2006-11-09 08:21:05 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LogicalExpr.java 1229 2006-11-08 16:15:30Z elharo $
+ * $Id: LogicalExpr.java 1252 2006-11-09 16:21:05Z elharo $
  */
 package org.jaxen.expr;
 
@@ -65,6 +65,5 @@ package org.jaxen.expr;
  * </tr></table>
  * 
  */
-public interface LogicalExpr extends BinaryExpr{
-    public String getOperator();
+public interface LogicalExpr extends BinaryExpr {
 }

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1226 $
- * $Date: 2006-11-08 07:44:33 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1252 $
+ * $Date: 2006-11-09 08:21:05 -0800 (Thu, 09 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BinaryExpr.java 1226 2006-11-08 15:44:33Z elharo $
+ * $Id: BinaryExpr.java 1252 2006-11-09 16:21:05Z elharo $
  */
 
 
@@ -52,9 +52,9 @@ package org.jaxen.expr;
 
 /**
  * Represents a binary expression. 
- * This does not match anything in the XPath 1.0 grammar, but in jaxen
+ * This does not match anything in the XPath 1.0 grammar, but in Jaxen
  * it includes the usual binary operations such as addition, multiplication,
- * logical and, loginal or, and so forth.
+ * logical and, logical or, and so forth.
  * 
  */
 public interface BinaryExpr extends Expr
@@ -74,4 +74,13 @@ public interface BinaryExpr extends Expr
      * @return the right-hand side expression
      */
     Expr getRHS();
+    
+    /**
+     * Returns the operator for the binary expression such as "+" or
+     * "div".
+     * 
+     * @return the operator for the expression
+     */
+    String getOperator();
+    
 }
