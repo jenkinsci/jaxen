@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1259 $
+ * $Date: 2006-11-13 14:49:32 -0800 (Mon, 13 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,48 +42,175 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: VisitorSupport.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: VisitorSupport.java 1259 2006-11-13 22:49:32Z elharo $
  */
 package org.jaxen.expr;
+
+/**
+ * Default implementation of the <code>Visitor</code> interface that 
+ * supplies do-nothing methods. Subclass this class and override the 
+ * methods you wish to recognize when visting an XPath expression. 
+ *
+ */
 public class VisitorSupport implements Visitor {
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited 
+     */
     public void visit(PathExpr path) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(LocationPath path) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(LogicalExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(EqualityExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(FilterExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(RelationalExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(AdditiveExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(MultiplicativeExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(UnaryExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(UnionExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(NumberExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(LiteralExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(VariableReferenceExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param path the expression being visited
+     */
     public void visit(FunctionCallExpr expr) {
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param step the expression being visited
+     */
     public void visit(NameStep step){
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param step the expression being visited
+     */
     public void visit(ProcessingInstructionNodeStep step){
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param step the expression being visited
+     */
     public void visit(AllNodeStep step){
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param step the expression being visited
+     */
     public void visit(TextNodeStep step){
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param step the expression being visited
+     */
     public void visit(CommentNodeStep step){
     }
+    
+    /**
+     * Does nothing.
+     * 
+     * @param predicate the expression being visited
+     */
     public void visit(Predicate predicate){
     }
 }
