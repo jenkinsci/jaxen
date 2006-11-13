@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1255 $
- * $Date: 2006-11-09 10:20:12 -0800 (Thu, 09 Nov 2006) $
+ * $Revision: 1257 $
+ * $Date: 2006-11-13 14:10:09 -0800 (Mon, 13 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: PrecedingSiblingAxisIterator.java 1255 2006-11-09 18:20:12Z elharo $
+ * $Id: PrecedingSiblingAxisIterator.java 1257 2006-11-13 22:10:09Z elharo $
  */
 
 
@@ -59,7 +59,7 @@ import org.jaxen.UnsupportedAxisException;
 
 /**
  * 
- * Represents the XPath preceding-sibling axis. 
+ * Represents the XPath <code>preceding-sibling</code> axis. 
  * The "<code>preceding-sibling</code> axis contains all the
  * preceding siblings of the context node; if the context node is an
  * attribute node or namespace node, the <code>preceding-sibling</code>

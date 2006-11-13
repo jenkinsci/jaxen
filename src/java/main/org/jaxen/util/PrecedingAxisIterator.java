@@ -2,8 +2,8 @@ package org.jaxen.util;
 
 /*
  * $Header$
- * $Revision: 1255 $
- * $Date: 2006-11-09 10:20:12 -0800 (Thu, 09 Nov 2006) $
+ * $Revision: 1257 $
+ * $Date: 2006-11-13 14:10:09 -0800 (Mon, 13 Nov 2006) $
  *
  * ====================================================================
  *
@@ -45,7 +45,7 @@ package org.jaxen.util;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: PrecedingAxisIterator.java 1255 2006-11-09 18:20:12Z elharo $
+ * $Id: PrecedingAxisIterator.java 1257 2006-11-13 22:10:09Z elharo $
 */
 
 import org.jaxen.JaxenConstants;
@@ -60,21 +60,21 @@ import java.util.NoSuchElementException;
 
 /**
  * <p>
- * Represents the XPath preceding axis. 
+ * Represents the XPath <code>preceding</code> axis. 
  * The "<code>preceding</code> axis contains all nodes in the same document as the context 
  * node that are before the context node in document order, excluding any ancestors 
  * and excluding attribute nodes and namespace nodes."
  * 
  * <p>
- * This implementation of 'preceding' works like so:
- * the preceding axis includes preceding-siblings of this node and their
- * descendants. Also, for each ancestor node of this node, it includes
- * all preceding-siblings of that ancestor, and their descendants. Finally, it
+ * This implementation of '<code>preceding</code>' works like so:
+ * the <code>preceding</code> axis includes preceding siblings of this node and 
+ * their descendants. Also, for each ancestor node of this node, it includes
+ * all preceding siblings of that ancestor, and their descendants. Finally, it
  * includes the ancestor nodes themselves.
  * </p>
  * 
  * <p>
- * The reversed descendant-or-self axes that are required are calculated using a
+ * The reversed <code>descendant-or-self</code> axes that are required are calculated using a
  * stack of reversed 'child-or-self' axes. When asked for a node, it is always taken
  * from a child-or-self axis. If it was the last node on that axis, the node is returned.
  * Otherwise, this axis is pushed on the stack, and the process is repeated with the child-or-self
