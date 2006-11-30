@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1201 $
- * $Date: 2006-10-03 09:24:32 -0700 (Tue, 03 Oct 2006) $
+ * $Revision: 1261 $
+ * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultPathExpr.java 1201 2006-10-03 16:24:32Z elharo $
+ * $Id: DefaultPathExpr.java 1261 2006-11-30 18:49:27Z elharo $
  */
 
 package org.jaxen.expr;
@@ -143,9 +143,6 @@ class DefaultPathExpr extends DefaultExpr implements PathExpr {
         }
         return results;
     }
-
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
+    
 }
 

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1162 $
- * $Date: 2006-06-03 13:52:26 -0700 (Sat, 03 Jun 2006) $
+ * $Revision: 1261 $
+ * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultFilterExpr.java 1162 2006-06-03 20:52:26Z elharo $
+ * $Id: DefaultFilterExpr.java 1261 2006-11-30 18:49:27Z elharo $
  */
 
 
@@ -176,8 +176,5 @@ public class DefaultFilterExpr extends DefaultExpr implements FilterExpr, Predic
 
         return results;
     }
-    public void accept(Visitor visitor)
-    {
-        visitor.visit(this);
-    }
+
 }

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1243 $
- * $Date: 2006-11-08 10:19:11 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1261 $
+ * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Expr.java 1243 2006-11-08 18:19:11Z elharo $
+ * $Id: Expr.java 1261 2006-11-30 18:49:27Z elharo $
  */
 
 
@@ -60,7 +60,7 @@ import org.jaxen.JaxenException;
  * <pre>[14]      Expr       ::=      OrExpr</pre>
  * 
  */
-public interface Expr extends Serializable, Visitable
+public interface Expr extends Serializable
 {
     
     

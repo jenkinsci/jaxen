@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1244 $
- * $Date: 2006-11-08 10:25:11 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1261 $
+ * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Step.java 1244 2006-11-08 18:25:11Z elharo $
+ * $Id: Step.java 1261 2006-11-30 18:49:27Z elharo $
  */
 
 package org.jaxen.expr;
@@ -65,7 +65,7 @@ import org.jaxen.UnsupportedAxisException;
  * context node specified by the axis, and having the node type and expanded-name 
  * specified by the node test.
  */
-public interface Step extends Predicated, Visitable
+public interface Step extends Predicated
 {
 
     /**

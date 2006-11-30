@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1238 $
- * $Date: 2006-11-08 09:18:09 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1261 $
+ * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultNumberExpr.java 1238 2006-11-08 17:18:09Z elharo $
+ * $Id: DefaultNumberExpr.java 1261 2006-11-30 18:49:27Z elharo $
  */
 
 
@@ -84,9 +84,5 @@ class DefaultNumberExpr extends DefaultExpr implements NumberExpr
     {
         return getNumber();
     }
-
-    public void accept( Visitor visitor )
-    {
-        visitor.visit( this );
-    }
+    
 }

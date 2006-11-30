@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1205 $
- * $Date: 2006-10-06 06:19:57 -0700 (Fri, 06 Oct 2006) $
+ * $Revision: 1261 $
+ * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultVariableReferenceExpr.java 1205 2006-10-06 13:19:57Z elharo $
+ * $Id: DefaultVariableReferenceExpr.java 1261 2006-11-30 18:49:27Z elharo $
  */
 
 package org.jaxen.expr;
@@ -105,8 +105,4 @@ class DefaultVariableReferenceExpr extends DefaultExpr implements VariableRefere
                                          localName );
     }
     
-    public void accept(Visitor visitor)
-    {
-        visitor.visit(this);
-    }
 }

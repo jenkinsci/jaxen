@@ -1,5 +1,5 @@
 /*
- $Id: DefaultNameStep.java 1203 2006-10-06 13:11:45Z elharo $
+ $Id: DefaultNameStep.java 1261 2006-11-30 18:49:27Z elharo $
 
  Copyright 2003 The Werken Company. All Rights Reserved.
  
@@ -388,15 +388,6 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
             return (uri1.length() == 0);
         }
         return uri1.equals(uri2);
-    }
-
-    /**
-     * Visitor pattern for the step.
-     * 
-     * @param visitor  the visitor object
-     */
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
     }
     
     /**
