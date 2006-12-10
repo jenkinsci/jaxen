@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1261 $
- * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
+ * $Revision: 1268 $
+ * $Date: 2006-12-10 07:32:14 -0800 (Sun, 10 Dec 2006) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Step.java 1261 2006-11-30 18:49:27Z elharo $
+ * $Id: Step.java 1268 2006-12-10 15:32:14Z elharo $
  */
 
 package org.jaxen.expr;
@@ -56,14 +56,15 @@ import org.jaxen.JaxenException;
 import org.jaxen.UnsupportedAxisException;
 
 /**
- * A Step represents a location step in a LocationPath. The node-set selected by 
+ * <p>Represents a location step in a LocationPath. The node-set selected by 
  * the location step is the node-set that results from generating an initial 
  * node-set from the axis and node-test, and then filtering that node-set by 
- * each of the predicates in turn.
+ * each of the predicates in turn.</p>
  * 
+ * <p>
  * The initial node-set consists of the nodes having the relationship to the 
  * context node specified by the axis, and having the node type and expanded-name 
- * specified by the node test.
+ * specified by the node test.</p>
  */
 public interface Step extends Predicated
 {
