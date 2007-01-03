@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1261 $
- * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
+ * $Revision: 1273 $
+ * $Date: 2007-01-03 12:47:42 -0800 (Wed, 03 Jan 2007) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultLiteralExpr.java 1261 2006-11-30 18:49:27Z elharo $
+ * $Id: DefaultLiteralExpr.java 1273 2007-01-03 20:47:42Z elharo $
  */
 
 
@@ -76,7 +76,14 @@ class DefaultLiteralExpr extends DefaultExpr implements LiteralExpr
 
     public String getText()
     {
-        return "\"" + getLiteral() + "\"";
+        
+        if (literal.indexOf('"') == -1 ) {
+            return "\"" + getLiteral() + "\"";
+        }
+        else { // Not possible for string literal to contain both " and '
+            return "'" + getLiteral() + "'";
+        }
+            
     }
 
     public Object evaluate(Context context)
