@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1274 $
+ * $Date: 2007-01-03 12:49:03 -0800 (Wed, 03 Jan 2007) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultBinaryExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: DefaultBinaryExpr.java 1274 2007-01-03 20:49:03Z elharo $
  */
 
 
@@ -54,8 +54,7 @@ abstract class DefaultBinaryExpr extends DefaultExpr implements BinaryExpr
     private Expr lhs;
     private Expr rhs;
 
-    DefaultBinaryExpr(Expr lhs,
-                             Expr rhs)
+    DefaultBinaryExpr(Expr lhs, Expr rhs)
     {
         this.lhs = lhs;
         this.rhs = rhs;
@@ -85,12 +84,12 @@ abstract class DefaultBinaryExpr extends DefaultExpr implements BinaryExpr
 
     public String getText()
     {
-        return "(" + getLHS().getText() + " " + getOperator() + " " + getRHS().getText() + ")";
+        return getLHS().getText() + " " + getOperator() + " " + getRHS().getText();
     }
 
     public String toString()
     {
-        return "[(" + getClass().getName() + "): " + getLHS() + ", " + getRHS() + "]";
+        return "[" + getClass().getName() + ": " + getLHS() + ", " + getRHS() + "]";
     }
 
     public Expr simplify()
