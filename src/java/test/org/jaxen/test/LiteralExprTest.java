@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1272 $
- * $Date: 2007-01-03 12:46:19 -0800 (Wed, 03 Jan 2007) $
+ * $Revision: 1277 $
+ * $Date: 2007-01-05 10:25:43 -0800 (Fri, 05 Jan 2007) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: LiteralExprTest.java 1272 2007-01-03 20:46:19Z elharo $
+ * $Id: LiteralExprTest.java 1277 2007-01-05 18:25:43Z elharo $
  */
 
 
@@ -93,7 +93,7 @@ public class LiteralExprTest extends TestCase
         BaseXPath baseXPath = new BaseXPath("//Name[@Attribute = '\"']", null);
         BaseXPath baseXPath2 = new BaseXPath(baseXPath.getRootExpr().getText(), null);
         assertEquals(
-          "/descendant-or-self::node()/child::Name[attribute::Attribute = '\"']",
+          "/descendant-or-self::node()/child::Name[(attribute::Attribute = '\"')]",
           baseXPath2.getRootExpr().getText());
         
     }

@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1276 $
- * $Date: 2007-01-05 09:50:27 -0800 (Fri, 05 Jan 2007) $
+ * $Revision: 1277 $
+ * $Date: 2007-01-05 10:25:43 -0800 (Fri, 05 Jan 2007) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BinaryExprTest.java 1276 2007-01-05 17:50:27Z elharo $
+ * $Id: BinaryExprTest.java 1277 2007-01-05 18:25:43Z elharo $
  */
 
 
@@ -51,7 +51,6 @@ package org.jaxen.test;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.jaxen.BaseXPath;
 import org.jaxen.JaxenException;
 import org.jaxen.dom.DOMXPath;
 
@@ -84,7 +83,7 @@ public class BinaryExprTest extends TestCase
         DOMXPath xpath3 = new DOMXPath(expr);
         Boolean result3 = (Boolean) xpath3.evaluate(null);
         assertEquals(expr, result1, result3);
-        assertTrue(expr, result3.booleanValue());
+        assertFalse(expr, result3.booleanValue());
       
     }
 
