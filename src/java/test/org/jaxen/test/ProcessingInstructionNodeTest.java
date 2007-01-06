@@ -1,11 +1,11 @@
 /*
  * $Header$
- * $Revision: 1278 $
- * $Date: 2007-01-06 04:16:50 -0800 (Sat, 06 Jan 2007) $
+ * $Revision: 1282 $
+ * $Date: 2007-01-06 07:39:50 -0800 (Sat, 06 Jan 2007) $
  *
  * ====================================================================
  *
- * Copyright 2006 Elliotte Rusty Harold
+ * Copyright 2007 Elliotte Rusty Harold
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: ProcessingInstructionNodeTest.java 1278 2007-01-06 12:16:50Z elharo $
+ * $Id: ProcessingInstructionNodeTest.java 1282 2007-01-06 15:39:50Z elharo $
  */
 
 
@@ -65,25 +65,33 @@ import junit.framework.TestCase;
  * @version 1.1.1
  *
  */
-public class ProcessingInstructionNodeTest extends TestCase
-{
+public class ProcessingInstructionNodeTest extends TestCase {
 
     public void testGetText() 
-    throws JaxenException, ParserConfigurationException {
+      throws JaxenException, ParserConfigurationException {
      
-       DOMXPath xpath = new DOMXPath("processing-instruction()");
-       String expr = xpath.getRootExpr().getText();
-       assertEquals("child::processing-instruction()", expr);
+         DOMXPath xpath = new DOMXPath("processing-instruction()");
+         String expr = xpath.getRootExpr().getText();
+         assertEquals("child::processing-instruction()", expr);
      
    }
 
     public void testGetTextWithName() 
-    throws JaxenException, ParserConfigurationException {
+      throws JaxenException, ParserConfigurationException {
      
-       DOMXPath xpath = new DOMXPath("processing-instruction('foo')");
-       String expr = xpath.getRootExpr().getText();
-       assertEquals("child::processing-instruction('foo')", expr);
+        DOMXPath xpath = new DOMXPath("processing-instruction('foo')");
+        String expr = xpath.getRootExpr().getText();
+        assertEquals("child::processing-instruction('foo')", expr);
      
    }
-
+    
+   public void testGetTextWithPredicate() 
+     throws JaxenException, ParserConfigurationException {
+   
+       DOMXPath xpath = new DOMXPath("processing-instruction('foo')[1 = 1]");
+       String expr = xpath.getRootExpr().getText();
+       assertEquals("child::processing-instruction('foo')[(1.0 = 1.0)]", expr);
+   
+   } 
+    
 }
