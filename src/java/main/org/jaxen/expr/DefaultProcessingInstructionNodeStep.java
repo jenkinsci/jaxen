@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1261 $
- * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
+ * $Revision: 1279 $
+ * $Date: 2007-01-06 04:21:12 -0800 (Sat, 06 Jan 2007) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultProcessingInstructionNodeStep.java 1261 2006-11-30 18:49:27Z elharo $
+ * $Id: DefaultProcessingInstructionNodeStep.java 1279 2007-01-06 12:21:12Z elharo $
  */
 
 
@@ -80,17 +80,31 @@ public class DefaultProcessingInstructionNodeStep extends DefaultStep
         return this.name;
     }
 
+    public String getText()
+    {
+        StringBuffer buf = new StringBuffer();
+        buf.append(getAxisName());
+        buf.append("::processing-instruction(");
+        String name = getName();
+        if (name != null && name.length() != 0)
+        {
+            buf.append("'");
+            buf.append(name);
+            buf.append("'");
+        }
+        buf.append(")");
+        buf.append(super.getText());
+        return buf.toString();
+    }
+
     public boolean matches(Object node,
                            ContextSupport support)
     {
+        
         Navigator nav = support.getNavigator();
-
-        boolean isPi = nav.isProcessingInstruction( node );
-
-        if ( isPi )
+        if ( nav.isProcessingInstruction( node ) )
         {
             String name = getName();
-
             if ( name == null || name.length() == 0 )
             {
                 return true;
@@ -102,6 +116,7 @@ public class DefaultProcessingInstructionNodeStep extends DefaultStep
         }
 
         return false;
+        
     }
     
 }
