@@ -1,11 +1,11 @@
 /*
  * $Header$
- * $Revision$
- * $Date$
+ * $Revision: 1287 $
+ * $Date: 2007-04-16 08:56:54 -0700 (Mon, 16 Apr 2007) $
  *
  * ====================================================================
  *
- * Copyright 2005 bob mcwhirter & James Strachan.
+ * Copyright 2007 Elliotte Rusty Harold
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,40 +42,72 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id$
+ * $Id: DefaultNamestepTest.java 1287 2007-04-16 15:56:54Z elharo $
  */
-
 
 package org.jaxen.test;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import junit.framework.TestCase;
+
+import org.jaxen.JaxenException;
+import org.jaxen.XPath;
+import org.jaxen.dom.DOMXPath;
+import org.w3c.dom.Document;
 
 /**
- * <p>
- *   Collect Jaxen's expression tests.
- * </p>
- * 
  * @author Elliotte Rusty Harold
- * @version 1.1.1
  *
  */
-public class ExprTests {
+public class DefaultNamestepTest extends TestCase {
 
+    private Document doc;
     
-    public static Test suite() {
-        
-        TestSuite result = new TestSuite();
-        result.addTest(new TestSuite(DefaultXPathExprTest.class));
-        result.addTest(new TestSuite(DefaultNamestepTest.class));
-        result.addTest(new TestSuite(ModTest.class));
-        result.addTest(new TestSuite(EqualsTest.class));
-        result.addTest(new TestSuite(LiteralExprTest.class));
-        result.addTest(new TestSuite(BinaryExprTest.class));
-        result.addTest(new TestSuite(ProcessingInstructionNodeTest.class));
-        return result;
-        
+    public void setUp() throws ParserConfigurationException
+    {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        doc = builder.newDocument();
     }
 
+
+    public DefaultNamestepTest(String name) {
+        super(name);
+    }
+
+
+    public void testIdentitySetUsageInDefaultNameStep() 
+      throws JaxenException {
+        
+        XPath xpath = new DOMXPath("/a/x/preceding-sibling::x[last()]");
+        org.w3c.dom.Element a = doc.createElementNS("", "a");
+        doc.appendChild(a);
+        org.w3c.dom.Element x1 = doc.createElementNS("", "x");
+        org.w3c.dom.Element x2 = doc.createElementNS("", "x");
+        org.w3c.dom.Element x3 = doc.createElementNS("", "x");
+        org.w3c.dom.Element x4 = doc.createElementNS("", "x");
+        org.w3c.dom.Element x5 = doc.createElementNS("", "x");
+        a.appendChild(x1);
+        a.appendChild(x2);
+        a.appendChild(x3);
+        a.appendChild(x4);
+        a.appendChild(x5);
+        x1.appendChild(doc.createTextNode("1"));
+        x2.appendChild(doc.createTextNode("2"));
+        x3.appendChild(doc.createTextNode("3"));
+        x4.appendChild(doc.createTextNode("4"));
+        x5.appendChild(doc.createTextNode("5"));
+        
+        List result = xpath.selectNodes(doc);
+        assertEquals(1, result.size());
+        assertEquals(x1, result.get(0));
+        
+    }
     
 }
