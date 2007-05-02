@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1301 $
- * $Date: 2007-05-02 07:30:47 -0700 (Wed, 02 May 2007) $
+ * $Revision: 1306 $
+ * $Date: 2007-05-02 08:04:46 -0700 (Wed, 02 May 2007) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathExpr.java 1301 2007-05-02 14:30:47Z elharo $
+ * $Id: XPathExpr.java 1306 2007-05-02 15:04:46Z elharo $
  */
 
 
@@ -74,7 +74,7 @@ public interface XPathExpr extends Serializable
     /**
      * Changes the wrapped expression object.
      * 
-     * @param the new expression object to wrap
+     * @param rootExpr the new expression object to wrap
      */
     void setRootExpr(Expr rootExpr);
     
