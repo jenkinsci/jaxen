@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1250 $
- * $Date: 2006-11-08 12:27:30 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1302 $
+ * $Date: 2007-05-02 07:33:29 -0700 (Wed, 02 May 2007) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathFactory.java 1250 2006-11-08 20:27:30Z elharo $
+ * $Id: XPathFactory.java 1302 2007-05-02 14:33:29Z elharo $
  */
 package org.jaxen.expr;
 
@@ -236,7 +236,7 @@ public interface XPathFactory
     /**
      * Create a string literal expression.
      * 
-     * @param number the value
+     * @param literal the value
      * @return a literal expression wrapping that value
      * @throws JaxenException
      */
@@ -246,7 +246,7 @@ public interface XPathFactory
      * Create a new variable reference expression.
      * 
      * @param prefix the namespace prefix of the variable
-     * @param functionName the local name of the variable 
+     * @param variableName the local name of the variable 
      * @return a variable expression
      * @throws JaxenException
      */
@@ -307,7 +307,7 @@ public interface XPathFactory
     /**
      * Create from the supplied expression.
      * 
-     * @param the expression to evaluate in the predicate
+     * @param predicateExpr the expression to evaluate in the predicate
      * @return a predicate
      * @throws JaxenException
      */
