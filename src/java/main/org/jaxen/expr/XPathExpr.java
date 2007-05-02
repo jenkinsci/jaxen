@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1249 $
- * $Date: 2006-11-08 11:49:27 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1301 $
+ * $Date: 2007-05-02 07:30:47 -0700 (Wed, 02 May 2007) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: XPathExpr.java 1249 2006-11-08 19:49:27Z elharo $
+ * $Id: XPathExpr.java 1301 2007-05-02 14:30:47Z elharo $
  */
 
 
@@ -90,8 +90,6 @@ public interface XPathExpr extends Serializable
      * <code>//para[1 = 1]</code> could be simplified to 
      * <code>//para</code>. In practice, this is usually a noop.
      * Jaxen does not currently perform any simplification.
-     * 
-     * @return the simplified expression
      */
     void   simplify();
     
