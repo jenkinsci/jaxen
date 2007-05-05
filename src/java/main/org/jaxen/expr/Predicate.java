@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1261 $
- * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
+ * $Revision: 1300 $
+ * $Date: 2007-05-02 07:27:46 -0700 (Wed, 02 May 2007) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: Predicate.java 1261 2006-11-30 18:49:27Z elharo $
+ * $Id: Predicate.java 1300 2007-05-02 14:27:46Z elharo $
  */
 
 
@@ -75,7 +75,7 @@ public interface Predicate extends Serializable
     /**
      * Change the expression used by this predicate.
      * 
-     * @param the new expression
+     * @param expr the new expression
      */
     void setExpr(Expr expr);
 

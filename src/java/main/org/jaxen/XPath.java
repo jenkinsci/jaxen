@@ -1,7 +1,7 @@
 package org.jaxen;
 
 /*
- $Id: XPath.java 1157 2006-06-03 20:07:37Z elharo $
+ $Id: XPath.java 1304 2007-05-02 15:00:13Z elharo $
 
  Copyright 2003 The Werken Company. All Rights Reserved.
  
@@ -36,7 +36,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import java.util.List;
 
-/** Defines the interface to an object which represents an XPath 1.0 expression which
+/** Represents an XPath 1.0 expression which
  *  can be evaluated against a variety of different XML object models.
  *
  *  <p>
