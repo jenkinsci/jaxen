@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 1313 $
- * $Date: 2007-05-05 11:08:55 -0700 (Sat, 05 May 2007) $
+ * $Revision: 1319 $
+ * $Date: 2008-04-26 16:44:29 -0700 (Sat, 26 Apr 2008) $
  *
  * ====================================================================
  *
@@ -45,7 +45,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1313 2007-05-05 18:08:55Z elharo $
+ * $Id: DocumentNavigator.java 1319 2008-04-26 23:44:29Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -834,7 +834,7 @@ public class DocumentNavigator extends DefaultNavigator
      * 
      * @param obj the processing instruction
      * @return the target of the processing instruction
-     * @throws ClassCastException if obj is not a processing instruxtion
+     * @throws ClassCastException if obj is not a processing instruction
      * 
      */
     public String getProcessingInstructionTarget(Object obj)
@@ -851,7 +851,7 @@ public class DocumentNavigator extends DefaultNavigator
      * 
      * @param obj the processing instruction
      * @return the target of the processing instruction
-     * @throws ClassCastException if obj is not a processing instruxtion
+     * @throws ClassCastException if obj is not a processing instruction
      * 
      */
     public String getProcessingInstructionData(Object obj)
