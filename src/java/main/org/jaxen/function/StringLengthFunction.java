@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1324 $
+ * $Date: 2008-04-26 18:48:59 -0700 (Sat, 26 Apr 2008) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: StringLengthFunction.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: StringLengthFunction.java 1324 2008-04-27 01:48:59Z elharo $
  */
 
 
@@ -137,7 +137,7 @@ public class StringLengthFunction implements Function
             length++;
             // if this is a high surrogate; assume the next character is
             // is a low surrogate and skip it
-            if (c >= 0xD800) {
+            if (c >= 0xD800 && c <= 0xDFFF) {
                 try {
                     char low = data[i+1];
                     if (low < 0xDC00 || low > 0xDFFF) {
