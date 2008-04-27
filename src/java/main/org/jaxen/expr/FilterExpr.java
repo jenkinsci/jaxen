@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1230 $
- * $Date: 2006-11-08 08:28:04 -0800 (Wed, 08 Nov 2006) $
+ * $Revision: 1326 $
+ * $Date: 2008-04-26 18:56:10 -0700 (Sat, 26 Apr 2008) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: FilterExpr.java 1230 2006-11-08 16:28:04Z elharo $
+ * $Id: FilterExpr.java 1326 2008-04-27 01:56:10Z elharo $
  */
 
 
@@ -53,8 +53,9 @@ import org.jaxen.Context;
 import org.jaxen.JaxenException;
 
 /**
- * Represents an XPath filter expression. This is production 20 in the 
- * <a href="http://www.w3.org/TR/xpath#NT-EqualityExpr">XPath 1.0 specification</a>:
+ * Represents an XPath filter expression. This is 
+ * <a href='http://www.w3.org/TR/xpath#NT-FilterExpr'>production 20</a> in the 
+ * <a href="http://www.w3.org/TR/xpath">XPath 1.0 specification</a>:
  * 
  * <table><tr valign="baseline">
  * <td><a name="NT-FilterExpr"></a>[20]&nbsp;&nbsp;&nbsp;</td><td>FilterExpr</td><td>&nbsp;&nbsp;&nbsp;::=&nbsp;&nbsp;&nbsp;</td><td><a href="http://www.w3.org/TR/xpath#NT-PrimaryExpr">PrimaryExpr</a></td><td></td>
