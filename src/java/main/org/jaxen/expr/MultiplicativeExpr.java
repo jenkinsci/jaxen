@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1252 $
- * $Date: 2006-11-09 08:21:05 -0800 (Thu, 09 Nov 2006) $
+ * $Revision: 1325 $
+ * $Date: 2008-04-26 18:55:05 -0700 (Sat, 26 Apr 2008) $
  *
  * ====================================================================
  *
@@ -42,13 +42,14 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: MultiplicativeExpr.java 1252 2006-11-09 16:21:05Z elharo $
+ * $Id: MultiplicativeExpr.java 1325 2008-04-27 01:55:05Z elharo $
  */
 package org.jaxen.expr;
 
 /**
- * Represents an XPath multiplicative expression. This is production 26 in the 
- * <a href="http://www.w3.org/TR/xpath#NT-UnionExpr">XPath 1.0 specification</a>:
+ * Represents an XPath multiplicative expression. This is 
+ * <a href='http://www.w3.org/TR/xpath#NT-MultiplicativeExpr'>production 26</a> in the 
+ * <a href="http://www.w3.org/TR/xpath">XPath 1.0 specification</a>:
  * 
  * <table><tr valign="baseline">
  * <td><a name="NT-MultiplicativeExpr"></a>[26]&nbsp;&nbsp;&nbsp;</td><td>MultiplicativeExpr</td><td>&nbsp;&nbsp;&nbsp;::=&nbsp;&nbsp;&nbsp;</td><td><a href="http://www.w3.org/TR/xpath#NT-UnaryExpr">UnaryExpr</a></td><td></td>
