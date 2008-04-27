@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1285 $
- * $Date: 2007-04-16 08:44:37 -0700 (Mon, 16 Apr 2007) $
+ * $Revision: 1321 $
+ * $Date: 2008-04-26 17:30:06 -0700 (Sat, 26 Apr 2008) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: BaseXPath.java 1285 2007-04-16 15:44:37Z elharo $
+ * $Id: BaseXPath.java 1321 2008-04-27 00:30:06Z elharo $
  */
 
 
@@ -84,6 +84,9 @@ import org.jaxen.util.SingletonList;
  */
 public class BaseXPath implements XPath, Serializable
 {
+
+    private static final long serialVersionUID = -1993731281300293168L;
+
     /** Original expression text. */
     private final String exprText;
 
