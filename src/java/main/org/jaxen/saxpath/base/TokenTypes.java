@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1334 $
+ * $Date: 2008-11-29 09:58:48 -0800 (Sat, 29 Nov 2008) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: TokenTypes.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: TokenTypes.java 1334 2008-11-29 17:58:48Z elharo $
  */
 
 package org.jaxen.saxpath.base;
@@ -96,6 +96,8 @@ class TokenTypes
     // in XPath are doubles.
     static final int DOUBLE = 29;
     static final int COMMA = 30;
+    // split star into two token types
+    static final int STAR_OPERATOR = 31;
 
     static String getTokenText( int tokenType )
     {
@@ -127,6 +129,8 @@ class TokenTypes
                 return "-";
             case STAR:
                 return "*";
+            case STAR_OPERATOR:
+                    return "*";
             case DIV:
                 return "div";
             case MOD:

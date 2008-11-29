@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1137 $
- * $Date: 2006-04-07 16:47:37 -0700 (Fri, 07 Apr 2006) $
+ * $Revision: 1334 $
+ * $Date: 2008-11-29 09:58:48 -0800 (Sat, 29 Nov 2008) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathReader.java 1137 2006-04-07 23:47:37Z elharo $
+ * $Id: XPathReader.java 1334 2008-11-29 17:58:48Z elharo $
  */
 
 
@@ -941,15 +941,16 @@ public class XPathReader implements org.jaxen.saxpath.XPathReader
     private void multiplicativeExpr() throws SAXPathException
     {
         unaryExpr();
-
+       
         int la = LA(1);
-        while (la == TokenTypes.STAR || la == TokenTypes.DIV || la == TokenTypes.MOD)
+        while (la == TokenTypes.STAR_OPERATOR || la == TokenTypes.DIV || la == TokenTypes.MOD)
         {
             switch ( la )
             {
                 case TokenTypes.STAR:
+                case TokenTypes.STAR_OPERATOR:
                 {
-                    match( TokenTypes.STAR );
+                    match( TokenTypes.STAR_OPERATOR );
                     getXPathHandler().startMultiplicativeExpr();
                     unaryExpr();
                     getXPathHandler().endMultiplicativeExpr( Operator.MULTIPLY );
