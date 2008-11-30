@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1335 $
+ * $Date: 2008-11-30 06:20:38 -0800 (Sun, 30 Nov 2008) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultTruthExpr.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: DefaultTruthExpr.java 1335 2008-11-30 14:20:38Z elharo $
  */
 
 
@@ -84,6 +84,11 @@ abstract class DefaultTruthExpr extends DefaultBinaryExpr
     protected boolean isSet(Object obj)
     {
         return ( obj instanceof List );
+    }
+    
+    protected boolean isBoolean(Object obj)
+    {
+        return ( obj instanceof Boolean );
     }
     
     protected boolean setIsEmpty( List set )
