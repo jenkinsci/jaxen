@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1302 $
- * $Date: 2007-05-02 07:33:29 -0700 (Wed, 02 May 2007) $
+ * $Revision: 1337 $
+ * $Date: 2008-12-02 17:58:10 -0800 (Tue, 02 Dec 2008) $
  *
  * ====================================================================
  *
@@ -43,12 +43,11 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: XPathFactory.java 1302 2007-05-02 14:33:29Z elharo $
+ * $Id: XPathFactory.java 1337 2008-12-03 01:58:10Z elharo $
  */
 package org.jaxen.expr;
 
 import org.jaxen.JaxenException;
-import org.jaxen.saxpath.Operator;
 
 /**
  * An abstract factory used to create individual path component objects.
@@ -60,7 +59,7 @@ public interface XPathFactory
     /**
      * Create a new <code>XPathExpr</code> from an <code>Expr</code>.
      * 
-     * @param rootExpr the expression wrapped by the resuolting XPathExpr
+     * @param rootExpr the expression wrapped by the resulting XPathExpr
      * @return an XPathExpr wrapping the root expression
      * @throws JaxenException
      */
