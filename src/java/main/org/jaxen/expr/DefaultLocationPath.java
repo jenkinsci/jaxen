@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1345 $
+ * $Date: 2009-10-22 04:25:23 -0700 (Thu, 22 Oct 2009) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultLocationPath.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: DefaultLocationPath.java 1345 2009-10-22 11:25:23Z elharo $
  */
 package org.jaxen.expr;
 
@@ -144,7 +144,7 @@ abstract class DefaultLocationPath extends DefaultExpr implements LocationPath
             }
         }
         
-        if (getSteps().size() > 1) {
+        if (getSteps().size() > 1 || nodeSet.size() > 1) {
             Collections.sort(contextNodeSet, new NodeComparator(support.getNavigator()));
         }
         
