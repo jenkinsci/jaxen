@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1128 $
- * $Date: 2006-02-05 13:49:04 -0800 (Sun, 05 Feb 2006) $
+ * $Revision: 1355 $
+ * $Date: 2010-06-08 06:11:34 -0700 (Tue, 08 Jun 2010) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NumberFunction.java 1128 2006-02-05 21:49:04Z elharo $
+ * $Id: NumberFunction.java 1355 2010-06-08 13:11:34Z elharo $
  */
 
 package org.jaxen.function;
@@ -195,7 +195,9 @@ public class NumberFunction implements Function
         {
           return evaluate( StringFunction.evaluate( obj, nav ), nav );
         }
-        else if ( nav.isElement( obj ) || nav.isAttribute( obj ) )
+        else if ( nav.isElement( obj ) || nav.isAttribute( obj ) 
+                || nav.isText( obj ) || nav.isComment( obj ) || nav.isProcessingInstruction( obj ) 
+                || nav.isDocument( obj ) || nav.isNamespace( obj ))
         {
             return evaluate( StringFunction.evaluate( obj, nav ), nav );
         }
