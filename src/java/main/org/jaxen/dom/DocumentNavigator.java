@@ -2,8 +2,8 @@ package org.jaxen.dom;
 
 /*
  * $Header$
- * $Revision: 1319 $
- * $Date: 2008-04-26 16:44:29 -0700 (Sat, 26 Apr 2008) $
+ * $Revision: 1364 $
+ * $Date: 2011-07-30 02:46:45 -0700 (Sat, 30 Jul 2011) $
  *
  * ====================================================================
  *
@@ -45,7 +45,7 @@ package org.jaxen.dom;
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DocumentNavigator.java 1319 2008-04-26 23:44:29Z elharo $
+ * $Id: DocumentNavigator.java 1364 2011-07-30 09:46:45Z elharo $
 */
 
 import javax.xml.parsers.DocumentBuilder;
@@ -149,7 +149,11 @@ public class DocumentNavigator extends DefaultNavigator
      */
     public Iterator getChildAxisIterator (Object contextNode)
     {
-        return new NodeIterator ((Node)contextNode) {
+        Node node = (Node) contextNode;
+
+        if ( node.getNodeType() == Node.ELEMENT_NODE || node.getNodeType() == Node.DOCUMENT_NODE)
+        {
+            return new NodeIterator ((Node)contextNode) {
                 protected Node getFirstNode (Node node)
                 {
                     return node.getFirstChild();
@@ -159,6 +163,10 @@ public class DocumentNavigator extends DefaultNavigator
                     return node.getNextSibling();
                 }
             };
+        }
+
+        return JaxenConstants.EMPTY_ITERATOR;
+
     }
 
 
