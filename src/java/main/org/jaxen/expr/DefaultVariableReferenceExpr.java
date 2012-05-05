@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1261 $
- * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
+ * $Revision: 1367 $
+ * $Date: 2012-05-05 09:31:33 -0700 (Sat, 05 May 2012) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultVariableReferenceExpr.java 1261 2006-11-30 18:49:27Z elharo $
+ * $Id: DefaultVariableReferenceExpr.java 1367 2012-05-05 16:31:33Z elharo $
  */
 
 package org.jaxen.expr;
@@ -94,15 +94,18 @@ class DefaultVariableReferenceExpr extends DefaultExpr implements VariableRefere
         return "$" + getQName();
     }
 
-    public Object evaluate(Context context)
-        throws UnresolvableException
+    public Object evaluate(Context context) throws UnresolvableException
     {
-        String namespaceURI =
-            context.translateNamespacePrefixToUri( getPrefix() );
-
+        String prefix = getPrefix();
+        String namespaceURI = null;
+        // default namespace is not used within XPath expressions
+        if (prefix != null && !"".equals(prefix)) {
+            namespaceURI = context.translateNamespacePrefixToUri( prefix );
+        }
+        
         return context.getVariableValue( namespaceURI,
                                          prefix,
-                                         localName );
-    }
+                                     localName );
+}
     
 }
