@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1261 $
- * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
+ * $Revision: 1366 $
+ * $Date: 2012-05-05 09:17:35 -0700 (Sat, 05 May 2012) $
  *
  * ====================================================================
  *
@@ -43,7 +43,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the
  * Jaxen Project, please see <http://www.jaxen.org/>.
  *
- * $Id: DefaultFunctionCallExpr.java 1261 2006-11-30 18:49:27Z elharo $
+ * $Id: DefaultFunctionCallExpr.java 1366 2012-05-05 16:17:35Z elharo $
  */
 
 package org.jaxen.expr;
@@ -166,11 +166,15 @@ public class DefaultFunctionCallExpr extends DefaultExpr implements FunctionCall
 
     public Object evaluate(Context context) throws JaxenException
     {
-        String namespaceURI =
-                context.translateNamespacePrefixToUri(getPrefix());
+        String prefix = getPrefix();
+        String namespaceURI = null;
+        // default namespace is not used within XPath expressions
+        if (prefix != null && !"".equals(prefix)) {
+            namespaceURI = context.translateNamespacePrefixToUri(prefix);
+        }
 
         Function func = context.getFunction(namespaceURI,
-                getPrefix(),
+                prefix,
                 getFunctionName());
         List paramValues = evaluateParams(context);
 
