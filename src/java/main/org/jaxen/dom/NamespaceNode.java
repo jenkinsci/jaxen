@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1166 $
- * $Date: 2006-07-03 04:14:05 -0700 (Mon, 03 Jul 2006) $
+ * $Revision: 1370 $
+ * $Date: 2012-05-06 16:52:12 -0700 (Sun, 06 May 2012) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NamespaceNode.java 1166 2006-07-03 11:14:05Z elharo $
+ * $Id: NamespaceNode.java 1370 2012-05-06 23:52:12Z elharo $
  */
 
 ////////////////////////////////////////////////////////////////////
@@ -77,7 +77,7 @@ import org.w3c.dom.UserDataHandler;
  * defaults, there will be some unexpected surprises, so users are
  * advised to test for NamespaceNodes and filter them out from the
  * result sets as early as possible.
-  * </p>
+ * </p>
  *
  * <ol>
  *
@@ -128,7 +128,7 @@ public class NamespaceNode implements Node
     public NamespaceNode (Node parent, String name, String value)
     {
         this.parent = parent;
-        this.name = name;
+        this.name = name == null ? "" : name;
         this.value = value;
     }
 
