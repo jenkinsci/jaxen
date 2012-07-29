@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1355 $
- * $Date: 2010-06-08 06:11:34 -0700 (Tue, 08 Jun 2010) $
+ * $Revision: 1386 $
+ * $Date: 2012-07-29 06:29:13 -0700 (Sun, 29 Jul 2012) $
  *
  * ====================================================================
  *
@@ -42,7 +42,7 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: NumberFunction.java 1355 2010-06-08 13:11:34Z elharo $
+ * $Id: NumberFunction.java 1386 2012-07-29 13:29:13Z elharo $
  */
 
 package org.jaxen.function;
@@ -203,7 +203,7 @@ public class NumberFunction implements Function
         }
         else if ( obj instanceof Boolean )
           {
-          if ( obj == Boolean.TRUE )
+          if ( Boolean.TRUE.equals(obj) )
           {
               return new Double( 1 );
           }
