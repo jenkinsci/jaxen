@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1261 $
- * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
+ * $Revision: 1396 $
+ * $Date: 2013-01-13 04:22:49 -0800 (Sun, 13 Jan 2013) $
  *
  * ====================================================================
  *
@@ -42,16 +42,14 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultLessThanEqualExpr.java 1261 2006-11-30 18:49:27Z elharo $
+ * $Id: DefaultLessThanEqualExpr.java 1396 2013-01-13 12:22:49Z elharo $
  */
 
 package org.jaxen.expr;
 
 class DefaultLessThanEqualExpr extends DefaultRelationalExpr
   {
-  /**
-     * 
-     */
+
     private static final long serialVersionUID = 7980276649555334242L;
 DefaultLessThanEqualExpr( Expr lhs, Expr rhs )
     {
@@ -65,7 +63,7 @@ DefaultLessThanEqualExpr( Expr lhs, Expr rhs )
 
   protected boolean evaluateDoubleDouble( Double lhs, Double rhs )
     {
-    return lhs.compareTo( rhs ) <= 0;        
+    return lhs.doubleValue() <= rhs.doubleValue();        
     }
 
 }

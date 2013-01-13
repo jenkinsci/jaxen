@@ -1,7 +1,7 @@
 /*
  * $Header$
- * $Revision: 1261 $
- * $Date: 2006-11-30 10:49:27 -0800 (Thu, 30 Nov 2006) $
+ * $Revision: 1396 $
+ * $Date: 2013-01-13 04:22:49 -0800 (Sun, 13 Jan 2013) $
  *
  * ====================================================================
  *
@@ -42,14 +42,12 @@
  * James Strachan <jstrachan@apache.org>.  For more information on the 
  * Jaxen Project, please see <http://www.jaxen.org/>.
  * 
- * $Id: DefaultNotEqualsExpr.java 1261 2006-11-30 18:49:27Z elharo $
+ * $Id: DefaultNotEqualsExpr.java 1396 2013-01-13 12:22:49Z elharo $
  */
 
 
 
 package org.jaxen.expr;
-
-import org.jaxen.function.NumberFunction;
 
 class DefaultNotEqualsExpr extends DefaultEqualityExpr 
   {
@@ -78,10 +76,11 @@ DefaultNotEqualsExpr( Expr lhs, Expr rhs )
         if( eitherIsNumber( lhs, rhs ) )
         {
     
-            if( NumberFunction.isNaN( (Double) lhs ) || NumberFunction.isNaN( (Double) rhs ) )
-            {
-                return true;
-            }
+            // Double.equals does not implement standard IEEE 754 comparisons but != does
+            Double left = (Double) lhs;
+            Double right = (Double) rhs;
+            
+            return left.doubleValue() != right.doubleValue();
     
         }
         return !lhs.equals( rhs );
